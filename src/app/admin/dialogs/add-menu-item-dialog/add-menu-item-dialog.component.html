@@ -1,0 +1,334 @@
+<!-- Modal (Menu-Items) -->
+<div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">menu</h5>
+            <button type="button" class="close" (click)="close()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <mat-dialog-content>
+            <div class="modal-body items">
+                <ul class="nav nav-tabs list" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#itemDetails" role="tab" aria-controls="home" aria-selected="true">Item
+                            Details</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#Customization" role="tab" aria-controls="profile" aria-selected="false">Customization</a>
+                    </li>
+                </ul>
+                <div class="tab-content menu-item" id="myTabContent">
+                    <!-- ITEMS -->
+                    <div class="tab-pane fade show active" id="itemDetails" role="tabpanel" aria-labelledby="home-tab">
+
+                        <div class="row" style="margin:0;">
+                            <div class="col-lg-5 col-md-5 col-sm-6 iteminfo">
+                                <h5>Item Information
+                                </h5>
+                            </div>
+                            <div class="col-lg-7 col-md-7 col-sm-6 itemon">
+                                <span>
+                                    <h6>Status</h6>
+                                    <div class="switch-field">
+                                        <input type="radio" id="switch_left2" name="switch_2" value="yes" checked />
+                                        <label for="switch_left2">ON</label>
+                                        <input type="radio" id="switch_right2" name="switch_2" value="no" />
+                                        <label for="switch_right2">OFF</label>
+                                    </div>
+                                </span>
+                            </div>
+
+
+                            <div class="col-md-8">
+                                <div class="row" style="margin:0px;">
+                                    <div class="col-md-12 mr-02 pd-01">
+                                        <input type="text" class="form-control" placeholder="Menu Name">
+                                    </div>
+                                    <div class="col-md-12 mr-02 pd-01">
+
+                                        <textarea class="form-control" id="message-text" placeholder="Description"></textarea>
+
+                                    </div>
+                                    <div class="col-md-6 mr-02 pd-02">
+
+                                        <select class="form-control">
+                                            <option>Label</option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                        </select>
+
+                                    </div>
+                                    <div class="col-md-6 mr-02 pd-03">
+
+                                        <select class="form-control">
+                                            <option>Item type</option>
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 img mr-02">
+                                <img src="./assets/images/imagedemo.png" />
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                        </div>
+                        <div class="col-md-12 text-left" style="padding-top: 15px;">
+                            <h5>Size and Pricing</h5>
+                        </div>
+                        <div class="col-md-12 size-price">
+                            <div class="row" style="margin:0px; background: #eee;">
+
+                                <div class="col-md-4">
+                                    <h5 class="ex">Extra Large</h5>
+                                </div>
+                                <div class="col-md-2">
+                                    <h5 class="dim">22 Oz</h5>
+                                </div>
+                                <div class="col-md-2 text-center">
+                                    <h5 class="dim">1400 Cal</h5>
+                                </div>
+                                <div class="col-md-2 text-center">
+                                    <h5 class="dim">$69</h5>
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-12 size-price size-field">
+                            <div class="row" style="margin:0px; background: #eee;">
+
+                                <div class="col-md-4 pd-4">
+                                    <select class="form-control">
+                                        <option>Portion Size</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2 pd-05">
+                                    <input type="text" class="form-control" placeholder="Weight(Oz)">
+                                </div>
+                                <div class="col-md-2 pd-05 text-center">
+                                    <input type="text" class="form-control" placeholder="Calories">
+                                </div>
+                                <div class="col-md-2 pd-05 text-center">
+                                    <input type="text" class="form-control" placeholder="Price($)">
+                                </div>
+                                <div class="col-md-2 pd-06">
+                                    <button class="btn btn-default">add</button>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 text-left" style="padding-top: 15px;">
+                            <h5>Menus</h5>
+                        </div>
+                        <div class="col-md-12 size-price menu">
+                            <div class="row" style="margin:0px; background: #eee;">
+
+                                <div class="col-md-4">
+                                    <h5 class="ex">Breakfast</h5>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 class="dim">fdfdf</h5>
+                                </div>
+
+                                <div class="col-md-2">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-12 size-price size-field">
+                            <div class="row" style="margin:0px; background: #eee;">
+
+                                <div class="col-md-4 pd-4">
+                                    <select class="form-control">
+                                        <option>Menus</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4 pd-05">
+                                    <select class="form-control">
+                                        <option>Section</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4 pd-06">
+                                    <button class="btn btn-default">save</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ITEMS CLOSE -->
+
+                    <!-- CUSTOMIZATION -->
+                    <div class="tab-pane fade cstmiation" id="Customization" role="tabpanel" aria-labelledby="profile-tab">
+
+                        <div class="row" style="margin:0px">
+                            <div class="col-md-12">
+                                <h5>Spice Options</h5>
+                            </div>
+                            <div class="col-lg-12 col-md-12 radio-box">
+                                <ul>
+                                    <li>
+                                        <div class="rad">
+                                            <input id="radio_1" class="radio isHidden" name="radio_a" type="radio">
+                                            <label for="radio_1" class="label">Extra
+                                                Spicy</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="rad">
+                                            <input id="radio_2" class="radio isHidden" name="radio_a" type="radio">
+                                            <label for="radio_2" class="label">Hot</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="rad">
+                                            <input id="radio_3" class="radio isHidden" name="radio_a" type="radio">
+                                            <label for="radio_3" class="label">Medium</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="rad">
+                                            <input id="radio_4" class="radio isHidden" name="radio_a" type="radio">
+                                            <label for="radio_4" class="label">Mild</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="rad">
+                                            <input id="radio_5" class="radio isHidden" name="radio_a" type="radio">
+                                            <label for="radio_5" class="label">Not
+                                                Hot</label>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 text-left" style="padding-top: 15px;">
+                            <h5>Questions</h5>
+                        </div>
+                        <div class="col-md-12 size-price menu">
+                            <div class="row" style="margin:0px; background:#eee;">
+
+                                <div class="col-md-10 ">
+                                    <h5 class="ex">Would you like your dressing mixed in?</h5>
+                                </div>
+
+
+                                <div class="col-md-2 que">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-12 size-price size-field">
+                            <div class="row" style="margin:0px; background: #eee;">
+
+                                <div class="col-md-8 pd-4">
+                                    <input type="text" class="form-control" placeholder="Question" />
+                                </div>
+                                <div class="col-md-4 pd-06">
+                                    <button class="btn btn-default">Add
+                                        Question</button>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-12 text-left" style="padding-top: 15px;">
+                            <h5>Used Ingredient</h5>
+                            <form>
+                                <div class="row" style="margin:0px;">
+                                    <div class="col-lg-4 col-md-4 col-sm-4 fields form-group">
+                                        <ul class="nav nav-tabs flex-column main-category" id="myTab">
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab" href="" role="tab" aria-controls="ingredient" aria-selected="true">Romaine</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab">Spinach</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab">Arugula</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab">Spinach</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="col-lg-4 col-md-4 col-sm-4 fields form-group">
+                                        <ul class="nav nav-tabs flex-column main-category subcategory" id="myTab">
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab" href="" role="tab" aria-controls="ingredient" aria-selected="true">Romaine</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab">Spinach</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab">Arugula</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab">Spinach</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-4 fields form-group">
+                                        <ul class="nav nav-tabs flex-column main-category subcategory" id="myTab">
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab" href="" role="tab" aria-controls="ingredient" aria-selected="true">Mesclun</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab">kale</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab">Romaine</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" data-toggle="tab">Mesclun</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- CUSTOMIZATION CLOSE -->
+                </div>
+
+
+            </div>
+        </mat-dialog-content>
+        <div class="modal-footer">
+            <div class="col-md-12" style="padding: 0px;">
+                <button type="button" class="btn btn-default">Add
+                        new item</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Close -->

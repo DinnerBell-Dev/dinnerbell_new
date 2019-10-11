@@ -1,0 +1,42 @@
+.hidden {
+    display: none;
+}
+
+.shown {
+    display: block;
+}
+
+.close-btn {
+    cursor: pointer;
+    font-size: 20px !important;
+    font-weight: 100 !important;
+    color: #44b7e2;
+    float: right;
+    background: transparent !important;
+    border: 0px;
+}
+
+.error-class {
+    border: 1px solid red !important;
+}
+
+.sub-item {
+    padding: 5px 10px;
+    margin-bottom: 4px !important;
+}
+
+.invalid-value {
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;
+    padding-left: 15px;
+}
+
+.col {
+    padding: 0px;
+}
+
+.menu .fields {
+    padding: 0px 2px;
+}

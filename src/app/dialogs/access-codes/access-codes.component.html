@@ -1,0 +1,35 @@
+<!-- Modal (Ingredient Category) -->
+<div class="modal-dialog modal-dialog-centered modal-md">
+  <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title">Access codes
+          </h5>
+          <button type="button" class="close" (click)="close()">
+              <span aria-hidden="true">&times;</span>
+          </button>
+      </div>
+      <mat-dialog-content>
+          <div class="container">
+              <div class="select-container">
+                 <div class="form-group">
+                     <select class="form-control" [(ngModel)]="employee" (change)="userChanged($event.target.value)">
+                         <!-- <option value="" disabled [selected]='true'> Select User</option> -->
+                         <option *ngFor="let item of teamMembers" value={{item._id}}>
+                             {{item.firstname}} {{item.lastname}}
+                         </option>
+                         </select>
+                 </div>
+              </div>
+              <div class="qr-image" *ngIf="dataToShow">
+                 <img src="{{dataToShow.qrfileid}}" class="image">
+             </div>
+             <div class="access-code-container" *ngIf="dataToShow">
+               <div class="text">Access code</div>
+               <div class="code" *ngIf="dataToShow.role !=='guest'">{{dataToShow.token}}_{{currentUser.user.restaurantCode}}</div>
+               <div class="code" *ngIf="dataToShow.role =='guest'">0000_{{currentUser.user.restaurantCode}}</div>
+             </div>
+       </div>
+      </mat-dialog-content>
+  </div>
+</div>
+<!-- Modal Close -->

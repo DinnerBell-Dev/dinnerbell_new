@@ -1,0 +1,679 @@
+<admin-header></admin-header>
+<div class="d-flex" id="wrapper" [class.toggled]="wasClicked">
+    <div class="bg-light" id="sidebar-wrapper">
+        <div class="list-group list-group-flush">
+            <ul class="nav nav-tabs pt-3" id="myTab" role="tablist" style="padding-bottom: 100px;">
+                <li class="nav-item">
+                    <a class="nav-link" (click)="onClick('Users')" data-toggle="tab" href="#user" role="tab"
+                        aria-controls="user"><i class="icon-png i-customers"></i>Users</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" (click)="onClick('Theme Studio')" data-toggle="tab" href="#theme"
+                        role="tab" aria-controls="theme"><i class="icon-png i-orders"></i>Theme Studio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" (click)="onClick('Ingredients')" data-toggle="tab" href="#ingredient" role="tab"
+                        aria-controls="ingredient"><i class="icon-png i-inventory"></i>Ingredients</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#logout" role="tab" aria-controls="Logout"
+                        (click)="logout()"><i class="icon-png i-customers"></i> Logout</a>
+                </li>
+                <li>
+                    <div class="sidebar__wrapper-bottom mt-5 pt-4 pb-5">
+                        <div class="sidebar__menu"><a class="sidebar__menu-link" href="javascript:void(0)"
+                                title="">Contact us</a><a class="sidebar__menu-link sidebar__menu-link--mb"
+                                href="javascript:void(0)" title="">Send feedback</a><a class="sidebar__menu-link"
+                                href="javascript:void(0)" title="">Terms of service</a><a
+                                class="sidebar__menu-link sidebar__menu-link--mb" href="javascript:void(0)"
+                                title="">Privacy policy</a>
+                        </div>
+                        <div class="copyright">
+                            <p class="copyright__text">© 2019 DinnerBell</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!-- <span id="closeBtn" (click)="onClick()">Close</span> -->
+    </div>
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+            <!--ROW-->
+            <div class="row">
+                <!-- SIDEBAR CLOSE -->
+                <!-- <div class="col-lg-2 col-md-2 col-sm-3"></div> -->
+                <div class="col-lg-12 col-md-12 col-sm-12 mainpage">
+                    <div class="tab-content">
+                        <!---- USER --->
+
+                        <div class="tab-pane active" id="theme" role="tabpanel">
+                            <div class="row mb-3">
+                                <!-- Tab panes -->
+                                <div class="col-lg-12 col-md-12 col-xs-12 content">
+                                    <div class="row menudesign-select-container">
+                                        <div class="dropdown customDropDown" *ngIf="haveThemes == true && ActiveTheme == true || addnewTheme == true">
+                                            <button type="button" class="dropdown-toggle" data-toggle="dropdown">
+                                                {{menuDesignSettings}}
+                                                <i class="icon-font icon-corner"></i>
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a *ngIf="menuDesignSettings != 'Base theme'" class="dropdown-item"
+                                                    href="javascript:void(0)"
+                                                    (click)="menuDesignSettings = 'Base theme'">Base theme</a>
+                                                <a *ngIf="menuDesignSettings != 'Base settings' && selectedTheme"
+                                                    class="dropdown-item" href="javascript:void(0)"
+                                                    (click)="menuDesignSettings = 'Base settings'">Base
+                                                    settings</a>
+                                                <a *ngIf="menuDesignSettings != 'Intro screen' && selectedTheme"
+                                                    class="dropdown-item" href="javascript:void(0)"
+                                                    (click)="menuDesignSettings = 'Intro screen'">Intro screen</a>
+                                                <a *ngIf="menuDesignSettings != 'Main menu' && selectedTheme"
+                                                    class="dropdown-item" href="javascript:void(0)"
+                                                    (click)="menuDesignSettings = 'Main menu'">Main menu</a>
+                                                <a *ngIf="menuDesignSettings != 'Menu items' && selectedTheme"
+                                                    class="dropdown-item" href="javascript:void(0)"
+                                                    (click)="menuDesignSettings = 'Menu items'">Menu items</a>
+                                                <a *ngIf="menuDesignSettings != 'Item details' && selectedTheme"
+                                                    class="dropdown-item" href="javascript:void(0)"
+                                                    (click)="menuDesignSettings = 'Item details'">Item
+                                                    details</a>
+                                                <a *ngIf="menuDesignSettings != 'Feedback' && selectedTheme"
+                                                    class="dropdown-item" href="javascript:void(0)"
+                                                    (click)="menuDesignSettings = 'Feedback'">Feedback</a>
+                                                <a *ngIf="menuDesignSettings != 'My order' && selectedTheme"
+                                                    class="dropdown-item" href="javascript:void(0)"
+                                                    (click)="menuDesignSettings = 'My order'">My order</a>
+                                                <a *ngIf="!selectedTheme" class="dropdown-item"
+                                                    href="javascript:void(0)">Select Theme for customize</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-12 col-md-12 col-sm-12 ">
+                                            <!-- <ngx-loading [show]="securityloading"></ngx-loading> -->
+                                            <app-admin-base-theme *ngIf="menuDesignSettings =='Base theme'">
+                                            </app-admin-base-theme>
+                                            <app-admin-intro-screen *ngIf="menuDesignSettings =='Intro screen'">
+                                            </app-admin-intro-screen>
+                                            <app-admin-base-setting *ngIf="menuDesignSettings =='Base settings'">
+                                            </app-admin-base-setting>
+                                            <app-admin-main-menu *ngIf="menuDesignSettings =='Main menu'">
+                                            </app-admin-main-menu>
+                                            <app-admin-menu-items *ngIf="menuDesignSettings =='Menu items'">
+                                            </app-admin-menu-items>
+                                            <app-admin-my-order *ngIf="menuDesignSettings =='My order'">
+                                            </app-admin-my-order>
+                                            <app-admin-feedback *ngIf="menuDesignSettings =='Feedback'">
+                                            </app-admin-feedback>
+                                            <app-admin-menu-item-details *ngIf="menuDesignSettings =='Item details'">
+                                            </app-admin-menu-item-details>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- <div class="inner">
+                                <ngx-loading [show]="ingredientloading"></ngx-loading>
+                                <div class="row" style="margin:0px;" cdkDropList cdkDropListOrientation="horizontal"
+                                    (cdkDropListDropped)="drop($event)">
+                                    <div class="col-lg-3 col-md-4 card card-box p-01" *ngFor="let theme of themeList"
+                                        cdkDrag>
+
+                                        <div class="card-body">
+                                            <div class="set-butn dropdown">
+                                                <button class="btn btn-default" type="button" id="dropdownMenu1"
+                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"
+                                                    *ngIf="!drag">
+                                                    <i class="fa fa-cog" aria-hidden="true"></i></button>
+                                                <div cdkDragHandle [ngClass]="{ 'hidedrag': !drag}">
+                                                    <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z">
+                                                        </path>
+                                                        <path d="M0 0h24v24H0z" fill="none"></path>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <img src="{{theme.photo_url}}" (click)="selectedcat(category)">
+                                            <p class="card-text">{{theme.name}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4 card card-box p-01">
+                                        <button class="btn btn-link modbtn mybtn" (click)="openAddthemeDialog()"> Add
+                                            new theme</button>
+                                    </div>
+                                    <div class="col-lg-3 col-md-4 card card-box p-01">
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+
+
+
+
+
+                        <div class="tab-pane" id="user" role="tabpanel">
+                            <ngx-loading [show]="userloading"></ngx-loading>
+                            <div class="col-md-12 col-sm-12 heading">
+                                <h3>Registered users</h3>
+                            </div>
+                            <div id="accordion" *ngIf="users.length > 0">
+
+                                <div class="reg-user-card" *ngFor="let user of users">
+                                    <div class="row card-header" id="headingOne">
+                                        <div class="col-md-4 col-sm-4 align-cont">
+                                            <h5 class="mb-0 usr">
+                                                {{user.email}}
+                                            </h5>
+                                        </div>
+                                        <div class="col-md-4 col-sm-4 align-cont">
+                                            <h6> {{user.status}}</h6>
+                                        </div>
+                                        <div class="col-md-4 col-sm-4 align-01">
+                                            <h5 class="mb-0">
+                                                <button class="btn btn-link" (click)="openProfileDialog(user)">
+                                                    Open Profile
+                                                </button>
+                                            </h5>
+                                        </div>
+                                    </div>
+
+                                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+                                        data-parent="#accordion">
+                                        <div class="card-body">
+                                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                                            richardson ad squid.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12" *ngIf="users.length === 0">No user's data available.</div>
+                        </div>
+                        <!---- USER CLOSE --->
+                        <!---- INGREDIENTS --->
+                        <div class="tab-pane" id="ingredient" role="tabpanel">
+                            <div class="col-md-12 col-sm-12 heading">
+                                <h3>Ingredients</h3>
+                            </div>
+                            <div class="inner">
+                                <ngx-loading [show]="ingredientloading"></ngx-loading>
+                                <div class="row" style="margin:0px;" cdkDropList cdkDropListOrientation="horizontal"
+                                    (cdkDropListDropped)="drop($event)">
+                                    <div class="col-lg-3 col-md-4 card card-box p-01"
+                                        *ngFor="let category of ingredientCategories" cdkDrag>
+
+                                        <div class="card-body"
+                                            [ngClass]="{ 'back-black': category.company_id === selectedIngredientCategory.company_id}">
+                                            <div class="set-butn dropdown">
+                                                <button class="btn btn-default" type="button" id="dropdownMenu1"
+                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"
+                                                    *ngIf="!drag">
+                                                    <i class="fa fa-cog" aria-hidden="true"></i></button>
+                                                <div cdkDragHandle [ngClass]="{ 'hidedrag': !drag}">
+                                                    <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+                                                        <path
+                                                            d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z">
+                                                        </path>
+                                                        <path d="M0 0h24v24H0z" fill="none"></path>
+                                                    </svg>
+                                                </div>
+                                                <ul class="dropdown-menu dropdown-menu-left"
+                                                    aria-labelledby="dropdownMenu1" data-toggle="dropdown">
+                                                    <li (click)="moveCat()"><a style="cursor: pointer">Move</a></li>
+                                                    <li (click)="editCat(category)"><a style="cursor: pointer">Edit</a>
+                                                    </li>
+                                                    <li (click)="duplicateCat(category)"><a
+                                                            style="cursor: pointer">Duplicate</a></li>
+                                                    <li (click)="deletecat(category._id)"><a
+                                                            style="cursor: pointer">Delete</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <img src="{{category.photo_url}}" (click)="selectedcat(category)">
+                                            <p class="card-text">{{category.name}}</p>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-lg-3 col-md-4 card card-box p-01">
+                                        <button class="btn btn-link modbtn mybtn"
+                                            (click)="openAddIngredientCatDialog()"> Add
+                                            new category</button>
+                                    </div>
+
+                                    <div class="col-lg-3 col-md-4 card card-box p-01">
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="section">
+                                <div class="col-md-5 col-sm-5 title">
+                                    <h3
+                                        *ngIf="selectedIngredientCategory == undefined || selectedIngredientCategory == ''">
+                                        Section title
+                                    </h3>
+                                    <h3 *ngIf="selectedIngredientCategory">{{selectedIngredientCategory.name}}</h3>
+                                </div>
+                            </div>
+                            <div class="inner">
+                                <ngx-loading [show]="ingredientloading"></ngx-loading>
+                                <div class="row" style="margin:0px;">
+                                    <div class="col-lg-3 col-md-4 card card-box p-01"
+                                        *ngFor="let item of selectedIngredientCategoryItems">
+                                        <div class="card-body card-body1">
+                                            <div class="set-butn dropdown">
+                                                <button class="btn btn-default" type="button" id="dropdownMenu1"
+                                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                    <i class="fa fa-cog" aria-hidden="true"></i></button>
+                                                <!-- <div cdkDragHandle [ngClass]="{ 'hidedrag': !drag}">
+                                                    <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+                                                      <path d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"></path>
+                                                      <path d="M0 0h24v24H0z" fill="none"></path>
+                                                    </svg>
+                                                </div> -->
+                                                <ul class="dropdown-menu dropdown-menu-left"
+                                                    aria-labelledby="dropdownMenu1" data-toggle="dropdown">
+                                                    <li (click)="editCatItem(item)"><a style="cursor: pointer">Edit</a>
+                                                    </li>
+                                                    <li (click)="deleteCatItem(item)"><a
+                                                            style="cursor: pointer">Delete</a></li>
+                                                </ul>
+                                            </div>
+                                            <img src="{{item.photo_url}}">
+                                            <p class="card-text item">{{item.name}}</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-3 col-md-4 card card-box p-01">
+                                        <!-- Button trigger modal -->
+                                        <button type="button" class="btn btn-default modbtn mybtn"
+                                            (click)="openIngredientCatItemDialog(selectedIngredientCategory)">
+                                            add new item
+                                        </button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!---- INGREDIENTS CLOSE --->
+
+
+
+                        <!---- MENU page starts --->
+                        <div class="tab-pane" id="menu" role="tabpanel">
+                            <div class="tab-pane menu" id="menu" role="tabpanel">
+                                <div class="col-md-12 col-sm-12 heading">
+                                    <h3>Menus</h3>
+                                </div>
+                                <div class="inner">
+                                    <div class="row" style="margin:0px;">
+                                        <div class="col-lg-3 col-md-4 card card-box p-01">
+                                            <div class="card-body back-black">
+                                                <div class="set-butn dropdown">
+                                                    <button class="btn btn-default" type="button" id="dropdownMenu1"
+                                                        data-toggle="dropdown" aria-haspopup="true"
+                                                        aria-expanded="true"><i class="fa fa-cog"
+                                                            aria-hidden="true"></i></button>
+                                                    <ul class="dropdown-menu dropdown-menu-left"
+                                                        aria-labelledby="dropdownMenu1">
+                                                        <li><a href="">Move</a></li>
+                                                        <li><a href="">Duplicate</a></li>
+                                                        <li><a href="">Delete</a></li>
+                                                    </ul>
+                                                </div>
+                                                <img src="./assets/images/demopic.png">
+                                                <p class="card-text">sample menu</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-4 card card-box p-01">
+                                            <div class="card-body">
+                                                <div class="set-butn dropdown">
+                                                    <button class="btn btn-default" type="button" id="dropdownMenu1"
+                                                        data-toggle="dropdown" aria-haspopup="true"
+                                                        aria-expanded="true"><i class="fa fa-cog"
+                                                            aria-hidden="true"></i></button>
+                                                    <ul class="dropdown-menu dropdown-menu-left"
+                                                        aria-labelledby="dropdownMenu1">
+                                                        <li><a href="">Move</a></li>
+                                                        <li><a href="">Duplicate</a></li>
+                                                        <li><a href="">Delete</a></li>
+                                                    </ul>
+                                                </div>
+                                                <img src="./assets/images/demopic1.png">
+                                                <p class="card-text">Sample prix-fixe menu</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-3 col-md-4 card card-box p-01">
+                                            <button class="btn btn-link modbtn" (click)="openAddMenuDialog()">Add new
+                                                menu
+                                            </button>
+                                        </div>
+
+                                        <div class="col-lg-3 col-md-4 card card-box p-01">
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="section menu-section">
+                                    <div class="row" style="margin:0px; padding: 12px 0px;">
+                                        <div class="col-md-5 col-sm-4 menu-title">
+                                            <h3>Menu title</h3>
+                                        </div>
+                                        <div class="col-md-7 col-sm-8 view">
+                                            <button class="btn btn-default mr-01"><a>Settings</a></button>
+                                            <div class="btn-group">
+                                                <button class="btn bttn" (click)="listview = true"><i
+                                                        class="fa fa-bars"></i></button>
+                                                <button class="btn bttn active" (click)="listview = false"><i
+                                                        class="fa fa-th-large"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 col-sm-12 sub-title">
+                                    <h3>Subsection title</h3>
+                                </div>
+
+                                <!-- Grid view -->
+                                <div class="inner" *ngIf="!listview">
+
+                                    <div class="row" style="margin:0px;">
+                                        <div class="col-lg-3 col-md-4 card card-box p-01">
+                                            <div class="card-body card-body1">
+                                                <img src="./assets/images/demopic.png">
+                                                <p class="card-text text-01">Shelter island mirinated oysters with
+                                                    calamari.
+                                                    <span class="price">$18</span></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-4 card card-box p-01">
+                                            <div class="card-body card-body1">
+                                                <img src="./assets/images/demopic1.png">
+                                                <p class="card-text text-01">Grilled fresh calamari. <span
+                                                        class="price">$18</span></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-3 col-md-4 card card-box p-01">
+                                            <div class="card-body card-body1">
+                                                <img src="./assets/images/imagedemo.png">
+                                                <p class="card-text text-01">Half marine lobster. <span
+                                                        class="price">$18</span>
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-3 col-md-4 card card-box p-01">
+                                            <!-- Button trigger modal -->
+                                            <button class="btn btn-link modbtn modbtn1"
+                                                (click)="openAddMenuItemDialog()">
+                                                Add new item
+                                            </button>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- grid view close -->
+
+                                <!-- list view -->
+                                <div *ngIf="listview">
+                                    <div class="inner">
+
+                                        <div class="row listitem">
+                                            <div class="col-lg-3 col-md-5  p-01">
+                                                <img src="./assets/images/demopic.png">
+                                            </div>
+                                            <div class="col-lg-9 col-md-7 card-box p-01">
+                                                <p class="card-text text-01">Shelter island mirinated oysters with
+                                                    calamari.
+                                                </p>
+                                                <span class="price">$18</span>
+                                            </div>
+                                        </div>
+                                        <div class="row listitem">
+                                            <div class="col-lg-3 col-md-5 card-box p-01">
+                                                <img src="./assets/images/fresh-grilled-calamari.jpg">
+                                            </div>
+                                            <div class="col-lg-9 col-md-7  p-01">
+                                                <p class="card-text text-01">Grilled fresh calamari. </p>
+                                                <span class="price">$18</span>
+                                            </div>
+                                        </div>
+                                        <div class="row listitem">
+                                            <div class="col-lg-3 col-md-5 card-box p-01">
+                                                <img src="./assets/images/demopic1.png">
+                                            </div>
+                                            <div class="col-lg-9 col-md-7  p-01">
+                                                <p class="card-text text-01">Half marine lobster.</p>
+                                                <span class="price">$18</span>
+                                            </div>
+                                        </div>
+                                        <div class="row listitem">
+                                            <div class="col-md-12 card card-box p-01">
+                                                <!-- Button trigger modal -->
+                                                <button class="btn btn-link modbtn modbtn2"
+                                                    (click)="openAddMenuItemDialog()">
+                                                    Add new item
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- list view close -->
+                            </div>
+                        </div>
+                        <!---- MENU page CLOSE --->
+
+                        <!---- ACCOUNT SETTING --->
+                        <div class="tab-pane setting" id="account" role="tabpanel">
+                            <div class="col-md-12 acc-heading">
+                                <h3>Account Settings</h3>
+                            </div>
+                            <div class="row" style="padding: 20px 0px;">
+                                <div class="col-lg-9 col-md-11 tabhead">
+                                    <ul class="nav nav-tabs tabsetting" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" style="cursor:pointer" role="tab"
+                                                data-toggle="tab" (click)="setTab('companyprofile')">Company
+                                                Profile</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" style="cursor:pointer" role="tab" data-toggle="tab"
+                                                (click)="setTab('login')">Login
+                                                & Security</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" style="cursor:pointer" role="tab" data-toggle="tab"
+                                                (click)="setTab('billing')">Billing
+                                                Details</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- Tab panes -->
+                                <div class="col-lg-8 col-md-10 col-xs-12 content">
+                                    <!-- COMPANY PROFILE -->
+                                    <div *ngIf="accountSettingTab == 'companyprofile'">
+                                        <div class="col-md-12 heading">
+                                            <h4>Company Profile</h4>
+                                        </div>
+                                        <div class="row venue" style="margin:0px; padding: 20px 0px;">
+                                            <div class="col-md-8 col-sm-7 v-head">
+                                                <h5>Venue name and type</h5>
+                                            </div>
+                                            <div class="col-md-4 col-sm-5 v-update">
+                                                <button type="btn btn-default">update</button>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 lm-01">
+                                                <div class="inp">
+                                                    <input class="box" type="text" placeholder="Blue Strawberry">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 lm-03">
+                                                <div class="inp">
+                                                    <input class="box" type="text" placeholder="Fine Dining">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 lm-02">
+                                                <div class="inp">
+                                                    <input class="box" type="text" placeholder="Server Cuisines">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row venue contact" style="margin:0px; padding: 20px 0px;">
+                                            <div class="col-md-8 col-sm-7 v-head">
+                                                <h5>Contact Person</h5>
+                                            </div>
+                                            <div class="col-md-4 col-sm-5 v-update">
+                                                <button type="btn btn-default">update</button>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 lm-01">
+                                                <div class="inp">
+                                                    <input class="box" type="text" placeholder="Oliver Twist">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-sm-6 lm-03">
+                                                <div class="inp">
+                                                    <input class="box" type="text" placeholder="Occupation">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row venue location" style="margin:0px; padding: 20px 0px;">
+                                            <div class="col-md-8 col-sm-7 v-head">
+                                                <h5>Location</h5>
+                                                <p>Set your primary location so we know your language preferenced, time
+                                                    zone and
+                                                    our availaibility in your area.</p>
+                                            </div>
+                                            <div class="col-md-4 col-sm-5 v-update">
+                                                <button type="btn btn-default">update</button>
+                                            </div>
+                                            <div class="col-md-4 col-sm-4 lm-01">
+                                                <div class="inp">
+                                                    <input class="box" type="text" placeholder="United States">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 col-sm-4 lm-01">
+                                                <div class="inp">
+                                                    <input class="box" type="text" placeholder="Los Angles">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 col-sm-4 lm-01">
+                                                <div class="inp">
+                                                    <input class="box" type="text" placeholder="CA">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-9 col-sm-8 lm-01">
+                                                <div class="inp">
+                                                    <input class="box" type="text" placeholder="Street Address">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3 col-sm-4 lm-01">
+                                                <div class="inp">
+                                                    <input class="box" type="text" placeholder="90042">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- COMPANY PROFILE CLOSE -->
+                                    <!-- LOGIN & SECURITY -->
+                                    <div *ngIf="accountSettingTab == 'login'">
+                                        <div class="col-md-12 heading">
+                                            <h4>Login and Security</h4>
+                                        </div>
+
+                                        <div class="row venue phnnumber" style="margin:0px; padding: 20px 0px;">
+                                            <div class="col-md-8 col-sm-7 v-head">
+                                                <h5>Phone number</h5>
+                                                <p>Used to send notifications and verify changes to your account.</p>
+                                            </div>
+                                            <div class="col-lg-8 col-md-6 col-sm-6 lm-01">
+                                                <div class="inp">
+                                                    <input class="box" class="inp-box" type="number"
+                                                        placeholder="Enter your phone number">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-md-6 col-sm-6 lm-01">
+                                                <div class="inp">
+                                                    <button class="btn btn-default">Send Verification Code</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row venue contact" style="margin:0px; padding: 20px 0px;">
+                                            <div class="col-md-8 col-sm-7 v-head">
+                                                <h5>E-mail</h5>
+                                                <p>Used to login and receive important communication</p>
+                                            </div>
+                                            <div class="col-md-4 col-sm-5 v-update">
+                                                <button type="btn btn-default">update</button>
+                                            </div>
+                                            <div class="col-md-12 col-sm-12 lm-01">
+                                                <div class="inp">
+                                                    <input class="box" type="email" placeholder="mail@petermaslov.com">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row venue contact" style="margin:0px; padding: 20px 0px;">
+                                            <div class="col-md-8 col-sm-7 v-head">
+                                                <h5>Password</h5>
+                                            </div>
+                                            <div class="col-md-4 col-sm-5 v-update">
+                                                <button type="btn btn-default">Change</button>
+                                            </div>
+                                            <div class="col-md-12 col-sm-12 lm-01">
+                                                <div class="inp">
+                                                    <input class="box" type="password"
+                                                        placeholder="Enter your password">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row venue" style="margin:0px; padding: 20px 0px;">
+                                            <div class="col-lg-8 col-md-8 col-sm-6 v-head">
+                                                <h5>Text notifications</h5>
+                                                <p>Informs you when someone is logging to this account.</p>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-6">
+
+
+                                                <div class="switch-field setting-field">
+                                                    <input class="input-btn" type="radio" id="switch_left4"
+                                                        name="switch_2" value="yes" checked />
+                                                    <label for="switch_left4">ON</label>
+                                                    <input class="input-btn" type="radio" id="switch_right4"
+                                                        name="switch_2" value="no" />
+                                                    <label for="switch_right4">OFF</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- LOGIN & SECURITY CLOSE -->
+                                    <div *ngIf="accountSettingTab == 'billing'">Billing Detail</div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <!---- ACCOUNT SETTING CLOSE --->
+
+                        <!-- <div class="tab-pane" id="logout" role="tabpanel">.3..</div> -->
+                    </div>
+
+                </div>
+            </div>
+            <!--ROW CLOSE-->
+
+        </div>
+    </div>
+</div>

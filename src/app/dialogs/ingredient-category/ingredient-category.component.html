@@ -1,0 +1,90 @@
+<!-- Modal (Ingredient Category) -->
+<div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">ingredient category
+            </h5>
+            <button type="button" class="close" (click)="close()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <mat-dialog-content>
+            <div class="modal-body ingredient">
+                <form [formGroup]="ingredientCat">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 text-left">
+                            <h5>Category Name</h5>
+                        </div>
+                        <div class="col-md-8 col-sm-12 fields">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Category Name" formControlName="name" [ngClass]="{ 'is-invalid': f.name.touched && f.name.errors  }" (blur)="f.name.setValue(removeSpaces(f.name.value))">
+                                <div *ngIf="f.name.touched && f.name.errors " class="invalid-feedback">
+                                    <div *ngIf="f.name.errors.required"> Category Name is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group cat-select" *ngIf="importItems">
+                                <h5>Imported category</h5>
+                                <select class="form-control" formControlName="selectedCat" (change)="loadIngredients()">
+                                    <!-- <option value="">--Select category--</option> -->
+                                    <option value="" disabled [selected]='true'> Select category</option>
+                                    <option [value]="selectedCat.company_id" *ngFor="let selectedCat of adminIngredientCat">{{selectedCat.name}}</option>
+                                </select>
+                            </div>
+                            <div class="form-group" *ngIf="!importItems">
+                                <button type="button" class="btn btn-default import-btn" (click)="importIngredientItems()">IMPORT
+                                    ITEMS</button>
+                            </div>
+                        </div>
+                        <div class="col-md-4 add-photo">
+                            <div *ngIf="!f.photo_url.value && !data" [ngClass]="{ 'error-class': !f.photo_url.value && f.name.touched}">
+                                <input style="display: none" type="file" (change)="onFileChanged($event)" accept="image/*" class="form-control" #fileInput>
+                                <button type="button" class="imagebtn" (click)="fileInput.click()">ADD PHOTO</button>
+                            </div>
+                            <div *ngIf="!f.photo_url.value && data" [ngClass]="{ 'error-class': !f.photo_url.value}">
+                                <input style="display: none" type="file" (change)="onFileChanged($event)" accept="image/*" class="form-control" #fileInput>
+                                <button type="button" class="imagebtn" (click)="fileInput.click()">ADD PHOTO</button>
+                            </div>
+                            <div *ngIf="f.photo_url.value">
+                                <div class="card-body">
+                                    <input style="display: none" type="file" (change)="onFileChanged($event)" accept="image/*" class="form-control" #fileInput>
+                                    <div class="set-butn img-set dropdown">
+                                        <button class="btn btn-default" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                            <i class="fa fa-cog" aria-hidden="true"></i></button>
+                                        <ul class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenu1" data-toggle="dropdown" #mybtn>
+                                            <li (click)="fileInput.click();mybtn.click()"><a style="cursor: pointer">Replace</a></li>
+                                            <li (click)="removePhoto(f.photo_name.value)"><a style="cursor: pointer">Remove</a></li>
+                                        </ul>
+                                    </div>
+                                    <img src="{{f.photo_url.value}}">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-12" *ngIf="loadedIngredients.length > 0">
+                            <h5>Imported Ingredients</h5>
+                        </div>
+                        <div class="col-md-12 col-sm-12">
+                            <div class="row" style="margin:0px;">
+                                <div class="col-lg-4 col-md-4 col-sm-4 fields form-group" *ngFor="let item of loadedIngredients">
+                                    <ul class="nav nav-tabs flex-column category">
+                                        <li class="nav-item">
+                                            <a class="nav-link" [ngClass]="{ 'active': item.selected}" (click)="getSelectedIngredients(item)">{{item.name}}</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </mat-dialog-content>
+        <div class="modal-footer">
+            <div class="col-md-12" style="padding: 0px;">
+                <button type="button" class="btn btn-default" [disabled]="!ingredientCat.valid" (click)="createIngredientCategory()">{{btntext}}</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Close -->

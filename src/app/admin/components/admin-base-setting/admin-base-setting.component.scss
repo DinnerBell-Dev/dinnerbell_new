@@ -1,0 +1,23 @@
+.colorText {
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    height: 100%;
+    width: 100%;
+    border: none;
+  }
+  .mds__form-color-content {
+    overflow: inherit !important;
+  }
+  p {
+    margin-bottom: 0 !important;
+  }
+  .deleteBtn{
+    color:red !important;
+    background-color: #fff !important;
+  }
+  .buttonCustom{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width:100%;
+    border-color:#cccccc;
+  }

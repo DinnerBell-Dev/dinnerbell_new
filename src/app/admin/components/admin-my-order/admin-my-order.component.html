@@ -1,0 +1,462 @@
+<section class="mds mds--base" id="mds">
+
+  <h3 *ngIf="newthemeName" class="maintitleHeader">
+    No Theme Selected
+  </h3>
+  <div class="mds__wrapper" *ngIf="!newthemeName">
+    <div class="mds__wrapper-left mt-3">
+      <div class="mds__wrapper-preview"><a href="javascript:void(0)" title=""><i class="icon-font icon-eye"></i></a>
+        <!-- SECTION tablet :: START-->
+        <div class="tablet--scroll">
+          <section [style.font-family]="headerSetting.fontFamily" class="tablet tablet--myorder" id="tablet">
+            <div class="tablet__header" [style.background]="headerSetting.navbarBg"
+              [style.border-color]="headerSetting.navbarBorder">
+              <div [style.border-color]="headerSetting.navbarBorder"><a href="javascript:void(0)" title=""><i
+                    [style.color]="headerSetting.navBarIcon" class="icon-font icon-list-menu" aria-hidden="true"></i>
+                </a></div>
+              <div [style.border-color]="headerSetting.navbarBorder"><a href="javascript:void(0)" title=""><i
+                    [style.color]="headerSetting.navBarIcon" class="icon-font icon-user"></i><span
+                    [style.color]="headerSetting.navbarTxt">3</span></a>
+              </div>
+              <div [style.border-color]="headerSetting.navbarBorder"><a href="javascript:void(0)" title=""><i
+                    [style.color]="headerSetting.navBarIcon" class="icon-font icon-doc"></i><span
+                    [style.color]="headerSetting.navbarTxt">0</span></a></div>
+              <div [style.border-color]="headerSetting.navbarBorder"><a href="javascript:void(0)" title=""><i
+                    [style.color]="headerSetting.navBarIcon" class="icon-font icon-bell"></i></a></div>
+            </div>
+            <div class="tablet__content"
+              [ngClass]="{'imageCover': orderSetting.imagestyle == 'fix', 'imageRepeat' : orderSetting.imagestyle == 'repeat'}"
+              [ngStyle]="{'background': orderSetting.LocalImgUrl != '' ? 'url(' + orderSetting.LocalImgUrl +')' : orderSetting.listBg }">
+              <!-- <div class="tablet__heading">
+                    <p >My order</p>
+                  </div> -->
+              <div class="tablet__heading" [style.border-color]="headerSetting.navbarBorder"
+                [style.background]="headerSetting.navbarBg">
+                <p [style.color]="headerSetting.navbarTxt">Cold
+                  Appetizers</p>
+              </div>
+              <div class="tablet__new">
+                <div class="tablet__new-header">
+                  <p [style.color]="orderSetting.headerColor" [ngStyle]="{'font-size': orderSetting.headersize +'px'}">
+                    New Items</p>
+                </div>
+                <div class="tablet__new-body">
+                  <div class="tablet__new-row tablet__new-row-0">
+                    <div>
+                      <div><i [style.color]="orderSetting.catColor"
+                          [ngStyle]="{'font-size': orderSetting.catTsize +'px'}">WINE</i>
+                        <p [style.color]="orderSetting.itemColor"
+                          [ngStyle]="{'font-size': orderSetting.itemTsize +'px'}">Cakebread Cellars, Merlot</p>
+                      </div>
+                      <div>
+                        <span [style.font-family]="headerSetting.priceFamily"
+                          *ngIf="headerSetting.priceFormat == '$0.00'">{{headerSetting.currency}}9.00</span>
+                        <span [style.font-family]="headerSetting.priceFamily"
+                          *ngIf="headerSetting.priceFormat == '$0'">{{headerSetting.currency}}9</span>
+                        <span [style.font-family]="headerSetting.priceFamily"
+                          *ngIf="headerSetting.priceFormat == '0$'">9{{headerSetting.currency}}</span>
+                        <span [style.font-family]="headerSetting.priceFamily"
+                          *ngIf="headerSetting.priceFormat == '0.00$'">9.00{{headerSetting.currency}}</span>
+                      </div>
+                    </div>
+                    <div><a href="javascript:void(0)" title=""><i class="icon-font icon-close" aria-hidden="true"></i>
+                      </a></div>
+                  </div>
+                  <div class="tablet__new-row tablet__new-row-1">
+                    <div><i [style.color]="orderSetting.catColor"
+                        [ngStyle]="{'font-size': orderSetting.catTsize +'px'}">Cold appetizers</i>
+                      <p [style.color]="orderSetting.itemColor" [ngStyle]="{'font-size': orderSetting.itemTsize +'px'}">
+                        Chilled Shellfish Platter</p>
+                    </div>
+                    <div><a href="javascript:void(0)" title=""><span>Swipe to<br>delete</span></a></div>
+                    <div><a href="javascript:void(0)" title=""><i class="icon-font icon-close" aria-hidden="true"></i>
+                      </a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="tablet__list-wrapper">
+                <div class="tablet__list tablet__list--inprogress" [style.background-color]="orderSetting.processbg">
+                  <div><i [style.color]="orderSetting.catColor"
+                      [ngStyle]="{'font-size': orderSetting.catTsize +'px'}">WINE</i>
+                    <p [style.color]="orderSetting.itemColor" [ngStyle]="{'font-size': orderSetting.itemTsize +'px'}">
+                      Cakebread Cellars, Merlot</p>
+                  </div>
+                  <div><span [style.color]="orderSetting.processColor"
+                      [ngStyle]="{'font-size': orderSetting.processsize +'px'}">IN PROCESS</span></div>
+                </div>
+                <div class="tablet__list tablet__list--pending" [style.background-color]="orderSetting.pendingbg">
+                  <div><i [style.color]="orderSetting.catColor"
+                      [ngStyle]="{'font-size': orderSetting.catTsize +'px'}">Cold appetizers</i>
+                    <p [style.color]="orderSetting.itemColor" [ngStyle]="{'font-size': orderSetting.itemTsize +'px'}">
+                      Chilled Shellfish Platter</p>
+                  </div>
+                  <div><span [style.color]="orderSetting.pendingColor"
+                      [ngStyle]="{'font-size': orderSetting.pendingsize +'px'}">PENDING</span></div>
+                </div>
+                <div class="tablet__list tablet__list--served" [style.background-color]="orderSetting.servedbg">
+                  <div><i [style.color]="orderSetting.catColor"
+                      [ngStyle]="{'font-size': orderSetting.catTsize +'px'}">Second course</i>
+                    <p [style.color]="orderSetting.itemColor" [ngStyle]="{'font-size': orderSetting.itemTsize +'px'}">
+                      Fresh florida stone crab clams</p>
+                  </div>
+                  <div><span [style.color]="orderSetting.servedColor"
+                      [ngStyle]="{'font-size': orderSetting.servedsize +'px'}">Served</span></div>
+                </div>
+              </div>
+              <div class="tablet__order" [style.background]="headerSetting.neutralbg">
+                <p [style.color]="headerSetting.neutralTxt">Order total:</p>
+                <span [style.color]="headerSetting.neutralTxt" [style.font-family]="headerSetting.priceFamily"
+                  *ngIf="headerSetting.priceFormat == '$0.00'">{{headerSetting.currency}}245.35</span>
+                <span [style.color]="headerSetting.neutralTxt" [style.font-family]="headerSetting.priceFamily"
+                  *ngIf="headerSetting.priceFormat == '$0'">{{headerSetting.currency}}245</span>
+                <span [style.color]="headerSetting.neutralTxt" [style.font-family]="headerSetting.priceFamily"
+                  *ngIf="headerSetting.priceFormat == '0$'">245{{headerSetting.currency}}</span>
+                <span [style.color]="headerSetting.neutralTxt" [style.font-family]="headerSetting.priceFamily"
+                  *ngIf="headerSetting.priceFormat == '0.00$'">245.35{{headerSetting.currency}}</span>
+              </div>
+            </div>
+            <div class="tablet__footer"><a [style.background]="headerSetting.confirmBtn"
+                [style.color]="headerSetting.confirmTxt" [style.font-family]="headerSetting.fontFamily"
+                class="tablet__update" href="javascript:void(0)" title="">Update my order</a>
+            </div>
+          </section>
+        </div>
+        <!-- SECTION tablet :: END-->
+      </div>
+      <form class="c-form">
+        <div class="mds__upload mds__upload--hi" upload-file-js>
+          <p class="mds__upload-title mds__screen-title">Background</p>
+          <div *ngIf="orderSetting.LocalImgUrl == ''"
+            class="mds__upload-wrapper mds__upload-wrapper--double mds__upload-wrapper--main" upload-main-js>
+            <div class="mds__upload-left">
+              <p class="mds__upload-subtitle">Color</p>
+              <div class="mds__upload-color" change-bg-js data-default-color="#161616">
+                <input class="colorText" (click)="removeLocalImg()" readonly [style.background]="orderSetting.listBg"
+                  [(colorPicker)]="orderSetting.listBg" />
+              </div>
+            </div>
+            <div class="mds__upload-right">
+              <p class="mds__upload-subtitle">Background image</p>
+              <div class="mds__upload-bg" change-imageParent-js>
+                <div change-img-js><span>Upload image</span>
+                  <input type="file" name="myfile" (change)="onFileChange($event)" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="orderSetting.LocalImgUrl != ''"
+            class="mds__upload-wrapper mds__upload-wrapper--double mds__upload-wrapper--additional"
+            upload-additional-js>
+            <div>
+              <div class="mds__upload-left">
+                <div class="mds__upload-preview" upload-preview-js>
+                  <img [src]="orderSetting.LocalImgUrl">
+                </div>
+              </div>
+              <div class="mds__upload-right">
+                <div class="mds__upload-option">
+                  <div class="mds__upload-radio">
+                    <div>
+                      <label>
+                        <input type="radio" (click)="bgimageStyle('fix')" name="upload_image_size" checked><span>Fixed
+                          position</span>
+                      </label>
+                    </div>
+                    <div>
+                      <label>
+                        <input type="radio" (click)="bgimageStyle('repeat')" name="upload_image_size"><span>Repeat /
+                          Tile image</span>
+                      </label>
+                    </div>
+                  </div><a class="mds__upload-remove" (click)="removeLocalImg()" href="javascript:void(0)" title=""><i
+                      class="icon-font icon-bin"></i><span>Remove
+                      image</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="mds__subtitle mds__subtitle--mdsOrderPt">Item status</p>
+        <div class="mds__form-content">
+          <div class="mds__form-color mds__form-color--winput">
+            <div>
+              <p>In process</p>
+            </div>
+            <div>
+              <div class="mds__form-color-content">
+                <input class="colorText" name="processColor" readonly [style.background]="orderSetting.processColor"
+                  [(colorPicker)]="orderSetting.processColor" />
+              </div>
+              <div class="mds__form-color-content">
+                <input class="colorText" name="processbg" readonly [style.background]="orderSetting.processbg"
+                  [(colorPicker)]="orderSetting.processbg" />
+              </div>
+            </div>
+          </div>
+          <div class="mds__fontSize-wrapper mds__fontSize-wrapper--full">
+            <div class="mds__fontSize-row">
+              <div class="mds__fontSize-col mds__fontSize-col-1">
+                <div><span>a</span></div>
+                <div class="custom-slider">
+                  <ng5-slider name="processsize" [(value)]="orderSetting.processsize" [options]="options1">
+                  </ng5-slider>
+                </div>
+                <div>
+                  <p class="mb-0">a</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mds__form-color mds__form-color--winput">
+            <div>
+              <p>Pending</p>
+            </div>
+            <div>
+              <div class="mds__form-color-content">
+                <input class="colorText" name="pendingColor" readonly [style.background]="orderSetting.pendingColor"
+                  [(colorPicker)]="orderSetting.pendingColor" />
+              </div>
+              <div class="mds__form-color-content">
+                <input class="colorText" name="pendingbg" readonly [style.background]="orderSetting.pendingbg"
+                  [(colorPicker)]="orderSetting.pendingbg" />
+              </div>
+            </div>
+          </div>
+          <div class="mds__fontSize-wrapper mds__fontSize-wrapper--full">
+            <div class="mds__fontSize-row">
+              <div class="mds__fontSize-col mds__fontSize-col-1">
+                <div><span>a</span></div>
+                <div class="custom-slider">
+                  <ng5-slider name="pendingsize" [(value)]="orderSetting.pendingsize" [options]="options2">
+                  </ng5-slider>
+                </div>
+                <div>
+                  <p class="mb-0">a</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mds__form-color mds__form-color--winput">
+            <div>
+              <p>Served</p>
+            </div>
+            <div>
+              <div class="mds__form-color-content">
+                <input class="colorText" name="servedColor" readonly [style.background]="orderSetting.servedColor"
+                  [(colorPicker)]="orderSetting.servedColor" />
+              </div>
+              <div class="mds__form-color-content">
+                <input class="colorText" name="servedbg" readonly [style.background]="orderSetting.servedbg"
+                  [(colorPicker)]="orderSetting.servedbg" />
+              </div>
+            </div>
+          </div>
+          <div class="mds__fontSize-wrapper mds__fontSize-wrapper--full">
+            <div class="mds__fontSize-row">
+              <div class="mds__fontSize-col mds__fontSize-col-1">
+                <div><span>a</span></div>
+                <div class="custom-slider">
+                  <ng5-slider name="servedsize" [(value)]="orderSetting.servedsize" [options]="options3">
+                  </ng5-slider>
+                </div>
+                <div>
+                  <p class="mb-0">a</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="mds__subtitle mds__subtitle--mdsDetailsPt">Font Properties</p>
+        <div class="mds__fontSize-wrapper">
+          <div class="mds__fontSize-row">
+            <div class="mds__fontSize-col mds__fontSize-col-0">
+              <p class="mds__fontSize-name">Header</p>
+            </div>
+            <div class="mds__fontSize-col mds__fontSize-col-1">
+              <div><span>a</span></div>
+              <div class="custom-slider">
+                <ng5-slider name="headersize" [(value)]="orderSetting.headersize" [options]="options4">
+                </ng5-slider>
+              </div>
+              <div>
+                <p class="mb-0">a</p>
+              </div>
+            </div>
+            <div class="mds__fontSize-col mds__fontSize-col-2" data-name="sectionHeader">
+              <input class="colorText" readonly name="headerColor" [style.background]="orderSetting.headerColor"
+                [(colorPicker)]="orderSetting.headerColor" />
+            </div>
+          </div>
+          <div class="mds__fontSize-row">
+            <div class="mds__fontSize-col mds__fontSize-col-0">
+              <p class="mds__fontSize-name">Item Title</p>
+            </div>
+            <div class="mds__fontSize-col mds__fontSize-col-1">
+              <div><span>a</span></div>
+              <div class="custom-slider">
+                <ng5-slider name="itemTsize" [(value)]="orderSetting.itemTsize" [options]="options5">
+                </ng5-slider>
+              </div>
+              <div>
+                <p class="mb-0">a</p>
+              </div>
+            </div>
+            <div class="mds__fontSize-col mds__fontSize-col-2" data-name="sectionHeader">
+              <input class="colorText" readonly name="itemColor" [style.background]="orderSetting.itemColor"
+                [(colorPicker)]="orderSetting.itemColor" />
+            </div>
+          </div>
+          <div class="mds__fontSize-row">
+            <div class="mds__fontSize-col mds__fontSize-col-0">
+              <p class="mds__fontSize-name">Item Category</p>
+            </div>
+            <div class="mds__fontSize-col mds__fontSize-col-1">
+              <div><span>a</span></div>
+              <div class="custom-slider">
+                <ng5-slider name="catTsize" [(value)]="orderSetting.catTsize" [options]="options6">
+                </ng5-slider>
+              </div>
+              <div>
+                <p class="mb-0">a</p>
+              </div>
+            </div>
+            <div class="mds__fontSize-col mds__fontSize-col-2" data-name="sectionHeader">
+              <input class="colorText" readonly name="catColor" [style.background]="orderSetting.catColor"
+                [(colorPicker)]="orderSetting.catColor" />
+            </div>
+          </div>
+
+        </div>
+        <div class="c-form__field c-form__field--btn">
+          <button class="c-form__btn c-btn c-btn--bg" (click)="uploadOrderSettings()" type="button">Update
+            settings</button>
+        </div>
+      </form>
+    </div>
+    <div class="mds__wrapper-right" [class.is-show]="wasClicked">
+      <div class="mds__wrapper-header">
+        <div><i class="icon-font icon-eye"></i>
+          <p>{{themeName}} Theme</p>
+        </div>
+        <div><a class="mds__wrapper-close" href="javascript:void(0)" (click)="onPreviw()" title=""><i
+              class="icon-font icon-close"></i></a></div>
+      </div>
+      <!-- SECTION tablet :: START-->
+      <div class="tablet--scroll">
+        <section [style.font-family]="headerSetting.fontFamily" class="tablet tablet--myorder" id="tablet">
+          <div class="tablet__header" [style.background]="headerSetting.navbarBg"
+            [style.border-color]="headerSetting.navbarBorder">
+            <div [style.border-color]="headerSetting.navbarBorder"><a href="javascript:void(0)" title=""><i
+                  [style.color]="headerSetting.navBarIcon" class="icon-font icon-list-menu" aria-hidden="true"></i>
+              </a></div>
+            <div [style.border-color]="headerSetting.navbarBorder"><a href="javascript:void(0)" title=""><i
+                  [style.color]="headerSetting.navBarIcon" class="icon-font icon-user"></i><span
+                  [style.color]="headerSetting.navbarTxt">3</span></a>
+            </div>
+            <div [style.border-color]="headerSetting.navbarBorder"><a href="javascript:void(0)" title=""><i
+                  [style.color]="headerSetting.navBarIcon" class="icon-font icon-doc"></i><span
+                  [style.color]="headerSetting.navbarTxt">0</span></a></div>
+            <div [style.border-color]="headerSetting.navbarBorder"><a href="javascript:void(0)" title=""><i
+                  [style.color]="headerSetting.navBarIcon" class="icon-font icon-bell"></i></a></div>
+          </div>
+          <div class="tablet__content"
+            [ngClass]="{'imageCover': orderSetting.imagestyle == 'fix', 'imageRepeat' : orderSetting.imagestyle == 'repeat'}"
+            [ngStyle]="{'background': orderSetting.LocalImgUrl != '' ? 'url(' + orderSetting.LocalImgUrl +')' : orderSetting.listBg }">
+            <!-- <div class="tablet__heading">
+                  <p >My order</p>
+                </div> -->
+            <div class="tablet__heading" [style.border-color]="headerSetting.navbarBorder"
+              [style.background]="headerSetting.navbarBg">
+              <p [style.color]="headerSetting.navbarTxt">Cold
+                Appetizers</p>
+            </div>
+            <div class="tablet__new">
+              <div class="tablet__new-header">
+                <p [style.color]="orderSetting.headerColor" [ngStyle]="{'font-size': orderSetting.headersize +'px'}">New
+                  Items</p>
+              </div>
+              <div class="tablet__new-body">
+                <div class="tablet__new-row tablet__new-row-0">
+                  <div>
+                    <div><i [style.color]="orderSetting.catColor"
+                        [ngStyle]="{'font-size': orderSetting.catTsize +'px'}">WINE</i>
+                      <p [style.color]="orderSetting.itemColor" [ngStyle]="{'font-size': orderSetting.itemTsize +'px'}">
+                        Cakebread Cellars, Merlot</p>
+                    </div>
+                    <div>
+                      <span [style.font-family]="headerSetting.priceFamily"
+                        *ngIf="headerSetting.priceFormat == '$0.00'">{{headerSetting.currency}}9.00</span>
+                      <span [style.font-family]="headerSetting.priceFamily"
+                        *ngIf="headerSetting.priceFormat == '$0'">{{headerSetting.currency}}9</span>
+                      <span [style.font-family]="headerSetting.priceFamily"
+                        *ngIf="headerSetting.priceFormat == '0$'">9{{headerSetting.currency}}</span>
+                      <span [style.font-family]="headerSetting.priceFamily"
+                        *ngIf="headerSetting.priceFormat == '0.00$'">9.00{{headerSetting.currency}}</span>
+                    </div>
+                  </div>
+                  <div><a href="javascript:void(0)" title=""><i class="icon-font icon-close" aria-hidden="true"></i>
+                    </a></div>
+                </div>
+                <div class="tablet__new-row tablet__new-row-1">
+                  <div><i [style.color]="orderSetting.catColor"
+                      [ngStyle]="{'font-size': orderSetting.catTsize +'px'}">Cold appetizers</i>
+                    <p [style.color]="orderSetting.itemColor" [ngStyle]="{'font-size': orderSetting.itemTsize +'px'}">
+                      Chilled Shellfish Platter</p>
+                  </div>
+                  <div><a href="javascript:void(0)" title=""><span>Swipe to<br>delete</span></a></div>
+                  <div><a href="javascript:void(0)" title=""><i class="icon-font icon-close" aria-hidden="true"></i>
+                    </a></div>
+                </div>
+              </div>
+            </div>
+            <div class="tablet__list-wrapper">
+              <div class="tablet__list tablet__list--inprogress" [style.background-color]="orderSetting.processbg">
+                <div><i [style.color]="orderSetting.catColor"
+                    [ngStyle]="{'font-size': orderSetting.catTsize +'px'}">WINE</i>
+                  <p [style.color]="orderSetting.itemColor" [ngStyle]="{'font-size': orderSetting.itemTsize +'px'}">
+                    Cakebread Cellars, Merlot</p>
+                </div>
+                <div><span [style.color]="orderSetting.processColor"
+                    [ngStyle]="{'font-size': orderSetting.processsize +'px'}">IN PROCESS</span></div>
+              </div>
+              <div class="tablet__list tablet__list--pending" [style.background-color]="orderSetting.pendingbg">
+                <div><i [style.color]="orderSetting.catColor"
+                    [ngStyle]="{'font-size': orderSetting.catTsize +'px'}">Cold appetizers</i>
+                  <p [style.color]="orderSetting.itemColor" [ngStyle]="{'font-size': orderSetting.itemTsize +'px'}">
+                    Chilled Shellfish Platter</p>
+                </div>
+                <div><span [style.color]="orderSetting.pendingColor"
+                    [ngStyle]="{'font-size': orderSetting.pendingsize +'px'}">PENDING</span></div>
+              </div>
+              <div class="tablet__list tablet__list--served" [style.background-color]="orderSetting.servedbg">
+                <div><i [style.color]="orderSetting.catColor"
+                    [ngStyle]="{'font-size': orderSetting.catTsize +'px'}">Second course</i>
+                  <p [style.color]="orderSetting.itemColor" [ngStyle]="{'font-size': orderSetting.itemTsize +'px'}">
+                    Fresh florida stone crab clams</p>
+                </div>
+                <div><span [style.color]="orderSetting.servedColor"
+                    [ngStyle]="{'font-size': orderSetting.servedsize +'px'}">Served</span></div>
+              </div>
+            </div>
+            <div class="tablet__order" [style.background]="headerSetting.neutralbg">
+              <p [style.color]="headerSetting.neutralTxt">Order total:</p>
+              <span [style.color]="headerSetting.neutralTxt" [style.font-family]="headerSetting.priceFamily"
+                *ngIf="headerSetting.priceFormat == '$0.00'">{{headerSetting.currency}}245.35</span>
+              <span [style.color]="headerSetting.neutralTxt" [style.font-family]="headerSetting.priceFamily"
+                *ngIf="headerSetting.priceFormat == '$0'">{{headerSetting.currency}}245</span>
+              <span [style.color]="headerSetting.neutralTxt" [style.font-family]="headerSetting.priceFamily"
+                *ngIf="headerSetting.priceFormat == '0$'">245{{headerSetting.currency}}</span>
+              <span [style.color]="headerSetting.neutralTxt" [style.font-family]="headerSetting.priceFamily"
+                *ngIf="headerSetting.priceFormat == '0.00$'">245.35{{headerSetting.currency}}</span>
+            </div>
+          </div>
+          <div class="tablet__footer"><a [style.background]="headerSetting.confirmBtn"
+              [style.color]="headerSetting.confirmTxt" [style.font-family]="headerSetting.fontFamily"
+              class="tablet__update" href="javascript:void(0)" title="">Update my order</a>
+          </div>
+        </section>
+      </div>
+      <!-- SECTION tablet :: END-->
+    </div>
+  </div>
+</section>

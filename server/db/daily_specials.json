@@ -1,0 +1,13 @@
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a98bd55efb3d521d166bb1b"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"menus" : [
+		ObjectId("5a9d47fb927c1e0781c227fd"),
+		ObjectId("5a9d4b67927c1e0781c227ff"),
+		ObjectId("5a9d4be6927c1e0781c22800"),
+		ObjectId("5a9d4c6d927c1e0781c22802")
+	],
+	"name" : "Chrismas Food",
+	"today" : ISODate("2018-03-06T00:00:00.000+00:00")
+},

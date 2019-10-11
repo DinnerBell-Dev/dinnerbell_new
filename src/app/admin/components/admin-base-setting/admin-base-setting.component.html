@@ -1,0 +1,611 @@
+<section class="mds mds--base" id="mds">
+  <div class="mds__wrapper">
+    <div class="mds__wrapper-left">
+      <div class="mds__wrapper-preview">
+        <!-- <a href="javascript:void(0)" title=""><i class="icon-font icon-eye"></i></a> -->
+        <!-- SECTION tablet :: START-->
+        <div class="tablet--scroll">
+          <section [style.font-family]="baseSetting.fontFamily" class="tablet tablet--general tablet--menuItems"
+            id="tablet" style="">
+            <div class="tablet__section tablet__section-0">
+              <div class="tablet__header" [style.background]="baseSetting.navbarBg"
+                [style.border-color]="baseSetting.navbarBorder">
+                <div [style.border-color]="baseSetting.navbarBorder"><a href="javascript:void(0)" title=""><i
+                      [style.color]="baseSetting.navBarIcon" class="icon-font icon-list-menu" aria-hidden="true"></i>
+                  </a></div>
+                <div [style.border-color]="baseSetting.navbarBorder"><a href="javascript:void(0)" title=""><i
+                      [style.color]="baseSetting.navBarIcon" class="icon-font icon-user"></i><span
+                      [style.color]="baseSetting.navbarTxt">3</span></a>
+                </div>
+                <div [style.border-color]="baseSetting.navbarBorder"><a href="javascript:void(0)" title=""><i
+                      [style.color]="baseSetting.navBarIcon" class="icon-font icon-doc"></i><span
+                      [style.color]="baseSetting.navbarTxt">0</span></a></div>
+                <div [style.border-color]="baseSetting.navbarBorder"><a href="javascript:void(0)" title=""><i
+                      [style.color]="baseSetting.navBarIcon" class="icon-font icon-bell"></i></a></div>
+              </div>
+              <div class="tablet__content">
+                <div class="tablet__subheader" [style.border-color]="baseSetting.navbarBorder"
+                  [style.background]="baseSetting.navbarBg"><a [style.color]="baseSetting.navBarIcon"
+                    href="javascript:void(0)" title=""><i class="icon-font icon-corner"></i></a>
+                  <p [style.color]="baseSetting.navbarTxt">Cold Appetizers</p><a [style.color]="baseSetting.navBarIcon"
+                    href="javascript:void(0)" title=""><i class="icon-font icon-corner"></i></a>
+                </div>
+                <div class="tablet__view tablet__view-list">
+                  <div class="tablet__btn-wrapper" [style.background]="baseSetting.listBg"><a
+                      [style.background]="baseSetting.listSelect" [style.border-color]="baseSetting.listBorder"
+                      class="tablet__btn tablet__btn--spicy is-choose" href="javascript:void(0)">
+                      <div>
+                        <p [style.color]="baseSetting.listColor">Fresh florida stone crab clams</p>
+                      </div>
+                      <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '$0.00'">
+                        <span [style.color]="baseSetting.listColor"><span>{{baseSetting.currency}}</span>18.50</span>
+                      </div>
+                      <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '$0'">
+                        <span [style.color]="baseSetting.listColor"><span>{{baseSetting.currency}}</span>18</span></div>
+                      <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '0$'">
+                        <span [style.color]="baseSetting.listColor">18<span>{{baseSetting.currency}}</span></span></div>
+                      <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '0.00$'">
+                        <span [style.color]="baseSetting.listColor">18.00<span>{{baseSetting.currency}}</span></span>
+                      </div>
+                    </a><a [style.border-color]="baseSetting.listBorder" class="tablet__btn tablet__btn--popular"
+                      href="javascript:void(0)" title="">
+                      <div>
+                        <p [style.color]="baseSetting.listColor">Shrimp cocktail</p>
+                      </div>
+                      <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '$0.00'">
+                        <span [style.color]="baseSetting.listColor"><span>{{baseSetting.currency}}</span>14.40</span>
+                      </div>
+                      <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '$0'">
+                        <span [style.color]="baseSetting.listColor"><span>{{baseSetting.currency}}</span>14</span></div>
+                      <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '0$'">
+                        <span [style.color]="baseSetting.listColor">14<span>{{baseSetting.currency}}</span></span></div>
+                      <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '0.00$'">
+                        <span [style.color]="baseSetting.listColor">14.00<span>{{baseSetting.currency}}</span></span>
+                      </div>
+                    </a><a [style.border-color]="baseSetting.listBorder" class="tablet__btn tablet__btn--special"
+                      href="javascript:void(0)">
+                      <div>
+                        <p [style.color]="baseSetting.listColor">Tuna Tartare Tower</p>
+                      </div>
+                      <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '$0.00'">
+                        <span [style.color]="baseSetting.listColor"><span>{{baseSetting.currency}}</span>17.00</span>
+                      </div>
+                      <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '$0'">
+                        <span [style.color]="baseSetting.listColor"><span>{{baseSetting.currency}}</span>17</span></div>
+                      <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '0$'">
+                        <span [style.color]="baseSetting.listColor">17<span>{{baseSetting.currency}}</span></span></div>
+                      <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '0.00$'">
+                        <span [style.color]="baseSetting.listColor">17.00<span>{{baseSetting.currency}}</span></span>
+                      </div>
+                    </a><a [style.border-color]="baseSetting.listBorder" class="tablet__btn tablet__btn--new"
+                      href="javascript:void(0)">
+                      <div>
+                        <p [style.color]="baseSetting.listColor">King Crab Mac'n'Cheese</p>
+                      </div>
+                      <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '$0.00'">
+                        <span [style.color]="baseSetting.listColor"><span>{{baseSetting.currency}}</span>18.00</span>
+                      </div>
+                      <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '$0'">
+                        <span [style.color]="baseSetting.listColor"><span>{{baseSetting.currency}}</span>18</span></div>
+                      <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '0$'">
+                        <span [style.color]="baseSetting.listColor">18<span>{{baseSetting.currency}}</span></span></div>
+                      <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '0.00$'">
+                        <span [style.color]="baseSetting.listColor">18.00<span>{{baseSetting.currency}}</span></span>
+                      </div>
+                    </a><a [style.border-color]="baseSetting.listBorder" class="tablet__btn" href="javascript:void(0)"
+                      title="">
+                      <div>
+                        <p [style.color]="baseSetting.listColor">Crab Fried Rice</p>
+                      </div>
+                      <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '$0.00'">
+                        <span [style.color]="baseSetting.listColor"><span>{{baseSetting.currency}}</span>16.00</span>
+                      </div>
+                      <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '$0'">
+                        <span [style.color]="baseSetting.listColor"><span>{{baseSetting.currency}}</span>16</span></div>
+                      <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '0$'">
+                        <span [style.color]="baseSetting.listColor">16<span>{{baseSetting.currency}}</span></span></div>
+                      <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '0.00$'">
+                        <span [style.color]="baseSetting.listColor">16.00<span>{{baseSetting.currency}}</span></span>
+                      </div>
+                    </a></div>
+                </div>
+              </div>
+            </div>
+            <div class="tablet__section tablet__section-1">
+              <div class="tablet__neutral">
+                <div class="tablet__neutral-total">
+                  <div class="tablet__order" [style.color]="baseSetting.neutralTxt"
+                    [style.background]="baseSetting.neutralbg">
+                    <p>Order total:</p>
+                    <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '$0.00'"><span
+                        [style.color]="baseSetting.neutralTxt"
+                        data-price="245.35"><span>{{baseSetting.currency}}</span>245.35</span></div>
+                    <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '$0'"><span
+                        [style.color]="baseSetting.neutralTxt"
+                        data-price="245.35"><span>{{baseSetting.currency}}</span>245</span></div>
+                    <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '0$'"><span
+                        [style.color]="baseSetting.neutralTxt"
+                        data-price="245.35">245<span>{{baseSetting.currency}}</span></span></div>
+                    <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '0.00$'"><span
+                        [style.color]="baseSetting.neutralTxt"
+                        data-price="245.35">245.35<span>{{baseSetting.currency}}</span></span></div>
+                  </div>
+                </div>
+                <div [style.background]="baseSetting.neutralBck" class="tablet__neutral-prev"><i
+                    class="icon-font icon-arrow"></i>
+                </div>
+                <div class="tablet__neutral-confirm" [style.background]="baseSetting.confirmBtn">
+                  <p [style.color]="baseSetting.confirmTxt">Confirm</p>
+                </div>
+              </div>
+            </div>
+            <div class="tablet__section tablet__section-2">
+              <div class="tablet__button-wrapper">
+                <p [style.background]="baseSetting.alert" [style.color]="baseSetting.alertTxt"
+                  class="tablet__button tablet__button--alert mb-0" title="">Alert<br>dialogue</p>
+                <p [style.background]="baseSetting.confirmDialog" [style.color]="baseSetting.confirmDialogTxt"
+                  class="tablet__button tablet__button--confirmation mb-0" title="">
+                  Confirmation<br>dialogue</p>
+              </div>
+            </div>
+          </section>
+        </div>
+        <!-- SECTION tablet :: END-->
+      </div>
+      <form class="c-form">
+        <div class="mds__upload mds__upload--hi">
+          <p class="mds__subtitle pb-3">Theme cover</p>
+          <input [(ngModel)]="baseTheme.name" name="name" class="themeTitle" placeholder="Theme title">
+
+          <div class="mds__upload-wrapper mds__upload-wrapper--double mds__upload-wrapper--main mt-3"
+            *ngIf="baseTheme.photo_url == ''">
+            <div class="mds__upload-left">
+              <div class="mds__upload-bg">
+                <div>
+                  <span>Upload image</span>
+                  <input name="myfile" type="file" (change)="onFileChange($event)"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mds__upload-wrapper mds__upload-wrapper--double mds__upload-wrapper--additional pb-0 mt-3"
+            *ngIf="baseTheme.photo_url != ''">
+            <div>
+              <div class="mds__upload-left">
+                <div class="mds__upload-preview">
+                  <img [src]="baseTheme.photo_url">
+                </div>
+              </div>
+              <div class="mds__upload-right">
+                <div class="mds__upload-option">
+                  <a class="mds__upload-remove" (click)="removeLocalImg()" href="javascript:void(0)" title=""><i
+                      class="icon-font icon-bin"></i><span>Remove
+                      image</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="mds__subtitle">Font settings</p>
+        <div class="mds__form-content mds__form-content--font pb-1">
+          <div class="c-form__group c-form__group--two">
+            <div class="c-form__group-col c-form__group-col-0 mb-3">
+              <p class="pb-1">Text</p>
+              <div class="c-form__field c-form__field--select">
+                <div class="c-form__select-wrapper">
+                  <div class="c-form__select-value">{{baseSetting.fontFamily}}</div>
+                  <select class="c-form__select" id="select_font_text" [(ngModel)]="baseSetting.fontFamily"
+                    name="fontFamily">
+                    <option value="" selected="" disabled="">Select Font Family</option>
+                    <option value="Open Sans">Open Sans</option>
+                    <option value="Roboto">Roboto</option>
+                    <option value="Lato">Lato</option>
+                    <option value="Montserrat">Montserrat</option>
+                    <option value="Poppins">Poppins</option>
+                  </select>
+                  <div class="c-form__select-icon"><i></i></div>
+                </div>
+              </div>
+            </div>
+            <div class="c-form__group-col c-form__group-col-1 mb-3">
+              <p class="pb-1">Numeric</p>
+              <div class="c-form__field c-form__field--select">
+                <div class="c-form__select-wrapper">
+                  <div class="c-form__select-value">{{baseSetting.priceFamily}}</div>
+                  <select class="c-form__select" id="select_font_text" [(ngModel)]="baseSetting.priceFamily"
+                    name="priceFamily">
+                    <option value="" selected="" disabled="">Select Font Family</option>
+                    <option value="Open Sans">Open Sans</option>
+                    <option value="Roboto">Roboto</option>
+                    <option value="Lato">Lato</option>
+                    <option value="Montserrat">Montserrat</option>
+                    <option value="Poppins">Poppins</option>
+                  </select>
+                  <div class="c-form__select-icon"><i></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="mds__subtitle">Navigation bar</p>
+        <div class="mds__form-content mds__form-content--radio pb-2">
+          <div>
+            <p>Icon Style</p>
+          </div>
+          <div>
+            <div>
+              <label>
+                <input type="radio" name="iconName" (click)="navIconColor('#fff')"
+                  [checked]="baseSetting.navBarIcon == '#fff'" value="#fff"><span>White</span>
+              </label>
+            </div>
+            <div>
+              <label>
+                <input type="radio" name="iconName" (click)="navIconColor('#000')"
+                  [checked]="baseSetting.navBarIcon == '#000'" value="#000"><span>Black</span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="mds__form-content">
+          <div class="mds__form-color mds__form-color--winput">
+            <div>
+              <p>Color palette</p>
+            </div>
+            <div class="is-three">
+              <div class="mds__form-color-content">
+                <input class="colorText" readonly [style.background]="baseSetting.navbarTxt"
+                  [(colorPicker)]="baseSetting.navbarTxt" name="navbarTxt" />
+              </div>
+              <div class="mds__form-color-content">
+                <input class="colorText" readonly [style.background]="baseSetting.navbarBg"
+                  [(colorPicker)]="baseSetting.navbarBg" name="navbarBg" />
+              </div>
+              <div class="mds__form-color-content">
+                <input class="colorText" readonly [style.background]="baseSetting.navbarBorder"
+                  [(colorPicker)]="baseSetting.navbarBorder" name="navbarBorder" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="mds__subtitle">Default UI setting</p>
+        <div class="mds__form-content">
+          <div class="mds__form-color mds__form-color--winput">
+            <div>
+              <p>Color palette</p>
+            </div>
+            <div class="is-three">
+              <div class="mds__form-color-content">
+                <input class="colorText" readonly [style.background]="baseSetting.listColor"
+                  [(colorPicker)]="baseSetting.listColor" name="listColor" />
+              </div>
+              <div class="mds__form-color-content">
+                <input class="colorText" readonly [style.background]="baseSetting.listBg"
+                  [(colorPicker)]="baseSetting.listBg" name="listBg" />
+              </div>
+              <div class="mds__form-color-content">
+                <input class="colorText" readonly [style.background]="baseSetting.listBorder"
+                  [(colorPicker)]="baseSetting.listBorder" name="listBorder" />
+              </div>
+            </div>
+          </div>
+
+
+          <div class="mds__form-color mds__form-color--winput">
+            <div>
+              <p>Select / Highlight</p>
+            </div>
+            <div class="is-one">
+              <div class="mds__form-color-content">
+                <input class="colorText" readonly [style.background]="baseSetting.listSelect"
+                  [(colorPicker)]="baseSetting.listSelect" name="listSelect" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mds__form-content">
+          <div class="mds__form-color mds__form-color--winput">
+            <div>
+              <p>UI Neutral</p>
+            </div>
+            <div class="is-three">
+              <div class="mds__form-color-content">
+                <input class="colorText" readonly [style.background]="baseSetting.neutralTxt"
+                  [(colorPicker)]="baseSetting.neutralTxt" name="neutralTxt" />
+              </div>
+              <div class="mds__form-color-content">
+                <input class="colorText" readonly [style.background]="baseSetting.neutralBck"
+                  [(colorPicker)]="baseSetting.neutralBck" name="neutralBck" />
+              </div>
+              <div class="mds__form-color-content">
+                <input class="colorText" readonly [style.background]="baseSetting.neutralbg"
+                  [(colorPicker)]="baseSetting.neutralbg" name="neutralbg" />
+              </div>
+            </div>
+          </div>
+          <div class="mds__form-color mds__form-color--winput">
+            <div>
+              <p>Confirmation button</p>
+            </div>
+            <div>
+              <div class="mds__form-color-content">
+                <input class="colorText" readonly [style.background]="baseSetting.confirmTxt"
+                  [(colorPicker)]="baseSetting.confirmTxt" name="confirmTxt" />
+              </div>
+              <div class="mds__form-color-content">
+                <input class="colorText" readonly [style.background]="baseSetting.confirmBtn"
+                  [(colorPicker)]="baseSetting.confirmBtn" name="confirmBtn" />
+              </div>
+            </div>
+          </div>
+          <div class="mds__form-color mds__form-color--winput">
+            <div>
+              <p>Alert dialogue</p>
+            </div>
+            <div>
+              <div class="mds__form-color-content">
+                <input class="colorText" readonly [style.background]="baseSetting.alertTxt"
+                  [(colorPicker)]="baseSetting.alertTxt" name="alertTxt" />
+              </div>
+              <div class="mds__form-color-content">
+                <input class="colorText" readonly [style.background]="baseSetting.alert"
+                  [(colorPicker)]="baseSetting.alert" name="alert" />
+              </div>
+            </div>
+          </div>
+          <div class="mds__form-color mds__form-color--winput">
+            <div>
+              <p>Confirmation dialogue</p>
+            </div>
+            <div>
+              <div class="mds__form-color-content">
+                <input class="colorText" readonly [style.background]="baseSetting.confirmDialogTxt"
+                  [(colorPicker)]="baseSetting.confirmDialogTxt" name="confirmDialogTxt" />
+              </div>
+              <div class="mds__form-color-content">
+                <input class="colorText" readonly [style.background]="baseSetting.confirmDialog"
+                  [(colorPicker)]="baseSetting.confirmDialog" name="confirmDialog" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="mds__subtitle">Currency and Price format</p>
+        <div class="mds__form-content mds__form-content--last">
+          <div class="c-form__group c-form__group--two">
+            <div class="c-form__group-col c-form__group-col-0">
+              <div class="c-form__field c-form__field--select">
+                <div class="c-form__select-wrapper">
+                  <div class="c-form__select-value" *ngIf="baseSetting.currency == '$'">USD</div>
+                  <div class="c-form__select-value" *ngIf="baseSetting.currency == '€'">EUR</div>
+                  <div class="c-form__select-value" *ngIf="baseSetting.currency == '£'">GBP</div>
+                  <div class="c-form__select-value" *ngIf="baseSetting.currency == '¥'">JPY</div>
+                  <div class="c-form__select-value" *ngIf="baseSetting.currency == '₣'">CHF</div>
+                  <select class="c-form__select" [(ngModel)]="baseSetting.currency" name="currency"
+                    placeholder="Select Currency">
+                    <option value="" selected="" disabled="">Select currency</option>
+                    <option value="$">USD</option>
+                    <option value="€">EUR</option>
+                    <option value="£">GBP</option>
+                    <option value="¥">JPY</option>
+                    <option value="₣">CHF</option>
+                  </select>
+                  <div class="c-form__select-icon"><i></i></div>
+                </div>
+              </div>
+            </div>
+            <div class="c-form__group-col c-form__group-col-1">
+              <div class="c-form__field c-form__field--select">
+                <div class="c-form__select-wrapper">
+                  <div class="c-form__select-value">{{baseSetting.priceFormat}}</div>
+                  <select class="c-form__select" placeholder="Select Price Format" [(ngModel)]="baseSetting.priceFormat"
+                    name="priceFormat">
+                    <option value="" selected="" disabled="">Price format</option>
+                    <option value="$0">$0</option>
+                    <option value="$0.00">$0.00</option>
+                    <option value="0$">0$</option>
+                    <option value="0.00$">0.00$</option>
+                  </select>
+                  <div class="c-form__select-icon"><i></i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="c-form__field c-form__field--btn">
+          <button *ngIf="!newtheme" class="c-form__btn c-btn c-btn--bg" (click)="updateBaseSettings()"
+            type="button">Update
+            settings</button>
+          <button *ngIf="newtheme" class="c-form__btn c-btn c-btn--bg" (click)="updateBaseSettings()"
+            type="button">Create new theme</button>
+          <button *ngIf="!newtheme" class="c-form__btn c-btn c-btn--bg deleteBtn" (click)="deleteTheme()"
+            type="button">Delete theme</button>
+        </div> -->
+
+
+        <div class="mds__form-content mds__form-content--last">
+          <div class="c-form__group c-form__group--two">
+            <div class="c-form__group-col c-form__group-col-0">
+              <button *ngIf="!newtheme" class="c-form__btn c-btn c-btn--bg buttonCustom" (click)="updateBaseSettings()"
+                type="button">Update
+                settings</button>
+              <button *ngIf="newtheme" class="c-form__btn c-btn c-btn--bg buttonCustom" (click)="updateBaseSettings()"
+                type="button">Create new theme</button>
+            </div>
+            <div class="c-form__group-col c-form__group-col-1">
+              <button *ngIf="!newtheme" class="c-form__btn c-btn c-btn--bg deleteBtn buttonCustom" (click)="deleteTheme()"
+                type="button">Delete theme</button>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+      </form>
+    </div>
+    <div class="mds__wrapper-right" [class.is-show]="wasClicked">
+      <div class="mds__wrapper-header">
+        <div><i class="icon-font icon-eye"></i>
+          <p>{{themeName}} Theme</p>
+        </div>
+        <div><a class="mds__wrapper-close" href="javascript:void(0)" (click)="onPreviw()" title=""><i
+              class="icon-font icon-close"></i></a></div>
+      </div>
+      <!-- SECTION tablet :: START-->
+      <div class="tablet--scroll">
+        <section [style.font-family]="baseSetting.fontFamily" class="tablet tablet--general tablet--menuItems"
+          id="tablet" style="">
+          <div class="tablet__section tablet__section-0">
+            <div class="tablet__header" [style.background]="baseSetting.navbarBg"
+              [style.border-color]="baseSetting.navbarBorder">
+              <div [style.border-color]="baseSetting.navbarBorder"><a href="javascript:void(0)" title=""><i
+                    [style.color]="baseSetting.navBarIcon" class="icon-font icon-list-menu" aria-hidden="true"></i>
+                </a></div>
+              <div [style.border-color]="baseSetting.navbarBorder"><a href="javascript:void(0)" title=""><i
+                    [style.color]="baseSetting.navBarIcon" class="icon-font icon-user"></i><span
+                    [style.color]="baseSetting.navbarTxt">3</span></a>
+              </div>
+              <div [style.border-color]="baseSetting.navbarBorder"><a href="javascript:void(0)" title=""><i
+                    [style.color]="baseSetting.navBarIcon" class="icon-font icon-doc"></i><span
+                    [style.color]="baseSetting.navbarTxt">0</span></a></div>
+              <div [style.border-color]="baseSetting.navbarBorder"><a href="javascript:void(0)" title=""><i
+                    [style.color]="baseSetting.navBarIcon" class="icon-font icon-bell"></i></a></div>
+            </div>
+            <div class="tablet__content">
+              <div class="tablet__subheader" [style.border-color]="baseSetting.navbarBorder"
+                [style.background]="baseSetting.navbarBg"><a [style.color]="baseSetting.navBarIcon"
+                  href="javascript:void(0)" title=""><i class="icon-font icon-corner"></i></a>
+                <p [style.color]="baseSetting.navbarTxt">Cold Appetizers</p><a [style.color]="baseSetting.navBarIcon"
+                  href="javascript:void(0)" title=""><i class="icon-font icon-corner"></i></a>
+              </div>
+              <div class="tablet__view tablet__view-list">
+                <div class="tablet__btn-wrapper" [style.background]="baseSetting.listBg"><a
+                    [style.background]="baseSetting.listSelect" [style.border-color]="baseSetting.listBorder"
+                    class="tablet__btn tablet__btn--spicy is-choose" href="javascript:void(0)">
+                    <div>
+                      <p [style.color]="baseSetting.listColor">Fresh florida stone crab clams</p>
+                    </div>
+                    <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '$0.00'">
+                      <span [style.color]="baseSetting.listColor"><span>{{baseSetting.currency}}</span>18.50</span>
+                    </div>
+                    <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '$0'">
+                      <span [style.color]="baseSetting.listColor"><span>{{baseSetting.currency}}</span>18</span></div>
+                    <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '0$'">
+                      <span [style.color]="baseSetting.listColor">18<span>{{baseSetting.currency}}</span></span></div>
+                    <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '0.00$'">
+                      <span [style.color]="baseSetting.listColor">18.00<span>{{baseSetting.currency}}</span></span>
+                    </div>
+                  </a><a [style.border-color]="baseSetting.listBorder" class="tablet__btn tablet__btn--popular"
+                    href="javascript:void(0)" title="">
+                    <div>
+                      <p [style.color]="baseSetting.listColor">Shrimp cocktail</p>
+                    </div>
+                    <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '$0.00'">
+                      <span [style.color]="baseSetting.listColor"><span>{{baseSetting.currency}}</span>14.40</span>
+                    </div>
+                    <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '$0'">
+                      <span [style.color]="baseSetting.listColor"><span>{{baseSetting.currency}}</span>14</span></div>
+                    <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '0$'">
+                      <span [style.color]="baseSetting.listColor">14<span>{{baseSetting.currency}}</span></span></div>
+                    <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '0.00$'">
+                      <span [style.color]="baseSetting.listColor">14.00<span>{{baseSetting.currency}}</span></span>
+                    </div>
+                  </a><a [style.border-color]="baseSetting.listBorder" class="tablet__btn tablet__btn--special"
+                    href="javascript:void(0)">
+                    <div>
+                      <p [style.color]="baseSetting.listColor">Tuna Tartare Tower</p>
+                    </div>
+                    <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '$0.00'">
+                      <span [style.color]="baseSetting.listColor"><span>{{baseSetting.currency}}</span>17.00</span>
+                    </div>
+                    <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '$0'">
+                      <span [style.color]="baseSetting.listColor"><span>{{baseSetting.currency}}</span>17</span></div>
+                    <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '0$'">
+                      <span [style.color]="baseSetting.listColor">17<span>{{baseSetting.currency}}</span></span></div>
+                    <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '0.00$'">
+                      <span [style.color]="baseSetting.listColor">17.00<span>{{baseSetting.currency}}</span></span>
+                    </div>
+                  </a><a [style.border-color]="baseSetting.listBorder" class="tablet__btn tablet__btn--new"
+                    href="javascript:void(0)">
+                    <div>
+                      <p [style.color]="baseSetting.listColor">King Crab Mac'n'Cheese</p>
+                    </div>
+                    <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '$0.00'">
+                      <span [style.color]="baseSetting.listColor"><span>{{baseSetting.currency}}</span>18.00</span>
+                    </div>
+                    <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '$0'">
+                      <span [style.color]="baseSetting.listColor"><span>{{baseSetting.currency}}</span>18</span></div>
+                    <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '0$'">
+                      <span [style.color]="baseSetting.listColor">18<span>{{baseSetting.currency}}</span></span></div>
+                    <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '0.00$'">
+                      <span [style.color]="baseSetting.listColor">18.00<span>{{baseSetting.currency}}</span></span>
+                    </div>
+                  </a><a [style.border-color]="baseSetting.listBorder" class="tablet__btn" href="javascript:void(0)"
+                    title="">
+                    <div>
+                      <p [style.color]="baseSetting.listColor">Crab Fried Rice</p>
+                    </div>
+                    <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '$0.00'">
+                      <span [style.color]="baseSetting.listColor"><span>{{baseSetting.currency}}</span>16.00</span>
+                    </div>
+                    <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '$0'">
+                      <span [style.color]="baseSetting.listColor"><span>{{baseSetting.currency}}</span>16</span></div>
+                    <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '0$'">
+                      <span [style.color]="baseSetting.listColor">16<span>{{baseSetting.currency}}</span></span></div>
+                    <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '0.00$'">
+                      <span [style.color]="baseSetting.listColor">16.00<span>{{baseSetting.currency}}</span></span>
+                    </div>
+                  </a></div>
+              </div>
+            </div>
+          </div>
+          <div class="tablet__section tablet__section-1">
+            <div class="tablet__neutral">
+              <div class="tablet__neutral-total">
+                <div class="tablet__order" [style.color]="baseSetting.neutralTxt"
+                  [style.background]="baseSetting.neutralbg">
+                  <p>Order total:</p>
+                  <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '$0.00'"><span
+                      [style.color]="baseSetting.neutralTxt"
+                      data-price="245.35"><span>{{baseSetting.currency}}</span>245.35</span></div>
+                  <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '$0'"><span
+                      [style.color]="baseSetting.neutralTxt"
+                      data-price="245.35"><span>{{baseSetting.currency}}</span>245</span></div>
+                  <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '0$'"><span
+                      [style.color]="baseSetting.neutralTxt"
+                      data-price="245.35">245<span>{{baseSetting.currency}}</span></span></div>
+                  <div [style.font-family]="baseSetting.priceFamily" *ngIf="baseSetting.priceFormat == '0.00$'"><span
+                      [style.color]="baseSetting.neutralTxt"
+                      data-price="245.35">245.35<span>{{baseSetting.currency}}</span></span></div>
+                </div>
+              </div>
+              <div [style.background]="baseSetting.neutralBck" class="tablet__neutral-prev"><i
+                  class="icon-font icon-arrow"></i>
+              </div>
+              <div class="tablet__neutral-confirm" [style.background]="baseSetting.confirmBtn">
+                <p [style.color]="baseSetting.confirmTxt">Confirm</p>
+              </div>
+            </div>
+          </div>
+          <div class="tablet__section tablet__section-2">
+            <div class="tablet__button-wrapper">
+              <p [style.background]="baseSetting.alert" [style.color]="baseSetting.alertTxt"
+                class="tablet__button tablet__button--alert mb-0" title="">Alert<br>dialogue</p>
+              <p [style.background]="baseSetting.confirmDialog" [style.color]="baseSetting.confirmDialogTxt"
+                class="tablet__button tablet__button--confirmation mb-0" title="">
+                Confirmation<br>dialogue</p>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- SECTION tablet :: END-->
+    </div>
+  </div>
+</section>

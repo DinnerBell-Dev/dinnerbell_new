@@ -1,0 +1,111 @@
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a98bd55efb3d521d166bb1b"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"menus" : [
+		ObjectId("5a9d47fb927c1e0781c227fd"),
+		ObjectId("5a9d4b67927c1e0781c227ff"),
+		ObjectId("5a9d4be6927c1e0781c22800"),
+		ObjectId("5a9d4c6d927c1e0781c22802")
+	],
+	"name" : "Cold Appetizers"
+},
+{
+	"__v" : NumberInt("1"),
+	"_id" : ObjectId("5a98bd5eefb3d521d166bb1c"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"menus" : [
+		ObjectId("5a9d4b67927c1e0781c227ff"),
+		ObjectId("5a9d4be6927c1e0781c22800"),
+		ObjectId("5a9d4c6d927c1e0781c22802"),
+		ObjectId("5a9d4d3a927c1e0781c22803"),
+		ObjectId("5abdb26a641d696a17ce0855")
+	],
+	"name" : "Raw Bar"
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a98bd6defb3d521d166bb1d"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"menus" : [
+		ObjectId("5a9d4be6927c1e0781c22800"),
+		ObjectId("5a9d4c6d927c1e0781c22802"),
+		ObjectId("5a9d4d3a927c1e0781c22803"),
+		ObjectId("5a9d4dd9927c1e0781c22804")
+	],
+	"name" : "Charcuterie & Cheese"
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a98bd7aefb3d521d166bb1e"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"menus" : [
+		ObjectId("5a9d47fb927c1e0781c227fd"),
+		ObjectId("5a9d4b67927c1e0781c227ff"),
+		ObjectId("5a9d4be6927c1e0781c22800")
+	],
+	"name" : "Hot Appetizer"
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a98bd85efb3d521d166bb20"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"menus" : [
+		ObjectId("5a9d4be6927c1e0781c22800"),
+		ObjectId("5a9d4c6d927c1e0781c22802"),
+		ObjectId("5a9d4d3a927c1e0781c22803")
+	],
+	"name" : "Salad"
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a98bd8eefb3d521d166bb21"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"menus" : [
+		ObjectId("5a9d4c6d927c1e0781c22802"),
+		ObjectId("5a9d4d3a927c1e0781c22803"),
+		ObjectId("5a9d4dd9927c1e0781c22804")
+	],
+	"name" : "Pasta & Risotto"
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a98bd94efb3d521d166bb22"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"menus" : [
+		ObjectId("5a9d47fb927c1e0781c227fd"),
+		ObjectId("5a9d4b67927c1e0781c227ff")
+	],
+	"name" : "Entrees"
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a98bd98efb3d521d166bb23"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"menus" : [
+		ObjectId("5a9d4b67927c1e0781c227ff"),
+		ObjectId("5a9d4be6927c1e0781c22800")
+	],
+	"name" : "Sides"
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a98bd9eefb3d521d166bb24"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"menus" : [
+		ObjectId("5a9d4be6927c1e0781c22800"),
+		ObjectId("5a9d4c6d927c1e0781c22802")
+	],
+	"name" : "Drinks"
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a98bd7fefb3d521d166bb1f"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"menus" : [
+		ObjectId("5a9d4b67927c1e0781c227ff"),
+		ObjectId("5a9d4be6927c1e0781c22800"),
+		ObjectId("5a9d4c6d927c1e0781c22802")
+	],
+	"name" : "Soup"
+},

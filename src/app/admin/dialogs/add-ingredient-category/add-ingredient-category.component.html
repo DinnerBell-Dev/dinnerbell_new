@@ -1,0 +1,55 @@
+<div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">ingredient category
+            </h5>
+            <button type="button" class="close" (click)="close()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <mat-dialog-content>
+            <div class="modal-body ingredient">
+                <form [formGroup]="addCatForm">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 text-left">
+                            <h5>Category name *</h5>
+                        </div>
+                        <div class="col-md-12 col-sm-12">
+
+                            <div class="col-lg-12 col-md-12  form-group">
+                                <input type="text" class="form-control" placeholder="Category Name" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': f.name.touched && f.name.errors  }" (blur)="f.name.setValue(removeSpaces(f.name.value))">
+                                <div *ngIf="f.name.touched && f.name.errors " class="invalid-feedback">
+                                    <div *ngIf="f.name.errors.required"> Category Name is required</div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-12 col-sm-12 text-left">
+                            <h5>Category Image *</h5>
+                        </div>
+                        <div class="col-md-12 col-sm-12">
+
+                            <div class="col-md-4 add-photo form-group">
+                                <input style="display: none" type="file" (change)="onFileChanged($event)" accept="image/*" class="form-control" #fileInput>
+                                <div *ngIf="!f.photo_url.value" [ngClass]="{ 'error-class': !f.photo_url.value && f.name.touched }">
+                                    <img src="./assets/images/imagedemo.png" (click)="fileInput.click()">
+                                </div>
+                                <div *ngIf="f.photo_url.value">
+                                    <img src="{{f.photo_url.value}}" (click)="fileInput.click()">
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </mat-dialog-content>
+        <div class="modal-footer">
+            <div class="col-md-12" style="padding: 0px;">
+                <button type="button" class="btn btn-default" (click)="createCategory()" [disabled]="!addCatForm.valid">{{btntext}}</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Close -->

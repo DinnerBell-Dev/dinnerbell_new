@@ -1,0 +1,203 @@
+<div class="overlay" [class.is-overlay]="wasClicked"></div>
+
+<header class="header" id="header">
+  <div class="header__wrapper">
+    <div class="header__wrapper-top">
+      <div class="logo logo--header"><a class="logo__btn" href="javascript:void(0)" title=""><img class="logo__img"
+            src="assets/images/logo.svg" alt="" title=""><span>Dinner Bell</span></a></div>
+    </div>
+    <div class="header__wrapper-left">
+      <div class="c-hamburger c-hamburger--custom" role="button" [class.is-active]="wasClicked" (click)="onClick()">
+        <div class="c-hamburger__box">
+          <div class="c-hamburger__inner"></div>
+        </div>
+      </div>
+      <h1 class="header__title mt-2">{{sectionTitle}}</h1>
+    </div>
+    <div class="header__wrapper-right" [class.is-openNav]="wasClicked"><a *ngIf="viewIcon == 'true'"
+      class="header__preview" href="javascript:void(0)" (click)="previewPage()" title="">
+      <p class="mb-0"><i class="icon-font icon-eye"></i></p><span>preview</span>
+    </a>
+      <!-- <div class="header__dropdown">
+        <div class="header__dropdown-toggle"><span>Blue Strawberry</span></div>
+        <div class="header__dropdown-menu"><a class="header__dropdown-item" href="javascript:void(0)" title="">Company
+            profile</a><a class="header__dropdown-item" href="javascript:void(0)" title="">Login & Security</a><a
+            class="header__dropdown-item" href="javascript:void(0)" title="">TeamBilling Center</a><a
+            class="header__dropdown-item" href="javascript:void(0)" title="">Tablet Settings</a><a
+            class="header__dropdown-item" href="javascript:void(0)" title="">Help</a><a class="header__dropdown-item"
+            href="javascript:void(0)" title="">Report a bug</a><a class="header__dropdown-item"
+            href="javascript:void(0)" title="">Leave feedback</a><a class="header__dropdown-item"
+            href="javascript:void(0)" title="">Log Out</a></div>
+      </div> -->
+      <!-- <div class="header__nav">
+        <div class="header__nav-wrapper">
+          <div class="header__nav-drop header__nav-drop--setting" dropdown-js><a
+              class="header__nav-btn header__nav-btn--setting" href="javascript:void(0)" title="" dropdown-btn-js><i
+                class="icon-png i-setting-1"></i></a>
+            <div dropdown-menu-js>
+              <div class="header__nav-drop--header">
+                <div>
+                  <div><i class="icon-png i-user-1"></i></div>
+                </div>
+                <div>
+                  <p>Christopher Kelly</p><span>mail@bluestrawberry.com</span><a href="javascript:void(0)" title="">Edit
+                    profile</a>
+                </div>
+              </div>
+              <div class="header__nav-drop--body">
+                <div class="header__nav-drop--collapse">
+                  <div class="header__nav-drop--collapse-head">
+                    <div><i class="icon-font icon-billing"></i><span>Billing</span></div>
+                    <div><i class="icon-font icon-corner"></i></div>
+                  </div>
+                  <div class="header__nav-drop--collapse-body">
+                    <ul>
+                      <li>
+                        <div>
+                          <p>Monthly total:</p>
+                        </div>
+                        <div><span>$250</span></div>
+                      </li>
+                      <li>
+                        <div>
+                          <p>Current Balance:</p>
+                        </div>
+                        <div><span>$0</span></div>
+                      </li>
+                      <li>
+                        <div>
+                          <p>Next Payment:</p>
+                        </div>
+                        <div><span>06/27/2019</span></div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="header__nav-drop--method">
+                  <div>
+                    <p>Payment Method:</p>
+                  </div>
+                  <div><span>**** 0414</span><i class="icon-png i-mastercard"></i></div>
+                </div>
+                <div class="header__nav-drop--btn"><a href="javascript:void(0)" title="">Manage billing</a><a
+                    href="javascript:void(0)" title="">Make a
+                    payment</a></div>
+              </div>
+              <div class="header__nav-drop--footer"><a href="javascript:void(0)" title="">
+                  <div><i class="icon-font icon-unlock"></i></div><span>Login & Security</span>
+                </a><a href="javascript:void(0)" title="">
+                  <div><i class="icon-font icon-information"></i></div><span>Help</span>
+                </a><a href="javascript:void(0)" title="">
+                  <div><i class="icon-font icon-sign-out"></i></div><span>Sign Out</span>
+                </a></div>
+            </div>
+          </div>
+          <div class="header__nav-drop header__nav-drop--qrcode" dropdown-js><a
+              class="header__nav-btn header__nav-btn--qrcode" href="javascript:void(0)" title="" dropdown-btn-js><i
+                class="icon-png i-qrcode"></i></a>
+            <div dropdown-menu-js>
+              <div class="header__nav-drop--header">
+                <p>Access Codes</p>
+              </div>
+              <div class="header__nav-drop--body">
+                <form class="c-form" action="" method="" autocomplete="off">
+                  <div class="c-form__field c-form__field--select">
+                    <div class="c-form__select-wrapper">
+                      <div class="c-form__select-value"></div>
+                      <select class="c-form__select" id="select" name="select" select-js="select-js">
+                        <option value="" disabled="disabled" selected="selected" hidden="hidden">Choose your...</option>
+                        <option value="Some option 1">Some option 1</option>
+                        <option value="Some option 2">Some option 2</option>
+                        <option value="Some option 3">Some option 3</option>
+                      </select>
+                      <div class="c-form__select-icon"><i></i></div>
+                    </div>
+                    <div class="c-form__notify">
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="header__nav-drop--footer"></div>
+            </div>
+          </div>
+          <div class="header__nav-drop header__nav-drop--team" dropdown-js><a
+              class="header__nav-btn header__nav-btn--team" href="javascript:void(0)" title="" dropdown-btn-js><i
+                class="icon-png i-team"></i></a>
+            <div dropdown-menu-js>
+              <div class="header__nav-drop--header">
+                <p>Restaurant team:</p>
+              </div>
+              <div class="header__nav-drop--body">
+                <ul>
+                  <li class="is-online"><a href="javascript:void(0)" title="">
+                      <div><i></i></div>
+                      <div>
+                        <p>Ahdy Khairat</p><span>Kitchen</span>
+                      </div>
+                    </a></li>
+                  <li class="is-online"><a href="javascript:void(0)" title="">
+                      <div><i></i></div>
+                      <div>
+                        <p>Ruben Granz</p><span>Bar</span>
+                      </div>
+                    </a></li>
+                  <li class="is-online"><a href="javascript:void(0)" title="">
+                      <div><i></i></div>
+                      <div>
+                        <p>Sean Fitzgibbons</p><span>Waiter</span>
+                      </div>
+                    </a></li>
+                  <li><a href="javascript:void(0)" title="">
+                      <div><i></i></div>
+                      <div>
+                        <p>Carlos Emeritus</p><span>Waiter</span>
+                      </div>
+                    </a></li>
+                  <li><a href="javascript:void(0)" title="">
+                      <div><i></i></div>
+                      <div>
+                        <p>Maria Rodrigues</p><span>Host</span>
+                      </div>
+                    </a></li>
+                  <li class="is-link"><a href="javascript:void(0)" title="">
+                      <div><i>+</i></div><span>Add team member</span>
+                    </a></li>
+                </ul>
+              </div>
+              <div class="header__nav-drop--footer">
+                <p>Active guests: <span>5</span></p>
+              </div>
+            </div>
+          </div>
+          <div class="header__nav-drop header__nav-drop--notification" dropdown-js><a
+              class="header__nav-btn header__nav-btn--notification" href="javascript:void(0)" title=""
+              dropdown-btn-js><i class="icon-png i-notification"></i></a>
+            <div dropdown-menu-js>
+              <div class="header__nav-drop--header">
+                <p>Notifications</p>
+              </div>
+              <div class="header__nav-drop--block header__nav-drop--block-introduc">
+                <p>Introducing Advanced Discounts</p><span>Automatically apply time-specific discounts to items and
+                  categories.</span><a href="javascript:void(0)" title="">Create a Discount</a>
+              </div>
+              <div class="header__nav-drop--block header__nav-drop--block-alert header__nav-drop--block-alert-in">
+                <div><i class="icon-font icon-alert"></i></div>
+                <div>
+                  <p>Your trial period for Blue Strawberry is expiring in 5 days</p><span>Click here to learn more about
+                    our services or <a href='#'>schedule and demo tour</a></span>
+                </div>
+              </div>
+              <div class="header__nav-drop--block header__nav-drop--block-alert header__nav-drop--block-alert-out">
+                <div><i class="icon-font icon-alert"></i></div>
+                <div>
+                  <p>Your trial period for Blue Strawberry has expired</p><span>Subscribe to one of our services and
+                    continue using your account</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</header>

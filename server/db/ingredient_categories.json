@@ -1,0 +1,83 @@
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a98a4c0efb3d521d166bafa"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"ingredients" : [
+		ObjectId("5a98a707efb3d521d166bb06"),
+		ObjectId("5a98a70eefb3d521d166bb07"),
+		ObjectId("5a98a717efb3d521d166bb08"),
+		ObjectId("5a98a721efb3d521d166bb09")
+	],
+	"name" : "greens"
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a98a4d3efb3d521d166bafb"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"ingredients" : [
+		ObjectId("5a98a70eefb3d521d166bb07"),
+		ObjectId("5a98a717efb3d521d166bb08"),
+		ObjectId("5a98a721efb3d521d166bb09"),
+		ObjectId("5a98a72aefb3d521d166bb0a")
+	],
+	"name" : "essentials"
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a98a4dbefb3d521d166bafc"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"ingredients" : [
+		ObjectId("5a98a717efb3d521d166bb08"),
+		ObjectId("5a98a721efb3d521d166bb09"),
+		ObjectId("5a98a72aefb3d521d166bb0a"),
+		ObjectId("5a98a736efb3d521d166bb0b")
+	],
+	"name" : "premiums"
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a98a4e1efb3d521d166bafd"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"ingredients" : [
+		ObjectId("5a98a721efb3d521d166bb09"),
+		ObjectId("5a98a72aefb3d521d166bb0a"),
+		ObjectId("5a98a736efb3d521d166bb0b"),
+		ObjectId("5a98a740efb3d521d166bb0c")
+	],
+	"name" : "proteins"
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a98a4e9efb3d521d166bafe"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"ingredients" : [
+		ObjectId("5a98a707efb3d521d166bb06"),
+		ObjectId("5a98a70eefb3d521d166bb07"),
+		ObjectId("5a98a717efb3d521d166bb08")
+	],
+	"name" : "cheese"
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a98a4f1efb3d521d166baff"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"ingredients" : [
+		ObjectId("5a98a707efb3d521d166bb06"),
+		ObjectId("5a98a70eefb3d521d166bb07"),
+		ObjectId("5a98a717efb3d521d166bb08"),
+		ObjectId("5a98a721efb3d521d166bb09"),
+		ObjectId("5a98a72aefb3d521d166bb0a"),
+		ObjectId("5a98a736efb3d521d166bb0b"),
+		ObjectId("5a98a740efb3d521d166bb0c")
+	],
+	"name" : "dressings"
+},
+{
+	"__v" : NumberInt("4"),
+	"_id" : ObjectId("5ab8114d3605354104a36500"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"ingredients" : [
+		ObjectId("5ab87e07f47b5f815dfd2557")
+	],
+	"name" : "test"
+},

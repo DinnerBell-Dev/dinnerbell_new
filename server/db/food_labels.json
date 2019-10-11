@@ -1,0 +1,28 @@
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a9873a1efb3d521d166bae9"),
+	"color" : "#FF00FF",
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"name" : "popular"
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a9873b1efb3d521d166baea"),
+	"color" : "#FF0000",
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"name" : "spicy"
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a98742fefb3d521d166baeb"),
+	"color" : "#00FF00",
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"name" : "vegetarian"
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a98743befb3d521d166baec"),
+	"color" : "#0000FF",
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"name" : "new!"
+},

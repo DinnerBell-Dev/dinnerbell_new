@@ -1,0 +1,73 @@
+//Item Detail Page
+.colorText {
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  height: 100%;
+  width: 100%;
+  border: none;
+}
+.mds__form-color-content {
+  overflow: inherit !important;
+}
+.mds__fontSize-name {
+  margin-bottom: 0px;
+}
+.mds__fontSize-col {
+  overflow: inherit !important;
+}
+.mds__upload-color {
+  overflow: inherit !important;
+}
+p {
+  margin-bottom: 0 !important;
+}
+
+.tablet__content {
+  background-image: url("/assets/images/tablet-banner.jpg");
+}
+
+.irs-handle.single {
+  background-image: url("/assets/images/img-tablet-range.png") !important;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.update-settings {
+  margin: 2em 0em;
+}
+
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn {
+  border-radius: 5px;
+  border: 1px solid #61bdf0;
+  background-color: #fff;
+  color: #61bdf0;
+  font-size: 16px;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  font-family: Fort-Bold;
+}
+
+.upload-btn-wrapper input[type="file"] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+
+.left-text {
+  color: #00bef2;
+  font-size: 14px;
+}
+.right-text {
+  color: #00bef2;
+  font-size: 20px;
+}
+
+

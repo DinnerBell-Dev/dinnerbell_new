@@ -1,0 +1,23 @@
+<div class="mt-5 pt-5"></div>
+<div class="mds__theme-wrapper" *ngIf="themeList == null">
+  <h2 class="mx-auto">No Theme found</h2>
+</div>
+<div class="mds__theme-wrapper " *ngIf="themeList != null">
+  <a *ngFor="let theme of themeList" class="mds__theme mds__theme-2" href="javascript:void(0)" title="">
+    <div class="mds__theme-top"><img [src]="theme.photo_url" alt="" title="">
+       <div class="mds__theme-btn" *ngIf="activatedTheme != theme.name">
+        <button type="button" (click)="useTheme(theme._id)"><span>Use this theme</span><i
+            class="icon-font icon-arrow"></i></button>
+      </div>
+      <div class="mds__theme-btn" *ngIf="activatedTheme == theme.name">
+        <button type="button" (click)="customizeTheme()"><span>Continue editing</span><i
+            class="icon-font icon-arrow"></i></button>
+        <button (click)="restoreSetting(theme);" type="button"><span>Restore defaults</span><i
+            class="icon-font icon-arrow"></i></button>
+      </div>
+    </div>
+    <div class="mds__theme-bottom pt-2">
+      <p>{{theme.name}}</p>
+    </div>
+  </a>
+</div>

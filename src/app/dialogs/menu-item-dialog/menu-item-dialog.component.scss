@@ -1,0 +1,144 @@
+.imagebtn {
+    cursor: pointer;
+    background: #bbf3ff;
+    font-size: 12px;
+    font-weight: 600;
+    height: 170px;
+    border-radius: 0px;
+    color: #00bef2;
+    text-transform: uppercase;
+    width: 100%;
+    border: 0px !important;
+}
+
+.img-set {
+    right: 25px !important;
+}
+
+.error-class {
+    border: 1px solid red;
+}
+
+.close-btn {
+    position: absolute;
+    right: 4%;
+    top: 30%;
+    color: #00bef2;
+    border: 0px;
+    background: transparent;
+    font-size: 12px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.ingredients-items {
+    background: #eee;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+}
+
+.spice-header {
+    padding-left: 10px;
+}
+
+.item-title {
+    margin: 6px 0px;
+    font-size: 1rem;
+    text-transform: capitalize;
+}
+
+.default {
+    color: #339c47 !important;
+    cursor: pointer;
+}
+
+.defalt-btn {
+    cursor: pointer;
+    color: #00bef2;
+    font-size: 12px;
+    margin-top: 10%;
+}
+
+.off {
+    background: red !important;
+    color: #fff !important;
+    opacity: 0.7;
+}
+
+.spice-row {
+    padding-top: 2px;
+    .col-2 {
+        padding: 0px;
+        margin-right: 6px;
+    }
+}
+
+.row .ingredients-inner {
+    margin: 0px 15px !important;
+}
+
+.spice-items {
+    display: inline-block !important;
+}
+
+.ingredient-item-heading {
+    background: #eee;
+    width: 100%;
+    margin: 3px 15px 0px 15px;
+    .close {
+        position: initial !important;
+    }
+}
+
+.modifier-heading {
+    margin: 0px;
+    padding: 5px 0px;
+    .close-container {
+        margin: auto;
+        text-align: right;
+        .close-text {
+            font-size: 32px;
+            font-weight: 100 !important;
+        }
+    }
+    .update-container {
+        margin: auto;
+        text-align: left;
+        .close-text {
+            font-size: 32px;
+            font-weight: 100 !important;
+        }
+    }
+}
+
+.btn-item {
+    color: #000 !important;
+    font-weight: 100 !important;
+}
+
+.label {
+    background: #eee !important;
+}
+
+.label-text {
+    font-size: 14px;
+    margin-left: 15px;
+    padding: 2px 0px;
+    font-weight: bold;
+    text-transform: capitalize;
+    font-family: sans-serif;
+}
+
+.select-item {
+    background: #eee !important;
+}
+
+.ingredient-container {
+    margin-top: 5px !important;
+    border: 2px solid #ddd;
+    max-width: 96%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 11px 6px;
+    border-radius: 5px;
+}

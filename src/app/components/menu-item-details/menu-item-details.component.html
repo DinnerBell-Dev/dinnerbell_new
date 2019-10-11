@@ -1,0 +1,1156 @@
+<section class="mds mds--base" id="mds">
+    <div class="row pt-5" *ngIf="!themeName">
+        <h3 class="pl-3 mt-5 ">Select theme for customize setting</h3>
+    </div>
+    <div class="mds__wrapper" *ngIf="themeName">
+        <div class="mds__wrapper-left mt-3">
+            <div class="mds__wrapper-preview"><a href="javascript:void(0)" title=""><i
+                        class="icon-font icon-eye"></i></a>
+                <!-- SECTION tablet :: START-->
+                <div class="tablet--scroll">
+                    <section [style.font-family]="headerSetting.fontFamily" class="tablet tablet--itemDetails"
+                        id="tablet">
+                        <div class="tablet__header" [style.background]="headerSetting.navbarBg"
+                            [style.border-color]="headerSetting.navbarBorder">
+                            <div [style.border-color]="headerSetting.navbarBorder"><a href="javascript:void(0)"
+                                    title=""><i [style.color]="headerSetting.navBarIcon"
+                                        class="icon-font icon-list-menu" aria-hidden="true"></i>
+                                </a></div>
+                            <div [style.border-color]="headerSetting.navbarBorder"><a href="javascript:void(0)"
+                                    title=""><i [style.color]="headerSetting.navBarIcon"
+                                        class="icon-font icon-user"></i><span
+                                        [style.color]="headerSetting.navbarTxt">3</span></a>
+                            </div>
+                            <div [style.border-color]="headerSetting.navbarBorder"><a href="javascript:void(0)"
+                                    title=""><i [style.color]="headerSetting.navBarIcon"
+                                        class="icon-font icon-doc"></i><span
+                                        [style.color]="headerSetting.navbarTxt">0</span></a></div>
+                            <div [style.border-color]="headerSetting.navbarBorder"><a href="javascript:void(0)"
+                                    title=""><i [style.color]="headerSetting.navBarIcon"
+                                        class="icon-font icon-bell"></i></a></div>
+                        </div>
+                        <div class="tablet__content">
+                            <div class="tablet__banner"></div>
+                            <div class="tablet__content-cover"
+                                [ngClass]="{'imageCover': itemDetailSetting.imagestyle == 'fix', 'imageRepeat' : itemDetailSetting.imagestyle == 'repeat'}"
+                                [ngStyle]="{'background': itemDetailSetting.LocalImgUrl != '' ? 'url(' + itemDetailSetting.LocalImgUrl +')' : itemDetailSetting.listBg }">
+                                <div class="tablet__heading">
+                                    <div class="tablet__heading--top">
+                                        <div class="tablet__heading--left">
+                                            <p [style.color]="itemDetailSetting.titleColor"
+                                                [ngStyle]="{'font-size': itemDetailSetting.titlesize +'px'}">Fresh
+                                                florida stone crab
+                                                clams</p>
+                                        </div>
+                                    </div>
+                                    <div class="tablet__heading--bottom"><span
+                                            [style.color]="itemDetailSetting.discColor"
+                                            [ngStyle]="{'font-size': itemDetailSetting.discsize +'px'}">Sushi-grade
+                                            tuna,
+                                            avocado,
+                                            seaweed
+                                            salad, forbidden rice, dynamite sauce, and honey wasabi aioli</span></div>
+                                </div>
+                                <p class="tablet__sibtitle" [style.color]="itemDetailSetting.modify_tColor"
+                                    [ngStyle]="{'font-size': itemDetailSetting.modify_tsize +'px'}">Portion
+                                    size</p>
+                                <div class="tablet__radio-group">
+                                    <div class="tablet__radio-group-field">
+                                        <div>
+                                            <p [style.color]="itemDetailSetting.modify_HColor"
+                                                [ngStyle]="{'font-size': itemDetailSetting.modify_Hsize +'px'}">
+                                                <strong>Small</strong><span
+                                                    [style.font-family]="headerSetting.priceFamily">$8</span><i>2-3 oz ∙
+                                                    440
+                                                    cal</i></p>
+                                        </div>
+                                        <div>
+                                            <label>
+                                                <input type="radio" name="portion_size" checked><span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="tablet__radio-group-field">
+                                        <div>
+                                            <p [style.color]="itemDetailSetting.modify_HColor"
+                                                [ngStyle]="{'font-size': itemDetailSetting.modify_Hsize +'px'}">
+                                                <strong>Medium</strong><span
+                                                    [style.font-family]="headerSetting.priceFamily">$12</span><i>3-5 oz
+                                                    ∙
+                                                    510 cal</i></p>
+                                        </div>
+                                        <div>
+                                            <label>
+                                                <input type="radio" name="portion_size"><span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="tablet__radio-group-field">
+                                        <div>
+                                            <p [style.color]="itemDetailSetting.modify_HColor"
+                                                [ngStyle]="{'font-size': itemDetailSetting.modify_Hsize +'px'}">
+                                                <strong>Large</strong><span
+                                                    [style.font-family]="headerSetting.priceFamily">$18</span><i>5-9 oz
+                                                    ∙
+                                                    730 cal</i></p>
+                                        </div>
+                                        <div>
+                                            <label>
+                                                <input type="radio" name="portion_size"><span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="tablet__radio-group-field">
+                                        <div>
+                                            <p [style.color]="itemDetailSetting.modify_HColor"
+                                                [ngStyle]="{'font-size': itemDetailSetting.modify_Hsize +'px'}">
+                                                <strong>Extra
+                                                    Large</strong><span
+                                                    [style.font-family]="headerSetting.priceFamily">$20</span><i>9-12 oz
+                                                    ∙
+                                                    1230 cal</i>
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <label>
+                                                <input type="radio" name="portion_size"><span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tablet__range-wrapper">
+                                    <div class="tablet__range">
+                                        <div>
+                                            <p class="tablet__sibtitle" [style.color]="itemDetailSetting.modify_tColor"
+                                                [ngStyle]="{'font-size': itemDetailSetting.modify_tsize +'px'}">Spice
+                                                level
+                                            </p>
+                                            <span>Medium</span>
+                                        </div>
+                                        <div>
+                                            <span class="irs irs--round js-irs-2 irs-with-grid"><span class="irs"><span
+                                                        class="irs-line" tabindex="0"></span><span class="irs-min"
+                                                        style="display: none;">0</span><span class="irs-max"
+                                                        style="display: none;">1</span><span class="irs-from"
+                                                        style="visibility: hidden; display: none;">0</span><span
+                                                        class="irs-to"
+                                                        style="visibility: hidden; display: none;">0</span><span
+                                                        class="irs-single"
+                                                        style="display: none; left: 0%;">0</span></span><span
+                                                    class="irs-grid" style="width: 88.8476%; left: 5.47621%;"><span
+                                                        class="irs-grid-pol" style="left: 0%"></span><span
+                                                        class="irs-grid-text js-grid-text-0"
+                                                        style="left: 0%; margin-left: -1.20818%;">1</span><span
+                                                        class="irs-grid-pol small" style="left: 20%"></span><span
+                                                        class="irs-grid-pol small" style="left: 15%"></span><span
+                                                        class="irs-grid-pol small" style="left: 10%"></span><span
+                                                        class="irs-grid-pol small" style="left: 5%"></span><span
+                                                        class="irs-grid-pol" style="left: 25%"></span><span
+                                                        class="irs-grid-text js-grid-text-1"
+                                                        style="left: 25%; visibility: visible; margin-left: -1.20818%;">2</span><span
+                                                        class="irs-grid-pol small" style="left: 45%"></span><span
+                                                        class="irs-grid-pol small" style="left: 40%"></span><span
+                                                        class="irs-grid-pol small" style="left: 35%"></span><span
+                                                        class="irs-grid-pol small" style="left: 30%"></span><span
+                                                        class="irs-grid-pol" style="left: 50%"></span><span
+                                                        class="irs-grid-text js-grid-text-2"
+                                                        style="left: 50%; visibility: visible; margin-left: -1.20818%;">3</span><span
+                                                        class="irs-grid-pol small" style="left: 70%"></span><span
+                                                        class="irs-grid-pol small" style="left: 65%"></span><span
+                                                        class="irs-grid-pol small" style="left: 60%"></span><span
+                                                        class="irs-grid-pol small" style="left: 55%"></span><span
+                                                        class="irs-grid-pol" style="left: 75%"></span><span
+                                                        class="irs-grid-text js-grid-text-3"
+                                                        style="left: 75%; visibility: visible; margin-left: -1.20818%;">4</span><span
+                                                        class="irs-grid-pol small" style="left: 95%"></span><span
+                                                        class="irs-grid-pol small" style="left: 90%"></span><span
+                                                        class="irs-grid-pol small" style="left: 85%"></span><span
+                                                        class="irs-grid-pol small" style="left: 80%"></span><span
+                                                        class="irs-grid-pol" style="left: 100%"></span><span
+                                                        class="irs-grid-text js-grid-text-4"
+                                                        style="left: 100%; margin-left: -1.20818%;">5</span></span><span
+                                                    class="irs-bar irs-bar--single"
+                                                    style="left: 0px; width: 50%;"></span><span
+                                                    class="irs-shadow shadow-single" style="display: none;"></span><span
+                                                    class="irs-handle single"
+                                                    style="left: 44.4238%;"><i></i><i></i><i></i></span></span><input
+                                                type="text" class="irs-hidden-input" tabindex="-1" readonly="">
+                                        </div>
+                                    </div>
+                                    <div class="tablet__range">
+                                        <div>
+                                            <p class="tablet__sibtitle" [style.color]="itemDetailSetting.modify_tColor"
+                                                [ngStyle]="{'font-size': itemDetailSetting.modify_tsize +'px'}">
+                                                Temperature
+                                            </p>
+                                            <span>Rare</span>
+                                        </div>
+                                        <div>
+                                            <span class="irs irs--round js-irs-2 irs-with-grid"><span class="irs"><span
+                                                        class="irs-line" tabindex="0"></span><span class="irs-min"
+                                                        style="display: none;">0</span><span class="irs-max"
+                                                        style="display: none;">1</span><span class="irs-from"
+                                                        style="visibility: hidden; display: none;">0</span><span
+                                                        class="irs-to"
+                                                        style="visibility: hidden; display: none;">0</span><span
+                                                        class="irs-single"
+                                                        style="display: none; left: 0%;">0</span></span><span
+                                                    class="irs-grid" style="width: 88.8476%; left: 5.47621%;"><span
+                                                        class="irs-grid-pol" style="left: 0%"></span><span
+                                                        class="irs-grid-text js-grid-text-0"
+                                                        style="left: 0%; margin-left: -1.20818%;">1</span><span
+                                                        class="irs-grid-pol small" style="left: 20%"></span><span
+                                                        class="irs-grid-pol small" style="left: 15%"></span><span
+                                                        class="irs-grid-pol small" style="left: 10%"></span><span
+                                                        class="irs-grid-pol small" style="left: 5%"></span><span
+                                                        class="irs-grid-pol" style="left: 25%"></span><span
+                                                        class="irs-grid-text js-grid-text-1"
+                                                        style="left: 25%; visibility: visible; margin-left: -1.20818%;">2</span><span
+                                                        class="irs-grid-pol small" style="left: 45%"></span><span
+                                                        class="irs-grid-pol small" style="left: 40%"></span><span
+                                                        class="irs-grid-pol small" style="left: 35%"></span><span
+                                                        class="irs-grid-pol small" style="left: 30%"></span><span
+                                                        class="irs-grid-pol" style="left: 50%"></span><span
+                                                        class="irs-grid-text js-grid-text-2"
+                                                        style="left: 50%; visibility: visible; margin-left: -1.20818%;">3</span><span
+                                                        class="irs-grid-pol small" style="left: 70%"></span><span
+                                                        class="irs-grid-pol small" style="left: 65%"></span><span
+                                                        class="irs-grid-pol small" style="left: 60%"></span><span
+                                                        class="irs-grid-pol small" style="left: 55%"></span><span
+                                                        class="irs-grid-pol" style="left: 75%"></span><span
+                                                        class="irs-grid-text js-grid-text-3"
+                                                        style="left: 75%; visibility: visible; margin-left: -1.20818%;">4</span><span
+                                                        class="irs-grid-pol small" style="left: 95%"></span><span
+                                                        class="irs-grid-pol small" style="left: 90%"></span><span
+                                                        class="irs-grid-pol small" style="left: 85%"></span><span
+                                                        class="irs-grid-pol small" style="left: 80%"></span><span
+                                                        class="irs-grid-pol" style="left: 100%"></span><span
+                                                        class="irs-grid-text js-grid-text-4"
+                                                        style="left: 100%; margin-left: -1.20818%;">5</span></span><span
+                                                    class="irs-bar irs-bar--single"
+                                                    style="left: 0px; width: 50%;"></span><span
+                                                    class="irs-shadow shadow-single" style="display: none;"></span><span
+                                                    class="irs-handle single"
+                                                    style="left: 44.4238%;"><i></i><i></i><i></i></span></span><input
+                                                type="text" class="irs-hidden-input" tabindex="-1" readonly="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="tablet__sibtitle" [style.color]="itemDetailSetting.modify_tColor"
+                                    [ngStyle]="{'font-size': itemDetailSetting.modify_tsize +'px'}">Dressing
+                                    options</p>
+                                <div class="tablet__radio-group">
+                                    <div class="tablet__radio-group-field">
+                                        <div>
+                                            <p [style.color]="itemDetailSetting.modify_HColor"
+                                                [ngStyle]="{'font-size': itemDetailSetting.modify_Hsize +'px'}">
+                                                <strong>Italian
+                                                    Dressing</strong><i>40 cal</i></p>
+                                        </div>
+                                        <div>
+                                            <label>
+                                                <input type="radio" name="dressing_options" checked><span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="tablet__radio-group-field">
+                                        <div>
+                                            <p [style.color]="itemDetailSetting.modify_HColor"
+                                                [ngStyle]="{'font-size': itemDetailSetting.modify_Hsize +'px'}">
+                                                <strong>LowFat
+                                                    Italian</strong><i>20 cal</i></p>
+                                        </div>
+                                        <div>
+                                            <label>
+                                                <input type="radio" name="dressing_options"><span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="tablet__radio-group-field">
+                                        <div>
+                                            <p [style.color]="itemDetailSetting.modify_HColor"
+                                                [ngStyle]="{'font-size': itemDetailSetting.modify_Hsize +'px'}">
+                                                <strong>Oil &
+                                                    Vinegar</strong><i>30 cal</i></p>
+                                        </div>
+                                        <div>
+                                            <label>
+                                                <input type="radio" name="dressing_options"><span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="tablet__sibtitle" [style.color]="itemDetailSetting.modify_tColor"
+                                    [ngStyle]="{'font-size': itemDetailSetting.modify_tsize +'px'}">On the
+                                    side</p>
+                                <div class="tablet__box-wrapper"><a class="tablet__box is-choose"
+                                        href="javascript:void(0)" title="">
+                                        <div class="tablet__box-img"><img src="assets/images/tablet-box.jpg" alt=""
+                                                title="">
+                                        </div>
+                                        <div class="tablet__box-content">
+                                            <p>Pearl Couscous Salad with Cherries & Arugula</p><span
+                                                [style.font-family]="headerSetting.priceFamily"><i>$6.5</i> ∙ 99
+                                                cal</span>
+                                        </div>
+                                    </a><a class="tablet__box" href="javascript:void(0)" title="">
+                                        <div class="tablet__box-img"><img src="assets/images/tablet-box.jpg" alt=""
+                                                title="">
+                                        </div>
+                                        <div class="tablet__box-content">
+                                            <p>Garlicky Roasted Broccoli</p><span
+                                                [style.font-family]="headerSetting.priceFamily"><i>$5</i> ∙ 99
+                                                cal</span>
+                                        </div>
+                                    </a><a class="tablet__box" href="javascript:void(0)" title="">
+                                        <div class="tablet__box-img"><img src="assets/images/tablet-box.jpg" alt=""
+                                                title="">
+                                        </div>
+                                        <div class="tablet__box-content">
+                                            <p>Pearl Couscous Salad with Cherries & Arugula</p><span><i>$6.5</i> ∙ 99
+                                                cal</span>
+                                        </div>
+                                    </a><a class="tablet__box" href="javascript:void(0)" title="">
+                                        <div class="tablet__box-img"><img src="assets/images/tablet-box.jpg" alt=""
+                                                title="">
+                                        </div>
+                                        <div class="tablet__box-content">
+                                            <p>Garlicky Roasted Broccoli</p><span
+                                                [style.font-family]="headerSetting.priceFamily"><i>$5</i> ∙ 99
+                                                cal</span>
+                                        </div>
+                                    </a></div>
+                                <p class="tablet__sibtitle" [style.color]="itemDetailSetting.modify_tColor"
+                                    [ngStyle]="{'font-size': itemDetailSetting.modify_tsize +'px'}">Beverage
+                                </p>
+                                <div class="tablet__radio-group">
+                                    <div class="tablet__radio-group-field">
+                                        <div>
+                                            <p [style.color]="itemDetailSetting.modify_HColor"
+                                                [ngStyle]="{'font-size': itemDetailSetting.modify_Hsize +'px'}">
+                                                <strong>Green
+                                                    tea</strong></p>
+                                        </div>
+                                        <div>
+                                            <label>
+                                                <input type="radio" name="beverage" checked><span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="tablet__radio-group-field">
+                                        <div>
+                                            <p [style.color]="itemDetailSetting.modify_HColor"
+                                                [ngStyle]="{'font-size': itemDetailSetting.modify_Hsize +'px'}">
+                                                <strong>Black
+                                                    tea</strong></p>
+                                        </div>
+                                        <div>
+                                            <label>
+                                                <input type="radio" name="beverage"><span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="tablet__radio-group-field">
+                                        <div>
+                                            <p [style.color]="itemDetailSetting.modify_HColor"
+                                                [ngStyle]="{'font-size': itemDetailSetting.modify_Hsize +'px'}">
+                                                <strong>Coffee</strong></p>
+                                        </div>
+                                        <div>
+                                            <label>
+                                                <input type="radio" name="beverage"><span></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="tablet__sibtitle" [style.color]="itemDetailSetting.modify_tColor"
+                                    [ngStyle]="{'font-size': itemDetailSetting.modify_tsize +'px'}">
+                                    Essentials</p>
+                                <div class="tablet__count-group">
+                                    <div class="tablet__count-group-field">
+                                        <div>
+                                            <p><strong [style.color]="itemDetailSetting.modify_HColor"
+                                                    [ngStyle]="{'font-size': itemDetailSetting.modify_Hsize +'px'}">Pickled
+                                                    Cherry Peppers</strong><span>90cal</span></p>
+                                            <p [style.font-family]="headerSetting.priceFamily">+ $0.79</p>
+                                        </div>
+                                        <div><a href="javascript:void(0)" title=""><span>-</span></a><span>0</span><a
+                                                href="javascript:void(0)" title=""><span>+</span></a></div>
+                                    </div>
+                                    <div class="tablet__count-group-field">
+                                        <div>
+                                            <p><strong [style.color]="itemDetailSetting.modify_HColor"
+                                                    [ngStyle]="{'font-size': itemDetailSetting.modify_Hsize +'px'}">Beet
+                                                    &
+                                                    Carrot Noodles</strong><span>60cal</span></p>
+                                            <p [style.font-family]="headerSetting.priceFamily">+ $0.79</p>
+                                        </div>
+                                        <div><a href="javascript:void(0)" title=""><span>-</span></a><span>0</span><a
+                                                href="javascript:void(0)" title=""><span>+</span></a></div>
+                                    </div>
+                                    <div class="tablet__count-group-field">
+                                        <div>
+                                            <p><strong [style.color]="itemDetailSetting.modify_HColor"
+                                                    [ngStyle]="{'font-size': itemDetailSetting.modify_Hsize +'px'}">Kelp
+                                                    Noodles</strong><span>120cal</span></p>
+                                            <p [style.font-family]="headerSetting.priceFamily">+ $0.79</p>
+                                        </div>
+                                        <div><a href="javascript:void(0)" title=""><span>-</span></a><span>0</span><a
+                                                href="javascript:void(0)" title=""><span>+</span></a></div>
+                                    </div>
+                                </div>
+                                <p class="tablet__sibtitle" [style.color]="itemDetailSetting.modify_tColor"
+                                    [ngStyle]="{'font-size': itemDetailSetting.modify_tsize +'px'}">Personal
+                                    preferences</p>
+                                <div class="tablet__ques-group">
+                                    <div class="tablet__ques-group-field">
+                                        <div>
+                                            <p [style.color]="itemDetailSetting.modify_HColor"
+                                                [ngStyle]="{'font-size': itemDetailSetting.modify_Hsize +'px'}">Would
+                                                you
+                                                like your dressing mixed in?</p>
+                                        </div>
+                                        <div>
+                                            <label>
+                                                <input type="radio" name="personal_preferences_0" checked>
+                                                <p><span>Yes</span></p>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="personal_preferences_0">
+                                                <p><span>No</span></p>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="tablet__ques-group-field">
+                                        <div>
+                                            <p [style.color]="itemDetailSetting.modify_HColor"
+                                                [ngStyle]="{'font-size': itemDetailSetting.modify_Hsize +'px'}">Do you
+                                                like
+                                                your salad chopped?</p>
+                                        </div>
+                                        <div>
+                                            <label>
+                                                <input type="radio" name="personal_preferences_1">
+                                                <p><span>Yes</span></p>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="personal_preferences_1" checked>
+                                                <p><span>No</span></p>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tablet__collapse-wrapper">
+                                    <div class="tablet__collapse is-open">
+                                        <div class="tablet__collapse-header" [style.color]="headerSetting.neutralTxt"
+                                            [style.background]="headerSetting.neutralbg">
+                                            <p>Nutritional info</p><i [style.color]="headerSetting.neutralTxt"
+                                                class="icon-font icon-corner" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="tablet__collapse-body">
+                                            <ul>
+                                                <li>
+                                                    <p [style.color]="headerSetting.listColor">Calories</p><span
+                                                        [style.color]="headerSetting.listColor">90cal</span>
+                                                </li>
+                                                <li>
+                                                    <p [style.color]="headerSetting.listColor">Fat</p><span
+                                                        [style.color]="headerSetting.listColor">60g</span>
+                                                </li>
+                                                <li>
+                                                    <p [style.color]="headerSetting.listColor">Trans Fatty acid</p
+                                                        ><span [style.color]="headerSetting.listColor">0g</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tablet__quantity" [style.color]="headerSetting.neutralTxt"
+                                    [style.background]="headerSetting.neutralbg">
+                                    <div>
+                                        <p class="tablet__sibtitle">
+                                            Quantity</p>
+                                    </div>
+                                    <div><a href="javascript:void(0)" title=""><span>-</span></a><span>0</span><a
+                                            href="javascript:void(0)" title=""><span>+</span></a></div>
+                                </div>
+                                <div class="tablet__desc">
+                                    <p [style.color]="headerSetting.listColor">At vero eos et accusamus et iusto odio
+                                        dignissimos ducimus qui
+                                        blanditiis
+                                        praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias
+                                        excepturi
+                                        sint
+                                        occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt
+                                        mollitia
+                                        animi, id est laborum et dolorum fuga.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tablet__footer">
+                            <div [style.background]="headerSetting.neutralBck"><a href="javascript:void(0)" title="">
+                                    <div class="fa fa-arrow-right"></div>
+                                </a></div>
+                            <div [style.background]="headerSetting.confirmBtn">
+                                <span *ngIf="headerSetting.priceFormat == '$0.00'"
+                                    [style.color]="headerSetting.confirmTxt"
+                                    [style.font-family]="headerSetting.priceFamily">{{headerSetting.currency}}24.35</span>
+                                <span *ngIf="headerSetting.priceFormat == '$0'" [style.color]="headerSetting.confirmTxt"
+                                    [style.font-family]="headerSetting.priceFamily">{{headerSetting.currency}}24</span>
+                                <span *ngIf="headerSetting.priceFormat == '0$'" [style.color]="headerSetting.confirmTxt"
+                                    [style.font-family]="headerSetting.priceFamily">24{{headerSetting.currency}}</span>
+                                <span *ngIf="headerSetting.priceFormat == '0.00$'"
+                                    [style.color]="headerSetting.confirmTxt"
+                                    [style.font-family]="headerSetting.priceFamily">24.35{{headerSetting.currency}}</span>
+                                <p [style.color]="headerSetting.confirmTxt">Add to my order</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <!-- SECTION tablet :: END-->
+            </div>
+            <form class="c-form">
+                <div class="mds__upload mds__upload--hi" upload-file-js>
+                    <p class="mds__upload-title mds__screen-title">Background</p>
+                    <div *ngIf="itemDetailSetting.LocalImgUrl == ''"
+                        class="mds__upload-wrapper mds__upload-wrapper--double mds__upload-wrapper--main"
+                        upload-main-js>
+                        <div class="mds__upload-left">
+                            <p class="mds__upload-subtitle">Color</p>
+                            <div class="mds__upload-color" change-bg-js data-default-color="#161616">
+                                <input class="colorText" (click)="removeLocalImg()" name="listBg" readonly
+                                    [style.background]="itemDetailSetting.listBg"
+                                    [(colorPicker)]="itemDetailSetting.listBg" />
+                            </div>
+                        </div>
+                        <div class="mds__upload-right">
+                            <p class="mds__upload-subtitle">Background image</p>
+                            <div class="mds__upload-bg" change-imageParent-js>
+                                <div change-img-js><span>Upload image</span>
+                                    <input type="file" name="myfile" (change)="onFileChange($event)" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="itemDetailSetting.LocalImgUrl != ''"
+                        class="mds__upload-wrapper mds__upload-wrapper--double mds__upload-wrapper--additional"
+                        upload-additional-js>
+                        <div>
+                            <div class="mds__upload-left">
+                                <div class="mds__upload-preview" upload-preview-js>
+                                    <img [src]="itemDetailSetting.LocalImgUrl">
+                                </div>
+                            </div>
+                            <div class="mds__upload-right">
+                                <div class="mds__upload-option">
+                                    <div class="mds__upload-radio">
+                                        <div>
+                                            <label>
+                                                <input type="radio" (click)="bgimageStyle('fix')"
+                                                    name="upload_image_size" checked><span>Fixed
+                                                    position</span>
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <label>
+                                                <input type="radio" (click)="bgimageStyle('repeat')"
+                                                    name="upload_image_size"><span>Repeat /
+                                                    Tile image</span>
+                                            </label>
+                                        </div>
+                                    </div><a class="mds__upload-remove" (click)="removeLocalImg()"
+                                        href="javascript:void(0)" title=""><i
+                                            class="icon-font icon-bin"></i><span>Remove
+                                            image</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <p class="mds__subtitle mds__subtitle--mdsDetailsPt">Font properties</p>
+                <div class="mds__fontSize-wrapper">
+                    <div class="mds__fontSize-row">
+                        <div class="mds__fontSize-col mds__fontSize-col-0">
+                            <p class="mds__fontSize-name">Item title</p>
+                        </div>
+                        <div class="mds__fontSize-col mds__fontSize-col-1">
+                            <div><span>a</span></div>
+                            <div class="custom-slider">
+                                <ng5-slider name="titlesize" [(value)]="itemDetailSetting.titlesize"
+                                    [options]="options1">
+                                </ng5-slider>
+                            </div>
+                            <div>
+                                <p class="mb-0">a</p>
+                            </div>
+                        </div>
+                        <div class="mds__fontSize-col mds__fontSize-col-2" data-name="itemTitle">
+                            <input class="colorText" readonly name="titleColor"
+                                [style.background]="itemDetailSetting.titleColor"
+                                [(colorPicker)]="itemDetailSetting.titleColor" />
+                        </div>
+                    </div>
+                    <div class="mds__fontSize-row">
+                        <div class="mds__fontSize-col mds__fontSize-col-0">
+                            <p class="mds__fontSize-name">Description</p>
+                        </div>
+                        <div class="mds__fontSize-col mds__fontSize-col-1">
+                            <div><span>a</span></div>
+                            <div class="custom-slider">
+                                <ng5-slider name="discsize" [(value)]="itemDetailSetting.discsize" [options]="options2">
+                                </ng5-slider>
+                            </div>
+                            <div>
+                                <p class="mb-0">a</p>
+                            </div>
+                        </div>
+                        <div class="mds__fontSize-col mds__fontSize-col-2" data-name="description">
+                            <input class="colorText" name="discColor" readonly
+                                [style.background]="itemDetailSetting.discColor"
+                                [(colorPicker)]="itemDetailSetting.discColor" />
+                        </div>
+                    </div>
+                    <div class="mds__fontSize-row">
+                        <div class="mds__fontSize-col mds__fontSize-col-0">
+                            <p class="mds__fontSize-name">Modifier title</p>
+                        </div>
+                        <div class="mds__fontSize-col mds__fontSize-col-1">
+                            <div><span>a</span></div>
+                            <div class="custom-slider">
+                                <ng5-slider name="modify_tsize" [(value)]="itemDetailSetting.modify_tsize"
+                                    [options]="options3">
+                                </ng5-slider>
+                            </div>
+                            <div>
+                                <p class="mb-0">a</p>
+                            </div>
+                        </div>
+                        <div class="mds__fontSize-col mds__fontSize-col-2" data-name="modifierTitle">
+                            <input class="colorText" name="modify_tColor" readonly
+                                [style.background]="itemDetailSetting.modify_tColor"
+                                [(colorPicker)]="itemDetailSetting.modify_tColor" />
+                        </div>
+                    </div>
+                    <div class="mds__fontSize-row">
+                        <div class="mds__fontSize-col mds__fontSize-col-0">
+                            <p class="mds__fontSize-name">Modifier text</p>
+                        </div>
+                        <div class="mds__fontSize-col mds__fontSize-col-1">
+                            <div><span>a</span></div>
+                            <div class="custom-slider">
+                                <ng5-slider name="modify_Hsize" [(value)]="itemDetailSetting.modify_Hsize"
+                                    [options]="options4">
+                                </ng5-slider>
+                            </div>
+                            <div>
+                                <p class="mb-0">a</p>
+                            </div>
+                        </div>
+                        <div class="mds__fontSize-col mds__fontSize-col-2" data-name="modifierText">
+                            <input class="colorText" name="modify_HColor" readonly
+                                [style.background]="itemDetailSetting.modify_HColor"
+                                [(colorPicker)]="itemDetailSetting.modify_HColor" />
+                        </div>
+                    </div>
+                </div>
+                <div class="c-form__field c-form__field--btn">
+                    <button class="c-form__btn c-btn c-btn--bg" (click)="uploadMainMenuSettings()" type="button">Update
+                        settings</button>
+                </div>
+            </form>
+        </div>
+        <div class="mds__wrapper-right" [class.is-show]="wasClicked">
+            <div class="mds__wrapper-header">
+                <div><i class="icon-font icon-eye"></i>
+                    <p>{{themeName}} Theme</p>
+                </div>
+                <div><a class="mds__wrapper-close" href="javascript:void(0)" (click)="onPreviw()" title=""><i
+                            class="icon-font icon-close"></i></a></div>
+            </div>
+            <!-- SECTION tablet :: START-->
+            <div class="tablet--scroll">
+                <section [style.font-family]="headerSetting.fontFamily" class="tablet tablet--itemDetails" id="tablet">
+                    <div class="tablet__header" [style.background]="headerSetting.navbarBg"
+                        [style.border-color]="headerSetting.navbarBorder">
+                        <div [style.border-color]="headerSetting.navbarBorder"><a href="javascript:void(0)" title=""><i
+                                    [style.color]="headerSetting.navBarIcon" class="icon-font icon-list-menu"
+                                    aria-hidden="true"></i>
+                            </a></div>
+                        <div [style.border-color]="headerSetting.navbarBorder"><a href="javascript:void(0)" title=""><i
+                                    [style.color]="headerSetting.navBarIcon" class="icon-font icon-user"></i><span
+                                    [style.color]="headerSetting.navbarTxt">3</span></a>
+                        </div>
+                        <div [style.border-color]="headerSetting.navbarBorder"><a href="javascript:void(0)" title=""><i
+                                    [style.color]="headerSetting.navBarIcon" class="icon-font icon-doc"></i><span
+                                    [style.color]="headerSetting.navbarTxt">0</span></a></div>
+                        <div [style.border-color]="headerSetting.navbarBorder"><a href="javascript:void(0)" title=""><i
+                                    [style.color]="headerSetting.navBarIcon" class="icon-font icon-bell"></i></a></div>
+                    </div>
+                    <div class="tablet__content">
+                        <div class="tablet__banner"></div>
+                        <div class="tablet__content-cover"
+                            [ngClass]="{'imageCover': itemDetailSetting.imagestyle == 'fix', 'imageRepeat' : itemDetailSetting.imagestyle == 'repeat'}"
+                            [ngStyle]="{'background': itemDetailSetting.LocalImgUrl != '' ? 'url(' + itemDetailSetting.LocalImgUrl +')' : itemDetailSetting.listBg }">
+                            <div class="tablet__heading">
+                                <div class="tablet__heading--top">
+                                    <div class="tablet__heading--left">
+                                        <p [style.color]="itemDetailSetting.titleColor"
+                                            [ngStyle]="{'font-size': itemDetailSetting.titlesize +'px'}">Fresh
+                                            florida stone crab
+                                            clams</p>
+                                    </div>
+                                </div>
+                                <div class="tablet__heading--bottom"><span [style.color]="itemDetailSetting.discColor"
+                                        [ngStyle]="{'font-size': itemDetailSetting.discsize +'px'}">Sushi-grade tuna,
+                                        avocado,
+                                        seaweed
+                                        salad, forbidden rice, dynamite sauce, and honey wasabi aioli</span></div>
+                            </div>
+                            <p class="tablet__sibtitle" [style.color]="itemDetailSetting.modify_tColor"
+                                [ngStyle]="{'font-size': itemDetailSetting.modify_tsize +'px'}">Portion
+                                size</p>
+                            <div class="tablet__radio-group">
+                                <div class="tablet__radio-group-field">
+                                    <div>
+                                        <p [style.color]="itemDetailSetting.modify_HColor"
+                                            [ngStyle]="{'font-size': itemDetailSetting.modify_Hsize +'px'}">
+                                            <strong>Small</strong><span
+                                                [style.font-family]="headerSetting.priceFamily">$8</span><i>2-3 oz ∙ 440
+                                                cal</i></p>
+                                    </div>
+                                    <div>
+                                        <label>
+                                            <input type="radio" name="portion_size" checked><span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="tablet__radio-group-field">
+                                    <div>
+                                        <p [style.color]="itemDetailSetting.modify_HColor"
+                                            [ngStyle]="{'font-size': itemDetailSetting.modify_Hsize +'px'}">
+                                            <strong>Medium</strong><span
+                                                [style.font-family]="headerSetting.priceFamily">$12</span><i>3-5 oz ∙
+                                                510 cal</i></p>
+                                    </div>
+                                    <div>
+                                        <label>
+                                            <input type="radio" name="portion_size"><span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="tablet__radio-group-field">
+                                    <div>
+                                        <p [style.color]="itemDetailSetting.modify_HColor"
+                                            [ngStyle]="{'font-size': itemDetailSetting.modify_Hsize +'px'}">
+                                            <strong>Large</strong><span
+                                                [style.font-family]="headerSetting.priceFamily">$18</span><i>5-9 oz ∙
+                                                730 cal</i></p>
+                                    </div>
+                                    <div>
+                                        <label>
+                                            <input type="radio" name="portion_size"><span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="tablet__radio-group-field">
+                                    <div>
+                                        <p [style.color]="itemDetailSetting.modify_HColor"
+                                            [ngStyle]="{'font-size': itemDetailSetting.modify_Hsize +'px'}">
+                                            <strong>Extra
+                                                Large</strong><span
+                                                [style.font-family]="headerSetting.priceFamily">$20</span><i>9-12 oz ∙
+                                                1230 cal</i>
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <label>
+                                            <input type="radio" name="portion_size"><span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tablet__range-wrapper">
+                                <div class="tablet__range">
+                                    <div>
+                                        <p class="tablet__sibtitle" [style.color]="itemDetailSetting.modify_tColor"
+                                            [ngStyle]="{'font-size': itemDetailSetting.modify_tsize +'px'}">Spice level
+                                        </p>
+                                        <span>Medium</span>
+                                    </div>
+                                    <div>
+                                        <span class="irs irs--round js-irs-2 irs-with-grid"><span class="irs"><span
+                                                    class="irs-line" tabindex="0"></span><span class="irs-min"
+                                                    style="display: none;">0</span><span class="irs-max"
+                                                    style="display: none;">1</span><span class="irs-from"
+                                                    style="visibility: hidden; display: none;">0</span><span
+                                                    class="irs-to"
+                                                    style="visibility: hidden; display: none;">0</span><span
+                                                    class="irs-single"
+                                                    style="display: none; left: 0%;">0</span></span><span
+                                                class="irs-grid" style="width: 88.8476%; left: 5.47621%;"><span
+                                                    class="irs-grid-pol" style="left: 0%"></span><span
+                                                    class="irs-grid-text js-grid-text-0"
+                                                    style="left: 0%; margin-left: -1.20818%;">1</span><span
+                                                    class="irs-grid-pol small" style="left: 20%"></span><span
+                                                    class="irs-grid-pol small" style="left: 15%"></span><span
+                                                    class="irs-grid-pol small" style="left: 10%"></span><span
+                                                    class="irs-grid-pol small" style="left: 5%"></span><span
+                                                    class="irs-grid-pol" style="left: 25%"></span><span
+                                                    class="irs-grid-text js-grid-text-1"
+                                                    style="left: 25%; visibility: visible; margin-left: -1.20818%;">2</span><span
+                                                    class="irs-grid-pol small" style="left: 45%"></span><span
+                                                    class="irs-grid-pol small" style="left: 40%"></span><span
+                                                    class="irs-grid-pol small" style="left: 35%"></span><span
+                                                    class="irs-grid-pol small" style="left: 30%"></span><span
+                                                    class="irs-grid-pol" style="left: 50%"></span><span
+                                                    class="irs-grid-text js-grid-text-2"
+                                                    style="left: 50%; visibility: visible; margin-left: -1.20818%;">3</span><span
+                                                    class="irs-grid-pol small" style="left: 70%"></span><span
+                                                    class="irs-grid-pol small" style="left: 65%"></span><span
+                                                    class="irs-grid-pol small" style="left: 60%"></span><span
+                                                    class="irs-grid-pol small" style="left: 55%"></span><span
+                                                    class="irs-grid-pol" style="left: 75%"></span><span
+                                                    class="irs-grid-text js-grid-text-3"
+                                                    style="left: 75%; visibility: visible; margin-left: -1.20818%;">4</span><span
+                                                    class="irs-grid-pol small" style="left: 95%"></span><span
+                                                    class="irs-grid-pol small" style="left: 90%"></span><span
+                                                    class="irs-grid-pol small" style="left: 85%"></span><span
+                                                    class="irs-grid-pol small" style="left: 80%"></span><span
+                                                    class="irs-grid-pol" style="left: 100%"></span><span
+                                                    class="irs-grid-text js-grid-text-4"
+                                                    style="left: 100%; margin-left: -1.20818%;">5</span></span><span
+                                                class="irs-bar irs-bar--single"
+                                                style="left: 0px; width: 50%;"></span><span
+                                                class="irs-shadow shadow-single" style="display: none;"></span><span
+                                                class="irs-handle single"
+                                                style="left: 44.4238%;"><i></i><i></i><i></i></span></span><input
+                                            type="text" class="irs-hidden-input" tabindex="-1" readonly="">
+                                    </div>
+                                </div>
+                                <div class="tablet__range">
+                                    <div>
+                                        <p class="tablet__sibtitle" [style.color]="itemDetailSetting.modify_tColor"
+                                            [ngStyle]="{'font-size': itemDetailSetting.modify_tsize +'px'}">Temperature
+                                        </p>
+                                        <span>Rare</span>
+                                    </div>
+                                    <div>
+                                        <span class="irs irs--round js-irs-2 irs-with-grid"><span class="irs"><span
+                                                    class="irs-line" tabindex="0"></span><span class="irs-min"
+                                                    style="display: none;">0</span><span class="irs-max"
+                                                    style="display: none;">1</span><span class="irs-from"
+                                                    style="visibility: hidden; display: none;">0</span><span
+                                                    class="irs-to"
+                                                    style="visibility: hidden; display: none;">0</span><span
+                                                    class="irs-single"
+                                                    style="display: none; left: 0%;">0</span></span><span
+                                                class="irs-grid" style="width: 88.8476%; left: 5.47621%;"><span
+                                                    class="irs-grid-pol" style="left: 0%"></span><span
+                                                    class="irs-grid-text js-grid-text-0"
+                                                    style="left: 0%; margin-left: -1.20818%;">1</span><span
+                                                    class="irs-grid-pol small" style="left: 20%"></span><span
+                                                    class="irs-grid-pol small" style="left: 15%"></span><span
+                                                    class="irs-grid-pol small" style="left: 10%"></span><span
+                                                    class="irs-grid-pol small" style="left: 5%"></span><span
+                                                    class="irs-grid-pol" style="left: 25%"></span><span
+                                                    class="irs-grid-text js-grid-text-1"
+                                                    style="left: 25%; visibility: visible; margin-left: -1.20818%;">2</span><span
+                                                    class="irs-grid-pol small" style="left: 45%"></span><span
+                                                    class="irs-grid-pol small" style="left: 40%"></span><span
+                                                    class="irs-grid-pol small" style="left: 35%"></span><span
+                                                    class="irs-grid-pol small" style="left: 30%"></span><span
+                                                    class="irs-grid-pol" style="left: 50%"></span><span
+                                                    class="irs-grid-text js-grid-text-2"
+                                                    style="left: 50%; visibility: visible; margin-left: -1.20818%;">3</span><span
+                                                    class="irs-grid-pol small" style="left: 70%"></span><span
+                                                    class="irs-grid-pol small" style="left: 65%"></span><span
+                                                    class="irs-grid-pol small" style="left: 60%"></span><span
+                                                    class="irs-grid-pol small" style="left: 55%"></span><span
+                                                    class="irs-grid-pol" style="left: 75%"></span><span
+                                                    class="irs-grid-text js-grid-text-3"
+                                                    style="left: 75%; visibility: visible; margin-left: -1.20818%;">4</span><span
+                                                    class="irs-grid-pol small" style="left: 95%"></span><span
+                                                    class="irs-grid-pol small" style="left: 90%"></span><span
+                                                    class="irs-grid-pol small" style="left: 85%"></span><span
+                                                    class="irs-grid-pol small" style="left: 80%"></span><span
+                                                    class="irs-grid-pol" style="left: 100%"></span><span
+                                                    class="irs-grid-text js-grid-text-4"
+                                                    style="left: 100%; margin-left: -1.20818%;">5</span></span><span
+                                                class="irs-bar irs-bar--single"
+                                                style="left: 0px; width: 50%;"></span><span
+                                                class="irs-shadow shadow-single" style="display: none;"></span><span
+                                                class="irs-handle single"
+                                                style="left: 44.4238%;"><i></i><i></i><i></i></span></span><input
+                                            type="text" class="irs-hidden-input" tabindex="-1" readonly="">
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="tablet__sibtitle" [style.color]="itemDetailSetting.modify_tColor"
+                                [ngStyle]="{'font-size': itemDetailSetting.modify_tsize +'px'}">Dressing
+                                options</p>
+                            <div class="tablet__radio-group">
+                                <div class="tablet__radio-group-field">
+                                    <div>
+                                        <p [style.color]="itemDetailSetting.modify_HColor"
+                                            [ngStyle]="{'font-size': itemDetailSetting.modify_Hsize +'px'}">
+                                            <strong>Italian
+                                                Dressing</strong><i>40 cal</i></p>
+                                    </div>
+                                    <div>
+                                        <label>
+                                            <input type="radio" name="dressing_options" checked><span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="tablet__radio-group-field">
+                                    <div>
+                                        <p [style.color]="itemDetailSetting.modify_HColor"
+                                            [ngStyle]="{'font-size': itemDetailSetting.modify_Hsize +'px'}">
+                                            <strong>LowFat
+                                                Italian</strong><i>20 cal</i></p>
+                                    </div>
+                                    <div>
+                                        <label>
+                                            <input type="radio" name="dressing_options"><span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="tablet__radio-group-field">
+                                    <div>
+                                        <p [style.color]="itemDetailSetting.modify_HColor"
+                                            [ngStyle]="{'font-size': itemDetailSetting.modify_Hsize +'px'}">
+                                            <strong>Oil &
+                                                Vinegar</strong><i>30 cal</i></p>
+                                    </div>
+                                    <div>
+                                        <label>
+                                            <input type="radio" name="dressing_options"><span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="tablet__sibtitle" [style.color]="itemDetailSetting.modify_tColor"
+                                [ngStyle]="{'font-size': itemDetailSetting.modify_tsize +'px'}">On the
+                                side</p>
+                            <div class="tablet__box-wrapper"><a class="tablet__box is-choose" href="javascript:void(0)"
+                                    title="">
+                                    <div class="tablet__box-img"><img src="assets/images/tablet-box.jpg" alt=""
+                                            title="">
+                                    </div>
+                                    <div class="tablet__box-content">
+                                        <p>Pearl Couscous Salad with Cherries & Arugula</p><span
+                                            [style.font-family]="headerSetting.priceFamily"><i>$6.5</i> ∙ 99
+                                            cal</span>
+                                    </div>
+                                </a><a class="tablet__box" href="javascript:void(0)" title="">
+                                    <div class="tablet__box-img"><img src="assets/images/tablet-box.jpg" alt=""
+                                            title="">
+                                    </div>
+                                    <div class="tablet__box-content">
+                                        <p>Garlicky Roasted Broccoli</p><span
+                                            [style.font-family]="headerSetting.priceFamily"><i>$5</i> ∙ 99 cal</span>
+                                    </div>
+                                </a><a class="tablet__box" href="javascript:void(0)" title="">
+                                    <div class="tablet__box-img"><img src="assets/images/tablet-box.jpg" alt=""
+                                            title="">
+                                    </div>
+                                    <div class="tablet__box-content">
+                                        <p>Pearl Couscous Salad with Cherries & Arugula</p><span><i>$6.5</i> ∙ 99
+                                            cal</span>
+                                    </div>
+                                </a><a class="tablet__box" href="javascript:void(0)" title="">
+                                    <div class="tablet__box-img"><img src="assets/images/tablet-box.jpg" alt=""
+                                            title="">
+                                    </div>
+                                    <div class="tablet__box-content">
+                                        <p>Garlicky Roasted Broccoli</p><span
+                                            [style.font-family]="headerSetting.priceFamily"><i>$5</i> ∙ 99 cal</span>
+                                    </div>
+                                </a></div>
+                            <p class="tablet__sibtitle" [style.color]="itemDetailSetting.modify_tColor"
+                                [ngStyle]="{'font-size': itemDetailSetting.modify_tsize +'px'}">Beverage
+                            </p>
+                            <div class="tablet__radio-group">
+                                <div class="tablet__radio-group-field">
+                                    <div>
+                                        <p [style.color]="itemDetailSetting.modify_HColor"
+                                            [ngStyle]="{'font-size': itemDetailSetting.modify_Hsize +'px'}">
+                                            <strong>Green
+                                                tea</strong></p>
+                                    </div>
+                                    <div>
+                                        <label>
+                                            <input type="radio" name="beverage" checked><span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="tablet__radio-group-field">
+                                    <div>
+                                        <p [style.color]="itemDetailSetting.modify_HColor"
+                                            [ngStyle]="{'font-size': itemDetailSetting.modify_Hsize +'px'}">
+                                            <strong>Black
+                                                tea</strong></p>
+                                    </div>
+                                    <div>
+                                        <label>
+                                            <input type="radio" name="beverage"><span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="tablet__radio-group-field">
+                                    <div>
+                                        <p [style.color]="itemDetailSetting.modify_HColor"
+                                            [ngStyle]="{'font-size': itemDetailSetting.modify_Hsize +'px'}">
+                                            <strong>Coffee</strong></p>
+                                    </div>
+                                    <div>
+                                        <label>
+                                            <input type="radio" name="beverage"><span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="tablet__sibtitle" [style.color]="itemDetailSetting.modify_tColor"
+                                [ngStyle]="{'font-size': itemDetailSetting.modify_tsize +'px'}">
+                                Essentials</p>
+                            <div class="tablet__count-group">
+                                <div class="tablet__count-group-field">
+                                    <div>
+                                        <p><strong [style.color]="itemDetailSetting.modify_HColor"
+                                                [ngStyle]="{'font-size': itemDetailSetting.modify_Hsize +'px'}">Pickled
+                                                Cherry Peppers</strong><span>90cal</span></p>
+                                        <p [style.font-family]="headerSetting.priceFamily">+ $0.79</p>
+                                    </div>
+                                    <div><a href="javascript:void(0)" title=""><span>-</span></a><span>0</span><a
+                                            href="javascript:void(0)" title=""><span>+</span></a></div>
+                                </div>
+                                <div class="tablet__count-group-field">
+                                    <div>
+                                        <p><strong [style.color]="itemDetailSetting.modify_HColor"
+                                                [ngStyle]="{'font-size': itemDetailSetting.modify_Hsize +'px'}">Beet &
+                                                Carrot Noodles</strong><span>60cal</span></p>
+                                        <p [style.font-family]="headerSetting.priceFamily">+ $0.79</p>
+                                    </div>
+                                    <div><a href="javascript:void(0)" title=""><span>-</span></a><span>0</span><a
+                                            href="javascript:void(0)" title=""><span>+</span></a></div>
+                                </div>
+                                <div class="tablet__count-group-field">
+                                    <div>
+                                        <p><strong [style.color]="itemDetailSetting.modify_HColor"
+                                                [ngStyle]="{'font-size': itemDetailSetting.modify_Hsize +'px'}">Kelp
+                                                Noodles</strong><span>120cal</span></p>
+                                        <p [style.font-family]="headerSetting.priceFamily">+ $0.79</p>
+                                    </div>
+                                    <div><a href="javascript:void(0)" title=""><span>-</span></a><span>0</span><a
+                                            href="javascript:void(0)" title=""><span>+</span></a></div>
+                                </div>
+                            </div>
+                            <p class="tablet__sibtitle" [style.color]="itemDetailSetting.modify_tColor"
+                                [ngStyle]="{'font-size': itemDetailSetting.modify_tsize +'px'}">Personal
+                                preferences</p>
+                            <div class="tablet__ques-group">
+                                <div class="tablet__ques-group-field">
+                                    <div>
+                                        <p [style.color]="itemDetailSetting.modify_HColor"
+                                            [ngStyle]="{'font-size': itemDetailSetting.modify_Hsize +'px'}">Would you
+                                            like your dressing mixed in?</p>
+                                    </div>
+                                    <div>
+                                        <label>
+                                            <input type="radio" name="personal_preferences_0" checked>
+                                            <p><span>Yes</span></p>
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="personal_preferences_0">
+                                            <p><span>No</span></p>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="tablet__ques-group-field">
+                                    <div>
+                                        <p [style.color]="itemDetailSetting.modify_HColor"
+                                            [ngStyle]="{'font-size': itemDetailSetting.modify_Hsize +'px'}">Do you like
+                                            your salad chopped?</p>
+                                    </div>
+                                    <div>
+                                        <label>
+                                            <input type="radio" name="personal_preferences_1">
+                                            <p><span>Yes</span></p>
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="personal_preferences_1" checked>
+                                            <p><span>No</span></p>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tablet__collapse-wrapper">
+                                <div class="tablet__collapse is-open">
+                                    <div class="tablet__collapse-header" [style.color]="headerSetting.neutralTxt"
+                                        [style.background]="headerSetting.neutralbg">
+                                        <p>Nutritional info</p><i [style.color]="headerSetting.neutralTxt"
+                                            class="icon-font icon-corner" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="tablet__collapse-body">
+                                        <ul>
+                                            <li>
+                                                <p [style.color]="headerSetting.listColor">Calories</p><span
+                                                    [style.color]="headerSetting.listColor">90cal</span>
+                                            </li>
+                                            <li>
+                                                <p [style.color]="headerSetting.listColor">Fat</p><span
+                                                    [style.color]="headerSetting.listColor">60g</span>
+                                            </li>
+                                            <li>
+                                                <p [style.color]="headerSetting.listColor">Trans Fatty acid</p><span [style.color]="headerSetting.listColor">0g</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tablet__quantity" [style.color]="headerSetting.neutralTxt"
+                                [style.background]="headerSetting.neutralbg">
+                                <div>
+                                    <p class="tablet__sibtitle">
+                                        Quantity</p>
+                                </div>
+                                <div><a href="javascript:void(0)" title=""><span>-</span></a><span>0</span><a
+                                        href="javascript:void(0)" title=""><span>+</span></a></div>
+                            </div>
+                            <div class="tablet__desc">
+                                <p [style.color]="headerSetting.listColor">At vero eos et accusamus et iusto odio
+                                    dignissimos ducimus qui
+                                    blanditiis
+                                    praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias
+                                    excepturi
+                                    sint
+                                    occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt
+                                    mollitia
+                                    animi, id est laborum et dolorum fuga.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tablet__footer">
+                        <div [style.background]="headerSetting.neutralBck"><a href="javascript:void(0)" title="">
+                                <div class="fa fa-arrow-right"></div>
+                            </a></div>
+                        <div [style.background]="headerSetting.confirmBtn">
+                            <span *ngIf="headerSetting.priceFormat == '$0.00'" [style.color]="headerSetting.confirmTxt"
+                                [style.font-family]="headerSetting.priceFamily">{{headerSetting.currency}}24.35</span>
+                            <span *ngIf="headerSetting.priceFormat == '$0'" [style.color]="headerSetting.confirmTxt"
+                                [style.font-family]="headerSetting.priceFamily">{{headerSetting.currency}}24</span>
+                            <span *ngIf="headerSetting.priceFormat == '0$'" [style.color]="headerSetting.confirmTxt"
+                                [style.font-family]="headerSetting.priceFamily">24{{headerSetting.currency}}</span>
+                            <span *ngIf="headerSetting.priceFormat == '0.00$'" [style.color]="headerSetting.confirmTxt"
+                                [style.font-family]="headerSetting.priceFamily">24.35{{headerSetting.currency}}</span>
+                            <p [style.color]="headerSetting.confirmTxt">Add to my order</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- SECTION tablet :: END-->
+        </div>
+    </div>
+</section>

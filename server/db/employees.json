@@ -1,0 +1,91 @@
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a98502fefb3d521d166bab1"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"name" : "Sandra Tullis",
+	"role" : "Host"
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a985089efb3d521d166bab4"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"name" : "Nadia Arif",
+	"role" : "Host"
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a9850b6efb3d521d166bab6"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"name" : "Ross Hardy",
+	"role" : "Server"
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a9850dcefb3d521d166bab7"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"name" : "Allie Meyer",
+	"role" : "Server"
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a9850edefb3d521d166bab8"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"name" : "Wendy Hsief",
+	"role" : "Chef"
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a9850abefb3d521d166bab5"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"name" : "Tiffany Selby",
+	"role" : "Server"
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5ab6774dca47e235f8f76eed"),
+	"company_id" : ObjectId("5aab0d538983cb001497669e"),
+	"name" : "Sandra Tullis",
+	"role" : "Host"
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5ab6774dca47e235f8f76eee"),
+	"company_id" : ObjectId("5aab0d538983cb001497669e"),
+	"name" : "Nadia Arif",
+	"role" : "Host"
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5ab6774dca47e235f8f76eef"),
+	"company_id" : ObjectId("5aab0d538983cb001497669e"),
+	"name" : "Ross Hardy",
+	"role" : "Server"
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5ab6774dca47e235f8f76ef0"),
+	"company_id" : ObjectId("5aab0d538983cb001497669e"),
+	"name" : "Allie Meyer",
+	"role" : "Server"
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5ab6952bf3c64c6b61d013d1"),
+	"company_id" : ObjectId("5aab0d538983cb001497669e"),
+	"name" : "Ellena1",
+	"role" : "Chef"
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5ab69541f3c64c6b61d013d2"),
+	"company_id" : ObjectId("5aab0d538983cb001497669e"),
+	"name" : "Ellena2",
+	"role" : "Server"
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5ab6a4b59854ba7fe0e34570"),
+	"company_id" : ObjectId("5aab0d538983cb001497669e"),
+	"name" : "elena",
+	"role" : "Chef"
+},

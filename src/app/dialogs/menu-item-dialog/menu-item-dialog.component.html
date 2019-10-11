@@ -1,0 +1,501 @@
+<!-- Modal (Menu-Items) -->
+<div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">menu item</h5>
+            <button type="button" class="close" (click)="close()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+        </div>
+        <div class="modal-body items" style="height:100% !important">
+            <ul class="nav nav-tabs list" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#itemDetails" role="tab" aria-controls="home" aria-selected="true">Item Details</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#Customization" role="tab" aria-controls="profile" aria-selected="false">Customization</a>
+                </li>
+            </ul>
+        </div>
+        <mat-dialog-content>
+            <ngx-loading [show]="menuloading"></ngx-loading>
+            <form [formGroup]="menuItemForm">
+                <div class="modal-body items">
+                    <div class="tab-content menu-item" id="myTabContent">
+                        <!-- ITEMS -->
+                        <div class="tab-pane fade show active" id="itemDetails" role="tabpanel" aria-labelledby="home-tab">
+
+                            <div class="row" style="margin:0;">
+                                <div class="col-lg-5 col-md-5 col-sm-6 iteminfo">
+                                    <h5>Item Information</h5>
+                                </div>
+                                <div class="col-lg-7 col-md-7 col-sm-6 itemon">
+                                    <span>
+                                            <h6>Status</h6>
+                                            <div class="switch-field">
+                                                <input type="radio" id="switch_left2" formControlName="status" value="true" />
+                                                <label for="switch_left2">ON</label>
+                                                <input type="radio" id="switch_right2" formControlName="status" value="false" />
+                                                <label for="switch_right2" [ngClass]="{ 'off': f.status.value =='false'}">OFF</label>
+                                            </div>
+                                        </span>
+                                </div>
+
+                                <div class="col-md-8">
+                                    <div class="row" style="margin:0px;">
+                                        <div class="col-md-12 mr-02 pd-01">
+                                            <input type="text" class="form-control" placeholder="Title" formControlName="name" [ngClass]="{ 'is-invalid': f.name.touched && f.name.errors  }" (blur)="f.name.setValue(removeSpaces(f.name.value))">
+                                            <div *ngIf="f.name.touched && f.name.errors " class="invalid-feedback">
+                                                <div *ngIf="f.name.errors.required"> Title is required</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 mr-02 pd-01">
+                                            <textarea class="form-control" id="message-text" placeholder="Description" formControlName="description" [ngClass]="{ 'is-invalid': f.description.touched && f.description.errors  }" (blur)="f.description.setValue(removeSpaces(f.description.value))"></textarea>
+                                            <div *ngIf="f.description.touched && f.description.errors " class="invalid-feedback">
+                                                <div *ngIf="f.description.errors.required"> Description is required</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mr-02 pd-02">
+                                            <select formControlName="label" class="form-control" [ngClass]="{ 'is-invalid': f.label.touched && f.label.errors }">
+                                            <option value="" disabled [selected]='true'> Select label</option>
+                                              <option *ngFor="let item of labels" value={{item.name}}>
+                                                  {{item.name}}
+                                              </option>
+                                          </select>
+                                            <div *ngIf=" f.label.touched && f.label.errors" class="invalid-feedback">
+                                                <div *ngIf="f.label.errors.required">Label is required</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mr-02 pd-03">
+                                            <select class="form-control" formControlName="item_type">
+                                                    <option value="" disabled [selected]='true'> Select item type</option>
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 img mr-02">
+                                    <div *ngIf="!f.photo_urls.value">
+                                        <input style="display: none" type="file" (change)="onFileChanged($event)" accept="image/*" class="form-control" #fileInput>
+                                        <button type="button" class="imagebtn" (click)="fileInput.click()">ADD PHOTO</button>
+                                    </div>
+                                    <div *ngIf="f.photo_urls.value">
+                                        <div class="card-body">
+                                            <input style="display: none" type="file" (change)="onFileChanged($event)" accept="image/*" class="form-control" #fileInput>
+                                            <div class="set-butn img-set dropdown">
+                                                <button class="btn btn-default" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                        <i class="fa fa-cog" aria-hidden="true"></i></button>
+                                                <ul class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenu1" data-toggle="dropdown" #mybtn>
+                                                    <li (click)="fileInput.click();mybtn.click()"><a style="cursor: pointer">Replace</a></li>
+                                                    <li (click)="removePhoto(f.photo_name.value)"><a style="cursor: pointer">Remove</a></li>
+                                                </ul>
+                                            </div>
+                                            <img src="{{f.photo_urls.value}}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 text-left" style="padding-top: 15px;">
+                                <h5>Size and Pricing</h5>
+                            </div>
+                            <div class="col-md-12 size-price">
+                                <div class="row" style="margin:0px; background: #eee; margin-bottom: 2px;" *ngFor="let item of addSizePrize" [ngStyle]="{'background': item.default ? '#d6eed7' : '#eee'}">
+                                    <div class="col-md-4">
+                                        <h5 class="ex">{{item.portion_size}}</h5>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <h5 class="dim">{{item.weight? item.weight: 0}} Oz</h5>
+                                    </div>
+                                    <div class="col-md-2 text-center">
+                                        <h5 class="dim">{{item.calories? item.calories: 0}} Cal</h5>
+                                    </div>
+                                    <div class="col-md-2 text-center">
+                                        <h5 class="dim">${{item.price}}</h5>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <h5 class="dim defalt-btn" (click)="setSizePrizeDefault(item)" [ngClass]="{ 'dim default': item.default}">{{item.defaultname}}</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="removeSizePrice(item)">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 size-price size-field">
+                                <div class="row" style="margin:0px; background: #eee;">
+                                    <div class="col-md-4 pd-4">
+                                        <input type="text" class="form-control" placeholder="Portion size" formControlName="portion_size" [ngClass]="{ 'is-invalid': f.portion_size.touched && !f.portion_size.value  }" (blur)="f.portion_size.setValue(removeSpaces(f.portion_size.value))">
+                                        <div *ngIf="f.portion_size.touched && !f.portion_size.value" class="invalid-feedback"> Portion size is required</div>
+                                    </div>
+
+                                    <div class="col-md-2 pd-05">
+                                        <input type="text" placeholder="Weight(Oz)" formControlName="weight" class="form-control" appCurrencyFormatter (blur)="priceChanged()">
+                                    </div>
+                                    <div class="col-md-2 pd-05 text-center">
+                                        <input type="text" placeholder="Calories" formControlName="calories" class="form-control" appCurrencyFormatter (blur)="priceChanged()">
+                                    </div>
+                                    <div class="col-md-2 pd-05 text-center">
+                                        <input type="text" placeholder="Price($)" formControlName="price" class="form-control" appCurrencyFormatter [ngClass]="{ 'is-invalid': f.price.touched && !f.price.value}" (blur)="priceChanged()">
+                                        <div *ngIf="f.price.touched && !f.price.value" class="invalid-feedback"> Price is required</div>
+                                    </div>
+                                    <div class="col-md-2 pd-06">
+                                        <button class="btn btn-default" (click)="addSizePrice()" [disabled]="!menuItemForm.get('portion_size').value || !menuItemForm.get('price').value">add</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- <div class="col-md-12 text-left" style="padding-top: 15px;" *ngIf="section_course?.length !== 0">
+                                <h5>Menus</h5>
+                            </div> -->
+                            <div class="col-md-12 text-left" style="padding-top: 15px;">
+                                <h5>Menus</h5>
+                            </div>
+                            <div class="col-md-12 size-price menu">
+                                <div class="row" style="margin:0px; background: #eee;" *ngFor="let item of addMenus">
+                                    <div class="row ingredient-item-heading">
+                                        <div class="col-10" text-left>
+                                            <div class="item-title">{{item.section}}</div>
+                                        </div>
+                                        <div class="col-2" text-left>
+                                            <button type="button" class="close"><span aria-hidden="true" (click)="removeMenus(item)">x</span> </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 size-price size-field" *ngIf="addMenus.length === 0 || addMenus === undefined">
+                                <div class="row" style="margin:0px; background: #eee;" *ngIf="section_course?.length !==0">
+                                    <div class="col-md-8 pd-06">
+                                        <select class="form-control" formControlName="section">
+                                                <option value="" disabled [selected]='true'> Select {{menuName}}</option>
+                                                <option [value]="item" *ngFor="let item of section_course">{{item}}</option>
+                                            </select>
+                                    </div>
+                                    <div class="col-md-4 pd-06">
+                                        <button class="btn btn-default" (click)="addMenuValues()" [disabled]="!menuItemForm.get('section').value">save</button>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin:0px;" *ngIf="section_course?.length ===0">
+                                    <div style="padding-left:10px;">No {{menuName}} available in selected menu.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- ITEMS CLOSE -->
+
+                        <!-- CUSTOMIZATION -->
+                        <div class="tab-pane fade cstmiation" id="Customization" role="tabpanel" aria-labelledby="profile-tab">
+
+                            <div class="row" style="margin:0px">
+                                <div class="col-lg-12 col-md-12">
+                                    <h5 style="padding: 0px !important;">Add modifier</h5>
+                                </div>
+                                <div class="col-md-12 size-price size-field" style="padding: 15px">
+                                    <div class="row" style="margin:0px; background: #eee;">
+                                        <div class="col-md-8 pd-4">
+                                            <select class="form-control" formControlName="modifier">
+                                                <option value="" disabled [selected]='true'> Select modifier</option>
+                                                 <option value="{{item}}"  *ngFor="let item of modifiers">{{item}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4 pd-06">
+                                            <button class="btn btn-default" (click)="addModifier()">Add modifier</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12" *ngIf="spiceoptions">
+                                    <div class="row modifier-heading">
+                                        <div class="col-10" style="padding: 0px !important">
+                                            <h5 class="spice-header">Spice options</h5>
+                                        </div>
+                                        <div class="col-2 close-container">
+                                            <button type="button" class="close" (click)="remove('Spice options')"><span aria-hidden="true" class="close-text">x</span> </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 radio-box " style="padding-bottom: 15px;" *ngIf="spiceoptions">
+                                    <ul>
+                                        <li *ngFor="let item of spiceOptionsArray">
+                                            <div class="rad">
+                                                <label class="label">{{item}}</label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-12" *ngIf="personnelpref">
+                                    <div class="row modifier-heading">
+                                        <div class="col-10" style="padding: 0px !important">
+                                            <h5 class="spice-header">Personal preferences</h5>
+                                        </div>
+                                        <div class="col-2 close-container">
+                                            <button type="button" class="close" (click)="remove('Personal preferences')"><span aria-hidden="true" class="close-text">x</span> </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 pref menu" *ngIf="menuItemQues.length != 0">
+                                    <div class="row" style="margin:0px; border: 2px solid #eee; margin-bottom: 2px;" *ngFor="let item of menuItemQues">
+                                        <div class="col-md-10 " style="padding: 5px 10px;">
+                                            <div class="ex">{{item}}</div>
+                                        </div>
+                                        <div class="col-md-2 que">
+                                            <button type="button" class="close btn-item" (click)="removeQuestion(item)"><span aria-hidden="true">x</span> </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 size-field" style="padding-bottom: 15px;" *ngIf="personnelpref">
+                                    <div class="row" style="margin:0px; background: #eee;">
+                                        <div class="col-md-8 pd-4">
+                                            <input type="text" class="form-control" placeholder="Question" formControlName="question" />
+                                        </div>
+                                        <div class="col-md-4 pd-06">
+                                            <button class="btn btn-default" (click)="addQuestion()" [disabled]="!menuItemForm.get('question').value">Add Question</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12" *ngIf="showIngredients">
+                                    <div class="row modifier-heading">
+                                        <div class="col-10" style="padding: 0px !important">
+                                            <h5 class="spice-header">Ingredients</h5>
+                                        </div>
+                                        <div class="col-2 close-container">
+                                            <button type="button" class="close" (click)="remove('Ingredients')"><span aria-hidden="true" class="close-text">x</span> </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 size-field" *ngIf="showIngredients" style="margin: 3px 0px 0px 0px !important;">
+                                    <div class="row" style="margin:0px; background: #eee;">
+                                        <div class="col-md-8 pd-4">
+                                            <!-- <input type="text" class="form-control" placeholder="Custom title" formControlName="ingredientCustomTitle" [ngClass]="{ 'is-invalid': f.ingredientCustomTitle.touched && !f.ingredientCustomTitle.value}">
+                                                <div *ngIf="f.ingredientCustomTitle.touched && !f.ingredientCustomTitle.value" class="invalid-feedback"> Custom title is required.</div> -->
+                                            <input type="text" class="form-control" placeholder="Category title" formControlName="ingredientCustomTitle">
+                                        </div>
+                                        <!-- <div class="col-md-4 pd-05">
+                                            <select class="form-control" formControlName="selectedCategory" (change)="loadIngredients($event.target.value)" *ngIf="!updateIngredient">
+                                                        <option value="">Select ingredient category</option>
+                                                        <option value="{{item.company_id}}"  *ngFor="let item of userIngredientCat">{{item.name}}</option>
+                                                </select>
+                                        </div> -->
+                                        <div class="col-md-4 pd-06">
+                                            <button class="btn btn-default" (click)="createIngredientCategoryTitle()" [disabled]="!f.ingredientCustomTitle.value">Add category</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12" *ngIf="createCategory && showIngredients">
+                                    <div class="row" style="background: #fafafa;margin: 0px;padding: 5px 0px;" *ngIf="!updateIngredientTitle">
+                                        <div class="col-md-8" style="padding: 0px !important">
+                                            <div class="label-text">{{f.ingredientCustomTitle.value}}</div>
+                                        </div>
+                                        <div class="col-md-4" style="text-align: right;">
+                                            <mat-icon (click)="editIngredientCategoryTitleOnCreate()" style="cursor: pointer">create</mat-icon>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="background: #fafafa;margin: 0px;padding: 5px 0px;" *ngIf="updateIngredientTitle">
+                                        <div class="col-md-8">
+                                            <input type="text" class="form-control" placeholder="Category title" formControlName="editingredientItemTitle">
+                                        </div>
+                                        <div class="col-md-4" style="text-align: right;">
+                                            <button class="btn btn-default" (click)="updateIngredientCategoryTitleOnCreate()" style="color: #00bef2;background: transparent">Update</button>
+                                            <button class="btn btn-default" (click)="updateIngredientTitle = false" style="color: grey;background: transparent">Cancel</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 size-field" *ngIf="createCategory && showIngredients" style="margin: 3px 0px 0px 0px !important;">
+                                    <div class="row" style="margin:0px; background: #eee;">
+                                        <div class="col-md-8 pd-4">
+                                            <select class="form-control" formControlName="selectedCategory" (change)="getCategoryData(userIngredientCat[$event.target.selectedIndex-1])" placeholder="Select ingredient category">
+                                                    <option value="" disabled [selected]='true'> Select ingredient category </option>
+                                                    <option value="{{item}}" *ngFor="let item of userIngredientCat; let i= index" >{{item.name}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4 pd-06">
+                                            <button class="btn btn-default" style="background:#fff;" (click)="loadIngredients(f.selectedCategory.value)" [disabled]="!f.selectedCategory.value">Add ingredient list</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12" *ngIf="createCategory && showIngredients && !userIngredientCat.length">
+                                    <div class="row modifier-heading">
+                                        <div class="col-10" style="padding: 0px !important">
+                                            <div style="padding-left: 10px;">Sorry no ingredient categories available.<br>Please add ingredients from ingredients menu</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 size-price size-field" *ngIf="showIngredients" style="margin-top:0px !important">
+                                    <div *ngFor="let item of catIngredientsToShow">
+                                        <div class="row" style="margin:0px; background: #fafafa;">
+                                            <div class="col-lg-3 col-md-3 col-sm-3 fields form-group" style="margin: 0px !important;padding: 0px 2px !important;">
+                                                <div style="padding:10px;">{{item.categoryName}}</div>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin:0px; background: #fafafa;">
+                                            <div class="col-lg-3 col-md-3 col-sm-3 fields form-group" *ngFor="let ingredient of item.data" style="margin: 0px !important;padding: 0px 2px !important;">
+                                                <ul class="nav nav-tabs flex-column main-category subcategory">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" [ngClass]="{ 'active': ingredient.selected}" (click)="getSelectedIngredients(ingredient)">{{ingredient.name}}</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 size-price size-field" *ngIf="catIngredientsToShow.length !==0" style="margin-top:0px !important;background: #fafafa;">
+                                    <button class="btn btn-default" (click)="saveEssantials()">Save</button>
+                                </div>
+
+
+                                <div class="col-12 ingredient-container" *ngFor="let item of ingredientsArray">
+                                    <div class="row modifier-heading" *ngIf="!item.update">
+                                        <div class="col-10" style="padding: 0px !important">
+                                            <div class="label-text">{{item.custumTitle}}&nbsp;&nbsp;<span *ngIf="item.ingredients[0]?.quantity">({{item.ingredients[0]?.quantity}})</span></div>
+                                        </div>
+                                        <div class="col-2 close-container">
+                                            <button class="btn btn-default" style="background:grey;padding: 0px 4px;" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                            <i class="fa fa-cog" aria-hidden="true" style="color:#fff"></i></button>
+                                            <ul class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenu1" data-toggle="dropdown">
+                                                <li style="padding: 5px 15px; font-size: 14px;" (click)="editIngredientItem(item)"><a style="cursor: pointer">Edit</a></li>
+                                                <li style="padding: 5px 15px;font-size: 14px;" (click)="removeIngredientItem(item)"><a style="cursor: pointer">Remove</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div *ngIf="!item.update">
+                                        <div *ngFor="let items of item.ingredients">
+                                            <div class="col-12" style="padding: 0px !important;text-transform: capitalize;">
+                                                <div style="padding:5px 16px;">{{items.categoryName}}</div>
+                                            </div>
+                                            <div class="row" style="margin:0px">
+                                                <div class="col-lg-3 col-md-3 col-sm-3 fields form-group" *ngFor="let ingredient of items.data" style="margin: 0px !important;padding: 0px 2px !important;">
+                                                    <ul class="nav nav-tabs flex-column main-category subcategory">
+                                                        <li class="nav-item">
+                                                            <a class="nav-link select-item">{{ingredient.name}}</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12" *ngIf="item.update">
+                                        <!-- <div class="row" style="background: #fafafa;margin: 0px;padding: 5px 0px;">
+                                            <div style="padding: 0px !important">
+                                                <div class="label-text">{{item.custumTitle}}</div>
+                                            </div>
+                                        </div> -->
+                                        <div class="row" style="background: #fafafa;margin: 0px;padding: 5px 0px;" *ngIf="!updateIngredientTitle">
+                                            <div class="col-md-8" style="padding: 0px !important">
+                                                <div class="label-text">{{item.custumTitle}}</div>
+                                            </div>
+                                            <div class="col-md-4" style="text-align: right;">
+                                                <mat-icon (click)="updateIngredientTitle = true;f.ingredientItemTitle.value=item.custumTitle" style="cursor: pointer">create</mat-icon>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="background: #fafafa;margin: 0px;padding: 5px 0px;" *ngIf="updateIngredientTitle">
+                                            <div class="col-md-8" style="padding: 0px !important">
+                                                <input type="text" class="form-control" placeholder="Category title" formControlName="ingredientItemTitle">
+                                            </div>
+                                            <div class="col-md-4" style="text-align: right;">
+                                                <button class="btn btn-default" (click)="updateIngredientItemTitle(item)" style="color: #00bef2;background: transparent">Update</button>
+                                                <button class="btn btn-default" (click)="updateIngredientTitle = false" style="color: grey;background: transparent">Cancel</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 size-field" *ngIf="item.update" style="margin: 3px 0px 0px 0px !important;">
+                                        <div class="row" style="margin:0px; background: #eee;">
+                                            <div class="col-md-8 pd-4">
+                                                <select class="form-control" formControlName="selectedCategory" (change)="getCategoryData(userIngredientCat[$event.target.selectedIndex -1])" placeholder="Select ingredient category">
+                                                                <option value="" disabled [selected]='true'> Select ingredient category </option>
+                                                                <option value="{{item.company_id}}" *ngFor="let item of userIngredientCat">{{item.name}}</option>
+                                                    </select>
+                                            </div>
+                                            <div class="col-md-4 pd-06">
+                                                <button class="btn btn-default" style="background: #fff" (click)="loadEditIngredients(f.selectedCategory.value)" [disabled]="!f.selectedCategory.value">Add ingredient list</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12 size-price size-field" *ngIf="item.update" style="margin-top:0px !important">
+                                        <div *ngFor="let ingredient of editIngredientsArray.ingredients">
+                                            <div class="row" style="margin:0px; background: #fafafa;">
+                                                <div class="col-lg-3 col-md-3 col-sm-3 fields form-group" style="margin: 0px !important;padding: 0px 2px !important;">
+                                                    <div style="padding:10px;text-transform: capitalize;">{{ingredient.categoryName}}</div>
+                                                </div>
+                                            </div>
+                                            <div class="row" style="margin:0px; background: #fafafa;">
+                                                <div class="col-lg-3 col-md-3 col-sm-3 fields form-group" style="margin: 0px !important;padding: 0px 2px !important;" *ngFor="let ingredientItem of ingredient.data">
+                                                    <ul class="nav nav-tabs flex-column main-category subcategory">
+                                                        <li class="nav-item">
+                                                            <a class="nav-link" [ngClass]="{ 'active': ingredientItem.selected}" (click)="getSelectedIngredients(ingredientItem)">{{ingredientItem.name}}</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12 size-price size-field" style="margin-top:0px !important ;padding: 0px 16px !important;">
+                                        <div class="row" style="margin:0px;padding:0px !important; " *ngIf="item.update">
+                                            <div class="col-md-6" style="padding: 5px !important">
+                                                <button class="btn btn-default" (click)="editIngredientupdate(item)">Save</button>
+                                            </div>
+                                            <div class="col-md-6" style="padding: 5px !important">
+                                                <button class="btn btn-default" (click)="cancelIngredientUpdate(item)">Cancel</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- <div class="row modifier-heading" style="background: #fafafa;" *ngIf="item.update">
+                                        <div class="col-md-4 pd-4" style="padding: 5px 1px 5px 5px;">
+                                                <div style="padding:5px 16px;">{{items.categoryName}}</div>
+                                        </div>
+                                        <div class="col-md-4 pd-05" style="padding: 5px 1px;">
+                                        </div>
+                                        <div class="col-md-4 pd-06">
+                                            <div class="close-container">
+                                                <button class="btn btn-default" style="color:#00bef2;background: transparent;padding: 0px 4px;" type="button" (click)="editIngredientupdate(item)" [disabled]="!menuItemForm.get('ingredientItemTitle').value">Update</button>
+                                                <button class="btn btn-default" style="background:transparent;padding: 0px 4px;" type="button" (click)="cancelIngredientUpdate(item)">Cancel</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="background: #fafafa;margin: 0px;padding: 5px 0px;" *ngIf="item.update">
+                                        <div class="col-lg-4 col-md-4 col-sm-4 fields form-group" *ngFor="let item of selectedIngredients.ingredients" style="margin: 0px !important;padding: 0px 2px !important;">
+                                            <ul class="nav nav-tabs flex-column main-category subcategory">
+                                                <li class="nav-item">
+                                                    <a class="nav-link" [ngClass]="{ 'active': item.selected}" (click)="getAlreadySelectedIngredients(item)">{{item.name}}</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-12" *ngIf="item.update">
+                                        <div class="row" style="background: #fafafa;">
+                                            <div class="col-md-4 pd-05" style="padding: 5px 1px;">
+                                                <select class="form-control" formControlName="selectedCategory" (change)="loadEditIngredients($event.target.value)">
+                                                            <option value="">Select ingredient category</option>
+                                                            <option value="{{item.company_id}}"  *ngFor="let item of userIngredientCat">{{item.name}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="background: #fafafa;margin: 0px;padding: 5px 0px;" *ngIf="item.update">
+                                        <div class="col-lg-4 col-md-4 col-sm-4 fields form-group" *ngFor="let item of editIngredientsArray" style="margin: 0px !important;padding: 0px 2px !important;">
+                                            <ul class="nav nav-tabs flex-column main-category subcategory">
+                                                <li class="nav-item">
+                                                    <a class="nav-link" [ngClass]="{ 'active': item.selected}" (click)="getEditSelectedIngredients(item)">{{item.name}}</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- CUSTOMIZATION CLOSE -->
+                    </div>
+                </div>
+            </form>
+        </mat-dialog-content>
+        <div class="modal-footer">
+            <div class="col-md-12" style="padding: 0px;">
+                <button type="button" class="btn btn-default" (click)="addMenuItem()" [disabled]="!menuItemForm.valid">{{btnText}}</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Close -->

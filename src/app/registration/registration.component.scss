@@ -1,0 +1,27 @@
+@import "~src/styles.scss";
+.restaurant-info {}
+
+.interested-services {}
+
+.checkbox-item {
+    margin-left: 1em;
+}
+
+.error-feild {
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: $error-color;
+}
+
+.readonly-code {
+    background: #ddd;
+    border: none;
+}
+
+.phone {
+    margin-bottom: 1em;
+}
+.valid{
+    border: 1px solid green;
+}

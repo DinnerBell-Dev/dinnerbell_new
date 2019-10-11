@@ -1,0 +1,72 @@
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a98a707efb3d521d166bb06"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"label" : null,
+	"photo_url" : "1.png",
+	"price" : 0.69,
+	"title" : "Romaine"
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a98a70eefb3d521d166bb07"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"label" : null,
+	"photo_url" : "2.png",
+	"price" : 0.69,
+	"title" : "Mesclun"
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a98a717efb3d521d166bb08"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"label" : ObjectId("5a9a1fccefb3d521d166bbe5"),
+	"photo_url" : "3.png",
+	"price" : 0.69,
+	"title" : "Spinach"
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a98a721efb3d521d166bb09"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"label" : ObjectId("5a9a2016efb3d521d166bbe6"),
+	"photo_url" : "4.png",
+	"price" : 0.69,
+	"title" : "Kale"
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a98a72aefb3d521d166bb0a"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"label" : ObjectId("5a9a1fccefb3d521d166bbe5"),
+	"photo_url" : "5.png",
+	"price" : 0.69,
+	"title" : "Red Cabbage"
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a98a736efb3d521d166bb0b"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"label" : ObjectId("5a9a2016efb3d521d166bbe6"),
+	"photo_url" : "5.png",
+	"price" : 0.69,
+	"title" : "Supergreens Blend"
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a98a740efb3d521d166bb0c"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"label" : null,
+	"photo_url" : "1.png",
+	"price" : 0.69,
+	"title" : "Arugula"
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5ab87e07f47b5f815dfd2557"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"label" : null,
+	"photo_url" : "8af368724844eb6ae58942ca30b33c5e",
+	"price" : NumberInt("44"),
+	"title" : "test2"
+},

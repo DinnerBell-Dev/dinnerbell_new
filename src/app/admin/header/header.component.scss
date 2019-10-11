@@ -1,0 +1,29 @@
+.header {
+    -webkit-transition: -webkit-box-shadow 0.3s ease-in-out;
+    z-index: 9999;
+    a:hover {
+      text-decoration: none;
+    }
+    a i {
+      font-size: 22px;
+      color: #9c9c9c;
+    }
+  }
+  
+  .BHeader {
+    -webkit-box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+  }
+  
+  .is-openNav {
+    .header__preview {
+      display: none;
+    }
+    .header__nav-wrapper {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+    }
+  }
+  

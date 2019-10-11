@@ -1,0 +1,29 @@
+
+
+<div class="mt-5 pt-5"></div>
+<div class="mds__theme-wrapper "><a *ngFor="let theme of themeList" class="mds__theme mds__theme-2"
+        href="javascript:void(0)" title="">
+        <div class="mds__theme-top"><img [src]="theme.photo_url" alt="" title="">
+            <!-- <div class="mds__theme-ind"><span></span><span></span><span></span><span></span><span></span><span></span>
+            </div> -->
+            <div class="mds__theme-btn">
+                <button (click)="customizeTheme(theme.name)"
+                    type="button"><span>Customize</span><i class="icon-font icon-arrow"></i></button>
+            </div>
+        </div>
+        <div class="mds__theme-bottom pt-2">
+            <p>{{theme.name}}</p>
+        </div>
+    </a>
+    <a (click)="openAddthemeDialog()" class="mds__theme mds__theme-2 addTheme" href="javascript:void(0)" title="">
+        <div class="mds__theme-top">
+            <div class="mds__theme-btn">
+                <button type="button"><span>Add theme</span><i
+                        class="icon-font icon-arrow"></i></button>
+            </div>
+        </div>
+        <div class="mds__theme-bottom pt-2">
+            <p>Add Theme</p>
+        </div>
+    </a>
+</div>

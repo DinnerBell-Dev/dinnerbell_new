@@ -1,0 +1,9 @@
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5abbd78045682afdaf6c33c1"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"country_code" : "380",
+	"email" : "vasilebrinza68@outlook.com",
+	"name" : "vasile",
+	"phone_number" : "342422423"
+},

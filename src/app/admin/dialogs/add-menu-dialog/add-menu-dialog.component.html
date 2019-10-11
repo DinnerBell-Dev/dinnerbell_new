@@ -1,0 +1,133 @@
+<!-- Modal (Menu) -->
+<div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">menu</h5>
+            <button type="button" class="close" (click)="close()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <mat-dialog-content>
+            <div class="modal-body menu">
+                <div class="col-md-12 col-sm-12">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 text-left fields">
+                                <h5>Menu properties</h5>
+                            </div>
+                            <div class="col-lg-8 col-md-7 col-sm-12 fields">
+                                <input type="text" class="form-control" placeholder="Menu Name">
+                            </div>
+                            <div class="col-lg-4 col-md-5 col-sm-12 fields">
+                                <div class="swicth-btn">
+                                    <span style="float:left; margin-top: 4px; margin-left: 6px;">Status</span>
+                                    <span style="float:right;">
+
+                                        <div class="switch-field">
+                                            <input type="radio" id="switch_left1" name="switch_2" value="yes" checked />
+                                            <label for="switch_left1">ON</label>
+                                            <input type="radio" id="switch_right1" name="switch_2" value="no" />
+                                            <label for="switch_right1">OFF</label>
+                                        </div>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-md-3 fields">
+                                <div class="form-group">
+                                    <select class="form-control">
+                                        <option>Serving from</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3 fields">
+                                <div class="form-group">
+                                    <select class="form-control">
+                                        <option>To</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6 fields">
+                                <div class="form-group">
+                                    <select class="form-control">
+                                        <option>Regular Menu</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4 fields">
+                                <div class="form-group">
+                                    <button class="btn btn-default">add image</button>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 text-left fields">
+                                <h5>Regular menu settings</h5>
+                            </div>
+                            <div class="col-lg-5 col-md-7 fields ">
+                                <div class="regular">
+                                    <div class="swicth-btn">
+                                        <span style="float:left; margin-top: 4px; margin-left: 6px;">Subsection</span>
+                                        <span style="float:right;">
+                                            <!-- <h6>Status</h6> -->
+                                            <div class="switch-field">
+                                                <input type="radio" id="switch_left" name="switch_2" value="yes"
+                                                    checked />
+                                                <label for="switch_left">ON</label>
+                                                <input type="radio" id="switch_right" name="switch_2" value="no" />
+                                                <label for="switch_right">OFF</label>
+                                            </div>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 fields">
+                                <div class="swicth-btn">
+                                    <div class="regular-heading">
+                                        <h5 style="float:left;">Appetizer</h5>
+                                    </div>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 fields">
+                                <div class="row" style="margin: 0; background: #eee;">
+
+                                    <div class="col-md-8 col-sm-8 fields">
+                                        <input type="text" class="form-control" placeholder="Subsection Name">
+                                    </div>
+                                    <div class="col-md-4 col-sm-4 subsection fields">
+                                        <button type="button" class="btn btn-default">add
+                                            subsection</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </mat-dialog-content>
+        <div class="modal-footer">
+            <div class="col-md-12" style="padding: 0px;">
+                <button type="button" class="btn btn-default">Create menu</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Close -->

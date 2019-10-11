@@ -1,0 +1,93 @@
+<!-- Modal -->
+<div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">{{titletext}}
+            </h5>
+            <button type="button" class="close" (click)="close()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <mat-dialog-content>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 text-left">
+                        <h5>Ingredient Properties</h5>
+                    </div>
+                    <div class="col-md-8 col-sm-12 fields">
+                        <form [formGroup]="addCatItemForm">
+                            <div class="form-group name-form">
+                                <input type="text" class="form-control" placeholder="Ingredient Name" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': f.name.touched && f.name.errors  }" (blur)="f.name.setValue(removeSpaces(f.name.value))">
+                                <div *ngIf="f.name.touched && f.name.errors " class="invalid-feedback">
+                                    <div *ngIf="f.name.errors.required"> Ingredient Name is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col price-col">
+                                        <input class="form-control" type="number" min="0" formControlName="price" placeholder="Price($)" [ngClass]="{ 'is-invalid': f.price.touched && f.price.errors}">
+                                        <div *ngIf=" f.price.touched && f.price.errors" class="invalid-feedback">
+                                            <div *ngIf="f.price.errors.required">Price is required</div>
+                                            <div *ngIf="f.price.errors && !f.price.errors.required">Invalid Price</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col label-col">
+
+                                        <select formControlName="label" class="form-control" [ngClass]="{ 'is-invalid': f.label.touched && f.label.errors }">
+                                            <option value="" disabled [selected]='true'> Select label</option>
+                                            <option *ngFor="let item of labels" value={{item.name}}>
+                                                {{item.name}}
+                                            </option>
+                                        </select>
+                                        <div *ngIf=" f.label.touched && f.label.errors" class="invalid-feedback">
+                                            <div *ngIf="f.label.errors.required">Label is required</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" placeholder="Description" formControlName="description" [ngClass]="{ 'is-invalid': f.description.touched && f.description.errors  }" (blur)="f.description.setValue(removeSpaces(f.description.value))"></textarea>
+                                <div *ngIf="f.description.touched && f.description.errors " class="invalid-feedback">
+                                    <div *ngIf="f.description.errors.required"> Description is required</div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-4 add-photo">
+                        <div *ngIf="!f.photo_url.value && !data.name" [ngClass]="{ 'error-class': !f.photo_url.value && f.name.touched}">
+                            <input style="display: none" type="file" (change)="onFileChanged($event)" accept="image/*" class="form-control" #fileInput>
+                            <button type="button" class="imagebtn" (click)="fileInput.click()">ADD PHOTO</button>
+                        </div>
+                        <div *ngIf="!f.photo_url.value && data.name" [ngClass]="{ 'error-class': !f.photo_url.value}">
+                            <input style="display: none" type="file" (change)="onFileChanged($event)" accept="image/*" class="form-control" #fileInput>
+                            <button type="button" class="imagebtn" (click)="fileInput.click()">ADD PHOTO</button>
+                        </div>
+                        <div *ngIf="f.photo_url.value">
+                            <input style="display: none" type="file" (change)="onFileChanged($event)" accept="image/*" class="form-control" #fileInput>
+                            <div class="card-body">
+                                <div class="set-butn img-set dropdown">
+                                    <button class="btn btn-default" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                        <i class="fa fa-cog" aria-hidden="true"></i></button>
+                                    <ul class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenu1" data-toggle="dropdown" #mybtn>
+                                        <li (click)="fileInput.click();mybtn.click()"><a style="cursor: pointer">Replace</a></li>
+                                        <li (click)="f.photo_url.setValue('')"><a style="cursor: pointer">Remove</a></li>
+                                    </ul>
+                                </div>
+                                <img src="{{f.photo_url.value}}">
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </mat-dialog-content>
+        <div class="modal-footer">
+            <div class="col-md-12" style="padding: 0px;">
+                <button type="button" class="btn btn-default" [disabled]="!addCatItemForm.valid" (click)="createIngredientItem()">{{btntext}}</button>
+            </div>
+        </div>
+    </div>
+</div>

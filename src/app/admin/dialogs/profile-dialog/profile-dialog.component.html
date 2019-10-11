@@ -1,0 +1,102 @@
+<!-- Modal (Blue Strawberry ingredient)-->
+
+<div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">{{selecteduser.companyname}}
+            </h5>
+            <button type="button" class="close" aria-label="Close" (click)="close()"> <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <mat-dialog-content>
+            <div class="modal-body blue-strawberry">
+                <!-- <div class="col-md-12 col-sm-12 text-left">
+                           <h5>Venue type</h5>
+                       </div>
+                        -->
+
+                <form [formGroup]="updateForm">
+                    <!--venue-->
+                    <div class="row venue">
+                        <div class="col-md-12 col-sm-12 text-left">
+                            <h5>Venue type</h5>
+                        </div>
+                        <div class="col-md-6 col-sm-6 comm form-group">
+                            <label class="form-control" *ngIf="selecteduser !== ''">{{selecteduser.businesstype}}</label>
+
+                        </div>
+                        <div class="col-md-6 col-sm-6 comm1 form-group">
+                            <label class="form-control" *ngIf="selecteduser !== ''">{{selecteduser.cuisinesserved}}</label>
+                        </div>
+                    </div>
+
+                    <!--contact info-->
+                    <div class="row cont-info">
+                        <div class="col-md-12 col-sm-12 text-left">
+                            <h5>Contact Information</h5>
+                        </div>
+                        <div class="col-md-4 col-sm-4 comm form-group">
+                            <label class="form-control" *ngIf="selecteduser !== ''">{{selecteduser.fullname}}</label>
+
+                        </div>
+                        <div class="col-md-4 col-sm-4 comm2 form-group">
+                            <label class="form-control" *ngIf="selecteduser !== ''">{{selecteduser.occupation}}</label>
+                        </div>
+                        <div class="col-md-4 col-sm-4 comm1 form-group">
+                            <label class="form-control" *ngIf="selecteduser !== ''">+{{selecteduser.countrycode}}
+                                {{selecteduser.phone}}</label>
+                        </div>
+                        <div class="col-md-12 col-sm-12 form-group">
+                            <label class="form-control" *ngIf="selecteduser !== ''">{{selecteduser.email}}</label>
+                        </div>
+                    </div>
+
+                    <!-- Location -->
+                    <div class="row locate">
+                        <div class="col-md-12 col-sm-12 text-left">
+                            <h5>Location</h5>
+                        </div>
+                        <div class="col-md-3 col-sm-3 comm form-group">
+                            <label class="form-control" *ngIf="selecteduser !== ''">{{selecteduser.country}}</label>
+                        </div>
+                        <div class="col-md-3 col-sm-3 comm2 form-group">
+                            <label class="form-control" *ngIf="selecteduser !== ''">{{selecteduser.state}}</label>
+                        </div>
+                        <div class="col-md-3 col-sm-3 comm3 form-group">
+                            <label class="form-control" *ngIf="selecteduser !== ''">{{selecteduser.city}}</label>
+                        </div>
+                        <div class="col-md-3 col-sm-3 comm4 form-group">
+                            <label class="form-control" *ngIf="selecteduser !== ''">{{selecteduser.zipcode}}</label>
+                        </div>
+                        <div class="col-md-12 col-sm-12 form-group">
+                            <label class="form-control" *ngIf="selecteduser !== ''">{{selecteduser.address}}</label>
+                        </div>
+                    </div>
+
+                    <!-- Account Status -->
+                    <div class="row account">
+                        <div class="col-md-12 col-sm-12 text-left">
+                            <h5>Account Status</h5>
+                        </div>
+                        <div class="col-md-8 col-sm-8 comm form-group">
+                            <label class="form-control">{{selecteduser.status}}</label>
+                        </div>
+                        <div class="col-md-4 col-sm-4 form-group">
+                            <select class="form-control" formControlName="action">
+                                <option [value]="action" *ngFor="let action of actions">{{action}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </mat-dialog-content>
+        <div class="modal-footer">
+            <div class="col-md-12" style="padding: 0px;">
+                <button type="button" class="btn btn-default" (click)="updateData(selecteduser)">Update</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Close -->

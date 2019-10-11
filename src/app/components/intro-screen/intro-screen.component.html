@@ -1,0 +1,358 @@
+<section class="mds mds--base" id="mds">
+  <div class="row pt-5" *ngIf="!themeName">
+    <h3 class="pl-3 mt-5 ">Select theme for customize setting</h3>
+  </div>
+  <div class="mds__wrapper" *ngIf="themeName">
+    <div class="mds__wrapper-left mt-3">
+      <div class="mds__wrapper-preview">
+        <!-- <a href="javascript:void(0)" title=""><i class="icon-font icon-eye"></i></a> -->
+        <!-- SECTION tablet :: START-->
+        <div class="tablet--scroll">
+          <section class="tablet tablet--intro" id="tablet" tablet-introScreen-js>
+            <div class="tablet__content">
+              <div>
+                <div *ngIf="introSetting.LocalImgUrl" class="tablet__wrapper-bg"
+                  [ngClass]="{'imageCover': introSetting.imagestyle == 'fix', 'imageRepeat' : introSetting.imagestyle == 'repeat'}"
+                  [ngStyle]="{'background': introSetting.LocalImgUrl != '' ? 'url(' + introSetting.LocalImgUrl +')' : '' }">
+                  <div class="tablet__logo"><img *ngIf="introSetting.logoUrl" [src]="introSetting.logoUrl" alt=""
+                      title="" introScreen-logo-js></div>
+                </div>
+                <div style="height:calc(1024px - 80px)"
+                  *ngIf="introSetting.slide1 || introSetting.slide2 || introSetting.slide3 || introSetting.slide4 || introSetting.slide5 || introSetting.slide6"
+                  class="tablet__wrapper-slideshow" introScreen-container-js introScreen-slideshow-js
+                  data-intro-name="slideshow">
+                  <div class="swiper-container swiper-container-intro" style="height: 100%;">
+                    <div class="swiper-wrapper" class="carousel slide" data-ride="carousel" id="demo"
+                      style="height: 100%;">
+                      <!-- <div id="demo" class="carousel slide" data-ride="carousel"> -->
+                      <div class="carousel-inner" style="height: 100%;">
+                        <div class="carousel-item active" *ngIf="introSetting.slide1" style="height: 100%;">
+                          <img [src]="introSetting.slide1" alt="Los Angeles" width="1100" style="height: 100%;">
+                        </div>
+                        <div class="carousel-item" *ngIf="introSetting.slide2" style="height: 100%;">
+                          <img [src]="introSetting.slide2" alt="Los Angeles" width="1100" style="height: 100%;">
+                        </div>
+                        <div class="carousel-item" *ngIf="introSetting.slide3" style="height: 100%;">
+                          <img [src]="introSetting.slide3" alt="Los Angeles" width="1100" style="height: 100%;">
+                        </div>
+                        <div class="carousel-item" *ngIf="introSetting.slide4" style="height: 100%;">
+                          <img [src]="introSetting.slide4" alt="Los Angeles" width="1100" style="height: 100%;">
+                        </div>
+                        <div class="carousel-item" *ngIf="introSetting.slide5" style="height: 100%;">
+                          <img [src]="introSetting.slide5" alt="Los Angeles" width="1100" style="height: 100%;">
+                        </div>
+                        <div class="carousel-item" *ngIf="introSetting.slide6" style="height: 100%;">
+                          <img [src]="introSetting.slide6" alt="Los Angeles" width="1100" style="height: 100%;">
+                        </div>
+
+                      </div>
+
+                      <!-- Left and right controls -->
+                      <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                      </a>
+                      <a class="carousel-control-next" href="#demo" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                      </a>
+                      <!-- </div> -->
+                    </div>
+                    <div class="swiper-pagination"></div>
+                  </div>
+                </div>
+                <div class="tablet__wrapper-video" *ngIf="introSetting.videoUrl" introScreen-container-js
+                  introScreen-video-js data-intro-name="video">
+                  <video width="400" loop autoplay muted>
+                    <source [src]="introSetting.videoUrl" type="video/mp4">
+                    <source [src]="introSetting.videoUrl" type="video/ogg">
+                  </video>
+
+                  <div class="tablet__wrapper-video-cover">
+                    <div class="tablet__logo"><img *ngIf="introSetting.logoUrl" [src]="introSetting.logoUrl" alt=""
+                        title="" introScreen-logo-js></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tablet__footer"><a href="javascript:void(0)" title="">Get started!</a></div>
+          </section>
+        </div>
+        <!-- SECTION tablet :: END-->
+      </div>
+      <form class="c-form" action="" autocomplete="off" name="intro_screen">
+        <div class="mds__screen-wrapper">
+          <!-- STATIC IMAGE BACKGROUND-->
+          <!-- =========================-->
+          <div class="mds__screen" [ngClass]="{'selected':selectedStatic}" (click)="selectedValue('static-image')">
+            <p class="mds__screen-title mb-0">Static image</p>
+            <div class="mds__screen-row pb-3 hiddenClass" *ngIf="introSetting.LocalImgUrl == ''">
+              <div class="mds__screen-col mds__screen-col-0">
+                <p class="mds__screen-desc">Image dimensions: 768x1024<br>Supported Formats: JPG, JPEG</p>
+              </div>
+              <div class="mds__screen-col mds__screen-col-1">
+                <div class="mds__upload-bg" change-imageParent-js>
+                  <div change-img-js><span>Upload image</span>
+                    <input type="file" accept="image/jpg, image/jpeg" name="upload_static" data-opt="static"
+                      (change)="onFileChange($event)">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mds__upload mds__upload--hi hiddenClass" *ngIf="introSetting.LocalImgUrl != ''">
+              <div class="mds__upload-wrapper mds__upload-wrapper--double mds__upload-wrapper--additional"
+                upload-additional-js>
+                <div>
+                  <div class="mds__upload-left">
+                    <div class="mds__upload-preview">
+                      <img [src]="introSetting.LocalImgUrl">
+                      <!-- <p>image<br>preview</p> -->
+                    </div>
+                  </div>
+                  <div class="mds__upload-right">
+                    <div class="mds__upload-option">
+                      <div class="mds__upload-radio">
+                        <div>
+                          <label>
+                            <input type="radio" (click)="bgimageStyle('fix')" checked
+                              name="upload_image_size"><span>Fixed
+                              position</span>
+                          </label>
+                        </div>
+                        <div>
+                          <label>
+                            <input type="radio" (click)="bgimageStyle('repeat')" name="upload_image_size"><span>Repeat /
+                              Tile
+                              image</span>
+                          </label>
+                        </div>
+                      </div><a (click)="removeLocalImg()" class="mds__upload-remove" href="#" title=""
+                        upload-remove-js><i class="icon-font icon-bin"></i><span>Remove image</span></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- SLIDESHOW-->
+          <!-- =========================-->
+          <div class="mds__screen sliderShow" [ngClass]="{'selected':selectedSlideshow}"
+            (click)="selectedValue('slide-show')">
+            <p class="mds__screen-title mb-0">Slideshow</p>
+            <div class="mds__screen-row hiddenClass">
+              <div class="mds__screen-col mds__screen-col-0">
+                <p class="mds__screen-desc">Image dimensions: 768x1024<br>Supported Formats: JPG, JPEG</p>
+              </div>
+              <div class="mds__screen-col mds__screen-col-1"></div>
+            </div>
+            <div class="mds__screen mds__screen--slideshow hiddenClass">
+              <div class="mds__screen-row">
+                <div class="mds__screen-preview" upload-smallPreview-js>
+                  <div>
+                    <div class="mds__screen-preview-card"
+                      [ngStyle]="{'background': introSetting.slide1 != '' ? 'url(' + introSetting.slide1 +')' : '' }">
+                      <a *ngIf="introSetting.slide1 != ''" class="mds__screen-preview-card-clear"
+                        (click)="removeSlide(1)" href="javascript:void(0)" title=""><i
+                          class="icon-font icon-bin"></i></a>
+                      <div *ngIf="introSetting.slide1 == ''" class="mds__screen-preview-card-add"><span>+</span></div>
+                      <input type="file" accept="image/jpg, image/jpeg" name="slideshow_"
+                        (change)="onSlideChange($event, '1')">
+                    </div>
+                  </div>
+                  <div>
+                    <div class="mds__screen-preview-card"
+                      [ngStyle]="{'background': introSetting.slide2 != '' ? 'url(' + introSetting.slide2 +')' : '' }">
+                      <a *ngIf="introSetting.slide2 != ''" class="mds__screen-preview-card-clear"
+                        (click)="removeSlide(2)" href="javascript:void(0)" title=""><i
+                          class="icon-font icon-bin"></i></a>
+                      <div *ngIf="introSetting.slide2 == ''" class="mds__screen-preview-card-add"><span>+</span></div>
+                      <input type="file" accept="image/jpg, image/jpeg" name="slideshow_"
+                        (change)="onSlideChange($event, '2')">
+                    </div>
+                  </div>
+                  <div>
+                    <div class="mds__screen-preview-card" data-id="2"
+                      [ngStyle]="{'background': introSetting.slide3 != '' ? 'url(' + introSetting.slide3 +')' : '' }">
+                      <a *ngIf="introSetting.slide3 != ''" class="mds__screen-preview-card-clear"
+                        (click)="removeSlide(3)" href="javascript:void(0)" title=""><i
+                          class="icon-font icon-bin"></i></a>
+                      <div *ngIf="introSetting.slide3 == ''" class="mds__screen-preview-card-add"><span>+</span></div>
+                      <input type="file" accept="image/jpg, image/jpeg" name="slideshow_"
+                        (change)="onSlideChange($event, '3')">
+                    </div>
+                  </div>
+                  <div>
+                    <div class="mds__screen-preview-card"
+                      [ngStyle]="{'background': introSetting.slide4 != '' ? 'url(' + introSetting.slide4 +')' : '' }">
+                      <a *ngIf="introSetting.slide4 != ''" class="mds__screen-preview-card-clear"
+                        (click)="removeSlide(4)" href="javascript:void(0)" title=""><i
+                          class="icon-font icon-bin"></i></a>
+                      <div *ngIf="introSetting.slide4 == ''" class="mds__screen-preview-card-add"><span>+</span></div>
+                      <input type="file" accept="image/jpg, image/jpeg" name="slideshow_"
+                        (change)="onSlideChange($event, '4')">
+                    </div>
+                  </div>
+                  <div>
+                    <div class="mds__screen-preview-card"
+                      [ngStyle]="{'background': introSetting.slide5 != '' ? 'url(' + introSetting.slide5 +')' : '' }">
+                      <a *ngIf="introSetting.slide5 != ''" class="mds__screen-preview-card-clear"
+                        (click)="removeSlide(5)" href="javascript:void(0)" title=""><i
+                          class="icon-font icon-bin"></i></a>
+                      <div *ngIf="introSetting.slide5 == ''" class="mds__screen-preview-card-add"><span>+</span></div>
+                      <input type="file" accept="image/jpg, image/jpeg" name="slideshow_"
+                        (change)="onSlideChange($event, '5')">
+                    </div>
+                  </div>
+                  <div>
+                    <div class="mds__screen-preview-card"
+                      [ngStyle]="{'background': introSetting.slide6 != '' ? 'url(' + introSetting.slide6 +')' : '' }">
+                      <a *ngIf="introSetting.slide6 != ''" class="mds__screen-preview-card-clear"
+                        (click)="removeSlide(6)" href="javascript:void(0)" title=""><i
+                          class="icon-font icon-bin"></i></a>
+                      <div *ngIf="introSetting.slide6 == ''" class="mds__screen-preview-card-add"><span>+</span></div>
+                      <input type="file" accept="image/jpg, image/jpeg" name="slideshow_"
+                        (change)="onSlideChange($event, '6')">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- BACKGROUND VIDEO-->
+          <!-- =========================-->
+          <div class="mds__screen" [ngClass]="{'selected':selectedVideo}" (click)="selectedValue('video-intro')">
+            <p class="mds__screen-title mb-0">Video Intro</p>
+            <div class="mds__screen-row hiddenClass" *ngIf="introSetting.videoUrl == ''">
+              <div class="mds__screen-col mds__screen-col-0">
+                <p class="mds__screen-desc">Video dimensions: 768x1024<br>Supported Formats: OGG, MP4, WEBM<br>Max file
+                  weight: 50 Mb</p>
+              </div>
+              <div class="mds__screen-col mds__screen-col-1">
+                <div class="mds__screen-upload" upload-video-js>Upload video
+                  <input type="file" accept="video/webm, video/ogg, video/mp4" name="myvideo"
+                    (change)="onvideoChange($event)">
+                </div>
+              </div>
+            </div>
+
+            <div *ngIf="introSetting.videoUrl != ''" class="mds__upload-row-wrapper" upload-previewfiles-js=""
+              upload-preview-video-js="" style="display: flex;">
+              <div class="mds__fileName-row">
+                <div>
+                  <p class="mb-0"> {{introSetting.videoUrl}}</p>
+                  <a (click)="removeVideo()" href="javascript:void(0)" title="" upload-remove-js="">
+                    <i class="icon-font icon-bin"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- LOGO-->
+          <!-- =========================-->
+          <div class="mds__screen" [ngClass]="{'selected':selectedOverlay}" (click)="selectedValue('logo-overlay')">
+            <p class="mds__screen-title mb-0">Logo overlay</p>
+            <div class="mds__screen-row hiddenClass" *ngIf="introSetting.logoUrl == ''">
+              <div class="mds__screen-col mds__screen-col-0">
+                <p class="mds__screen-desc">Image dimensions: 768x1024<br>Supported Formats: PNG</p>
+              </div>
+              <div class="mds__screen-col mds__screen-col-1">
+                <div class="mds__upload-bg" change-imageParent-js>
+                  <div change-img-js><span>Upload image</span>
+                    <input type="file" accept="image/png" name="logofile" (change)="uploadLogo($event)">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mds__upload mds__upload--hi hiddenClass" *ngIf="introSetting.logoUrl != ''">
+              <div class="mds__upload-wrapper mds__upload-wrapper--double mds__upload-wrapper--additional"
+                upload-additional-js>
+                <div>
+                  <div class="mds__upload-left">
+                    <div class="mds__upload-preview" upload-preview-js>
+                      <img [src]="introSetting.logoUrl">
+                    </div>
+                  </div>
+                  <div class="mds__upload-right">
+                    <div class="mds__upload-option"><a class="mds__upload-remove" (click)="removeLogoImg()"
+                        href="javascipt:void(0)" title="" upload-remove-js><i
+                          class="icon-font icon-bin"></i><span>Remove image</span></a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="c-form__field c-form__field--btn pt-2">
+          <button class="c-form__btn c-btn c-btn--bg" (click)="uploadIntoSettings()" type="button">Update
+            settings</button>
+        </div>
+      </form>
+     
+    </div>
+    <div class="mds__wrapper-right" [class.is-show]="wasClicked">
+      <div class="mds__wrapper-header">
+        <div><i class="icon-font icon-eye"></i>
+          <p>{{themeName}} Theme</p>
+        </div>
+        <div><a class="mds__wrapper-close" href="javascript:void(0)" (click)="onPreviw()" title=""><i
+              class="icon-font icon-close"></i></a></div>
+      </div>
+      <!-- SECTION tablet :: START-->
+      <div class="tablet--scroll">
+        <section class="tablet tablet--intro" id="tablet" tablet-introScreen-js>
+          <div class="tablet__content">
+            <div>
+              <div *ngIf="introSetting.LocalImgUrl" class="tablet__wrapper-bg"
+                [ngClass]="{'imageCover': introSetting.imagestyle == 'fix', 'imageRepeat' : introSetting.imagestyle == 'repeat'}"
+                [ngStyle]="{'background': introSetting.LocalImgUrl != '' ? 'url(' + introSetting.LocalImgUrl +')' : '' }">
+                <div class="tablet__logo"><img *ngIf="introSetting.logoUrl" [src]="introSetting.logoUrl" alt="" title=""
+                    introScreen-logo-js></div>
+              </div>
+              <div style="height:calc(1024px - 80px)"
+                *ngIf="introSetting.slide1 || introSetting.slide2 || introSetting.slide3 || introSetting.slide4 || introSetting.slide5 || introSetting.slide6"
+                class="tablet__wrapper-slideshow" introScreen-container-js introScreen-slideshow-js
+                data-intro-name="slideshow">
+                <carousel>
+                  <slide *ngIf="introSetting.slide1" style="height: 100%;">
+                      <img [src]="introSetting.slide1" alt="Los Angeles" width="1100" style="height: 100%;">
+                  </slide>
+                  <slide *ngIf="introSetting.slide2" style="height: 100%;">
+                      <img [src]="introSetting.slide2" alt="Los Angeles" width="1100" style="height: 100%;">
+                  </slide>
+                  <slide *ngIf="introSetting.slide3" style="height: 100%;">
+                      <img [src]="introSetting.slide3" alt="Los Angeles" width="1100" style="height: 100%;">
+                  </slide>
+                  <slide *ngIf="introSetting.slide4" style="height: 100%;">
+                      <img [src]="introSetting.slide4" alt="Los Angeles" width="1100" style="height: 100%;">
+                  </slide>
+                  <slide *ngIf="introSetting.slide5" style="height: 100%;">
+                      <img [src]="introSetting.slide5" alt="Los Angeles" width="1100" style="height: 100%;">
+                  </slide>
+                  <slide *ngIf="introSetting.slide6" style="height: 100%;">
+                      <img [src]="introSetting.slide6" alt="Los Angeles" width="1100" style="height: 100%;">
+                  </slide>
+                  
+                </carousel>
+              </div>
+              <div class="tablet__wrapper-video" *ngIf="introSetting.videoUrl" introScreen-container-js
+                introScreen-video-js data-intro-name="video">
+                <video width="400" loop autoplay muted>
+                  <source [src]="introSetting.videoUrl" type="video/mp4">
+                  <source [src]="introSetting.videoUrl" type="video/ogg">
+                </video>
+
+                <div class="tablet__wrapper-video-cover">
+                  <div class="tablet__logo"><img *ngIf="introSetting.logoUrl" [src]="introSetting.logoUrl" alt=""
+                      title="" introScreen-logo-js></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tablet__footer"><a href="javascript:void(0)" title="">Get started!</a></div>
+        </section>
+      </div>
+      <!-- SECTION tablet :: END-->
+    </div>
+  </div>
+</section>
+
+
+<!-- <img src="" alt="Los Angeles" width="1100" height="500"> -->

@@ -1,0 +1,14 @@
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a9a1fccefb3d521d166bbe5"),
+	"color" : "#ff4da6",
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"name" : "roasted"
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a9a2016efb3d521d166bbe6"),
+	"color" : "#cc9900",
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"name" : "organic"
+},

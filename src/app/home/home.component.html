@@ -1,0 +1,1080 @@
+<app-header></app-header>
+<div class="d-flex" id="wrapper" [class.toggled]="wasClicked">
+  <div class="bg-light" id="sidebar-wrapper">
+    <div class="list-group list-group-flush">
+      <ul class="nav nav-tabs pt-3" id="myTab" role="tablist" style="padding-bottom: 100px;">
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" (click)="onClick('Overview')" href="#user" role="tab" aria-controls="user"> <i
+              class="icon-png i-overview" aria-hidden="true"></i>
+            Overview</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" (click)="onClick('Account Settings')" href="#account" role="tab"
+            aria-controls="Settings"> <i class="icon-png i-reports" aria-hidden="true"></i>
+            Account Settings</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" (click)="onClick('Ingredients')" href="#ingredient" role="tab"
+            aria-controls="ingredient"><i class="icon-png i-inventory" aria-hidden="true"></i>
+            Ingredients</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" (click)="onClick('Menus')" href="#menu" role="tab"
+            aria-controls="ingredient"><i class="icon-png i-menu" aria-hidden="true"></i>
+            Menus</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" (click)="onClick('Menu Settings')" href="#menusettings" role="tab"
+            aria-controls="menusettings"><i class="icon-png i-orders" aria-hidden="true"></i>
+            Menu
+            Settings</a>
+        </li>
+        <li class="nav-item menuDrop" [class.is-up]="wasOpenMenu">
+          <a class="nav-link"><i class="icon-png i-orders"></i>
+            Tablet Settings <i (click)="dropDownMenus()" class="menuDrop1 icon-font icon-corner"></i></a>
+          <ul class="nav nav-tabs" id="myTab" role="tablist" class="subMenus" [class.is-open]="wasOpenMenu">
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#tabletsettings" role="tab" aria-controls="tabletsettings"
+                style="cursor:pointer" (click)="onClick('Teams and permissions')">Teams and permissions</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#menuDesignSet" role="tab" aria-controls="menuDesignSet"
+                style="cursor:pointer" (click)="onClick('Menu Design'); menuDesignSettings = 'Base theme'">Menu Design</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#logout" role="tab" aria-controls="Logout"
+            (click)="logout()"><i class="icon-png i-customers" aria-hidden="true"></i>
+            Log out</a>
+        </li>
+        <li>
+          <div class="sidebar__wrapper-bottom mt-5 pt-4 pb-5">
+            <div class="sidebar__menu"><a class="sidebar__menu-link" href="#" title="">Contact us</a><a
+                class="sidebar__menu-link sidebar__menu-link--mb" href="#" title="">Send feedback</a><a
+                class="sidebar__menu-link" href="#" title="">Terms of service</a><a
+                class="sidebar__menu-link sidebar__menu-link--mb" href="#" title="">Privacy policy</a></div>
+            <div class="copyright">
+              <p class="copyright__text">© 2019 DinnerBell</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!-- <span id="closeBtn" (click)="onClick()">Close</span> -->
+  </div>
+  <!-- /#sidebar-wrapper -->
+
+
+  <div id="page-content-wrapper">
+    <div class="container-fluid">
+      <!--ROW-->
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 pt-0">
+          <div class="tab-content" style="padding-bottom: 100px;">
+            <!-- <button class="btn btn-primary" id="menu-toggle" (click)="onClick()"><i style="display: block;"
+                class="fa fa-bars" aria-hidden="true"></i></button> -->
+            <!---- USER --->
+            <div class="tab-pane" id="user" role="tabpanel">
+              <div class="alert alert-danger" *ngIf="currentUser.user.status === 'Trial period: 1 day left'">Hello
+                {{currentUser.user.fullname}}, your trail plan will expire tommorow. Please upgrade to enjoy
+                our services.</div>
+              <div class="alert alert-danger" *ngIf="currentUser.user.status == 'Trail period expired'">Hello
+                {{currentUser.user.fullname}}, your trail period expired. Please upgrade to enjoy our services.</div>
+            </div>
+            <!---- USER close --->
+
+            <!---- ACCOUNT SETTING --->
+            <div class="tab-pane setting active" id="account" role="tabpanel">
+
+              <div class="col-md-12 acc-heading">
+                <h3>Account Settings</h3>
+              </div>
+              <div class="row" style="padding: 20px 0px;">
+                <div class="col-lg-9 col-md-11 tabhead">
+                  <ul class="nav nav-tabs tabsetting" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link active" style="cursor:pointer" role="tab" data-toggle="tab"
+                        (click)="setTab('companyprofile')">Company
+                        Profile</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" style="cursor:pointer" role="tab" data-toggle="tab"
+                        (click)="setTab('login')">Login
+                        & Security</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" style="cursor:pointer" role="tab" data-toggle="tab"
+                        (click)="setTab('billing')">Billing
+                        Details</a>
+                    </li>
+                  </ul>
+                </div>
+                <!-- Tab panes -->
+                <div class="col-lg-8 col-md-10 col-xs-12 content">
+                  <!-- COMPANY PROFILE -->
+                  <div *ngIf="accountSettingTab == 'companyprofile'">
+                    <!-- <ngx-loading [show]="profileloading"></ngx-loading> -->
+
+                    <form [formGroup]="companyprofileForm">
+                      <div class="col-md-12 heading">
+                        <h4>Company profile</h4>
+                      </div>
+                      <div class="row venue" style="margin:0px; padding: 20px 0px;">
+                        <div class="col-md-8 col-sm-7 v-head">
+                          <h5>Venue name and type</h5>
+                        </div>
+                        <div class="col-md-4 col-sm-5 v-update" *ngIf="!updateVenue">
+                          <button type="btn btn-default" (click)="updateVenue = true">update</button>
+                        </div>
+                        <div class="col-md-6 col-sm-6 lm-01">
+                          <!-- <input class="form-control" type="text" formControlName="companyname"
+                                                    placeholder="Company name" [readonly]="!updateVenue" [ngClass]="{ 'is-invalid': cf.companyname.touched && cf.companyname.errors  }"
+                                                    (blur)="cf.companyname.setValue(removeSpaces(cf.companyname.value))"> -->
+
+                          <input class="form-control" type="text" formControlName="companyname"
+                            placeholder="Company name" [attr.disabled]="!updateVenue ? '' : null"
+                            [ngClass]="{ 'is-invalid': cf.companyname.touched && cf.companyname.errors ,'account-inp': !updateVenue }"
+                            (blur)="cf.companyname.setValue(removeSpaces(cf.companyname.value))">
+                          <div *ngIf=" cf.companyname.touched && cf.companyname.errors" class="invalid-feedback">
+                            <div *ngIf="cf.companyname.errors.required">Company name is required</div>
+                            <div *ngIf="cf.companyname.errors && !cf.companyname.errors.required">Invalid
+                              company name</div>
+
+                          </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 lm-03">
+                          <input class="form-control" type="text" formControlName="businesstype"
+                            placeholder="Fine Dining" [attr.disabled]="!updateVenue ? '' : null" *ngIf="!updateVenue"
+                            [ngClass]="{ 'is-invalid': cf.businesstype.touched && cf.businesstype.errors ,'account-inp': !updateVenue}">
+                          <select formControlName="businesstype" class="form-control setselect" *ngIf="updateVenue">
+                            <option *ngFor="let business of typesBusiness" value={{business}}
+                              [ngClass]="{'update-mail':updateVenue ,'email-background':!updateVenue }">
+                              {{business}}
+                            </option>
+                          </select>
+                          <div *ngIf=" cf.businesstype.touched && cf.businesstype.errors" class="invalid-feedback">
+                            <div *ngIf="cf.businesstype.errors.required"> Business type is required</div>
+                            <div *ngIf="cf.businesstype.errors && !cf.businesstype.errors.required">
+                              Invalid business type</div>
+                          </div>
+                        </div>
+                        <div class="col-md-12 lm-02">
+                          <input class="form-control" type="text" formControlName="cuisinesserved"
+                            placeholder="Cuisines served" [attr.disabled]="!updateVenue ? '' : null"
+                            [ngClass]="{ 'is-invalid': cf.cuisinesserved.touched && cf.cuisinesserved.errors ,'account-inp': !updateVenue}"
+                            (blur)="cf.cuisinesserved.setValue(removeSpaces(cf.cuisinesserved.value))">
+                          <div *ngIf="cf.cuisinesserved.touched && cf.cuisinesserved.errors " class="invalid-feedback">
+                            <div *ngIf="cf.cuisinesserved.errors.required">Cuisines served is
+                              required
+                            </div>
+                            <div *ngIf="cf.cuisinesserved.errors && !cf.cuisinesserved.errors.required">Invalid
+                              cuisines served</div>
+                          </div>
+                        </div>
+                        <div class="col-md-12 lm-02" *ngIf="updateVenue">
+                          <button class="btn btn-default update-btn" (click)="updateVenueInfo()"
+                            [disabled]="!cf.cuisinesserved.valid || !cf.businesstype.valid || !cf.companyname.valid || profileloading">UPDATE</button>
+                          <button class="btn btn-default cancel-btn" (click)="cancelVenue()">Cancel</button>
+
+                        </div>
+                      </div>
+
+                      <div class="row venue contact" style="margin:0px; padding: 20px 0px;">
+                        <div class="col-md-8 col-sm-7 v-head">
+                          <h5>Contact Person</h5>
+                        </div>
+                        <div class="col-md-4 col-sm-5 v-update" *ngIf="!updateContact">
+                          <button type="btn btn-default" (click)="updateContact = true">update</button>
+                        </div>
+                        <div class="col-md-6 col-sm-6 lm-01">
+                          <input class="form-control" type="text" formControlName="fullname" placeholder="Full name"
+                            [attr.disabled]="!updateContact ? '' : null"
+                            [ngClass]="{ 'is-invalid': cf.fullname.touched && cf.fullname.errors ,'account-inp': !updateContact}"
+                            (blur)="cf.fullname.setValue(removeSpaces(cf.fullname.value))">
+                          <div *ngIf="cf.fullname.errors && cf.fullname.touched" class="invalid-feedback">
+                            <div *ngIf="cf.fullname.errors.required">Full name is required</div>
+                            <div *ngIf="cf.fullname.errors && !cf.fullname.errors.required">Invalid
+                              full name</div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 lm-03">
+                          <input class="form-control" type="text" formControlName="occupation" placeholder="Occupation"
+                            [attr.disabled]="!updateContact ? '' : null"
+                            [ngClass]="{ 'is-invalid': cf.occupation.touched && cf.occupation.errors ,'account-inp': !updateContact}"
+                            (blur)="cf.occupation.setValue(removeSpaces(cf.occupation.value))">
+                          <div *ngIf="cf.occupation.touched && cf.occupation.errors" class="invalid-feedback">
+                            <div *ngIf="cf.occupation.errors.required">Occupation is required</div>
+                            <div *ngIf="cf.occupation.errors && !cf.occupation.errors.required">Invalid
+                              occupation
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-12 lm-02" *ngIf="updateContact">
+                          <button class="btn btn-default update-btn" (click)="updateContactInfo()"
+                            [disabled]="!cf.fullname.valid || !cf.occupation.valid || profileloading">UPDATE</button>
+                          <button class="btn btn-default cancel-btn" (click)="cancelContact()">Cancel</button>
+                        </div>
+
+                      </div>
+                      <div class="row venue location" style="margin:0px; padding: 20px 0px;">
+                        <div class="col-md-8 col-sm-7 v-head">
+                          <h5>Location</h5>
+                          <p>Set your primary location so we know your language preferences, time
+                            zone and our availability in your area</p>
+                        </div>
+                        <div class="col-md-4 col-sm-5 v-update">
+                          <button type="btn btn-default" (click)="updateLocationValues()"
+                            *ngIf="!updateLocation">update</button>
+                        </div>
+                        <div class="col-md-4 col-sm-4 lm-01">
+                          <input class="form-control" type="text" formControlName="country" placeholder="Country"
+                            [attr.disabled]="!updateLocation ? '' : null" *ngIf="!updateLocation"
+                            [ngClass]="{ 'is-invalid': cf.country.touched && cf.country.errors ,'account-inp': !updateLocation}">
+                          <select formControlName="country" class="form-control setselect"
+                            (change)="countryChange($event.target.value, true)" *ngIf="updateLocation">
+                            <option *ngFor="let country of countries" value={{country.id}}>
+                              {{country.name}}
+                            </option>
+                          </select>
+                          <div *ngIf=" cf.country.touched && cf.country.errors" class="invalid-feedback">
+                            <div *ngIf="cf.country.errors.required"> Country is required</div>
+                          </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 lm-01">
+                          <input class="form-control" type="text" formControlName="state" placeholder="State"
+                            *ngIf="statesArray == ''" [attr.disabled]="!updateLocation ? '' : null"
+                            [ngClass]="{ 'is-invalid': cf.state.touched && cf.state.errors ,'account-inp': !updateLocation}">
+                          <select formControlName="state" class="form-control" *ngIf="statesArray != ''"
+                            (change)="stateChange($event.target.value, true)">
+                            <option value="">--Select state--</option>
+                            <option *ngFor="let state of statesArray" value="{{state.id}}">{{state.name}}</option>
+                          </select>
+                          <div *ngIf="cf.state.touched && cf.state.errors" class="invalid-feedback">
+                            <div *ngIf="cf.state.errors.required"> State is required</div>
+                          </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 lm-01">
+
+                          <input class="form-control" type="text" formControlName="city" placeholder="City"
+                            *ngIf="citiesArray == ''" [attr.disabled]="!updateLocation ? '' : null"
+                            [ngClass]="{ 'is-invalid': cf.city.touched && cf.city.errors ,'account-inp': !updateLocation}"
+                            (blur)="cf.city.setValue(removeSpaces(cf.city.value))">
+                          <select formControlName="city" class="form-control" *ngIf="citiesArray != ''">
+                            <option value="">--Select city--</option>
+                            <option *ngFor="let city of citiesArray" value="{{city.name}}">
+                              {{city.name}}
+                            </option>
+                          </select>
+                          <div *ngIf="cf.city.touched && cf.city.errors " class="invalid-feedback">
+                            <div *ngIf="cf.city.errors.required"> City is required</div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-9 col-sm-8 lm-01">
+
+                          <input class="form-control" type="text" formControlName="address" placeholder="Street address"
+                            [attr.disabled]="!updateLocation ? '' : null"
+                            [ngClass]="{ 'is-invalid': cf.address.touched && cf.address.errors ,'account-inp': !updateLocation}"
+                            (blur)="cf.address.setValue(removeSpaces(cf.address.value))">
+                          <div *ngIf="cf.address.touched && cf.address.errors" class="invalid-feedback">
+                            <div *ngIf="cf.address.errors.required"> Street address is required</div>
+                            <div *ngIf="cf.address.errors && !cf.address.errors.required">Invalid
+                              street address</div>
+                          </div>
+                        </div>
+                        <div class="col-md-3 col-sm-4 lm-01">
+                          <input class="form-control" type="text" formControlName="zipcode" placeholder="Zipcode"
+                            [attr.disabled]="!updateLocation ? '' : null"
+                            [ngClass]="{ 'is-invalid': cf.zipcode.touched && cf.zipcode.errors ,'account-inp': !updateLocation}">
+                          <div *ngIf="cf.zipcode.touched && cf.zipcode.errors" class="invalid-feedback">
+                            <div *ngIf="cf.zipcode.errors.required">Zip code is required</div>
+                            <div *ngIf="cf.zipcode.errors && !cf.zipcode.errors.required">Zip code
+                              is invalid</div>
+                          </div>
+                        </div>
+                        <div class="col-md-12 lm-02" *ngIf="updateLocation">
+                          <button class="btn btn-default update-btn" (click)="updateLocationInfo()"
+                            [disabled]="!cf.country.valid || !cf.state.valid || !cf.city.valid || !cf.address.valid || !cf.zipcode.valid || profileloading">UPDATE</button>
+                          <button class="btn btn-default cancel-btn" (click)="cancelLocation()">Cancel</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <!-- COMPANY PROFILE CLOSE -->
+                  <!-- LOGIN & SECURITY -->
+                  <div *ngIf="accountSettingTab == 'login'">
+                    <!-- <ngx-loading [show]="securityloading"></ngx-loading> -->
+                    <form [formGroup]="securityForm">
+                      <div class="col-md-12 heading">
+                        <h4>Login and Security</h4>
+                      </div>
+
+                      <div class="row venue phnnumber" style="margin:0px; padding: 20px 0px;">
+                        <div class="col-md-8 col-sm-7 v-head">
+                          <h5>Phone number</h5>
+                          <p>Used to send notifications and verify changes to your account</p>
+                        </div>
+                        <div class="col-md-4 col-sm-5 v-update">
+                          <button class="btn btn-default" *ngIf="!updatePhone && !confirmCode"
+                            (click)="updatePhone = true">update</button>
+                        </div>
+                        <div class="col-md-12 col-sm-12 lm-01" *ngIf="!updatePhone && !confirmCode">
+                          <input class="form-control account-inp" type="number" placeholder="phone"
+                            formControlName="phone" [attr.disabled]="!updatePhone ? '' : null">
+                        </div>
+                        <div class="col-lg-8 col-md-6 col-sm-6 lm-01" *ngIf="updatePhone">
+                          <div class="input-group phone ">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">+{{sf.countrycode.value}}</span>
+                            </div>
+                            <input class="form-control contact-number" type="number"
+                              placeholder="Enter your phone number" formControlName="phone"
+                              [ngClass]="{ 'is-invalid': sf.phone.touched && sf.phone.errors || sf.phone.touched && verifyStartError }">
+                            <div *ngIf="sf.phone.touched && sf.phone.errors" class="invalid-feedback">
+                              <div *ngIf="sf.phone.errors.required">Phone number is required</div>
+                              <div *ngIf="sf.phone.errors && !sf.phone.errors.required">Phone
+                                number is invalid</div>
+                            </div>
+                            <div *ngIf="sf.phone.valid && verifyStartError" class="invalid-feedback">
+                              {{verifyStartError}}
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 lm-01" *ngIf="updatePhone">
+                          <div class="inp">
+                            <button class="btn btn-default btn-border" (click)="sentCode()"
+                              [disabled]="!sf.phone.valid || securityloading">Send
+                              Verification Code</button>
+                          </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12 lm-01">
+                          <button class="btn btn-default cancel-btn" (click)="cancelPhone()"
+                            *ngIf="updatePhone">Cancel</button>
+                        </div>
+
+                        <div class="col-lg-5 col-md-6 col-sm-6 lm-01" *ngIf="confirmCode">
+
+                          <input class="form-control phone-number" type="number" placeholder="+1 (345) 342423535"
+                            formControlName="phone" disabled>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-6 lm-01" *ngIf="confirmCode">
+                          <!-- <div class="inp"> -->
+                          <div class="input-group mb-3 resend-container">
+                            <input type="password" class="form-control inp-confirm" placeholder="xxxx"
+                              [ngClass]="{ 'is-invalid': sf.verifycode.touched && sf.verifycode.errors || sf.verifycode.touched && verifyError }"
+                              formControlName="verifycode" aria-label="Recipient's username"
+                              aria-describedby="button-addon2">
+                            <div class="input-group-append">
+                              <button class="btn btn-link resend-btn" type="button" (click)="sentCode()"
+                                [disabled]="securityloading">RESEND</button>
+                            </div>
+
+                          </div>
+                          <div *ngIf="sf.verifycode.touched && sf.verifycode.errors" class="error">
+                            <div *ngIf="sf.verifycode.errors.required">Verify code is required</div>
+                            <div *ngIf="sf.verifycode.errors && !sf.verifycode.errors.required">Verify
+                              code is invalid</div>
+                          </div>
+                          <div *ngIf="verifyError && !sf.verifycode.errors" class="error">{{verifyError}}</div>
+                          <!-- </div> -->
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 lm-01" *ngIf="confirmCode">
+                          <div class="inp">
+                            <button class="btn btn-default" (click)="verifyCode()"
+                              [disabled]="!sf.verifycode.valid">Confirm</button>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row venue contact" style="margin:0px; padding: 20px 0px;">
+                        <div class="col-md-8 col-sm-7 v-head">
+                          <h5>E-Mail</h5>
+                          <p>Used to login and receive important communication</p>
+                        </div>
+                        <div class="col-md-4 col-sm-5 v-update">
+                          <button class="btn btn-default" *ngIf="!updateEmail"
+                            (click)="updateEmail = true">update</button>
+                        </div>
+                        <div class="col-md-12 col-sm-12 lm-01">
+                          <input class="form-control" type="email" placeholder="Enter your e-mail"
+                            formControlName="email" [attr.disabled]="!updateEmail ? '' : null"
+                            [ngClass]="{ 'is-invalid': sf.email.touched && sf.email.errors || sf.email.value == existEmail ,'account-inp': !updateEmail}">
+
+                          <div *ngIf="sf.email.touched && sf.email.errors" class="invalid-feedback">
+                            <div *ngIf="sf.email.errors.required">Email is required</div>
+                            <div *ngIf="!sf.email.valid && !sf.email.errors.required">Invalid Email</div>
+                          </div>
+                          <div *ngIf="sf.email.valid && sf.email.value == existEmail" class="invalid-feedback">Email
+                            already exists</div>
+                        </div>
+                        <div class="col-md-12 col-sm-12 lm-01">
+                          <button class="btn btn-default update-btn" *ngIf="updateEmail" (click)="updateEmailInfo()"
+                            [disabled]="sf.email.touched && sf.email.errors || securityloading">UPDATE</button>
+                          <button class="btn btn-default cancel-btn" (click)="cancelEmailUpdate()"
+                            *ngIf="updateEmail">Cancel</button>
+                        </div>
+
+
+                      </div>
+                      <div class="row venue contact" style="margin:0px; padding: 20px 0px;">
+                        <div class="col-md-8 col-sm-7 v-head">
+                          <h5>Password</h5>
+                        </div>
+                        <div class="col-md-4 col-sm-5 v-update" *ngIf="!updatePassword">
+                          <button class="btn btn-default" *ngIf="!updatePassword"
+                            (click)="updatePassword = true">Change</button>
+                        </div>
+                        <div class="col-md-12 col-sm-12 lm-01" *ngIf="!updatePassword">
+                          <div class="inp">
+                            <input class="box" type="password" value="fakepassword" disabled>
+                          </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 lm-01" *ngIf="updatePassword">
+                          <input class="form-control" type="password" placeholder="Old Password"
+                            formControlName="oldpassword"
+                            [ngClass]="{ 'is-invalid': sf.oldpassword.touched && sf.oldpassword.errors  }">
+                          <div *ngIf="sf.oldpassword.touched && sf.oldpassword.errors" class="invalid-feedback">
+                            <div *ngIf="sf.oldpassword.errors.required">Old password is required</div>
+                            <div *ngIf="!sf.oldpassword.valid && !sf.oldpassword.errors.required">Invalid
+                              Password
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 lm-01">
+                        </div>
+                        <div class="col-md-6 col-sm-6 lm-01" *ngIf="updatePassword">
+                          <input class="form-control" type="password" placeholder="New Password"
+                            formControlName="newpassword"
+                            [ngClass]="{ 'is-invalid': sf.newpassword.touched && sf.newpassword.errors || (sf.confirmpassword.touched && sf.confirmpassword.value != sf.newpassword.value) }"
+                            (focus)="passhint = true" (blur)="passhint = false">
+
+                          <div *ngIf="sf.newpassword.touched && sf.newpassword.errors" class="invalid-feedback">
+                            <div *ngIf="sf.newpassword.errors.required">New password is required</div>
+                            <div *ngIf="!sf.newpassword.valid && !sf.newpassword.errors.required">Invalid
+                              Password
+                            </div>
+                          </div>
+                          <div *ngIf="passhint && sf.newpassword.errors">Your password has to be,<br>
+                            at least 8 characters long,<br> at least one lower case letter,<br>one
+                            upper case letter,<br> one digit,<br>and one of special characters
+                            ~!@#$%^&*()_+
+                          </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 lm-01" *ngIf="updatePassword">
+                          <input class="form-control" type="password" placeholder="Confirm New Password"
+                            formControlName="confirmpassword"
+                            [ngClass]="{ 'is-invalid': sf.confirmpassword.touched && sf.confirmpassword.errors || (sf.confirmpassword.touched && sf.confirmpassword.value != sf.newpassword.value)}">
+                          <div *ngIf="sf.confirmpassword.touched && sf.confirmpassword.errors" class="invalid-feedback">
+                            <div *ngIf="sf.confirmpassword.errors.required">Confirm password is
+                              required
+                            </div>
+                            <div *ngIf="!sf.confirmpassword.valid && !sf.confirmpassword.errors.required">Invalid
+                              Password
+                            </div>
+                          </div>
+                          <div class="invalid-feedback"
+                            *ngIf="sf.confirmpassword.valid && (sf.confirmpassword.touched && sf.confirmpassword.value != sf.newpassword.value)">
+                            New
+                            password and confirm password not matched
+                          </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12 lm-01" *ngIf="updatePassword">
+                          <button class="btn btn-default update-btn" (click)="updatePasswordInfo()"
+                            [disabled]="(sf.oldpassword.errors) || (sf.newpassword.errors) || (sf.confirmpassword.errors) || securityloading">UPDATE</button>
+                          <button class="btn btn-default cancel-btn" (click)="cancelPasswordUpdate()">Cancel</button>
+                        </div>
+
+                      </div>
+
+                      <div class="row venue" style="margin:0px; padding: 20px 0px;">
+                        <div class="col-lg-8 col-md-8 col-sm-6 v-head">
+                          <h5>Text notifications</h5>
+                          <p>Informs you when someone is logging to this account</p>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6">
+                          <div class="switch-field setting-field">
+                            <input class="input-btn" type="radio" id="switch_left4" name="switch_2" value="yes"
+                              checked />
+                            <label for="switch_left4">ON</label>
+                            <input class="input-btn" type="radio" id="switch_right4" name="switch_2" value="no" />
+                            <label for="switch_right4">OFF</label>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <!-- LOGIN & SECURITY CLOSE -->
+                  <div *ngIf="accountSettingTab == 'billing'">Billing Detail</div>
+
+                </div>
+
+              </div>
+            </div>
+            <!---- ACCOUNT SETTING CLOSE --->
+
+
+            <!---- INGREDIENTS --->
+            <div class="tab-pane" id="ingredient" role="tabpanel">
+              <div class="col-md-12 col-sm-12 heading">
+                <h3>Ingredients</h3>
+              </div>
+              <div class="inner">
+                <ngx-loading [show]="ingredientloading"></ngx-loading>
+                <div class="row" style="margin:0px;" cdkDropList cdkDropListOrientation="horizontal"
+                  (cdkDropListDropped)="drop($event)">
+                  <div class="col-lg-3 col-md-4 card card-box p-01" *ngFor="let category of ingredientCategories"
+                    cdkDrag>
+
+                    <div class="card-body"
+                      [ngClass]="{ 'back-black': category.company_id === selectedIngredientCategory.company_id}">
+                      <div class="set-butn dropdown">
+                        <button class="btn btn-default" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                          aria-haspopup="true" aria-expanded="true" *ngIf="!category.drag" [disabled]="drag">
+                          <i class="fa fa-cog" aria-hidden="true"></i></button>
+                        <div cdkDragHandle [ngClass]="{ 'hidedrag': !category.drag}">
+                          <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                              d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z">
+                            </path>
+                            <path d="M0 0h24v24H0z" fill="none"></path>
+                          </svg>
+                        </div>
+                        <ul class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenu1"
+                          data-toggle="dropdown">
+                          <li (click)="moveCat(category)"><a style="cursor: pointer">Move</a></li>
+                          <li (click)="editCat(category)"><a style="cursor: pointer">Edit</a></li>
+                          <li (click)="duplicateCat(category)"><a style="cursor: pointer">Duplicate</a></li>
+                          <li (click)="deletecat(category._id)"><a style="cursor: pointer">Delete</a></li>
+                        </ul>
+                      </div>
+                      <img src="{{category.photo_url}}" (click)="selectedcat(category)">
+                      <p class="card-text">{{category.name}}</p>
+                    </div>
+                  </div>
+
+
+                  <div class="col-lg-3 col-md-4 card card-box p-01">
+                    <button class="btn btn-link modbtn mybtn" (click)="openIngredientCatDialog()"> Add
+                      new category</button>
+                  </div>
+
+                  <div class="col-lg-3 col-md-4 card card-box p-01">
+
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="section">
+                <div class="col-md-5 col-sm-5 title">
+                  <h3 *ngIf="selectedIngredientCategory == undefined || selectedIngredientCategory == ''">Section
+                    title
+                  </h3>
+                  <h3 *ngIf="selectedIngredientCategory">{{selectedIngredientCategory.name}}</h3>
+                </div>
+              </div>
+              <div class="inner">
+                <ngx-loading [show]="ingredientloading"></ngx-loading>
+                <div class="row" style="margin:0px;">
+                  <div class="col-lg-3 col-md-4 card card-box p-01"
+                    *ngFor="let item of selectedIngredientCategoryItems">
+                    <div class="card-body card-body1">
+                      <div class="set-butn dropdown">
+                        <button class="btn btn-default" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                          aria-haspopup="true" aria-expanded="true">
+                          <i class="fa fa-cog" aria-hidden="true"></i></button>
+                        <!-- <div cdkDragHandle [ngClass]="{ 'hidedrag': !drag}">
+                                                <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+                                                    <path d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"></path>
+                                                    <path d="M0 0h24v24H0z" fill="none"></path>
+                                                </svg>
+                                            </div> -->
+                        <ul class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenu1"
+                          data-toggle="dropdown">
+                          <li (click)="editCatItem(item)"><a style="cursor: pointer">Edit</a></li>
+                          <li (click)="deleteCatItem(item._id)"><a style="cursor: pointer">Delete</a></li>
+                        </ul>
+                      </div>
+                      <img src="{{item.photo_url}}">
+                      <p class="card-text item">{{item.name}}</p>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-3 col-md-4 card card-box p-01">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-default modbtn mybtn"
+                      (click)="openIngredientCatItemDialog(selectedIngredientCategory)">
+                      add new item
+                    </button>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!---- INGREDIENTS CLOSE --->
+
+            <!---- MENU page starts --->
+            <div class="tab-pane" id="menu" role="tabpanel">
+              <ngx-loading [show]="menuloading"></ngx-loading>
+              <div class="tab-pane menu" id="menu" role="tabpanel">
+                <div class="col-md-12 col-sm-12 heading">
+                  <h3>Menus</h3>
+                </div>
+                <div class="inner">
+                  <div class="row" style="margin:0px;" cdkDropList (cdkDropListDropped)="dropMenu($event)"
+                    cdkDropListOrientation="horizontal">
+                    <div class="col-lg-3 col-md-4 card card-box p-01" *ngFor="let item of menus" cdkDrag>
+                      <div class="card-body" [ngClass]="{ 'back-black': item._id === selectedMenuCat._id}"
+                        [ngStyle]="item.status?{'background': 'lightblue'} : {'background': '#efefef'}">
+                        <div class="set-butn dropdown">
+                          <button *ngIf="!item.drag" class="btn btn-default" type="button" id="dropdownMenu1"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" [disabled]="dragMenus"><i
+                              class="fa fa-cog" aria-hidden="true"></i></button>
+                          <div cdkDragHandle [ngClass]="{ 'hidedrag': !item.drag}">
+                            <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+                              <path
+                                d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z">
+                              </path>
+                              <path d="M0 0h24v24H0z" fill="none"></path>
+                            </svg>
+                          </div>
+                          <ul class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenu1"
+                            data-toggle="dropdown">
+                            <li (click)="moveMenu(item)"><a style="cursor: pointer">Move</a></li>
+                            <li (click)="editMenu(item)"><a style="cursor: pointer">Edit</a></li>
+                            <li (click)="duplicateMenu(item)"><a href="">Duplicate</a></li>
+                            <li (click)="deleteMenu(item)"><a style="cursor: pointer">Delete</a></li>
+                          </ul>
+                        </div>
+
+                        <img src="{{item.photo_url}}" *ngIf="item.photo_url" (click)="selectedMenu(item)">
+                        <img src="./assets/images/imagedemo.png" *ngIf="!item.photo_url" (click)="selectedMenu(item)" />
+                        <p class="card-text">{{item.name}}</p>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 card card-box p-01">
+                      <button class="btn btn-link modbtn mybtn" (click)="openMenuDialog()">Add new menu
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="section menu-section">
+                  <div class="row" style="margin:0px; padding: 12px 0px;">
+                    <div class="col-md-5 col-sm-4 menu-title">
+                      <h3 *ngIf="selectedMenuCat.length === 0">Menu title
+                      </h3>
+                      <h3 *ngIf="selectedMenuCat.length !== 0 && selectedMenuCat.menu_type == 'Regular menu'">
+                        {{selectedMenuCat.name}}</h3>
+                      <h3 *ngIf="selectedMenuCat.length !== 0 && selectedMenuCat.menu_type != 'Regular menu'">
+                        {{selectedMenuCat.name}}
+                        <span class="meal-price">${{selectedMenuCat.meal_price}}</span></h3>
+                    </div>
+                    <div class="col-md-7 col-sm-8 view">
+                      <button class="btn btn-default mr-01" (click)="editMenu(selectedMenuCat)"><a>Settings</a></button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Grid view -->
+                <!-- <div class="inner" *ngIf="!listview">
+                                <div class="row" style="margin:0px;">
+                                    <div *ngFor="let item of menuItems">
+                                        <div class="sub-title">
+                                            <h3 *ngIf="item.menus.length !== 0">{{item.menus[0].section}}</h3>
+                                            <h3 *ngIf="item.menus.length === 0">Subsection Title</h3>
+                                        </div>
+                                        <div class="col-lg-3 col-md-4 card card-box p-01">
+                                            <div class="card-body card-body1">
+                                                <div class="set-butn dropdown">
+                                                    <button class="btn btn-default" style="background:dimgrey" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                                <i class="fa fa-cog" aria-hidden="true" style="color:#fff"></i></button>
+                                                    <ul class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenu1" data-toggle="dropdown">
+                                                        <li (click)="editMenuItem(item)"><a style="cursor: pointer">Edit</a></li>
+                                                        <li (click)="deleteMenuItem(item)"><a style="cursor: pointer">Delete</a></li>
+                                                    </ul>
+                                                </div>
+                                                <img src="{{item.photo_urls}}">
+                                                <p class="card-text text-01">{{item.description}}
+                                                    <span class="price" *ngIf="item.size_prize.length !== 0">${{item.size_prize[0].price}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+    
+                                    <div class="col-lg-3 col-md-4 card card-box p-01">
+                                        <button class="btn btn-link modbtn mybtn" (click)="openMenuItemDialog()">Add new item</button>
+                                    </div>
+                                </div>
+    
+                            </div> -->
+                <div *ngIf="!listview">
+                  <div class="inner" *ngFor="let item of menuItems;let i = index;">
+                    <div class="sub-title" *ngIf="item.menus.length !== 0">
+                      <h3>{{item.menus[0].section}}</h3>
+                      <!-- <h3 *ngIf="item.menus.length === 0">Subsection Title</h3> -->
+                    </div>
+                    <div class="row" style="margin:0px;">
+                      <div class="col-lg-3 col-md-4 card card-box item-menu">
+                        <div class="card-body card-body1">
+                          <div class="set-butn dropdown">
+                            <button class="btn btn-default" style="background:dimgrey" type="button" id="dropdownMenu1"
+                              data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                              <i class="fa fa-cog" aria-hidden="true" style="color:#fff"></i></button>
+                            <ul class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenu1"
+                              data-toggle="dropdown">
+                              <li (click)="editMenuItem(item)"><a style="cursor: pointer">Edit</a></li>
+                              <li (click)="duplicateMenuItem(item)"><a style="cursor: pointer">Duplicate</a></li>
+                              <li (click)="deleteMenuItem(item)"><a style="cursor: pointer">Delete</a></li>
+                            </ul>
+                          </div>
+                          <img src="{{item.photo_urls}}" *ngIf="item.photo_urls">
+                          <img src="./assets/images/imagedemo.png" *ngIf="!item.photo_urls" />
+                          <p class="card-text text-01" style="text-transform: capitalize">{{item.name}}
+                            <span class="price"
+                              *ngIf="item.size_prize.length !== 0">${{item.size_prize[0].price}}</span>
+                        </div>
+                      </div>
+                      <div class="col-lg-3 col-md-4 card card-box p-01" *ngIf="i == (menuItems.length -1)">
+                        <button class="btn btn-link modbtn mybtn" (click)="openMenuItemDialog()">Add
+                          new item</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="inner" *ngIf="menuItems.length == 0">
+                    <div class="col-lg-3 col-md-4 card card-box p-01">
+                      <button class="btn btn-link modbtn mybtn" (click)="openMenuItemDialog()">Add new
+                        item</button>
+                    </div>
+                  </div>
+                </div>
+                <!-- grid view close -->
+
+                <!-- list view -->
+                <div *ngIf="listview">
+                  <div class="inner">
+                    <div class="row listitem" *ngFor="let item of menuItems">
+                      <div class="col-lg-3 col-md-5 card card-box p-01">
+                        <div class="sub-title">
+                          <h3 *ngIf="item.menus.length !== 0">{{item.menus[0].section}}</h3>
+                          <h3 *ngIf="item.menus.length === 0">Subsection Title</h3>
+                        </div>
+                        <div class="card-body card-body1">
+                          <div class="set-butn dropdown">
+                            <button class="btn btn-default" style="background:dimgrey" type="button" id="dropdownMenu1"
+                              data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                              <i class="fa fa-cog" aria-hidden="true" style="color:#fff"></i></button>
+                            <ul class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenu1"
+                              data-toggle="dropdown">
+                              <li (click)="editMenuItem(item)"><a style="cursor: pointer">Edit</a></li>
+                              <li (click)="deleteMenuItem(item)"><a style="cursor: pointer">Delete</a></li>
+                            </ul>
+                          </div>
+                          <img src="{{item.photo_urls}}" *ngIf="item.photo_urls">
+                          <img src="./assets/images/imagedemo.png" *ngIf="!item.photo_urls" />
+                        </div>
+                      </div>
+                      <div class="col-lg-9 col-md-7 card-box p-01">
+                        <p class="card-text text-01">{{item.description}}
+                        </p>
+                        <span class="price" *ngIf="item.size_prize.length !== 0">${{item.size_prize[0].price}}</span>
+                      </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 card card-box p-01">
+                      <!-- Button trigger modal -->
+                      <button class="btn btn-link modbtn mybtn" (click)="openMenuItemDialog()">Add new
+                        item</button>
+                    </div>
+                    <!-- </div> -->
+                  </div>
+                </div>
+                <!-- list view close -->
+              </div>
+            </div>
+            <!---- MENU page CLOSE --->
+
+            <!---- MENU SETTING --->
+            <div class="tab-pane setting" id="menusettings" role="tabpanel">
+
+              <div class="col-md-12 acc-heading">
+                <h3>Menu Settings</h3>
+              </div>
+              <div class="row" style="padding: 20px 0px;">
+                <div class="col-lg-9 col-md-11 tabhead">
+                  <ul class="nav nav-tabs tabsetting" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link active" style="cursor:pointer" role="tab" data-toggle="tab"
+                        (click)="setMenuSettingsTab('customization')">Customization</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" style="cursor:pointer" role="tab" data-toggle="tab"
+                        (click)="setMenuSettingsTab('menudesign')">Menu
+                        Design</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" style="cursor:pointer" role="tab" data-toggle="tab"
+                        (click)="setMenuSettingsTab('subsection3')">Subsection
+                        3</a>
+                    </li>
+                  </ul>
+                </div>
+                <!-- Tab panes -->
+                <div class="col-lg-8 col-md-10 col-xs-12 content">
+                  <!-- CUSTOMIZATION -->
+                  <div *ngIf="menuSettingTab == 'customization'">
+                    <!-- <ngx-loading [show]="profileloading"></ngx-loading> -->
+
+                    <form [formGroup]="menu_customizationForm">
+                      <div class="col-md-12 heading">
+                        <h4>Customization modifiers</h4>
+                      </div>
+                      <div class="row venue location" style="margin:0px; padding: 20px 0px;">
+                        <div class="col-md-12 col-sm-12 v-head">
+                          <h5>Ingredients</h5>
+                        </div>
+                        <div class="col-md-4 col-sm-4 lm-01" style="padding: 0px 5px;"
+                          [ngClass]="{ 'col-md-9 col-sm-9 lm-01': menu_customizationForm.get('ingredient_type').value == 'Toggle'}">
+                          <select class="form-control setselect" formControlName="ingredient_type">
+                            <option value="">Select type</option>
+                            <option value="Toggle">Toggle</option>
+                            <option value="Numeric">Numeric</option>
+                          </select>
+                          <!-- <div *ngIf=" cf.country.touched && cf.country.errors" class="invalid-feedback">
+                                                    <div *ngIf="cf.country.errors.required"> Country is required</div>
+                                                </div> -->
+                        </div>
+                        <div class="col-md-5 col-sm-5 lm-01"
+                          *ngIf="menu_customizationForm.get('ingredient_type').value !== 'Toggle'">
+                          <select class="form-control setselect" formControlName="ingredient_quantity">
+                            <option value=0>Maximum quantity available</option>
+                            <option value=1>1</option>
+                            <option value=2>2</option>
+                            <option value=3>3</option>
+                            <option value=4>4</option>
+                            <option value=5>5</option>
+                            <option value=6>6</option>
+                            <option value=7>7</option>
+                            <option value=8>8</option>
+                            <option value=9>9</option>
+                            <option value=10>10</option>
+                          </select>
+                        </div>
+                        <div class="col-md-3 col-sm-3 lm-01" style="margin: auto;">
+                          <button class="btn btn-default update-btn-in" (click)="submitMenuCustomization()"
+                            [disabled]="menu_customizationForm.get('ingredient_type').value == '' || ((menu_customizationForm.get('ingredient_type').value == 'Numeric') && (menu_customizationForm.get('ingredient_quantity').value == 0))">UPDATE</button>
+                        </div>
+                      </div>
+                      <div class="row venue location" style="margin:0px; padding: 20px 0px;">
+                        <div class="col-md-12 col-sm-12 v-head">
+                          <h5>Spice options</h5>
+                        </div>
+                        <div class="col-md-4 col-sm-4 lm-01">
+                          <input class="form-control" type="text" formControlName="spice_title"
+                            placeholder="Custom title">
+                          <!-- <div *ngIf=" cf.companyname.touched && cf.companyname.errors" class="invalid-feedback">
+                                                        <div *ngIf="cf.companyname.errors.required">Company name is required</div>
+                                                        <div *ngIf="cf.companyname.errors && !cf.companyname.errors.required">Invalid company name</div>
+                                                    </div> -->
+                        </div>
+                        <div class="col-md-5 col-sm-5 lm-01">
+                          <select class="form-control setselect" formControlName="spice_number_options">
+                            <option value="">Number of options</option>
+                            <option value=3>3</option>
+                            <option value=5>5</option>
+                          </select>
+                          <!-- <div *ngIf=" cf.country.touched && cf.country.errors" class="invalid-feedback">
+                                                            <div *ngIf="cf.country.errors.required"> Country is required</div>
+                                                        </div> -->
+                        </div>
+                        <div class="col-md-3 col-sm-3 lm-01" style="margin: auto;">
+                          <button class="btn btn-default update-btn-in" (click)="submitMenuCustomization()"
+                            [disabled]="menu_customizationForm.get('spice_number_options').value == ''">UPDATE</button>
+                        </div>
+                      </div>
+                      <div class="row venue location" style="margin:0px; padding: 20px 0px;">
+                        <div class="col-md-12 col-sm-12 v-head">
+                          <h5>Personal preferences</h5>
+                        </div>
+                        <div class="col-md-9 col-sm-9 lm-01">
+                          <input class="form-control" type="text" formControlName="prefrences_title"
+                            placeholder="Custom title">
+                        </div>
+                        <div class="col-md-3 col-sm-3 lm-01" style="margin: auto;">
+                          <button class="btn btn-default update-btn-in" (click)="submitMenuCustomization()"
+                            [disabled]="menu_customizationForm.get('prefrences_title').value == ''">UPDATE</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <!-- CUSTOMIZATION CLOSE -->
+                  <!-- MENU DESIGN-->
+                  <div *ngIf="menuSettingTab == 'menudesign'">
+                    <!-- <ngx-loading [show]="securityloading"></ngx-loading> -->
+                    Menu design
+                  </div>
+                  <!-- MENU DESIGN CLOSE -->
+                  <div *ngIf="menuSettingTab == 'subsection3'">
+                    Subsection 3
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!---- MENU SETTING CLOSE --->
+
+            <!---- TABLET SETTING --->
+            <div class="tab-pane setting" id="menuDesignSet" role="tabpanel">
+              <!-- <img src="./assets/images/qr-image.png" class="img-qr" (click)="openAccessCodes()"> -->
+              <div class="row mb-3">
+                <!-- Tab panes -->
+                <div class="col-lg-12 col-md-12 col-xs-12 content">
+                  <div class="row menudesign-select-container">
+                    <!-- <div class="col-lg-4 col-md-4 col-sm-12 " style="padding-top:10px">
+                        Select settings
+                      </div> -->
+                      <div class="dropdown customDropDown" *ngIf="haveThemes">
+                        <button type="button" class="dropdown-toggle" data-toggle="dropdown">
+                          {{menuDesignSettings}}
+                          <i class="icon-font icon-corner"></i>
+                        </button>
+                        <div class="dropdown-menu">
+                          <a *ngIf="menuDesignSettings != 'Base theme'" class="dropdown-item" href="javascript:void(0)"
+                            (click)="menuDesignSettings = 'Base theme'">Base theme</a>
+                          <a *ngIf="menuDesignSettings != 'Base settings'" class="dropdown-item"
+                            href="javascript:void(0)" (click)="menuDesignSettings = 'Base settings'">Base
+                            settings</a>
+                          <a *ngIf="menuDesignSettings != 'Intro screen'" class="dropdown-item"
+                            href="javascript:void(0)" (click)="menuDesignSettings = 'Intro screen'">Intro screen</a>
+                          <a *ngIf="menuDesignSettings != 'Main menu'" class="dropdown-item" href="javascript:void(0)"
+                            (click)="menuDesignSettings = 'Main menu'">Main menu</a>
+                          <a *ngIf="menuDesignSettings != 'Menu items'" class="dropdown-item" href="javascript:void(0)"
+                            (click)="menuDesignSettings = 'Menu items'">Menu items</a>
+                          <a *ngIf="menuDesignSettings != 'Item details'" class="dropdown-item"
+                            href="javascript:void(0)" (click)="menuDesignSettings = 'Item details'">Item
+                            details</a>
+                          <a *ngIf="menuDesignSettings != 'Feedback'" class="dropdown-item" href="javascript:void(0)"
+                            (click)="menuDesignSettings = 'Feedback'">Feedback</a>
+                          <a *ngIf="menuDesignSettings != 'My order'" class="dropdown-item" href="javascript:void(0)"
+                            (click)="menuDesignSettings = 'My order'">My order</a>
+                        </div>
+                      </div>
+
+                    <div class="col-lg-12 col-md-12 col-sm-12 ">
+                      <!-- <ngx-loading [show]="securityloading"></ngx-loading> -->
+                      <app-base-theme *ngIf="menuDesignSettings =='Base theme'"></app-base-theme>
+                      <app-intro-screen *ngIf="menuDesignSettings =='Intro screen'"></app-intro-screen>
+                      <app-base-settings *ngIf="menuDesignSettings =='Base settings'"></app-base-settings>
+                      <app-main-menu *ngIf="menuDesignSettings =='Main menu'"></app-main-menu>
+                      <app-menu-items *ngIf="menuDesignSettings =='Menu items'"></app-menu-items>
+                      <app-my-order *ngIf="menuDesignSettings =='My order'"></app-my-order>
+                      <app-feedback *ngIf="menuDesignSettings =='Feedback'"></app-feedback>
+                      <app-menu-item-details *ngIf="menuDesignSettings =='Item details'"></app-menu-item-details>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!---- TABLET SETTING --->
+            <div class="tab-pane setting" id="tabletsettings" role="tabpanel">
+              <!-- <img src="./assets/images/qr-image.png" class="img-qr" (click)="openAccessCodes()"> -->
+              <div class="row mb-3">
+
+                <!-- Tab panes -->
+                <div class="col-lg-8 col-md-12 col-xs-12 content">
+                  <ngx-loading [show]="tabletloading"></ngx-loading>
+                  <div class="col-md-12 heading">
+                    <h4>Team Roles</h4>
+                  </div>
+                  <div class="team-container">
+                    <ng-container *ngFor="let item of teamMembers">
+                      <div class="reg-user-card" *ngIf="item.role != 'guest'">
+                        <div class="row card-header" id="headingOne">
+                          <div class="col-md-3 col-sm-3" (click)="viewEmployee(item)">
+                            <div style="font-weight: bolder;text-transform: capitalize;">
+                              {{item.firstname}} {{item.lastname}}
+                            </div>
+                          </div>
+                          <div class="col-md-3 col-sm-3" (click)="viewEmployee(item)">
+                            <div style="font-size:16px;color: #afacac;">{{item.role}}</div>
+                          </div>
+                          <div class="col-md-4 col-sm-4" (click)="viewEmployee(item)">
+                            <div class="email">
+                              {{item.email}}
+                            </div>
+                          </div>
+                          <div class="col-md-2 col-sm-2">
+                            <div class="row">
+                              <div class="col-md-6 col-sm-6">
+                                <mat-icon (click)="editEmployee(item)" style="cursor: pointer">create</mat-icon>
+                              </div>
+                              <div class="col-md-6 col-sm-6">
+                                <mat-icon (click)="deleteEmployee(item)" style="cursor: pointer">delete</mat-icon>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="reg-user-card" *ngIf="teamMembers.length == 1 && item.role =='guest'">
+                        <div class="row card-header" id="headingOne">
+                          <div class="col-md-12 col-sm-12">
+                            <div style="font-weight: bolder">
+                              No members available.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </ng-container>
+                  </div>
+                  <div>
+                    <button class="btn btn-default addmemberbtn" (click)="addNewEmployee()">Add new
+                      team member </button>
+                  </div>
+                  <div class="col-md-12 heading" style="margin-top:4rem">
+                    <h4>Protection code</h4>
+                  </div>
+                  <div class="codereset-container row">
+                    <div class="col-lg-8 col-md-7 col-sm-7">
+                      <h5 class="title">Code reset</h5>
+                      <p class="text">E-mail new codes to all members of your team </p>
+                    </div>
+                    <div class="col-lg-4 col-md-5 col-sm-5" style="margin: auto;text-align: right;">
+                      <button class="btn btn-default btnrestcode" (click)="resetCodes()">Reset the
+                        codes </button>
+                    </div>
+                  </div>
+                  <div class="codereset-container row">
+                    <div class="col-lg-9 col-md-7 col-sm-7">
+                      <h5 class="title">Weakly renewal</h5>
+                      <p class="text">Generate new access code weakly for extra protection</p>
+                    </div>
+                    <div class="col-lg-3 col-md-5 col-sm-5" style="margin: auto;">
+                      <div class="swicth-btn">
+                        <span class="switchbtn-container">
+                          <div class="switch-field">
+                            <input type="radio" id="switch_left1" value="true" [(ngModel)]="weaklyRenewalSwitch"
+                              #ctrl="ngModel" (change)="radioChange()" />
+                            <label for="switch_left1">ON</label>
+                            <input type="radio" id="switch_right1" value="false" [(ngModel)]="weaklyRenewalSwitch"
+                              #ctrl="ngModel" (change)="radioChange()" />
+                            <label for="switch_right1" [ngClass]="{ 'off': weaklyRenewalSwitch =='false'}">OFF</label>
+                          </div>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <!---- TABLET SETTING CLOSE --->
+
+            </div>
+          </div>
+        </div>
+        <!--ROW CLOSE-->
+
+
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,8 @@
+<div class="alert-container">
+    <h4>{{title}}</h4>
+    <p class="message">{{message}}</p>
+    <mat-dialog-actions>
+        <button class="mat-raised-button" mat-button (click)="close()" *ngIf="show">No</button>
+        <button class="mat-raised-button btn-yes" mat-button (click)="save()">{{yesbtn}}</button>
+    </mat-dialog-actions>
+</div>

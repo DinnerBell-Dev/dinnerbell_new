@@ -1,0 +1,9 @@
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a9f1bda2542b0c2f3478cff"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"content" : "Radient Space is thrilled to start 2018 with a floor-to-ceiling interactive psychedelic textile cave by Laurie Shapiro. Shapiro spent over 1000 hours sewing by hand and painting the ceiling and wall segments of \"Before You Were Born\". The show will also include a selection of recent mixed media paintings that seamlessly flow within the environment.",
+	"event_date" : ISODate("2018-01-09T00:00:00.000+00:00"),
+	"name" : "Cold Appetizers",
+	"photo_url" : "https://vast-taiga-29858.herokuapp.com/upcoming_event_photos/event1.png"
+},

@@ -1,0 +1,502 @@
+<section class="mds mds--base" id="mds">
+  <h3 *ngIf="newthemeName" class="maintitleHeader">
+    No Theme Selected
+  </h3>
+    <div class="mds__wrapper" *ngIf="!newthemeName">
+      <div class="mds__wrapper-left mt-3">
+        <div class="mds__wrapper-preview">
+          <!-- <a href="javascript:void(0)" title=""><i class="icon-font icon-eye"></i></a> -->
+          <!-- SECTION tablet :: START-->
+          <div class="tablet--scroll">
+            <section [style.font-family]="headerSetting.fontFamily" class="tablet tablet--feedback" id="tablet">
+              <div class="tablet__header" [style.background]="headerSetting.navbarBg"
+                [style.border-color]="headerSetting.navbarBorder">
+                <div [style.border-color]="headerSetting.navbarBorder"><a href="javascript:void(0)" title=""><i
+                      [style.color]="headerSetting.navBarIcon" class="icon-font icon-list-menu" aria-hidden="true"></i>
+                  </a></div>
+                <div [style.border-color]="headerSetting.navbarBorder"><a href="javascript:void(0)" title=""><i
+                      [style.color]="headerSetting.navBarIcon" class="icon-font icon-user"></i><span
+                      [style.color]="headerSetting.navbarTxt">3</span></a>
+                </div>
+                <div [style.border-color]="headerSetting.navbarBorder"><a href="javascript:void(0)" title=""><i
+                      [style.color]="headerSetting.navBarIcon" class="icon-font icon-doc"></i><span
+                      [style.color]="headerSetting.navbarTxt">0</span></a></div>
+                <div [style.border-color]="headerSetting.navbarBorder"><a href="javascript:void(0)" title=""><i
+                      [style.color]="headerSetting.navBarIcon" class="icon-font icon-bell"></i></a></div>
+              </div>
+              <div class="tablet__content"
+                [ngClass]="{'imageCover': feedbackSetting.imagestyle == 'fix', 'imageRepeat' : feedbackSetting.imagestyle == 'repeat'}"
+                [ngStyle]="{'background': feedbackSetting.LocalImgUrl != '' ? 'url(' + feedbackSetting.LocalImgUrl +')' : feedbackSetting.listBg }">
+                <div class="tablet__banner" [ngStyle]="{'height': feedbackSetting.marginTop +'px'}"></div>
+                <div class="tablet__rating-wrapper">
+                  <div class="tablet__rating tablet__rating--excellent">
+                    <div class="tablet__rating-top">
+                      <div><i [ngStyle]="{'font-size': feedbackSetting.categorysize +'px'}">WINE</i>
+                        <p [ngStyle]="{'font-size': feedbackSetting.titlesize +'px'}">Cakebread Cellars, Merlot</p>
+                      </div>
+                      <div><span [style.color]="feedbackSetting.excellentColor"
+                          [ngStyle]="{'font-size': feedbackSetting.assignsize +'px'}">Excellent</span>
+                      </div>
+                    </div>
+                    <div class="tablet__rating-bottom">
+                      <a [style.color]="feedbackSetting.excellentColor"
+                        [style.background-color]="feedbackSetting.Excellentbg" class="is-choose" href="javascript:void(0)"
+                        title=""><i class="fa fa-star"></i></a>
+                      <a [style.color]="feedbackSetting.excellentColor"
+                        [style.background-color]="feedbackSetting.Excellentbg" class="is-choose" href="javascript:void(0)"
+                        title=""><i class="fa fa-star"></i></a>
+                      <a [style.color]="feedbackSetting.excellentColor"
+                        [style.background-color]="feedbackSetting.Excellentbg" class="is-choose" href="javascript:void(0)"
+                        title=""><i class="fa fa-star"></i></a>
+                      <a [style.color]="feedbackSetting.excellentColor"
+                        [style.background-color]="feedbackSetting.Excellentbg" class="is-choose" href="javascript:void(0)"
+                        title=""><i class="fa fa-star"></i></a>
+                      <a [style.color]="feedbackSetting.excellentColor"
+                        [style.background-color]="feedbackSetting.Excellentbg" class="is-choose" href="javascript:void(0)"
+                        title=""><i class="fa fa-star"></i></a></div>
+                  </div>
+                  <div class="tablet__rating tablet__rating--verygood">
+                    <div class="tablet__rating-top">
+                      <div><i [ngStyle]="{'font-size': feedbackSetting.categorysize +'px'}">Cold appetizers</i>
+                        <p [ngStyle]="{'font-size': feedbackSetting.titlesize +'px'}">Chilled Shellfish Platter</p>
+                      </div>
+                      <div><span [style.color]="feedbackSetting.verygoodColor"
+                          [ngStyle]="{'font-size': feedbackSetting.assignsize +'px'}">VERY GOOD</span></div>
+                    </div>
+                    <div class="tablet__rating-bottom">
+                      <a [style.color]="feedbackSetting.verygoodColor"
+                        [style.background-color]="feedbackSetting.verygoodbg" class="is-choose" href="javascript:void(0)"
+                        title=""><i class="fa fa-star"></i></a>
+                      <a [style.color]="feedbackSetting.verygoodColor"
+                        [style.background-color]="feedbackSetting.verygoodbg" class="is-choose" href="javascript:void(0)"
+                        title=""><i class="fa fa-star"></i></a>
+                      <a [style.color]="feedbackSetting.verygoodColor"
+                        [style.background-color]="feedbackSetting.verygoodbg" class="is-choose" href="javascript:void(0)"
+                        title=""><i class="fa fa-star"></i></a>
+                      <a [style.color]="feedbackSetting.verygoodColor"
+                        [style.background-color]="feedbackSetting.verygoodbg" class="is-choose" href="javascript:void(0)"
+                        title=""><i class="fa fa-star"></i></a>
+                      <a [style.color]="feedbackSetting.verygoodColor"
+                        [style.background-color]="feedbackSetting.verygoodbg" class="is-choose" href="javascript:void(0)"
+                        title=""><i class="fa fa-star"></i></a></div>
+                  </div>
+                  <div class="tablet__rating tablet__rating--good">
+                    <div class="tablet__rating-top">
+                      <div><i [ngStyle]="{'font-size': feedbackSetting.categorysize +'px'}">Second course</i>
+                        <p [ngStyle]="{'font-size': feedbackSetting.titlesize +'px'}">Fresh florida stone crab clams</p>
+                      </div>
+                      <div><span [style.color]="feedbackSetting.goodColor"
+                          [ngStyle]="{'font-size': feedbackSetting.assignsize +'px'}">GOOD</span></div>
+                    </div>
+                    <div class="tablet__rating-bottom">
+                      <a [style.color]="feedbackSetting.goodColor" [style.background-color]="feedbackSetting.gooddbg"
+                        class="is-choose" href="javascript:void(0)" title=""><i class="fa fa-star"></i></a>
+                      <a [style.color]="feedbackSetting.goodColor" [style.background-color]="feedbackSetting.gooddbg"
+                        class="is-choose" href="javascript:void(0)" title=""><i class="fa fa-star"></i></a>
+                      <a [style.color]="feedbackSetting.goodColor" [style.background-color]="feedbackSetting.gooddbg"
+                        class="is-choose" href="javascript:void(0)" title=""><i class="fa fa-star"></i></a>
+                      <a [style.color]="feedbackSetting.goodColor" [style.background-color]="feedbackSetting.gooddbg"
+                        class="is-choose" href="javascript:void(0)" title=""><i class="fa fa-star"></i></a>
+                      <a [style.color]="feedbackSetting.goodColor" [style.background-color]="feedbackSetting.gooddbg"
+                        class="is-choose" href="javascript:void(0)" title=""><i class="fa fa-star"></i></a></div>
+                  </div>
+                  <div class="tablet__rating tablet__rating--notgood">
+                    <div class="tablet__rating-top">
+                      <div>
+                        <p [ngStyle]="{'font-size': feedbackSetting.titlesize +'px'}">Please rate our service efficiency
+                        </p>
+                      </div>
+                      <div><span [style.color]="feedbackSetting.notgooddbg"
+                          [ngStyle]="{'font-size': feedbackSetting.assignsize +'px'}">NOT GOOD</span></div>
+                    </div>
+                    <div class="tablet__rating-bottom">
+                      <a [style.color]="feedbackSetting.notgoodColor"
+                        [style.background-color]="feedbackSetting.notgooddbg" class="is-choose" href="javascript:void(0)"
+                        title=""><i class="fa fa-star"></i></a>
+                      <a [style.color]="feedbackSetting.notgoodColor"
+                        [style.background-color]="feedbackSetting.notgooddbg" class="is-choose" href="javascript:void(0)"
+                        title=""><i class="fa fa-star"></i></a>
+                      <a [style.color]="feedbackSetting.notgoodColor"
+                        [style.background-color]="feedbackSetting.notgooddbg" class="is-choose" href="javascript:void(0)"
+                        title=""><i class="fa fa-star"></i></a>
+                      <a [style.color]="feedbackSetting.notgoodColor"
+                        [style.background-color]="feedbackSetting.notgooddbg" class="is-choose" href="javascript:void(0)"
+                        title=""><i class="fa fa-star"></i></a>
+                      <a [style.color]="feedbackSetting.notgoodColor"
+                        [style.background-color]="feedbackSetting.notgooddbg" class="is-choose" href="javascript:void(0)"
+                        title=""><i class="fa fa-star"></i></a></div>
+                  </div>
+                  <div class="tablet__rating tablet__rating--bad">
+                    <div class="tablet__rating-top">
+                      <div>
+                        <p [ngStyle]="{'font-size': feedbackSetting.titlesize +'px'}">Rate your overall experience</p>
+                      </div>
+                      <div><span [style.color]="feedbackSetting.badColor"
+                          [ngStyle]="{'font-size': feedbackSetting.assignsize +'px'}">bad</span></div>
+                    </div>
+                    <div class="tablet__rating-bottom">
+                      <a [style.color]="feedbackSetting.badColor" [style.background-color]="feedbackSetting.badbg"
+                        class="is-choose" href="javascript:void(0)" title=""><i class="fa fa-star"></i></a>
+                      <a [style.color]="feedbackSetting.badColor" [style.background-color]="feedbackSetting.badbg"
+                        class="is-choose" href="javascript:void(0)" title=""><i class="fa fa-star"></i></a>
+                      <a [style.color]="feedbackSetting.badColor" [style.background-color]="feedbackSetting.badbg"
+                        class="is-choose" href="javascript:void(0)" title=""><i class="fa fa-star"></i></a>
+                      <a [style.color]="feedbackSetting.badColor" [style.background-color]="feedbackSetting.badbg"
+                        class="is-choose" href="javascript:void(0)" title=""><i class="fa fa-star"></i></a>
+                      <a [style.color]="feedbackSetting.badColor" [style.background-color]="feedbackSetting.badbg"
+                        class="is-choose" href="javascript:void(0)" title=""><i class="fa fa-star"></i></a></div>
+                  </div>
+                </div>
+              </div>
+              <div class="tablet__footer"><a [style.color]="headerSetting.confirmTxt"
+                [style.background]="headerSetting.confirmBtn" class="tablet__submit" href="javascript:void(0)"
+                title="">Submit</a></div>
+            </section>
+          </div>
+          <!-- SECTION tablet :: END-->
+        </div>
+        <form class="c-form">
+          <div class="mds__upload mds__upload--hi" upload-file-js>
+            <p class="mds__upload-title mds__screen-title">Background</p>
+            <div *ngIf="feedbackSetting.LocalImgUrl == ''"
+              class="mds__upload-wrapper mds__upload-wrapper--double mds__upload-wrapper--main" upload-main-js>
+              <div class="mds__upload-left">
+                <p class="mds__upload-subtitle">Color</p>
+                <div class="mds__upload-color" change-bg-js data-default-color="#161616">
+                  <input class="colorText" (click)="removeLocalImg()" readonly [style.background]="feedbackSetting.listBg"
+                    [(colorPicker)]="feedbackSetting.listBg" name="listBg" />
+                </div>
+              </div>
+              <div class="mds__upload-right">
+                <p class="mds__upload-subtitle">Background image</p>
+                <div class="mds__upload-bg" change-imageParent-js>
+                  <div change-img-js><span>Upload image</span>
+                    <input type="file" name="myfile" (change)="onFileChange($event)" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="feedbackSetting.LocalImgUrl != ''"
+              class="mds__upload-wrapper mds__upload-wrapper--double mds__upload-wrapper--additional"
+              upload-additional-js>
+              <div>
+                <div class="mds__upload-left">
+                  <div class="mds__upload-preview" upload-preview-js>
+                    <img [src]="feedbackSetting.LocalImgUrl">
+                  </div>
+                </div>
+                <div class="mds__upload-right">
+                  <div class="mds__upload-option">
+                    <div class="mds__upload-radio">
+                      <div>
+                        <label>
+                          <input type="radio" (click)="bgimageStyle('fix')" name="upload_image_size" checked><span>Fixed
+                            position</span>
+                        </label>
+                      </div>
+                      <div>
+                        <label>
+                          <input type="radio" (click)="bgimageStyle('repeat')" name="upload_image_size"><span>Repeat /
+                            Tile image</span>
+                        </label>
+                      </div>
+                    </div><a class="mds__upload-remove" (click)="removeLocalImg()" href="javascript:void(0)" title=""><i
+                        class="icon-font icon-bin"></i><span>Remove
+                        image</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="mds__subtitle mds__subtitle--mdsFeedbackPt">Rating colors</p>
+          <div class="mds__form-content">
+            <div class="mds__form-color mds__form-color--winput">
+              <div>
+                <p>Excellent</p>
+              </div>
+              <div>
+                <div class="mds__form-color-content" data-color="#32ed00" data-name="excellent">
+                  <input class="colorText" name="excellentColor" readonly
+                    [style.background]="feedbackSetting.excellentColor"
+                    [(colorPicker)]="feedbackSetting.excellentColor" />
+                </div>
+                <div class="mds__form-color-content" data-color="#133208" data-bg="excellent">
+                  <input class="colorText" name="Excellentbg" readonly [style.background]="feedbackSetting.Excellentbg"
+                    [(colorPicker)]="feedbackSetting.Excellentbg" />
+                </div>
+              </div>
+            </div>
+            <div class="mds__form-color mds__form-color--winput">
+              <div>
+                <p>Very good</p>
+              </div>
+              <div>
+                <div class="mds__form-color-content" data-color="#2b960f" data-name="veryGood">
+                  <input class="colorText" name="verygoodColor" readonly
+                    [style.background]="feedbackSetting.verygoodColor" [(colorPicker)]="feedbackSetting.verygoodColor" />
+                </div>
+                <div class="mds__form-color-content" data-color="#0b2717" data-bg="veryGood">
+                  <input class="colorText" name="verygoodbg" readonly [style.background]="feedbackSetting.verygoodbg"
+                    [(colorPicker)]="feedbackSetting.verygoodbg" />
+                </div>
+              </div>
+            </div>
+            <div class="mds__form-color mds__form-color--winput">
+              <div>
+                <p>Good</p>
+              </div>
+              <div>
+                <div class="mds__form-color-content" data-color="#fcb016" data-name="good">
+                  <input class="colorText" name="goodColor" readonly [style.background]="feedbackSetting.goodColor"
+                    [(colorPicker)]="feedbackSetting.goodColor" />
+                </div>
+                <div class="mds__form-color-content" data-color="#34260d" data-bg="good">
+                  <input class="colorText" name="gooddbg" readonly [style.background]="feedbackSetting.gooddbg"
+                    [(colorPicker)]="feedbackSetting.gooddbg" />
+                </div>
+              </div>
+            </div>
+            <div class="mds__form-color mds__form-color--winput">
+              <div>
+                <p>Not good</p>
+              </div>
+              <div>
+                <div class="mds__form-color-content" data-color="#bc6226" data-name="notGood">
+                  <input class="colorText" name="notgoodColor" readonly [style.background]="feedbackSetting.notgoodColor"
+                    [(colorPicker)]="feedbackSetting.notgoodColor" />
+                </div>
+                <div class="mds__form-color-content" data-color="#312612" data-bg="notGood">
+                  <input class="colorText" name="notgooddbg" readonly [style.background]="feedbackSetting.notgooddbg"
+                    [(colorPicker)]="feedbackSetting.notgooddbg" />
+                </div>
+              </div>
+            </div>
+            <div class="mds__form-color mds__form-color--winput">
+              <div>
+                <p>Bad</p>
+              </div>
+              <div>
+                <div class="mds__form-color-content" data-color="#c31010" data-name="bad">
+                  <input class="colorText" name="badColor" readonly [style.background]="feedbackSetting.badColor"
+                    [(colorPicker)]="feedbackSetting.badColor" />
+                </div>
+                <div class="mds__form-color-content" data-color="#3a0808" data-bg="bad">
+                  <input class="colorText" name="badbg" readonly [style.background]="feedbackSetting.badbg"
+                    [(colorPicker)]="feedbackSetting.badbg" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="mds__subtitle mds__subtitle--mdsDetailsPt">Font Properties</p>
+          <div class="mds__fontSize-wrapper">
+            <div class="mds__fontSize-row">
+              <div class="mds__fontSize-col mds__fontSize-col-0">
+                <p>Item Title</p>
+              </div>
+              <div class="mds__fontSize-col mds__fontSize-col-1">
+                <div><span>a</span></div>
+                <div class="custom-slider">
+                  <ng5-slider name="titlesize" [(value)]="feedbackSetting.titlesize" [options]="options1">
+                  </ng5-slider>
+                </div>
+                <div>
+                  <p class="mb-0">a</p>
+                </div>
+              </div>
+            </div>
+            <div class="mds__fontSize-row">
+              <div class="mds__fontSize-col mds__fontSize-col-0">
+                <p>Item Category</p>
+              </div>
+              <div class="mds__fontSize-col mds__fontSize-col-1">
+                <div><span>a</span></div>
+                <div class="custom-slider">
+                  <ng5-slider name="categorysize" [(value)]="feedbackSetting.categorysize" [options]="options2">
+                  </ng5-slider>
+                </div>
+                <div>
+                  <p class="mb-0">a</p>
+                </div>
+              </div>
+            </div>
+            <div class="mds__fontSize-row">
+              <div class="mds__fontSize-col mds__fontSize-col-0">
+                <p>Item Assessment</p>
+              </div>
+              <div class="mds__fontSize-col mds__fontSize-col-1">
+                <div><span>a</span></div>
+                <div class="custom-slider">
+                  <ng5-slider name="assignsize" [(value)]="feedbackSetting.assignsize" [options]="options3">
+                  </ng5-slider>
+                </div>
+                <div>
+                  <p class="mb-0">a</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="mds__subtitle mds__subtitle--mdsFeedbackPt">Top Margin</p>
+          <div class="mds__indent-wrapper">
+            <div class="mds__indent">
+              <div class="custom-slider">
+                <mat-slider step="1" min="0" max="100" name="marginTop" [(ngModel)]="feedbackSetting.marginTop">
+                </mat-slider>
+                <p><span class="left">0</span><span class="right">200</span></p>
+              </div>
+            </div>
+          </div>
+          <div class="c-form__field c-form__field--btn">
+            <button class="c-form__btn c-btn c-btn--bg" (click)="uploadfeedback()" type="button">Update
+              settings</button>
+  
+          </div>
+        </form>
+      </div>
+      <div class="mds__wrapper-right" [class.is-show]="wasClicked">
+        <div class="mds__wrapper-header">
+          <div><i class="icon-font icon-eye"></i>
+            <p>{{themeName}} Theme</p>
+          </div>
+          <div><a class="mds__wrapper-close" href="javascript:void(0)" (click)="onPreviw()" title=""><i
+                class="icon-font icon-close"></i></a></div>
+        </div>
+        <!-- SECTION tablet :: START-->
+        <div class="tablet--scroll">
+          <section [style.font-family]="headerSetting.fontFamily" class="tablet tablet--feedback" id="tablet">
+            <div class="tablet__header" [style.background]="headerSetting.navbarBg"
+              [style.border-color]="headerSetting.navbarBorder">
+              <div [style.border-color]="headerSetting.navbarBorder"><a href="javascript:void(0)" title=""><i
+                    [style.color]="headerSetting.navBarIcon" class="icon-font icon-list-menu" aria-hidden="true"></i>
+                </a></div>
+              <div [style.border-color]="headerSetting.navbarBorder"><a href="javascript:void(0)" title=""><i
+                    [style.color]="headerSetting.navBarIcon" class="icon-font icon-user"></i><span
+                    [style.color]="headerSetting.navbarTxt">3</span></a>
+              </div>
+              <div [style.border-color]="headerSetting.navbarBorder"><a href="javascript:void(0)" title=""><i
+                    [style.color]="headerSetting.navBarIcon" class="icon-font icon-doc"></i><span
+                    [style.color]="headerSetting.navbarTxt">0</span></a></div>
+              <div [style.border-color]="headerSetting.navbarBorder"><a href="javascript:void(0)" title=""><i
+                    [style.color]="headerSetting.navBarIcon" class="icon-font icon-bell"></i></a></div>
+            </div>
+            <div class="tablet__content"
+              [ngClass]="{'imageCover': feedbackSetting.imagestyle == 'fix', 'imageRepeat' : feedbackSetting.imagestyle == 'repeat'}"
+              [ngStyle]="{'background': feedbackSetting.LocalImgUrl != '' ? 'url(' + feedbackSetting.LocalImgUrl +')' : feedbackSetting.listBg }">
+              <div class="tablet__banner" [ngStyle]="{'height': feedbackSetting.marginTop +'px'}"></div>
+              <div class="tablet__rating-wrapper">
+                <div class="tablet__rating tablet__rating--excellent">
+                  <div class="tablet__rating-top">
+                    <div><i [ngStyle]="{'font-size': feedbackSetting.categorysize +'px'}">WINE</i>
+                      <p [ngStyle]="{'font-size': feedbackSetting.titlesize +'px'}">Cakebread Cellars, Merlot</p>
+                    </div>
+                    <div><span [style.color]="feedbackSetting.excellentColor"
+                        [ngStyle]="{'font-size': feedbackSetting.assignsize +'px'}">Excellent</span>
+                    </div>
+                  </div>
+                  <div class="tablet__rating-bottom">
+                    <a [style.color]="feedbackSetting.excellentColor"
+                      [style.background-color]="feedbackSetting.Excellentbg" class="is-choose" href="javascript:void(0)"
+                      title=""><i class="fa fa-star"></i></a>
+                    <a [style.color]="feedbackSetting.excellentColor"
+                      [style.background-color]="feedbackSetting.Excellentbg" class="is-choose" href="javascript:void(0)"
+                      title=""><i class="fa fa-star"></i></a>
+                    <a [style.color]="feedbackSetting.excellentColor"
+                      [style.background-color]="feedbackSetting.Excellentbg" class="is-choose" href="javascript:void(0)"
+                      title=""><i class="fa fa-star"></i></a>
+                    <a [style.color]="feedbackSetting.excellentColor"
+                      [style.background-color]="feedbackSetting.Excellentbg" class="is-choose" href="javascript:void(0)"
+                      title=""><i class="fa fa-star"></i></a>
+                    <a [style.color]="feedbackSetting.excellentColor"
+                      [style.background-color]="feedbackSetting.Excellentbg" class="is-choose" href="javascript:void(0)"
+                      title=""><i class="fa fa-star"></i></a></div>
+                </div>
+                <div class="tablet__rating tablet__rating--verygood">
+                  <div class="tablet__rating-top">
+                    <div><i [ngStyle]="{'font-size': feedbackSetting.categorysize +'px'}">Cold appetizers</i>
+                      <p [ngStyle]="{'font-size': feedbackSetting.titlesize +'px'}">Chilled Shellfish Platter</p>
+                    </div>
+                    <div><span [style.color]="feedbackSetting.verygoodColor"
+                        [ngStyle]="{'font-size': feedbackSetting.assignsize +'px'}">VERY GOOD</span></div>
+                  </div>
+                  <div class="tablet__rating-bottom">
+                    <a [style.color]="feedbackSetting.verygoodColor" [style.background-color]="feedbackSetting.verygoodbg"
+                      class="is-choose" href="javascript:void(0)" title=""><i class="fa fa-star"></i></a>
+                    <a [style.color]="feedbackSetting.verygoodColor" [style.background-color]="feedbackSetting.verygoodbg"
+                      class="is-choose" href="javascript:void(0)" title=""><i class="fa fa-star"></i></a>
+                    <a [style.color]="feedbackSetting.verygoodColor" [style.background-color]="feedbackSetting.verygoodbg"
+                      class="is-choose" href="javascript:void(0)" title=""><i class="fa fa-star"></i></a>
+                    <a [style.color]="feedbackSetting.verygoodColor" [style.background-color]="feedbackSetting.verygoodbg"
+                      class="is-choose" href="javascript:void(0)" title=""><i class="fa fa-star"></i></a>
+                    <a [style.color]="feedbackSetting.verygoodColor" [style.background-color]="feedbackSetting.verygoodbg"
+                      class="is-choose" href="javascript:void(0)" title=""><i class="fa fa-star"></i></a></div>
+                </div>
+                <div class="tablet__rating tablet__rating--good">
+                  <div class="tablet__rating-top">
+                    <div><i [ngStyle]="{'font-size': feedbackSetting.categorysize +'px'}">Second course</i>
+                      <p [ngStyle]="{'font-size': feedbackSetting.titlesize +'px'}">Fresh florida stone crab clams</p>
+                    </div>
+                    <div><span [style.color]="feedbackSetting.goodColor"
+                        [ngStyle]="{'font-size': feedbackSetting.assignsize +'px'}">GOOD</span></div>
+                  </div>
+                  <div class="tablet__rating-bottom">
+                    <a [style.color]="feedbackSetting.goodColor" [style.background-color]="feedbackSetting.gooddbg"
+                      class="is-choose" href="javascript:void(0)" title=""><i class="fa fa-star"></i></a>
+                    <a [style.color]="feedbackSetting.goodColor" [style.background-color]="feedbackSetting.gooddbg"
+                      class="is-choose" href="javascript:void(0)" title=""><i class="fa fa-star"></i></a>
+                    <a [style.color]="feedbackSetting.goodColor" [style.background-color]="feedbackSetting.gooddbg"
+                      class="is-choose" href="javascript:void(0)" title=""><i class="fa fa-star"></i></a>
+                    <a [style.color]="feedbackSetting.goodColor" [style.background-color]="feedbackSetting.gooddbg"
+                      class="is-choose" href="javascript:void(0)" title=""><i class="fa fa-star"></i></a>
+                    <a [style.color]="feedbackSetting.goodColor" [style.background-color]="feedbackSetting.gooddbg"
+                      class="is-choose" href="javascript:void(0)" title=""><i class="fa fa-star"></i></a></div>
+                </div>
+                <div class="tablet__rating tablet__rating--notgood">
+                  <div class="tablet__rating-top">
+                    <div>
+                      <p [ngStyle]="{'font-size': feedbackSetting.titlesize +'px'}">Please rate our service efficiency</p>
+                    </div>
+                    <div><span [style.color]="feedbackSetting.notgoodColor"
+                        [ngStyle]="{'font-size': feedbackSetting.assignsize +'px'}">NOT GOOD</span></div>
+                  </div>
+                  <div class="tablet__rating-bottom">
+                    <a [style.color]="feedbackSetting.notgoodColor" [style.background-color]="feedbackSetting.notgooddbg"
+                      class="is-choose" href="javascript:void(0)" title=""><i class="fa fa-star"></i></a>
+                    <a [style.color]="feedbackSetting.notgoodColor" [style.background-color]="feedbackSetting.notgooddbg"
+                      class="is-choose" href="javascript:void(0)" title=""><i class="fa fa-star"></i></a>
+                    <a [style.color]="feedbackSetting.notgoodColor" [style.background-color]="feedbackSetting.notgooddbg"
+                      class="is-choose" href="javascript:void(0)" title=""><i class="fa fa-star"></i></a>
+                    <a [style.color]="feedbackSetting.notgoodColor" [style.background-color]="feedbackSetting.notgooddbg"
+                      class="is-choose" href="javascript:void(0)" title=""><i class="fa fa-star"></i></a>
+                    <a [style.color]="feedbackSetting.notgoodColor" [style.background-color]="feedbackSetting.notgooddbg"
+                      class="is-choose" href="javascript:void(0)" title=""><i class="fa fa-star"></i></a></div>
+                </div>
+                <div class="tablet__rating tablet__rating--bad">
+                  <div class="tablet__rating-top">
+                    <div>
+                      <p [ngStyle]="{'font-size': feedbackSetting.titlesize +'px'}">Rate your overall experience</p>
+                    </div>
+                    <div><span [style.color]="feedbackSetting.badColor"
+                        [ngStyle]="{'font-size': feedbackSetting.assignsize +'px'}">bad</span></div>
+                  </div>
+                  <div class="tablet__rating-bottom">
+                    <a [style.color]="feedbackSetting.badColor" [style.background-color]="feedbackSetting.badbg"
+                      class="is-choose" href="javascript:void(0)" title=""><i class="fa fa-star"></i></a>
+                    <a [style.color]="feedbackSetting.badColor" [style.background-color]="feedbackSetting.badbg"
+                      class="is-choose" href="javascript:void(0)" title=""><i class="fa fa-star"></i></a>
+                    <a [style.color]="feedbackSetting.badColor" [style.background-color]="feedbackSetting.badbg"
+                      class="is-choose" href="javascript:void(0)" title=""><i class="fa fa-star"></i></a>
+                    <a [style.color]="feedbackSetting.badColor" [style.background-color]="feedbackSetting.badbg"
+                      class="is-choose" href="javascript:void(0)" title=""><i class="fa fa-star"></i></a>
+                    <a [style.color]="feedbackSetting.badColor" [style.background-color]="feedbackSetting.badbg"
+                      class="is-choose" href="javascript:void(0)" title=""><i class="fa fa-star"></i></a></div>
+                </div>
+              </div>
+            </div>
+            <div class="tablet__footer"><a [style.color]="headerSetting.confirmTxt"
+                [style.background]="headerSetting.confirmBtn" class="tablet__submit" href="javascript:void(0)"
+                title="">Submit</a></div>
+          </section>
+        </div>
+        <!-- SECTION tablet :: END-->
+      </div>
+    </div>
+  </section>

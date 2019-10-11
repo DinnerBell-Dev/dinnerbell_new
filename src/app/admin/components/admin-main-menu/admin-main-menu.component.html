@@ -1,0 +1,636 @@
+<section class="mds mds--base" id="mds">
+    <h3 *ngIf="newthemeName" class="maintitleHeader">
+        No Theme Selected
+    </h3>
+    <div class="mds__wrapper" *ngIf="!newthemeName">
+        <div class="mds__wrapper-left mt-3">
+            <div class="mds__wrapper-preview"><a href="javascript:void(0)" title=""><i
+                        class="icon-font icon-eye"></i></a>
+                <!-- SECTION tablet :: START-->
+                <div class="tablet--scroll">
+                    <section [style.font-family]="headerSetting.fontFamily" class="tablet tablet--mainMenu" id="tablet">
+                        <div class="tablet__header" [style.background]="headerSetting.navbarBg"
+                            [style.border-color]="headerSetting.navbarBorder">
+                            <div [style.border-color]="headerSetting.navbarBorder"><a href="javascript:void(0)"
+                                    title=""><i [style.color]="headerSetting.navBarIcon"
+                                        class="icon-font icon-list-menu" aria-hidden="true"></i>
+                                </a></div>
+                            <div [style.border-color]="headerSetting.navbarBorder"><a href="javascript:void(0)"
+                                    title=""><i [style.color]="headerSetting.navBarIcon"
+                                        class="icon-font icon-user"></i><span
+                                        [style.color]="headerSetting.navbarTxt">3</span></a>
+                            </div>
+                            <div [style.border-color]="headerSetting.navbarBorder"><a href="javascript:void(0)"
+                                    title=""><i [style.color]="headerSetting.navBarIcon"
+                                        class="icon-font icon-doc"></i><span
+                                        [style.color]="headerSetting.navbarTxt">0</span></a></div>
+                            <div [style.border-color]="headerSetting.navbarBorder"><a href="javascript:void(0)"
+                                    title=""><i [style.color]="headerSetting.navBarIcon"
+                                        class="icon-font icon-bell"></i></a></div>
+                        </div>
+                        <div class="tablet__content">
+                            <div class="tablet__carousel"
+                                style="background-image: url('assets/images/tablet-banner.jpg')">
+                                <div class="swiper-container swiper-container-tabletcarousel">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide swiper-slide-0">
+                                            <p>Breakfast</p><span>Serving 7 am to 11 am</span>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="tablet__content-cover">
+                                <div [ngClass]="{'imageCover': mainMenu.imagestyle == 'fix', 'imageRepeat' : mainMenu.imagestyle == 'repeat'}"
+                                    [ngStyle]="{'background': mainMenu.LocalImgUrl != '' ? 'url(' + mainMenu.LocalImgUrl +')' : mainMenu.listBg }"
+                                    *ngIf="mainMenu.layOutType == 'thumbnail'"
+                                    class="tablet__block-wrapper tablet__block-wrapper--thumbnail is-thumbnail"><a
+                                        [ngStyle]="{'margin': mainMenu.itemSpace +'px 0px' }"
+                                        [style.border-color]="mainMenu.thumbborderColor" class="tablet__block">
+                                        <div><img src="assets/images/tablet-box.jpg" alt=""></div>
+                                        <div>
+                                            <p [style.font-weight]="mainMenu.fontWight"
+                                                [ngStyle]="{'font-size': mainMenu.itemsize +'px'}"
+                                                [style.color]="mainMenu.itemColor">Appetizers</p>
+                                        </div>
+                                    </a><a [ngStyle]="{'margin': mainMenu.itemSpace +'px 0px' }"
+                                        [style.border-color]="mainMenu.thumbborderColor" class="tablet__block">
+                                        <div><img src="assets/images/tablet-box.jpg" alt=""></div>
+                                        <div>
+                                            <p [style.font-weight]="mainMenu.fontWight"
+                                                [ngStyle]="{'font-size': mainMenu.itemsize +'px'}"
+                                                [style.color]="mainMenu.itemColor">Soups & Salads</p>
+                                        </div>
+                                    </a><a [ngStyle]="{'margin': mainMenu.itemSpace +'px 0px' }"
+                                        [style.border-color]="mainMenu.thumbborderColor" class="tablet__block">
+                                        <div><img src="assets/images/tablet-box.jpg" alt=""></div>
+                                        <div>
+                                            <p [style.font-weight]="mainMenu.fontWight"
+                                                [ngStyle]="{'font-size': mainMenu.itemsize +'px'}"
+                                                [style.color]="mainMenu.itemColor">Classic Favorites</p>
+                                        </div>
+                                    </a><a [ngStyle]="{'margin': mainMenu.itemSpace +'px 0px' }"
+                                        [style.border-color]="mainMenu.thumbborderColor" class="tablet__block">
+                                        <div><img src="assets/images/tablet-box.jpg" alt=""></div>
+                                        <div>
+                                            <p [style.font-weight]="mainMenu.fontWight"
+                                                [ngStyle]="{'font-size': mainMenu.itemsize +'px'}"
+                                                [style.color]="mainMenu.itemColor">Taste of Mediterranian</p>
+                                        </div>
+                                    </a><a [ngStyle]="{'margin': mainMenu.itemSpace +'px 0px' }"
+                                        [style.border-color]="mainMenu.thumbborderColor" class="tablet__block">
+                                        <div><img src="assets/images/tablet-box.jpg" alt=""></div>
+                                        <div>
+                                            <p [style.font-weight]="mainMenu.fontWight"
+                                                [ngStyle]="{'font-size': mainMenu.itemsize +'px'}"
+                                                [style.color]="mainMenu.itemColor">Chicken</p>
+                                        </div>
+                                    </a><a [ngStyle]="{'margin': mainMenu.itemSpace +'px 0px' }"
+                                        [style.border-color]="mainMenu.thumbborderColor" class="tablet__block">
+                                        <div><img src="assets/images/tablet-box.jpg" alt=""></div>
+                                        <div>
+                                            <p [style.font-weight]="mainMenu.fontWight"
+                                                [ngStyle]="{'font-size': mainMenu.itemsize +'px'}"
+                                                [style.color]="mainMenu.itemColor">Seafood</p>
+                                        </div>
+                                    </a></div>
+                                <div [style.font-weight]="mainMenu.fontWight"
+                                    [ngClass]="{'imageCover': mainMenu.imagestyle == 'fix', 'imageRepeat' : mainMenu.imagestyle == 'repeat'}"
+                                    [ngStyle]="{'background': mainMenu.LocalImgUrl != '' ? 'url(' + mainMenu.LocalImgUrl +')' : mainMenu.listBg }"
+                                    *ngIf="mainMenu.layOutType == 'list'"
+                                    class="tablet__block-wrapper tablet__block-wrapper--list is-list">
+                                    <a [ngStyle]="{'padding': mainMenu.itemSpace +'px 0px' }"
+                                        [style.border-color]="mainMenu.listBorderColor" class="tablet__block">
+                                        <div>
+                                            <p [style.font-weight]="mainMenu.fontWight"
+                                                [ngStyle]="{'font-size': mainMenu.itemsize +'px'}"
+                                                [style.color]="mainMenu.itemColor">Appetizers</p>
+                                        </div>
+                                    </a><a [ngStyle]="{'padding': mainMenu.itemSpace +'px 0px' }"
+                                        [style.border-color]="mainMenu.listBorderColor" class="tablet__block">
+                                        <div>
+                                            <p [style.font-weight]="mainMenu.fontWight"
+                                                [ngStyle]="{'font-size': mainMenu.itemsize +'px'}"
+                                                [style.color]="mainMenu.itemColor">Soups & Salads</p>
+                                        </div>
+                                    </a><a [ngStyle]="{'padding': mainMenu.itemSpace +'px 0px' }"
+                                        [style.border-color]="mainMenu.listBorderColor" class="tablet__block">
+                                        <div>
+                                            <p [style.font-weight]="mainMenu.fontWight"
+                                                [ngStyle]="{'font-size': mainMenu.itemsize +'px'}"
+                                                [style.color]="mainMenu.itemColor">Classic Favorites</p>
+                                        </div>
+                                    </a><a [ngStyle]="{'padding': mainMenu.itemSpace +'px 0px' }"
+                                        [style.border-color]="mainMenu.listBorderColor" class="tablet__block">
+                                        <div>
+                                            <p [style.font-weight]="mainMenu.fontWight"
+                                                [ngStyle]="{'font-size': mainMenu.itemsize +'px'}"
+                                                [style.color]="mainMenu.itemColor">Taste of Mediterranian</p>
+                                        </div>
+                                    </a><a [ngStyle]="{'padding': mainMenu.itemSpace +'px 0px' }"
+                                        [style.border-color]="mainMenu.listBorderColor" class="tablet__block">
+                                        <div>
+                                            <p [style.font-weight]="mainMenu.fontWight"
+                                                [ngStyle]="{'font-size': mainMenu.itemsize +'px'}"
+                                                [style.color]="mainMenu.itemColor">Chicken</p>
+                                        </div>
+                                    </a><a [ngStyle]="{'padding': mainMenu.itemSpace +'px 0px' }"
+                                        [style.border-color]="mainMenu.listBorderColor" class="tablet__block">
+                                        <div>
+                                            <p [style.font-weight]="mainMenu.fontWight"
+                                                [ngStyle]="{'font-size': mainMenu.itemsize +'px'}"
+                                                [style.color]="mainMenu.itemColor">Seafood</p>
+                                        </div>
+                                    </a></div>
+                                <div class="tablet__info-wrapper" [style.font-weight]="mainMenu.fontWight2"
+                                    [ngClass]="{'imageCover': mainMenu.imagestyle2 == 'fix', 'imageRepeat' : mainMenu.imagestyle2 == 'repeat'}"
+                                    [ngStyle]="{'background': mainMenu.LocalImgUrl2 != '' ? 'url(' + mainMenu.LocalImgUrl2 +')' : mainMenu.infoBg }">
+                                    <p class="tablet__info-title">Information</p>
+                                    <a [ngStyle]="{'padding': mainMenu.infoSpace +'px 0px', 'font-size': mainMenu.infosize +'px' }"
+                                        [style.border-color]="mainMenu.infoborderColor"
+                                        [style.color]="mainMenu.infoColor" class="tablet__info-link"
+                                        information-js>History
+                                        & The Team</a>
+                                    <a [ngStyle]="{'padding': mainMenu.infoSpace +'px 0px', 'font-size': mainMenu.infosize +'px' }"
+                                        [style.border-color]="mainMenu.infoborderColor"
+                                        [style.color]="mainMenu.infoColor" class="tablet__info-link"
+                                        information-js>Loyalty
+                                        program</a>
+                                    <a [ngStyle]="{'padding': mainMenu.infoSpace +'px 0px', 'font-size': mainMenu.infosize +'px' }"
+                                        [style.border-color]="mainMenu.infoborderColor"
+                                        [style.color]="mainMenu.infoColor" class="tablet__info-link"
+                                        information-js>Upcoming
+                                        events</a>
+                                    <img class="tablet__info-logo" src="assets/images/img-tablet-sublogo.png"
+                                        srcset="img/img-tablet-sublogo@2x.png 2x" alt="">
+                                    <p class="tablet__info">powered by dinnerbell</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <!-- SECTION tablet :: END-->
+            </div>
+            <form class="c-form mainMenus">
+                <div class="mds__upload mds__upload--hi" upload-file-js>
+                    <p class="mds__upload-title mds__screen-title">Background</p>
+                    <div *ngIf="mainMenu.LocalImgUrl == ''"
+                        class="mds__upload-wrapper mds__upload-wrapper--double mds__upload-wrapper--main"
+                        upload-main-js>
+                        <div class="mds__upload-left">
+                            <p class="mds__upload-subtitle">Color</p>
+                            <div class="mds__upload-color" change-bg-js data-default-color="#161616">
+                                <input class="colorText" (click)="removeLocalImg()" readonly
+                                    [style.background]="mainMenu.listBg" [(colorPicker)]="mainMenu.listBg"
+                                    name="listBg" />
+                            </div>
+                        </div>
+                        <div class="mds__upload-right">
+                            <p class="mds__upload-subtitle">Background image</p>
+                            <div class="mds__upload-bg" change-imageParent-js>
+                                <div change-img-js><span>Upload image</span>
+                                    <input type="file" name="myfile" (change)="onFileChange($event)" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="mainMenu.LocalImgUrl != ''"
+                        class="mds__upload-wrapper mds__upload-wrapper--double mds__upload-wrapper--additional"
+                        upload-additional-js>
+                        <div>
+                            <div class="mds__upload-left">
+                                <div class="mds__upload-preview" upload-preview-js>
+                                    <img [src]="mainMenu.LocalImgUrl">
+                                </div>
+                            </div>
+                            <div class="mds__upload-right">
+                                <div class="mds__upload-option">
+                                    <div class="mds__upload-radio">
+                                        <div>
+                                            <label>
+                                                <input type="radio" (click)="bgimageStyle('fix')"
+                                                    name="upload_image_size" checked><span>Fixed
+                                                    position</span>
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <label>
+                                                <input type="radio" (click)="bgimageStyle('repeat')"
+                                                    name="upload_image_size"><span>Repeat /
+                                                    Tile image</span>
+                                            </label>
+                                        </div>
+                                    </div><a class="mds__upload-remove" (click)="removeLocalImg()"
+                                        href="javascript:void(0)" title=""><i
+                                            class="icon-font icon-bin"></i><span>Remove
+                                            image</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="mds__subtitle mds__subtitle--mdsMenuPt">Menu Layout</p>
+                <div class="mds__menu-wrapper mds__menu-wrapper--menuItems">
+                    <a [ngClass]="{'is-active': mainMenu.layOutType == 'list'}" (click)="layoutType('list')"
+                        class="mds__menu" href="javascript:void(0)" title="" data-name="list">List</a>
+                    <a [ngClass]="{'is-active': mainMenu.layOutType == 'thumbnail'}" (click)="layoutType('thumbnail')"
+                        class="mds__menu" href="javascript:void(0)" title="" data-name="thumb">Thumbnails</a></div>
+
+
+
+
+                <!-- New Settings-->
+                <div class="mds__form-content mds__form-content--font">
+                    <div class="c-form__group c-form__group--two pb-0">
+                        <div class="c-form__group-col c-form__group-col-0">
+                            <p>Weight and color</p>
+                        </div>
+                        <div class="c-form__group-col c-form__group-col-1">
+                            <div class="c-form__field c-form__field--select">
+                                <div class="c-form__select-wrapper">
+                                    <div class="c-form__select-value">{{mainMenu.fontWight}}</div>
+                                    <select class="c-form__select" id="select_font_text"
+                                        [(ngModel)]="mainMenu.fontWight" name="fontWight">
+                                        <option value="" selected disabled>Select font</option>
+                                        <option value="normal">Normal</option>
+                                        <option value="bold">bold</option>
+                                    </select>
+                                    <div class="c-form__select-icon"><i></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="c-form__group-col c-form__group-col-2">
+                            <div class="mds__form-color-content" data-color="#fff" data-name="fontText">
+                                <input class="colorText" readonly [style.background]="mainMenu.itemColor"
+                                    [(colorPicker)]="mainMenu.itemColor" name="itemColor" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mds__fontSize-wrapper">
+                    <div class="mds__fontSize-row">
+                        <div class="mds__fontSize-col mds__fontSize-col-0">
+                            <p>Font size</p>
+                        </div>
+                        <div class="mds__fontSize-col mds__fontSize-col-1">
+                            <div><span>a</span></div>
+                            <div class="custom-slider">
+                                <ng5-slider name="itemsize" [(value)]="mainMenu.itemsize" [options]="options1">
+                                </ng5-slider>
+                            </div>
+                            <div>
+                                <p class="mb-0">a</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mds__fontSize-row">
+                        <div class="mds__fontSize-col mds__fontSize-col-0">
+                            <p>Spacing</p>
+                        </div>
+                        <div class="mds__fontSize-col mds__fontSize-col-1">
+                            <div><span>0</span></div>
+                            <div class="custom-slider">
+                                <mat-slider step="1" min="0" max="20" name="itemSpace" [(ngModel)]="mainMenu.itemSpace">
+                                </mat-slider>
+                            </div>
+                            <div>
+                                <p class="mb-0">20</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mds__form-color mds__form-color--winput">
+                        <div>
+                            <p>Border</p>
+                        </div>
+                        <div>
+                            <div class="mds__form-color-content">
+                                <input class="colorText" readonly [style.background]="mainMenu.thumbborderColor"
+                                    [(colorPicker)]="mainMenu.thumbborderColor" name="thumbborderColor" />
+                            </div>
+                            <div class="mds__form-color-content">
+                                <input class="colorText" readonly [style.background]="mainMenu.listBorderColor"
+                                    [(colorPicker)]="mainMenu.listBorderColor" name="listBorderColor" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+                <!-- new Settings-->
+
+
+                <p class="mds__subtitle">Information menu</p>
+                <div class="mds__upload mds__upload--hi" upload-file-js>
+                    <p class="mds__upload-title mds__screen-title">Background</p>
+                    <div *ngIf="mainMenu.LocalImgUrl2 == ''"
+                        class="mds__upload-wrapper mds__upload-wrapper--double mds__upload-wrapper--main"
+                        upload-main-js>
+                        <div class="mds__upload-left">
+                            <p class="mds__upload-subtitle">Color</p>
+                            <div class="mds__upload-color" change-bg-js data-default-color="#161616">
+                                <input class="colorText" (click)="removeLocalImg2()" readonly
+                                    [style.background]="mainMenu.infoBg" [(colorPicker)]="mainMenu.infoBg"
+                                    name="infoBg" />
+                            </div>
+                        </div>
+                        <div class="mds__upload-right">
+                            <p class="mds__upload-subtitle">Background image</p>
+                            <div class="mds__upload-bg" change-imageParent-js>
+                                <div change-img-js><span>Upload image</span>
+                                    <input type="file" name="myfile" (change)="onFileChange1($event)" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="mainMenu.LocalImgUrl2 != ''"
+                        class="mds__upload-wrapper mds__upload-wrapper--double mds__upload-wrapper--additional"
+                        upload-additional-js>
+                        <div>
+                            <div class="mds__upload-left">
+                                <div class="mds__upload-preview" upload-preview-js>
+                                    <img [src]="mainMenu.LocalImgUrl2">
+                                </div>
+                            </div>
+                            <div class="mds__upload-right">
+                                <div class="mds__upload-option">
+                                    <div class="mds__upload-radio">
+                                        <div>
+                                            <label class="mb-0">
+                                                <input type="radio" (click)="bgimageStyle2('fix')"
+                                                    name="upload_image_size" checked><span>Fixed
+                                                    position</span>
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <label class="mb-0">
+                                                <input type="radio" (click)="bgimageStyle2('repeat')"
+                                                    name="upload_image_size"><span>Repeat /
+                                                    Tile image</span>
+                                            </label>
+                                        </div>
+                                    </div><a class="mds__upload-remove" (click)="removeLocalImg2()"
+                                        href="javascript:void(0)" title=""><i
+                                            class="icon-font icon-bin"></i><span>Remove
+                                            image</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mds__form-content mds__form-content--font">
+                    <div class="c-form__group c-form__group--two pb-0">
+                        <div class="c-form__group-col c-form__group-col-0">
+                            <p>Weight and color</p>
+                        </div>
+                        <div class="c-form__group-col c-form__group-col-1">
+                            <div class="c-form__field c-form__field--select">
+                                <div class="c-form__select-wrapper">
+                                    <div class="c-form__select-value">{{mainMenu.fontWight2}}</div>
+                                    <select class="c-form__select" id="select_font_text"
+                                        [(ngModel)]="mainMenu.fontWight2" name="fontWight2">
+                                        <option value="" selected disabled>Select font</option>
+                                        <option value="normal">Normal</option>
+                                        <option value="bold">bold</option>
+                                    </select>
+                                    <div class="c-form__select-icon"><i></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="c-form__group-col c-form__group-col-2">
+                            <div class="mds__form-color-content" data-color="#fff" data-name="fontText">
+                                <input class="colorText" readonly [style.background]="mainMenu.infoColor"
+                                    [(colorPicker)]="mainMenu.infoColor" name="infoColor" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mds__fontSize-wrapper">
+                    <div class="mds__fontSize-row">
+                        <div class="mds__fontSize-col mds__fontSize-col-0">
+                            <p>Font size</p>
+                        </div>
+                        <div class="mds__fontSize-col mds__fontSize-col-1">
+                            <div><span>a</span></div>
+                            <div class="custom-slider">
+                                <ng5-slider name="infosize" [(value)]="mainMenu.infosize" [options]="options2">
+                                </ng5-slider>
+
+                            </div>
+                            <div>
+                                <p class="mb-0">a</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mds__fontSize-row">
+                        <div class="mds__fontSize-col mds__fontSize-col-0">
+                            <p>Spacing</p>
+                        </div>
+                        <div class="mds__fontSize-col mds__fontSize-col-1">
+                            <div><span>0</span></div>
+                            <div class="custom-slider">
+                                <mat-slider step="1" min="0" max="40" name="infoSpace" [(ngModel)]="mainMenu.infoSpace">
+                                </mat-slider>
+                            </div>
+                            <div>
+                                <p class="mb-0">20</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mds__form-color mds__form-color--winput">
+                        <div>
+                            <p>Border</p>
+                        </div>
+                        <div class="is-one">
+                            <div class="mds__form-color-content" data-color="#c13548" data-name="spicy">
+                                <input class="colorText" readonly [style.background]="mainMenu.infoborderColor"
+                                    [(colorPicker)]="mainMenu.infoborderColor" name="infoborderColor" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="c-form__field c-form__field--btn">
+                    <button class="c-form__btn c-btn c-btn--bg" (click)="uploadMainMenuSettings()" type="button">Update
+                        settings</button>
+                </div>
+            </form>
+        </div>
+        <div class="mds__wrapper-right" [class.is-show]="wasClicked">
+            <div class="mds__wrapper-header">
+                <div><i class="icon-font icon-eye"></i>
+                    <p>{{themeName}} Theme</p>
+                </div>
+                <div><a class="mds__wrapper-close" href="javascript:void(0)" (click)="onPreviw()" title=""><i
+                            class="icon-font icon-close"></i></a></div>
+            </div>
+            <!-- SECTION tablet :: START-->
+            <div class="tablet--scroll">
+                <section [style.font-family]="headerSetting.fontFamily" class="tablet tablet--mainMenu" id="tablet">
+                    <div class="tablet__header" [style.background]="headerSetting.navbarBg"
+                        [style.border-color]="headerSetting.navbarBorder">
+                        <div [style.border-color]="headerSetting.navbarBorder"><a href="javascript:void(0)" title=""><i
+                                    [style.color]="headerSetting.navBarIcon" class="icon-font icon-list-menu"
+                                    aria-hidden="true"></i>
+                            </a></div>
+                        <div [style.border-color]="headerSetting.navbarBorder"><a href="javascript:void(0)" title=""><i
+                                    [style.color]="headerSetting.navBarIcon" class="icon-font icon-user"></i><span
+                                    [style.color]="headerSetting.navbarTxt">3</span></a>
+                        </div>
+                        <div [style.border-color]="headerSetting.navbarBorder"><a href="javascript:void(0)" title=""><i
+                                    [style.color]="headerSetting.navBarIcon" class="icon-font icon-doc"></i><span
+                                    [style.color]="headerSetting.navbarTxt">0</span></a></div>
+                        <div [style.border-color]="headerSetting.navbarBorder"><a href="javascript:void(0)" title=""><i
+                                    [style.color]="headerSetting.navBarIcon" class="icon-font icon-bell"></i></a></div>
+                    </div>
+                    <div class="tablet__content">
+                        <div class="tablet__carousel" style="background-image: url('assets/images/tablet-banner.jpg')">
+                            <div class="swiper-container swiper-container-tabletcarousel">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide swiper-slide-0">
+                                        <p>Breakfast</p><span>Serving 7 am to 11 am</span>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="tablet__content-cover">
+                            <div [ngClass]="{'imageCover': mainMenu.imagestyle == 'fix', 'imageRepeat' : mainMenu.imagestyle == 'repeat'}"
+                                [ngStyle]="{'background': mainMenu.LocalImgUrl != '' ? 'url(' + mainMenu.LocalImgUrl +')' : mainMenu.listBg }"
+                                *ngIf="mainMenu.layOutType == 'thumbnail'"
+                                class="tablet__block-wrapper tablet__block-wrapper--thumbnail is-thumbnail"><a
+                                    [ngStyle]="{'margin': mainMenu.itemSpace +'px 0px' }"
+                                    [style.border-color]="mainMenu.thumbborderColor" class="tablet__block">
+                                    <div><img src="assets/images/tablet-box.jpg" alt=""></div>
+                                    <div>
+                                        <p [style.font-weight]="mainMenu.fontWight"
+                                            [ngStyle]="{'font-size': mainMenu.itemsize +'px'}"
+                                            [style.color]="mainMenu.itemColor">Appetizers</p>
+                                    </div>
+                                </a><a [ngStyle]="{'margin': mainMenu.itemSpace +'px 0px' }"
+                                    [style.border-color]="mainMenu.thumbborderColor" class="tablet__block">
+                                    <div><img src="assets/images/tablet-box.jpg" alt=""></div>
+                                    <div>
+                                        <p [style.font-weight]="mainMenu.fontWight"
+                                            [ngStyle]="{'font-size': mainMenu.itemsize +'px'}"
+                                            [style.color]="mainMenu.itemColor">Soups & Salads</p>
+                                    </div>
+                                </a><a [ngStyle]="{'margin': mainMenu.itemSpace +'px 0px' }"
+                                    [style.border-color]="mainMenu.thumbborderColor" class="tablet__block">
+                                    <div><img src="assets/images/tablet-box.jpg" alt=""></div>
+                                    <div>
+                                        <p [style.font-weight]="mainMenu.fontWight"
+                                            [ngStyle]="{'font-size': mainMenu.itemsize +'px'}"
+                                            [style.color]="mainMenu.itemColor">Classic Favorites</p>
+                                    </div>
+                                </a><a [ngStyle]="{'margin': mainMenu.itemSpace +'px 0px' }"
+                                    [style.border-color]="mainMenu.thumbborderColor" class="tablet__block">
+                                    <div><img src="assets/images/tablet-box.jpg" alt=""></div>
+                                    <div>
+                                        <p [style.font-weight]="mainMenu.fontWight"
+                                            [ngStyle]="{'font-size': mainMenu.itemsize +'px'}"
+                                            [style.color]="mainMenu.itemColor">Taste of Mediterranian</p>
+                                    </div>
+                                </a><a [ngStyle]="{'margin': mainMenu.itemSpace +'px 0px' }"
+                                    [style.border-color]="mainMenu.thumbborderColor" class="tablet__block">
+                                    <div><img src="assets/images/tablet-box.jpg" alt=""></div>
+                                    <div>
+                                        <p [style.font-weight]="mainMenu.fontWight"
+                                            [ngStyle]="{'font-size': mainMenu.itemsize +'px'}"
+                                            [style.color]="mainMenu.itemColor">Chicken</p>
+                                    </div>
+                                </a><a [ngStyle]="{'margin': mainMenu.itemSpace +'px 0px' }"
+                                    [style.border-color]="mainMenu.thumbborderColor" class="tablet__block">
+                                    <div><img src="assets/images/tablet-box.jpg" alt=""></div>
+                                    <div>
+                                        <p [style.font-weight]="mainMenu.fontWight"
+                                            [ngStyle]="{'font-size': mainMenu.itemsize +'px'}"
+                                            [style.color]="mainMenu.itemColor">Seafood</p>
+                                    </div>
+                                </a></div>
+                            <div [style.font-weight]="mainMenu.fontWight"
+                                [ngClass]="{'imageCover': mainMenu.imagestyle == 'fix', 'imageRepeat' : mainMenu.imagestyle == 'repeat'}"
+                                [ngStyle]="{'background': mainMenu.LocalImgUrl != '' ? 'url(' + mainMenu.LocalImgUrl +')' : mainMenu.listBg }"
+                                *ngIf="mainMenu.layOutType == 'list'"
+                                class="tablet__block-wrapper tablet__block-wrapper--list is-list">
+                                <a [ngStyle]="{'padding': mainMenu.itemSpace +'px 0px' }"
+                                    [style.border-color]="mainMenu.listBorderColor" class="tablet__block">
+                                    <div>
+                                        <p [style.font-weight]="mainMenu.fontWight"
+                                            [ngStyle]="{'font-size': mainMenu.itemsize +'px'}"
+                                            [style.color]="mainMenu.itemColor">Appetizers</p>
+                                    </div>
+                                </a><a [ngStyle]="{'padding': mainMenu.itemSpace +'px 0px' }"
+                                    [style.border-color]="mainMenu.listBorderColor" class="tablet__block">
+                                    <div>
+                                        <p [style.font-weight]="mainMenu.fontWight"
+                                            [ngStyle]="{'font-size': mainMenu.itemsize +'px'}"
+                                            [style.color]="mainMenu.itemColor">Soups & Salads</p>
+                                    </div>
+                                </a><a [ngStyle]="{'padding': mainMenu.itemSpace +'px 0px' }"
+                                    [style.border-color]="mainMenu.listBorderColor" class="tablet__block">
+                                    <div>
+                                        <p [style.font-weight]="mainMenu.fontWight"
+                                            [ngStyle]="{'font-size': mainMenu.itemsize +'px'}"
+                                            [style.color]="mainMenu.itemColor">Classic Favorites</p>
+                                    </div>
+                                </a><a [ngStyle]="{'padding': mainMenu.itemSpace +'px 0px' }"
+                                    [style.border-color]="mainMenu.listBorderColor" class="tablet__block">
+                                    <div>
+                                        <p [style.font-weight]="mainMenu.fontWight"
+                                            [ngStyle]="{'font-size': mainMenu.itemsize +'px'}"
+                                            [style.color]="mainMenu.itemColor">Taste of Mediterranian</p>
+                                    </div>
+                                </a><a [ngStyle]="{'padding': mainMenu.itemSpace +'px 0px' }"
+                                    [style.border-color]="mainMenu.listBorderColor" class="tablet__block">
+                                    <div>
+                                        <p [style.font-weight]="mainMenu.fontWight"
+                                            [ngStyle]="{'font-size': mainMenu.itemsize +'px'}"
+                                            [style.color]="mainMenu.itemColor">Chicken</p>
+                                    </div>
+                                </a><a [ngStyle]="{'padding': mainMenu.itemSpace +'px 0px' }"
+                                    [style.border-color]="mainMenu.listBorderColor" class="tablet__block">
+                                    <div>
+                                        <p [style.font-weight]="mainMenu.fontWight"
+                                            [ngStyle]="{'font-size': mainMenu.itemsize +'px'}"
+                                            [style.color]="mainMenu.itemColor">Seafood</p>
+                                    </div>
+                                </a></div>
+                            <div class="tablet__info-wrapper" [style.font-weight]="mainMenu.fontWight2"
+                                [ngClass]="{'imageCover': mainMenu.imagestyle2 == 'fix', 'imageRepeat' : mainMenu.imagestyle2 == 'repeat'}"
+                                [ngStyle]="{'background': mainMenu.LocalImgUrl2 != '' ? 'url(' + mainMenu.LocalImgUrl2 +')' : mainMenu.infoBg }">
+                                <p class="tablet__info-title">Information</p>
+                                <a [ngStyle]="{'padding': mainMenu.infoSpace +'px 0px', 'font-size': mainMenu.infosize +'px' }"
+                                    [style.border-color]="mainMenu.infoborderColor" [style.color]="mainMenu.infoColor"
+                                    class="tablet__info-link" information-js>History
+                                    & The Team</a>
+                                <a [ngStyle]="{'padding': mainMenu.infoSpace +'px 0px', 'font-size': mainMenu.infosize +'px' }"
+                                    [style.border-color]="mainMenu.infoborderColor" [style.color]="mainMenu.infoColor"
+                                    class="tablet__info-link" information-js>Loyalty
+                                    program</a>
+                                <a [ngStyle]="{'padding': mainMenu.infoSpace +'px 0px', 'font-size': mainMenu.infosize +'px' }"
+                                    [style.border-color]="mainMenu.infoborderColor" [style.color]="mainMenu.infoColor"
+                                    class="tablet__info-link" information-js>Upcoming
+                                    events</a>
+                                <img class="tablet__info-logo" src="assets/images/img-tablet-sublogo.png"
+                                    srcset="img/img-tablet-sublogo@2x.png 2x" alt="">
+                                <p class="tablet__info">powered by dinnerbell</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- SECTION tablet :: END-->
+        </div>
+    </div>
+</section>

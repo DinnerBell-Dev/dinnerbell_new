@@ -1,0 +1,229 @@
+<div class="jumbotron pagescroll">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 offset-sm-3 ">
+                <h2>Register</h2>
+                <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': f.email.touched && f.email.errors || f.email.value == existEmail}" />
+                        <div *ngIf="f.email.touched && f.email.errors" class="invalid-feedback">
+                            <div *ngIf="f.email.errors.required">Email is required</div>
+                            <div *ngIf="!f.email.valid && !f.email.errors.required">Invalid Email</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="fullname">Full Name *</label>
+                        <input type="text" formControlName="fullname" class="form-control" [ngClass]="{ 'is-invalid': f.fullname.errors && f.fullname.touched }" (blur)="f.fullname.setValue(removeSpaces(f.fullname.value))" />
+                        <div *ngIf="f.fullname.errors && f.fullname.touched" class="invalid-feedback">
+                            <div *ngIf="f.fullname.errors.required">Full Name is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="country">Country *</label>
+                        <!-- <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+                        /> -->
+                        <select formControlName="country" class="form-control" [ngClass]="{ 'is-invalid': f.country.touched && f.country.errors }" (change)="countryChange($event.target.value, true)">
+                            <option *ngFor="let country of countries" value={{country.id}}>
+                                {{country.name}}
+                            </option>
+                        </select>
+                        <div *ngIf=" f.country.touched && f.country.errors" class="invalid-feedback">
+                            <div *ngIf="f.country.errors.required"> Country is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="state">State *</label>
+                        <!-- <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+                        /> -->
+                        <input type="text" value="" formControlName="state" *ngIf="statesArray == ''" class="form-control" [ngClass]="{ 'is-invalid': f.state.touched && f.state.errors }" />
+                        <select formControlName="state" class="form-control" [ngClass]="{ 'is-invalid': f.state.touched && f.state.errors }" *ngIf="statesArray != ''" (change)="stateChange($event.target.value, true)">
+                            <option value="">--Select state--</option>
+                            <option *ngFor="let state of statesArray" value="{{state.id}}">{{state.name}}</option>
+                        </select>
+                        <div *ngIf="f.state.touched && f.state.errors" class="invalid-feedback">
+                            <div *ngIf="f.state.errors.required"> State is required</div>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City *</label>
+                        <!-- <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+                        /> -->
+                        <input type="text" formControlName="city" class="form-control" [ngClass]="{ 'is-invalid': f.city.touched && f.city.errors }" *ngIf="citiesArray == ''" (blur)="f.city.setValue(removeSpaces(f.city.value))" />
+                        <select formControlName="city" class="form-control" [ngClass]="{ 'is-invalid': f.city.touched && f.city.errors  }" *ngIf="citiesArray != ''">
+                            <option value="">--Select city--</option>
+                            <option *ngFor="let city of citiesArray" value="{{city.name}}">
+                                {{city.name}}
+                            </option>
+                        </select>
+                        <div *ngIf="f.city.touched && f.city.errors " class="invalid-feedback">
+                            <div *ngIf="f.city.errors.required"> City is required</div>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Street Address *</label>
+                        <input type="input" formControlName="address" class="form-control" [ngClass]="{ 'is-invalid': f.address.touched && f.address.errors  }" (blur)="f.address.setValue(removeSpaces(f.address.value))" />
+                        <div *ngIf="f.address.touched && f.address.errors" class="invalid-feedback">
+                            <div *ngIf="f.address.errors.required"> Street Address is required</div>
+                            <div *ngIf="f.address.errors && !f.address.errors.required">Invalid Street Address</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="zipcode">ZIP Code *</label>
+                        <input type="text" formControlName="zipcode" class="form-control" [ngClass]="{ 'is-invalid': f.zipcode.touched && f.zipcode.errors}" />
+                        <div *ngIf="f.zipcode.touched && f.zipcode.errors" class="invalid-feedback">
+                            <div *ngIf="f.zipcode.errors.required">ZIP Code is required</div>
+                            <div *ngIf="f.zipcode.errors && !f.zipcode.errors.required">ZIP Code is invalid</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="website">Website(optional)</label>
+                        <input type="text" formControlName="website" class="form-control" [ngClass]="{ 'is-invalid': f.website.touched && f.website.errors}" />
+                    </div>
+                    <!-- <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <div class="row">
+            <div class="col-xs-3 col-sm-3 col-md-3">
+                <div class="form-group">
+                    <label for="countrycode">Country Code</label>
+                    <input type="text" class="form-control input-sm readonly-code" formControlName="countrycode" readonly />
+                </div>
+
+            </div>
+            <div class="col-xs-9 col-sm-9 col-md-9">
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" formControlName="phone" [ngClass]="{ 'is-invalid': f.phone.touched && f.phone.errors || f.phone.touched && verifyStartError == 'Phone number is invalid' }" class="form-control input-sm" placeholder="eg : 7017352894" (change)="getPhone()"
+                    />
+                    <div *ngIf="f.phone.touched && f.phone.errors" class="invalid-feedback">
+                        <div *ngIf="f.phone.errors.required">Phone Number is required</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div *ngIf="verifyStartError != ' ' " class="error-feild">{{verifyStartError}}</div>
+    </div> -->
+
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+                    </div>
+                    <div class="input-group phone">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">+{{countryCode}}</span>
+                        </div>
+                        <input type="tel" formControlName="phone" [ngClass]="{ 'is-invalid': f.phone.touched && f.phone.errors || f.phone.touched && verifyStartError == 'Phone number is invalid' || f.phone.touched && verifyStartError == 'Please select country' }" class="form-control input-sm"
+                            (change)="getPhone()" />
+                        <div *ngIf="f.phone.touched && f.phone.errors" class="invalid-feedback">
+                            <div *ngIf="f.phone.errors.required">Phone Number is required</div>
+                        </div>
+                        <div *ngIf="verifyStartError != '' && !f.phone.errors" class="error-feild">{{verifyStartError}}</div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="verifycode">Verify Code *</label>
+                        <input type="tel" formControlName="verifycode" class="form-control" [ngClass]="{ 'is-invalid': f.verifycode.touched && f.verifycode.errors || f.verifycode.touched && verifyError != ' ', 'valid': verifySuccess }" (change)="verifyPhone()" />
+                        <div *ngIf="f.verifycode.touched && f.verifycode.errors" class="invalid-feedback">
+                            <div *ngIf="f.verifycode.errors.required">Verification code is required</div>
+                        </div>
+                        <div *ngIf="(verifyError != undefined) && (!f.verifycode.errors) " class="error-feild">{{verifyError}}</div>
+                    </div>
+                    <div class="form-group"> <button class="btn btn-primary" (click)="getPhone()" [disabled]="!f.phone.valid || verifySuccess">Resend
+                            code</button></div>
+                    <div class="form-group">
+                        <label for="businesstype">Business type *</label>
+                        <select formControlName="businesstype" class="form-control" [ngClass]="{ 'is-invalid': f.businesstype.touched && f.businesstype.errors }">
+                            <option *ngFor="let business of typesBusiness" value={{business}}>
+                                {{business}}
+                            </option>
+                        </select>
+                        <div *ngIf=" f.businesstype.touched && f.businesstype.errors" class="invalid-feedback">
+                            <div *ngIf="f.businesstype.errors.required"> Business type is required</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notes">Notes *</label>
+                        <textarea formControlName="notes" class="form-control" [ngClass]="{ 'is-invalid': f.notes.touched && f.notes.errors }" (blur)="f.notes.setValue(removeSpaces(f.notes.value))"></textarea>
+                        <div *ngIf=" f.notes.touched && f.notes.errors" class="invalid-feedback">
+                            <div *ngIf="f.notes.errors.required"> Notes is required</div>
+                            <div *ngIf="f.notes.errors && !f.notes.errors.required"> Invalid notes</div>
+                        </div>
+                    </div>
+
+                    <div class="restaurant-info">
+                        <h2>Restaurant Information</h2>
+                        <div class="form-group">
+                            <label for="companyname">Company Name *</label>
+                            <input type="text" formControlName="companyname" class="form-control" [ngClass]="{ 'is-invalid': f.companyname.touched && f.companyname.errors  }" (blur)="f.companyname.setValue(removeSpaces(f.companyname.value))" />
+                            <div *ngIf=" f.companyname.touched && f.companyname.errors" class="invalid-feedback">
+                                <div *ngIf="f.companyname.errors.required">Company Name is required</div>
+                                <div *ngIf="f.companyname.errors && !f.companyname.errors.required">Invalid company name
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="occupation">Occupation *</label>
+                            <input type="text" formControlName="occupation" class="form-control" [ngClass]="{ 'is-invalid':  f.occupation.touched && f.occupation.errors  }" (blur)="f.occupation.setValue(removeSpaces(f.occupation.value))" />
+                            <div *ngIf="f.occupation.touched && f.occupation.errors" class="invalid-feedback">
+                                <div *ngIf="f.occupation.errors.required">Occupation is required</div>
+                                <div *ngIf="f.occupation.errors && !f.occupation.errors.required">Invalid occupation</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="cuisinesserved">Cuisines Served *</label>
+                            <input type="text" formControlName="cuisinesserved" class="form-control" [ngClass]="{ 'is-invalid': f.cuisinesserved.touched && f.cuisinesserved.errors  }" (blur)="f.cuisinesserved.setValue(removeSpaces(f.cuisinesserved.value))" />
+                            <div *ngIf="f.cuisinesserved.touched && f.cuisinesserved.errors " class="invalid-feedback">
+                                <div *ngIf="f.cuisinesserved.errors.required">Cuisines Served is required</div>
+                                <div *ngIf="f.cuisinesserved.errors && !f.cuisinesserved.errors.required">Invalid Cuisines Served</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="interested-services">
+                        <h2>Services Interested In</h2>
+                        <div class="form-group">
+                            <input type="checkbox" formControlName="digitalmenu" />
+                            <label for="digitalmenu" class="checkbox-item">Digital Menu</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" formControlName="graphicdesign" />
+                            <label for="graphicdesign" class="checkbox-item">Graphic Design</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" formControlName="branding" />
+                            <label for="branding" class="checkbox-item">Branding</label>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="checkbox" formControlName="marketting" />
+                            <label for="marketting" class="checkbox-item">Marketing</label>
+
+
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" formControlName="photovideo" />
+                            <label for="photovideo" class="checkbox-item">Photo / Video</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" formControlName="web" />
+                            <label for="web" class="checkbox-item">Web</label>
+                        </div>
+                    </div> -->
+
+                    <div class="form-group">
+                        <button [disabled]="loading || !registerForm.valid || f.verifycode.touched && verifyError != ''" class="btn btn-primary">Register</button>
+
+                        <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+                        />
+                        <a [routerLink]="['/login']" class="btn btn-link">Cancel</a>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

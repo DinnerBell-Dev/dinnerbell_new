@@ -1,0 +1,40 @@
+<!-- Modal (Ingredient Category) -->
+<div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Team member
+            </h5>
+            <button type="button" class="close" (click)="close()">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <mat-dialog-content>
+            <div class="row container">
+                <div class="col-md-4 col-sm-4">
+                    <div class="user-details">
+                        <h4 class="user-name">{{memberDetails.firstname}} {{memberDetails.lastname}}</h4>
+                        <div class="role">{{memberDetails.role}}</div>
+                        <div style="margin-top:1em;" class="other-details">{{memberDetails.phone}}</div>
+                        <div class="other-details">{{memberDetails.email}}</div>
+                        <div style="margin-top:1em;" class="other-details">{{memberDetails.streetAddress}},</div>
+                        <div class="other-details">{{memberDetails.state}}, {{memberDetails.country}}, {{memberDetails.zipcode}}</div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="resend-container">
+                        <div class="resend-details">
+                            <div style="font-size:14px;">User since {{createdDate}}</div>
+                            <div style="font-size:14px;text-align: right;">Access code</div>
+                            <div style="font-size:14px;text-align: right;font-weight: bold;">{{accessCode}}</div>
+                            <div><button type="button" (click)="resendCode()" class="resend-btn">Resend the code</button></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 image-container">
+                    <img src="{{memberDetails.qrfileid}}" class="image">
+                </div>
+            </div>
+        </mat-dialog-content>
+    </div>
+</div>
+<!-- Modal Close -->

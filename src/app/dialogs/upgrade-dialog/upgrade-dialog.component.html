@@ -1,0 +1,21 @@
+<div class="alert-container">
+    <h4>Upgrade</h4>
+    <form [formGroup]="upgradeForm">
+        <div class="form-group">
+            <label for="plan">Select your desired plan</label>
+            <select formControlName="plan" class="form-control" [ngClass]="{ 'is-invalid': f.plan.touched && f.plan.errors  }">
+        <option value="">--Select plan--</option>
+        <option value="Basic">Basic</option>
+        <option value="Advanced">Advanced</option>
+   </select>
+            <div *ngIf="f.plan.touched && f.plan.errors " class="invalid-feedback">
+                <div *ngIf="f.plan.errors.required"> Plan is required</div>
+            </div>
+
+        </div>
+    </form>
+    <mat-dialog-actions>
+        <button class="mat-raised-button" mat-button (click)="close()">Cancel</button>
+        <button class="mat-raised-button btn-upgrade" mat-button (click)="upgrade()" [disabled]="!upgradeForm.valid">Upgrade</button>
+    </mat-dialog-actions>
+</div>

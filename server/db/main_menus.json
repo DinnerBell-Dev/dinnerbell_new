@@ -1,0 +1,51 @@
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a98b35defb3d521d166bb12"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"from_at" : NumberInt("13"),
+	"name" : "lunch",
+	"submenus" : [
+		ObjectId("5a98bd9eefb3d521d166bb24"),
+		ObjectId("5a98bd7fefb3d521d166bb1f")
+	],
+	"to_at" : NumberInt("15")
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a98b37eefb3d521d166bb13"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"from_at" : NumberInt("18"),
+	"name" : "dinner",
+	"submenus" : [
+		ObjectId("5a98bd94efb3d521d166bb22"),
+		ObjectId("5a98bd98efb3d521d166bb23")
+	],
+	"to_at" : NumberInt("20")
+},
+{
+	"__v" : NumberInt("1"),
+	"_id" : ObjectId("5a98b312efb3d521d166bb10"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"from_at" : NumberInt("8"),
+	"name" : "breakfast",
+	"submenus" : [
+		ObjectId("5a98bd5eefb3d521d166bb1c"),
+		ObjectId("5a98bd6defb3d521d166bb1d"),
+		ObjectId("5a98bd7aefb3d521d166bb1e")
+	],
+	"to_at" : NumberInt("9")
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a98b34eefb3d521d166bb11"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"from_at" : NumberInt("10"),
+	"name" : "brunch",
+	"submenus" : [
+		ObjectId("5a98bd55efb3d521d166bb1b"),
+		ObjectId("5a98bd5eefb3d521d166bb1c"),
+		ObjectId("5a98bd6defb3d521d166bb1d"),
+		ObjectId("5a98bd7aefb3d521d166bb1e")
+	],
+	"to_at" : NumberInt("11")
+},

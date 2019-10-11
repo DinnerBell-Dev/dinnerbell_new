@@ -1,0 +1,7 @@
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a9f1d5b2542b0c2f3478d02"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"email" : "vasilebrinza86@outlook.com",
+	"name" : "Vasile Brinza"
+},

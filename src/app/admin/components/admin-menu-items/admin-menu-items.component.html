@@ -1,0 +1,872 @@
+<section class="mds mds--base" id="mds">
+    <h3 *ngIf="newthemeName" class="maintitleHeader">
+        No Theme Selected
+    </h3>
+    <div class="mds__wrapper" *ngIf="!newthemeName">
+        <div class="mds__wrapper-left mt-3">
+            <div class="mds__wrapper-preview"><a href="javascript:void(0)" title=""><i
+                        class="icon-font icon-eye"></i></a>
+                <!-- SECTION tablet :: START-->
+                <div class="tablet--scroll">
+                    <section [style.font-family]="headerSetting.fontFamily" class="tablet tablet--menuItems"
+                        id="tablet">
+                        <div class="tablet__header" [style.background]="headerSetting.navbarBg"
+                            [style.border-color]="headerSetting.navbarBorder">
+                            <div [style.border-color]="headerSetting.navbarBorder"><a href="javascript:void(0)"
+                                    title=""><i [style.color]="headerSetting.navBarIcon"
+                                        class="icon-font icon-list-menu" aria-hidden="true"></i>
+                                </a></div>
+                            <div [style.border-color]="headerSetting.navbarBorder"><a href="javascript:void(0)"
+                                    title=""><i [style.color]="headerSetting.navBarIcon"
+                                        class="icon-font icon-user"></i><span
+                                        [style.color]="headerSetting.navbarTxt">3</span></a>
+                            </div>
+                            <div [style.border-color]="headerSetting.navbarBorder"><a href="javascript:void(0)"
+                                    title=""><i [style.color]="headerSetting.navBarIcon"
+                                        class="icon-font icon-doc"></i><span
+                                        [style.color]="headerSetting.navbarTxt">0</span></a></div>
+                            <div [style.border-color]="headerSetting.navbarBorder"><a href="javascript:void(0)"
+                                    title=""><i [style.color]="headerSetting.navBarIcon"
+                                        class="icon-font icon-bell"></i></a></div>
+                        </div>
+                        <div class="tablet__content"
+                            [ngClass]="{'imageCover': menuItemSetting.imagestyle == 'fix', 'imageRepeat' : menuItemSetting.imagestyle == 'repeat'}"
+                            [ngStyle]="{'background': menuItemSetting.LocalImgUrl != '' ? 'url(' + menuItemSetting.LocalImgUrl +')' : menuItemSetting.listBg }">
+                            <div class="tablet__subheader" [style.border-color]="headerSetting.navbarBorder"
+                                [style.background]="headerSetting.navbarBg"><a [style.color]="headerSetting.navBarIcon"
+                                    href="javascript:void(0)" title=""><i class="icon-font icon-corner"></i></a>
+                                <p [style.color]=" menuItemSetting.headerColor">Cold Appetizers</p><a
+                                    [style.color]="headerSetting.navBarIcon" href="javascript:void(0)" title=""><i
+                                        class="icon-font icon-corner"></i></a>
+                            </div>
+                            <div class="tablet__view tablet__view-thumb "
+                                *ngIf="menuItemSetting.layOutType == 'thumbnail'">
+                                <div class="tablet__block-wrapper"><a [style.background]="headerSetting.listSelect"
+                                        class="tablet__block tablet__block--spicy is-choose" href="javascript:void(0)"
+                                        title="">
+                                        <div><img src="assets/images/tablet-box.jpg" alt="" title=""></div>
+                                        <div><span [style.color]="menuItemSetting.spicy">Spicy</span>
+                                            <p [ngStyle]="{'font-size': menuItemSetting.itemtitle2 +'px'}"
+                                                [style.color]="menuItemSetting.itemtitle2Color">Fresh
+                                                florida stone crab clams <i
+                                                    [style.font-family]="headerSetting.priceFamily"
+                                                    [ngStyle]="{'font-size': menuItemSetting.price2 +'px'}"
+                                                    [style.color]="menuItemSetting.price2Color">$18.50</i></p>
+                                        </div>
+                                    </a><a class="tablet__block tablet__block--popular" href="javascript:void(0)"
+                                        title="">
+                                        <div><img src="assets/images/tablet-box.jpg" alt="" title=""></div>
+                                        <div><span [style.color]="menuItemSetting.popular">Popular</span>
+                                            <p [ngStyle]="{'font-size': menuItemSetting.itemtitle2 +'px'}"
+                                                [style.color]="menuItemSetting.itemtitle2Color">Shrimp
+                                                cocktail <i [style.font-family]="headerSetting.priceFamily"
+                                                    [ngStyle]="{'font-size': menuItemSetting.price2 +'px'}"
+                                                    [style.color]="menuItemSetting.price2Color">$14.40</i></p>
+                                        </div>
+                                    </a><a class="tablet__block tablet__block--special" href="javascript:void(0)"
+                                        title="">
+                                        <div><img src="assets/images/tablet-box.jpg" alt="" title=""></div>
+                                        <div><span [style.color]="menuItemSetting.special">Chef’s Special</span>
+                                            <p [ngStyle]="{'font-size': menuItemSetting.itemtitle2 +'px'}"
+                                                [style.color]="menuItemSetting.itemtitle2Color">Tuna
+                                                Tartare Tower <i [ngStyle]="{'font-size': menuItemSetting.price2 +'px'}"
+                                                    [style.color]="menuItemSetting.price2Color">$17.00</i></p>
+                                        </div>
+                                    </a><a class="tablet__block tablet__block--new" href="javascript:void(0)" title="">
+                                        <div><img src="assets/images/tablet-box.jpg" alt="" title=""></div>
+                                        <div><span [style.color]="menuItemSetting.new">New!</span>
+                                            <p [ngStyle]="{'font-size': menuItemSetting.itemtitle2 +'px'}"
+                                                [style.color]="menuItemSetting.itemtitle2Color">King Crab
+                                                Mac'n'Cheese <i [style.font-family]="headerSetting.priceFamily"
+                                                    [ngStyle]="{'font-size': menuItemSetting.price2 +'px'}"
+                                                    [style.color]="menuItemSetting.price2Color">$18.20</i></p>
+                                        </div>
+                                    </a><a class="tablet__block tablet__block--popular" href="javascript:void(0)"
+                                        title="">
+                                        <div><img src="assets/images/tablet-box.jpg" alt="" title=""></div>
+                                        <div>
+                                            <p [ngStyle]="{'font-size': menuItemSetting.itemtitle2 +'px'}"
+                                                [style.color]="menuItemSetting.itemtitle2Color">Crab
+                                                Fried Rice <i [style.font-family]="headerSetting.priceFamily"
+                                                    [ngStyle]="{'font-size': menuItemSetting.price2 +'px'}"
+                                                    [style.color]="menuItemSetting.price2Color">$14.00</i></p>
+                                        </div>
+                                    </a></div>
+                                <p class="tablet__subtitle"
+                                    [ngStyle]="{'margin': menuItemSetting.spacing +'px  0px', 'font-size': menuItemSetting.subsection + 'px'}"
+                                    [style.color]="menuItemSetting.subsectionColor">Soups</p>
+                                <!-- {{menuItemSetting.subsection}} -->
+                                <div class="tablet__block-wrapper"><a class="tablet__block tablet__block--spicy"
+                                        href="javascript:void(0)" title="">
+                                        <div><img src="assets/images/tablet-box.jpg" alt="" title=""></div>
+                                        <div><span [style.color]="menuItemSetting.spicy">Spicy</span>
+                                            <p [ngStyle]="{'font-size': menuItemSetting.itemtitle2 +'px'}"
+                                                [style.color]="menuItemSetting.itemtitle2Color">Fresh
+                                                florida stone crab clams <i
+                                                    [style.font-family]="headerSetting.priceFamily"
+                                                    [ngStyle]="{'font-size': menuItemSetting.price2 +'px'}"
+                                                    [style.color]="menuItemSetting.price2Color">$18.50</i></p>
+                                        </div>
+                                    </a><a class="tablet__block tablet__block--popular" href="javascript:void(0)"
+                                        title="">
+                                        <div><img src="assets/images/tablet-box.jpg" alt="" title=""></div>
+                                        <div><span [style.color]="menuItemSetting.popular">Popular</span>
+                                            <p [ngStyle]="{'font-size': menuItemSetting.itemtitle2 +'px'}"
+                                                [style.color]="menuItemSetting.itemtitle2Color">Shrimp
+                                                cocktail <i [style.font-family]="headerSetting.priceFamily"
+                                                    [ngStyle]="{'font-size': menuItemSetting.price2 +'px'}"
+                                                    [style.color]="menuItemSetting.price2Color">$14.40</i></p>
+                                        </div>
+                                    </a><a class="tablet__block tablet__block--special" href="javascript:void(0)"
+                                        title="">
+                                        <div><img src="assets/images/tablet-box.jpg" alt="" title=""></div>
+                                        <div><span [style.color]="menuItemSetting.special">Chef’s Special</span>
+                                            <p [ngStyle]="{'font-size': menuItemSetting.itemtitle2 +'px'}"
+                                                [style.color]="menuItemSetting.itemtitle2Color">Tuna
+                                                Tartare Tower <i [ngStyle]="{'font-size': menuItemSetting.price2 +'px'}"
+                                                    [style.color]="menuItemSetting.price2Color">$17.00</i></p>
+                                        </div>
+                                    </a><a class="tablet__block tablet__block--new" href="javascript:void(0)" title="">
+                                        <div><img src="assets/images/tablet-box.jpg" alt="" title=""></div>
+                                        <div><span [style.color]="menuItemSetting.new">New!</span>
+                                            <p [ngStyle]="{'font-size': menuItemSetting.itemtitle2 +'px'}"
+                                                [style.color]="menuItemSetting.itemtitle2Color">King Crab
+                                                Mac'n'Cheese <i [style.font-family]="headerSetting.priceFamily"
+                                                    [ngStyle]="{'font-size': menuItemSetting.price2 +'px'}"
+                                                    [style.color]="menuItemSetting.price2Color">$18.20</i></p>
+                                        </div>
+                                    </a><a class="tablet__block tablet__block--popular" href="javascript:void(0)"
+                                        title="">
+                                        <div><img src="assets/images/tablet-box.jpg" alt="" title=""></div>
+                                        <div>
+                                            <p [ngStyle]="{'font-size': menuItemSetting.itemtitle2 +'px'}"
+                                                [style.color]="menuItemSetting.itemtitle2Color">Crab
+                                                Fried Rice <i [style.font-family]="headerSetting.priceFamily"
+                                                    [ngStyle]="{'font-size': menuItemSetting.price2 +'px'}"
+                                                    [style.color]="menuItemSetting.price2Color">$14.00</i></p>
+                                        </div>
+                                    </a></div>
+                            </div>
+                            <div class="tablet__view tablet__view-list" *ngIf="menuItemSetting.layOutType == 'list'">
+                                <div class="tablet__btn-wrapper"><a [style.background]="headerSetting.listSelect"
+                                        class="tablet__btn tablet__btn--spicy is-choose" href="javascript:void(0)"
+                                        title="">
+                                        <div>
+                                            <p [ngStyle]="{'font-size': menuItemSetting.itemtitle +'px'}"
+                                                [style.color]="menuItemSetting.itemtitleColor">Fresh
+                                                florida stone crab clams <sup
+                                                    [style.color]="menuItemSetting.spicy">Spicy</sup>
+                                            </p>
+                                        </div>
+                                        <div><span [style.font-family]="headerSetting.priceFamily"
+                                                [ngStyle]="{'font-size': menuItemSetting.price +'px'}"
+                                                [style.color]="menuItemSetting.priceColor"><span
+                                                    currency-sign-js>$</span>18.50</span></div>
+                                    </a><a class="tablet__btn tablet__btn--popular" href="javascript:void(0)" title="">
+                                        <div>
+                                            <p [ngStyle]="{'font-size': itemtitle +'px'}"
+                                                [style.color]="menuItemSetting.itemtitleColor">Shrimp
+                                                cocktail <sup [style.color]="menuItemSetting.popular">Popular</sup></p>
+                                        </div>
+                                        <div><span [style.font-family]="headerSetting.priceFamily"
+                                                [ngStyle]="{'font-size': menuItemSetting.price +'px'}"
+                                                [style.color]="menuItemSetting.priceColor"><span
+                                                    currency-sign-js>$</span>14.40</span></div>
+                                    </a><a class="tablet__btn tablet__btn--special" href="javascript:void(0)" title="">
+                                        <div>
+                                            <p [ngStyle]="{'font-size': menuItemSetting.itemtitle +'px'}"
+                                                [style.color]="menuItemSetting.itemtitleColor">Tuna
+                                                Tartare Tower <sup changeColor-chefsSpecial-js>Chef’s
+                                                    Special</sup></p>
+                                        </div>
+                                        <div><span [style.font-family]="headerSetting.priceFamily"
+                                                [ngStyle]="{'font-size': menuItemSetting.price +'px'}"
+                                                [style.color]="menuItemSetting.priceColor"><span
+                                                    currency-sign-js>$</span>17.00</span></div>
+                                    </a><a class="tablet__btn tablet__btn--new" href="javascript:void(0)" title="">
+                                        <div>
+                                            <p [ngStyle]="{'font-size': menuItemSetting.itemtitle +'px'}"
+                                                [style.color]="menuItemSetting.itemtitleColor">King Crab
+                                                Mac'n'Cheese <sup [style.color]="new">New!</sup></p>
+                                        </div>
+                                        <div><span [style.font-family]="headerSetting.priceFamily"
+                                                [ngStyle]="{'font-size': menuItemSetting.price +'px'}"
+                                                [style.color]="menuItemSetting.priceColor"><span
+                                                    currency-sign-js>$</span>18.20</span></div>
+                                    </a><a class="tablet__btn" href="javascript:void(0)" title="">
+                                        <div>
+                                            <p [ngStyle]="{'font-size': menuItemSetting.itemtitle +'px'}"
+                                                [style.color]="menuItemSetting.itemtitleColor">Crab Fried
+                                                Rice</p>
+                                        </div>
+                                        <div><span [style.font-family]="headerSetting.priceFamily"
+                                                [ngStyle]="{'font-size': menuItemSetting.price +'px'}"
+                                                [style.color]="menuItemSetting.priceColor"><span
+                                                    currency-sign-js>$</span>14.00</span></div>
+                                    </a><a class="tablet__btn" href="javascript:void(0)" title="">
+                                        <div>
+                                            <p [ngStyle]="{'font-size': menuItemSetting.itemtitle +'px'}"
+                                                [style.color]="menuItemSetting.itemtitleColor">Lobster
+                                                Mashed Potatoes</p>
+                                        </div>
+                                        <div><span [style.font-family]="headerSetting.priceFamily"
+                                                [ngStyle]="{'font-size': price +'px'}"
+                                                [style.color]="menuItemSetting.priceColor"><span
+                                                    currency-sign-js>$</span>25.00</span></div>
+                                    </a><a class="tablet__btn" href="javascript:void(0)" title="">
+                                        <div>
+                                            <p [ngStyle]="{'font-size': menuItemSetting.itemtitle +'px'}"
+                                                [style.color]="menuItemSetting.itemtitleColor">Shrimp
+                                                Cocktail</p>
+                                        </div>
+                                        <div><span [style.font-family]="headerSetting.priceFamily"
+                                                [ngStyle]="{'font-size': menuItemSetting.price +'px'}"
+                                                [style.color]="menuItemSetting.priceColor"><span
+                                                    currency-sign-js>$</span>14.00</span></div>
+                                    </a><a class="tablet__btn" href="javascript:void(0)" title="">
+                                        <div>
+                                            <p [ngStyle]="{'font-size': menuItemSetting.itemtitle +'px'}"
+                                                [style.color]="menuItemSetting.itemtitleColor">Tuna
+                                                Tartare Tower</p>
+                                        </div>
+                                        <div><span [style.font-family]="headerSetting.priceFamily"
+                                                [ngStyle]="{'font-size': menuItemSetting.price +'px'}"
+                                                [style.color]="menuItemSetting.priceColor"><span
+                                                    currency-sign-js>$</span>18.50</span></div>
+                                    </a></div>
+                                <p class="tablet__subtitle"
+                                    [ngStyle]="{'margin':  menuItemSetting.spacing +'px 0px', 'font-size': menuItemSetting.subsection +'px'}"
+                                    [style.color]="menuItemSetting.subsectionColor">Subsection title</p>
+                                <div class="tablet__btn-wrapper tablet__btn-wrapper--pt"><a
+                                        class="tablet__btn tablet__btn--spicy" href="javascript:void(0)" title="">
+                                        <div>
+                                            <p [ngStyle]="{'font-size': menuItemSetting.itemtitle +'px'}"
+                                                [style.color]="menuItemSetting.itemtitleColor">Fresh
+                                                florida stone crab clams <sup
+                                                    [style.color]="menuItemSetting.spicy">Spicy</sup>
+                                            </p>
+                                        </div>
+                                        <div><span [style.font-family]="headerSetting.priceFamily"
+                                                [ngStyle]="{'font-size': menuItemSetting.price +'px'}"
+                                                [style.color]="menuItemSetting.priceColor"><span
+                                                    currency-sign-js>$</span>18.50</span></div>
+                                    </a><a class="tablet__btn tablet__btn--popular" href="javascript:void(0)" title="">
+                                        <div>
+                                            <p [ngStyle]="{'font-size': menuItemSetting.itemtitle +'px'}"
+                                                [style.color]="menuItemSetting.itemtitleColor">Shrimp
+                                                cocktail <sup [style.color]="popular">Popular</sup></p>
+                                        </div>
+                                        <div><span [style.font-family]="headerSetting.priceFamily"
+                                                [ngStyle]="{'font-size': menuItemSetting.price +'px'}"
+                                                [style.color]="menuItemSetting.priceColor"><span
+                                                    currency-sign-js>$</span>14.40</span></div>
+                                    </a><a class="tablet__btn tablet__btn--special" href="javascript:void(0)" title="">
+                                        <div>
+                                            <p [ngStyle]="{'font-size': menuItemSetting.itemtitle +'px'}"
+                                                [style.color]="menuItemSetting.itemtitleColor">Tuna
+                                                Tartare Tower <sup changeColor-chefsSpecial-js>Chef’s
+                                                    Special</sup></p>
+                                        </div>
+                                        <div><span [style.font-family]="headerSetting.priceFamily"
+                                                [ngStyle]="{'font-size': menuItemSetting.price +'px'}"
+                                                [style.color]="menuItemSetting.priceColor"><span
+                                                    currency-sign-js>$</span>17.00</span></div>
+                                    </a><a class="tablet__btn tablet__btn--new" href="javascript:void(0)" title="">
+                                        <div>
+                                            <p [ngStyle]="{'font-size': menuItemSetting.itemtitle +'px'}"
+                                                [style.color]="menuItemSetting.itemtitleColor">King Crab
+                                                Mac'n'Cheese <sup [style.color]="new">New!</sup></p>
+                                        </div>
+                                        <div><span [style.font-family]="headerSetting.priceFamily"
+                                                [ngStyle]="{'font-size': menuItemSetting.price +'px'}"
+                                                [style.color]="menuItemSetting.priceColor"><span
+                                                    currency-sign-js>$</span>18.20</span></div>
+                                    </a><a class="tablet__btn" href="javascript:void(0)" title="">
+                                        <div>
+                                            <p [ngStyle]="{'font-size': menuItemSetting.itemtitle +'px'}"
+                                                [style.color]="menuItemSetting.itemtitleColor">Crab Fried
+                                                Rice</p>
+                                        </div>
+                                        <div><span [style.font-family]="headerSetting.priceFamily"
+                                                [ngStyle]="{'font-size': menuItemSetting.price +'px'}"
+                                                [style.color]="menuItemSetting.priceColor"><span
+                                                    currency-sign-js>$</span>14.00</span></div>
+                                    </a><a class="tablet__btn" href="javascript:void(0)" title="">
+                                        <div>
+                                            <p [ngStyle]="{'font-size': menuItemSetting.itemtitle +'px'}"
+                                                [style.color]="menuItemSetting.itemtitleColor">Lobster
+                                                Mashed Potatoes</p>
+                                        </div>
+                                        <div><span [style.font-family]="headerSetting.priceFamily"
+                                                [ngStyle]="{'font-size': menuItemSetting.price +'px'}"
+                                                [style.color]="menuItemSetting.priceColor"><span
+                                                    currency-sign-js>$</span>25.00</span></div>
+                                    </a></div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <!-- SECTION tablet :: END-->
+            </div>
+            <form class="c-form">
+                <div class="mds__upload mds__upload--hi" upload-file-js>
+                    <p class="mds__upload-title mds__screen-title">Background</p>
+                    <div *ngIf="menuItemSetting.LocalImgUrl == ''"
+                        class="mds__upload-wrapper mds__upload-wrapper--double mds__upload-wrapper--main"
+                        upload-main-js>
+                        <div class="mds__upload-left">
+                            <p class="mds__upload-subtitle">Color</p>
+                            <div class="mds__upload-color" change-bg-js data-default-color="#161616">
+                                <input class="colorText" [cpPosition]="bottom-left" (click)="removeLocalImg()"
+                                    name="listBg" readonly [style.background]="menuItemSetting.listBg"
+                                    [(colorPicker)]="menuItemSetting.listBg" />
+                            </div>
+                        </div>
+                        <div class="mds__upload-right">
+                            <p class="mds__upload-subtitle">Background image</p>
+                            <div class="mds__upload-bg" change-imageParent-js>
+                                <div change-img-js><span>Upload image</span>
+                                    <input type="file" name="myfile" (change)="onFileChange($event)" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="menuItemSetting.LocalImgUrl != ''"
+                        class="mds__upload-wrapper mds__upload-wrapper--double mds__upload-wrapper--additional"
+                        upload-additional-js>
+                        <div>
+                            <div class="mds__upload-left">
+                                <div class="mds__upload-preview" upload-preview-js>
+                                    <img [src]="menuItemSetting.LocalImgUrl">
+                                </div>
+                            </div>
+                            <div class="mds__upload-right">
+                                <div class="mds__upload-option">
+                                    <div class="mds__upload-radio">
+                                        <div>
+                                            <label>
+                                                <input type="radio" (click)="bgimageStyle('fix')"
+                                                    name="upload_image_size" checked><span>Fixed
+                                                    position</span>
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <label>
+                                                <input type="radio" (click)="bgimageStyle('repeat')"
+                                                    name="upload_image_size"><span>Repeat /
+                                                    Tile image</span>
+                                            </label>
+                                        </div>
+                                    </div><a class="mds__upload-remove" (click)="removeLocalImg()"
+                                        href="javascript:void(0)" title=""><i
+                                            class="icon-font icon-bin"></i><span>Remove
+                                            image</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="mds__subtitle mds__subtitle--mdsMenuItemPt">Font properties</p>
+                <div class="mds__fontSize-wrapper">
+                    <div class="mds__fontSize-row">
+                        <div class="mds__fontSize-col mds__fontSize-col-0">
+                            <p class="mds__fontSize-name">Section header</p>
+                        </div>
+                        <div class="mds__fontSize-col mds__fontSize-col-1">
+                            <div><span>a</span></div>
+                            <div class="custom-slider">
+                                <ng5-slider name="header" [(value)]="menuItemSetting.header" [options]="options1">
+                                </ng5-slider>
+                            </div>
+                            <div>
+                                <p class="mb-0">a</p>
+                            </div>
+                        </div>
+                        <div class="mds__fontSize-col mds__fontSize-col-2" data-name="sectionHeader">
+                            <input class="colorText" readonly name="headerColor"
+                                [style.background]="menuItemSetting.headerColor"
+                                [(colorPicker)]="menuItemSetting.headerColor" />
+                        </div>
+                    </div>
+                    <div class="mds__fontSize-row">
+                        <div class="mds__fontSize-col mds__fontSize-col-0">
+                            <p class="mds__fontSize-name">Subsection</p>
+                        </div>
+                        <div class="mds__fontSize-col mds__fontSize-col-1">
+                            <div><span>a</span></div>
+                            <div class="custom-slider">
+                                <ng5-slider name="subsection" [(value)]="menuItemSetting.subsection"
+                                    [options]="options2"></ng5-slider>
+                            </div>
+                            <div>
+                                <p class="mb-0">a</p>
+                            </div>
+                        </div>
+                        <div class="mds__fontSize-col mds__fontSize-col-2" data-name="subsection">
+                            <input class="colorText" readonly name="subsectionColor"
+                                [style.background]="menuItemSetting.subsectionColor"
+                                [(colorPicker)]="menuItemSetting.subsectionColor" />
+                        </div>
+                    </div>
+                </div>
+                <p class="mds__subtitle mds__subtitle--mdsMenuItemPt">Font properties - List layout</p>
+                <div class="mds__fontSize-wrapper">
+                    <div class="mds__fontSize-row">
+                        <div class="mds__fontSize-col mds__fontSize-col-0">
+                            <p class="mds__fontSize-name">Item title</p>
+                        </div>
+                        <div class="mds__fontSize-col mds__fontSize-col-1">
+                            <div><span>a</span></div>
+                            <div class="custom-slider">
+                                <ng5-slider name="itemtitle" [(value)]="menuItemSetting.itemtitle" [options]="options3">
+                                </ng5-slider>
+                            </div>
+                            <div>
+                                <p class="mb-0">a</p>
+                            </div>
+                        </div>
+                        <div class="mds__fontSize-col mds__fontSize-col-2" data-name="itemTitleMenu">
+                            <input class="colorText" readonly name="itemtitleColor"
+                                [style.background]="menuItemSetting.itemtitleColor"
+                                [(colorPicker)]="menuItemSetting.itemtitleColor" />
+                        </div>
+                    </div>
+                    <div class="mds__fontSize-row">
+                        <div class="mds__fontSize-col mds__fontSize-col-0">
+                            <p class="mds__fontSize-name">Price</p>
+                        </div>
+                        <div class="mds__fontSize-col mds__fontSize-col-1">
+                            <div><span>a</span></div>
+                            <div class="custom-slider">
+                                <ng5-slider name="price" [(value)]="menuItemSetting.price" [options]="options4">
+                                </ng5-slider>
+                            </div>
+                            <div>
+                                <p class="mb-0">a</p>
+                            </div>
+                        </div>
+                        <div class="mds__fontSize-col mds__fontSize-col-2" data-name="price">
+                            <input class="colorText" readonly name="priceColor"
+                                [style.background]="menuItemSetting.priceColor"
+                                [(colorPicker)]="menuItemSetting.priceColor" />
+                        </div>
+                    </div>
+                </div>
+                <p class="mds__subtitle mds__subtitle--mdsMenuItemPt">Font properties - Thumbnails layout</p>
+                <div class="mds__fontSize-wrapper">
+                    <div class="mds__fontSize-row">
+                        <div class="mds__fontSize-col mds__fontSize-col-0">
+                            <p class="mds__fontSize-name">Item title</p>
+                        </div>
+                        <div class="mds__fontSize-col mds__fontSize-col-1">
+                            <div><span>a</span></div>
+                            <div class="custom-slider">
+                                <ng5-slider name="itemtitle2" [(value)]="menuItemSetting.itemtitle2"
+                                    [options]="options5">
+                                </ng5-slider>
+                            </div>
+                            <div>
+                                <p class="mb-0">a</p>
+                            </div>
+                        </div>
+                        <div class="mds__fontSize-col mds__fontSize-col-2" data-name="itemTitleMenuThb">
+                            <input class="colorText" readonly name="itemtitle2Color"
+                                [style.background]="menuItemSetting.itemtitle2Color"
+                                [(colorPicker)]="menuItemSetting.itemtitle2Color" />
+                        </div>
+                    </div>
+                    <div class="mds__fontSize-row">
+                        <div class="mds__fontSize-col mds__fontSize-col-0">
+                            <p class="mds__fontSize-name">Price</p>
+                        </div>
+                        <div class="mds__fontSize-col mds__fontSize-col-1">
+                            <div><span>a</span></div>
+                            <div class="custom-slider">
+                                <ng5-slider name="price2" [(value)]="menuItemSetting.price2" [options]="options5">
+                                </ng5-slider>
+                            </div>
+                            <div>
+                                <p class="mb-0">a</p>
+                            </div>
+                        </div>
+                        <div class="mds__fontSize-col mds__fontSize-col-2" data-name="priceThb">
+                            <input class="colorText" readonly name="price2Color"
+                                [style.background]="menuItemSetting.price2Color"
+                                [(colorPicker)]="menuItemSetting.price2Color" />
+                        </div>
+                    </div>
+                    <p class="mds__subtitle mds__subtitle--mdsMenuItemPt">Label colors</p>
+                    <div class="mds__form-content">
+                        <div class="mds__form-color mds__form-color--winput">
+                            <div>
+                                <p>Spicy</p>
+                            </div>
+                            <div class="is-one">
+                                <div class="mds__form-color-content">
+                                    <input class="colorText" name="spicy" readonly
+                                        [style.background]="menuItemSetting.spicy"
+                                        [(colorPicker)]="menuItemSetting.spicy" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mds__form-color mds__form-color--winput">
+                            <div>
+                                <p>Popular</p>
+                            </div>
+                            <div class="is-one">
+                                <div class="mds__form-color-content" data-color="#33a457" data-name="popular">
+                                    <input class="colorText" name="popular" readonly
+                                        [style.background]="menuItemSetting.popular"
+                                        [(colorPicker)]="menuItemSetting.popular" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mds__form-color mds__form-color--winput">
+                            <div>
+                                <p>Chef’s special</p>
+                            </div>
+                            <div class="is-one">
+                                <div class="mds__form-color-content" data-color="#ebba19" data-name="chefsSpecial">
+                                    <input class="colorText" name="special" readonly
+                                        [style.background]="menuItemSetting.special"
+                                        [(colorPicker)]="menuItemSetting.special" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mds__form-color mds__form-color--winput">
+                            <div>
+                                <p>New</p>
+                            </div>
+                            <div class="is-one">
+                                <div class="mds__form-color-content" data-color="#7b7fe7" data-name="new">
+                                    <input class="colorText" name="new" readonly
+                                        [style.background]="menuItemSetting.new"
+                                        [(colorPicker)]="menuItemSetting.new" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mds__subtitle mds__subtitle--mdsFeedbackPt mb-0">Subsection indent</p>
+                    <div class="mds__indent-wrapper mb-3">
+                        <div class="mds__indent">
+                            <div class="custom-slider">
+                                <mat-slider class="spacing" step="1" min="0" max="150" name="spacing"
+                                    [(ngModel)]="menuItemSetting.spacing">
+                                </mat-slider>
+                                <p><span class="left">0</span><span class="right">150</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mds__subtitle mds__subtitle--mdsMenuItemPt">Menu Layout</p>
+                    <div class="mds__menu-wrapper mds__menu-wrapper--menuItems">
+                        <a [ngClass]="{'is-active': menuItemSetting.layOutType == 'list'}" (click)="layoutType('list')"
+                            class="mds__menu" href="javascript:void(0)" title="" data-name="list">List</a>
+                        <a [ngClass]="{'is-active': menuItemSetting.layOutType == 'thumbnail'}"
+                            (click)="layoutType('thumbnail')" class="mds__menu" href="javascript:void(0)" title=""
+                            data-name="thumb">Thumbnails</a></div>
+                </div>
+                <div class="c-form__field c-form__field--btn">
+                    <button class="c-form__btn c-btn c-btn--bg" (click)="uploadMainMenuSettings()" type="button">Update
+                        settings</button>
+                </div>
+            </form>
+        </div>
+        <div class="mds__wrapper-right" [class.is-show]="wasClicked">
+            <div class="mds__wrapper-header">
+                <div><i class="icon-font icon-eye"></i>
+                    <p>{{themeName}} Theme</p>
+                </div>
+                <div><a class="mds__wrapper-close" href="javascript:void(0)" (click)="onPreviw()" title=""><i
+                            class="icon-font icon-close"></i></a></div>
+            </div>
+            <!-- SECTION tablet :: START-->
+            <div class="tablet--scroll">
+                <section [style.font-family]="headerSetting.fontFamily" class="tablet tablet--menuItems" id="tablet">
+                    <div class="tablet__header" [style.background]="headerSetting.navbarBg"
+                        [style.border-color]="headerSetting.navbarBorder">
+                        <div [style.border-color]="headerSetting.navbarBorder"><a href="javascript:void(0)" title=""><i
+                                    [style.color]="headerSetting.navBarIcon" class="icon-font icon-list-menu"
+                                    aria-hidden="true"></i>
+                            </a></div>
+                        <div [style.border-color]="headerSetting.navbarBorder"><a href="javascript:void(0)" title=""><i
+                                    [style.color]="headerSetting.navBarIcon" class="icon-font icon-user"></i><span
+                                    [style.color]="headerSetting.navbarTxt">3</span></a>
+                        </div>
+                        <div [style.border-color]="headerSetting.navbarBorder"><a href="javascript:void(0)" title=""><i
+                                    [style.color]="headerSetting.navBarIcon" class="icon-font icon-doc"></i><span
+                                    [style.color]="headerSetting.navbarTxt">0</span></a></div>
+                        <div [style.border-color]="headerSetting.navbarBorder"><a href="javascript:void(0)" title=""><i
+                                    [style.color]="headerSetting.navBarIcon" class="icon-font icon-bell"></i></a></div>
+                    </div>
+                    <div class="tablet__content"
+                        [ngClass]="{'imageCover': menuItemSetting.imagestyle == 'fix', 'imageRepeat' : menuItemSetting.imagestyle == 'repeat'}"
+                        [ngStyle]="{'background': menuItemSetting.LocalImgUrl != '' ? 'url(' + menuItemSetting.LocalImgUrl +')' : menuItemSetting.listBg }">
+                        <div class="tablet__subheader" [style.border-color]="headerSetting.navbarBorder"
+                            [style.background]="headerSetting.navbarBg"><a [style.color]="headerSetting.navBarIcon"
+                                href="javascript:void(0)" title=""><i class="icon-font icon-corner"></i></a>
+                            <p [style.color]=" menuItemSetting.headerColor">Cold Appetizers</p><a
+                                [style.color]="headerSetting.navBarIcon" href="javascript:void(0)" title=""><i
+                                    class="icon-font icon-corner"></i></a>
+                        </div>
+                        <div class="tablet__view tablet__view-thumb " *ngIf="menuItemSetting.layOutType == 'thumbnail'">
+                            <div class="tablet__block-wrapper"><a [style.background]="headerSetting.listSelect"
+                                    class="tablet__block tablet__block--spicy is-choose" href="javascript:void(0)"
+                                    title="">
+                                    <div><img src="assets/images/tablet-box.jpg" alt="" title=""></div>
+                                    <div><span [style.color]="menuItemSetting.spicy">Spicy</span>
+                                        <p [ngStyle]="{'font-size': menuItemSetting.itemtitle2 +'px'}"
+                                            [style.color]="menuItemSetting.itemtitle2Color">Fresh
+                                            florida stone crab clams <i [style.font-family]="headerSetting.priceFamily"
+                                                [ngStyle]="{'font-size': menuItemSetting.price2 +'px'}"
+                                                [style.color]="menuItemSetting.price2Color">$18.50</i></p>
+                                    </div>
+                                </a><a class="tablet__block tablet__block--popular" href="javascript:void(0)" title="">
+                                    <div><img src="assets/images/tablet-box.jpg" alt="" title=""></div>
+                                    <div><span [style.color]="menuItemSetting.popular">Popular</span>
+                                        <p [ngStyle]="{'font-size': menuItemSetting.itemtitle2 +'px'}"
+                                            [style.color]="menuItemSetting.itemtitle2Color">Shrimp
+                                            cocktail <i [style.font-family]="headerSetting.priceFamily"
+                                                [ngStyle]="{'font-size': menuItemSetting.price2 +'px'}"
+                                                [style.color]="menuItemSetting.price2Color">$14.40</i></p>
+                                    </div>
+                                </a><a class="tablet__block tablet__block--special" href="javascript:void(0)" title="">
+                                    <div><img src="assets/images/tablet-box.jpg" alt="" title=""></div>
+                                    <div><span [style.color]="menuItemSetting.special">Chef’s Special</span>
+                                        <p [ngStyle]="{'font-size': menuItemSetting.itemtitle2 +'px'}"
+                                            [style.color]="menuItemSetting.itemtitle2Color">Tuna
+                                            Tartare Tower <i [style.font-family]="headerSetting.priceFamily"
+                                                [ngStyle]="{'font-size': menuItemSetting.price2 +'px'}"
+                                                [style.color]="menuItemSetting.price2Color">$17.00</i></p>
+                                    </div>
+                                </a><a class="tablet__block tablet__block--new" href="javascript:void(0)" title="">
+                                    <div><img src="assets/images/tablet-box.jpg" alt="" title=""></div>
+                                    <div><span [style.color]="menuItemSetting.new">New!</span>
+                                        <p [ngStyle]="{'font-size': menuItemSetting.itemtitle2 +'px'}"
+                                            [style.color]="menuItemSetting.itemtitle2Color">King Crab
+                                            Mac'n'Cheese <i [style.font-family]="headerSetting.priceFamily"
+                                                [ngStyle]="{'font-size': menuItemSetting.price2 +'px'}"
+                                                [style.color]="menuItemSetting.price2Color">$18.20</i></p>
+                                    </div>
+                                </a><a class="tablet__block tablet__block--popular" href="javascript:void(0)" title="">
+                                    <div><img src="assets/images/tablet-box.jpg" alt="" title=""></div>
+                                    <div>
+                                        <p [ngStyle]="{'font-size': menuItemSetting.itemtitle2 +'px'}"
+                                            [style.color]="menuItemSetting.itemtitle2Color">Crab
+                                            Fried Rice <i [style.font-family]="headerSetting.priceFamily"
+                                                [ngStyle]="{'font-size': menuItemSetting.price2 +'px'}"
+                                                [style.color]="menuItemSetting.price2Color">$14.00</i></p>
+                                    </div>
+                                </a></div>
+                            <p class="tablet__subtitle"
+                                [ngStyle]="{'margin': menuItemSetting.spacing +'px  0px', 'font-size': menuItemSetting.subsection + 'px'}"
+                                [style.color]="menuItemSetting.subsectionColor">Soups</p>
+                            <!-- {{menuItemSetting.subsection}} -->
+                            <div class="tablet__block-wrapper"><a class="tablet__block tablet__block--spicy"
+                                    href="javascript:void(0)" title="">
+                                    <div><img src="assets/images/tablet-box.jpg" alt="" title=""></div>
+                                    <div><span [style.color]="menuItemSetting.spicy">Spicy</span>
+                                        <p [ngStyle]="{'font-size': menuItemSetting.itemtitle2 +'px'}"
+                                            [style.color]="menuItemSetting.itemtitle2Color">Fresh
+                                            florida stone crab clams <i [style.font-family]="headerSetting.priceFamily"
+                                                [ngStyle]="{'font-size': menuItemSetting.price2 +'px'}"
+                                                [style.color]="menuItemSetting.price2Color">$18.50</i></p>
+                                    </div>
+                                </a><a class="tablet__block tablet__block--popular" href="javascript:void(0)" title="">
+                                    <div><img src="assets/images/tablet-box.jpg" alt="" title=""></div>
+                                    <div><span [style.color]="menuItemSetting.popular">Popular</span>
+                                        <p [ngStyle]="{'font-size': menuItemSetting.itemtitle2 +'px'}"
+                                            [style.color]="menuItemSetting.itemtitle2Color">Shrimp
+                                            cocktail <i [style.font-family]="headerSetting.priceFamily"
+                                                [ngStyle]="{'font-size': menuItemSetting.price2 +'px'}"
+                                                [style.color]="menuItemSetting.price2Color">$14.40</i></p>
+                                    </div>
+                                </a><a class="tablet__block tablet__block--special" href="javascript:void(0)" title="">
+                                    <div><img src="assets/images/tablet-box.jpg" alt="" title=""></div>
+                                    <div><span [style.color]="menuItemSetting.special">Chef’s Special</span>
+                                        <p [ngStyle]="{'font-size': menuItemSetting.itemtitle2 +'px'}"
+                                            [style.color]="menuItemSetting.itemtitle2Color">Tuna
+                                            Tartare Tower <i [style.font-family]="headerSetting.priceFamily"
+                                                [ngStyle]="{'font-size': menuItemSetting.price2 +'px'}"
+                                                [style.color]="menuItemSetting.price2Color">$17.00</i></p>
+                                    </div>
+                                </a><a class="tablet__block tablet__block--new" href="javascript:void(0)" title="">
+                                    <div><img src="assets/images/tablet-box.jpg" alt="" title=""></div>
+                                    <div><span [style.color]="menuItemSetting.new">New!</span>
+                                        <p [ngStyle]="{'font-size': menuItemSetting.itemtitle2 +'px'}"
+                                            [style.color]="menuItemSetting.itemtitle2Color">King Crab
+                                            Mac'n'Cheese <i [style.font-family]="headerSetting.priceFamily"
+                                                [ngStyle]="{'font-size': menuItemSetting.price2 +'px'}"
+                                                [style.color]="menuItemSetting.price2Color">$18.20</i></p>
+                                    </div>
+                                </a><a class="tablet__block tablet__block--popular" href="javascript:void(0)" title="">
+                                    <div><img src="assets/images/tablet-box.jpg" alt="" title=""></div>
+                                    <div>
+                                        <p [ngStyle]="{'font-size': menuItemSetting.itemtitle2 +'px'}"
+                                            [style.color]="menuItemSetting.itemtitle2Color">Crab
+                                            Fried Rice <i [style.font-family]="headerSetting.priceFamily"
+                                                [ngStyle]="{'font-size': menuItemSetting.price2 +'px'}"
+                                                [style.color]="menuItemSetting.price2Color">$14.00</i></p>
+                                    </div>
+                                </a></div>
+                        </div>
+                        <div class="tablet__view tablet__view-list" *ngIf="menuItemSetting.layOutType == 'list'">
+                            <div class="tablet__btn-wrapper"><a [style.background]="headerSetting.listSelect"
+                                    class="tablet__btn tablet__btn--spicy is-choose" href="javascript:void(0)" title="">
+                                    <div>
+                                        <p [ngStyle]="{'font-size': menuItemSetting.itemtitle +'px'}"
+                                            [style.color]="menuItemSetting.itemtitleColor">Fresh
+                                            florida stone crab clams <sup
+                                                [style.color]="menuItemSetting.spicy">Spicy</sup>
+                                        </p>
+                                    </div>
+                                    <div><span [style.font-family]="headerSetting.priceFamily"
+                                            [ngStyle]="{'font-size': menuItemSetting.price +'px'}"
+                                            [style.color]="menuItemSetting.priceColor"><span
+                                                currency-sign-js>$</span>18.50</span></div>
+                                </a><a class="tablet__btn tablet__btn--popular" href="javascript:void(0)" title="">
+                                    <div>
+                                        <p [ngStyle]="{'font-size': itemtitle +'px'}"
+                                            [style.color]="menuItemSetting.itemtitleColor">Shrimp
+                                            cocktail <sup [style.color]="menuItemSetting.popular">Popular</sup></p>
+                                    </div>
+                                    <div><span [style.font-family]="headerSetting.priceFamily"
+                                            [ngStyle]="{'font-size': menuItemSetting.price +'px'}"
+                                            [style.color]="menuItemSetting.priceColor"><span
+                                                currency-sign-js>$</span>14.40</span></div>
+                                </a><a class="tablet__btn tablet__btn--special" href="javascript:void(0)" title="">
+                                    <div>
+                                        <p [ngStyle]="{'font-size': menuItemSetting.itemtitle +'px'}"
+                                            [style.color]="menuItemSetting.itemtitleColor">Tuna
+                                            Tartare Tower <sup changeColor-chefsSpecial-js>Chef’s
+                                                Special</sup></p>
+                                    </div>
+                                    <div><span [style.font-family]="headerSetting.priceFamily"
+                                            [ngStyle]="{'font-size': menuItemSetting.price +'px'}"
+                                            [style.color]="menuItemSetting.priceColor"><span
+                                                currency-sign-js>$</span>17.00</span></div>
+                                </a><a class="tablet__btn tablet__btn--new" href="javascript:void(0)" title="">
+                                    <div>
+                                        <p [ngStyle]="{'font-size': menuItemSetting.itemtitle +'px'}"
+                                            [style.color]="menuItemSetting.itemtitleColor">King Crab
+                                            Mac'n'Cheese <sup [style.color]="new">New!</sup></p>
+                                    </div>
+                                    <div><span [ngStyle]="{'font-size': menuItemSetting.price +'px'}"
+                                            [style.color]="menuItemSetting.priceColor"><span
+                                                currency-sign-js>$</span>18.20</span></div>
+                                </a><a class="tablet__btn" href="javascript:void(0)" title="">
+                                    <div>
+                                        <p [ngStyle]="{'font-size': menuItemSetting.itemtitle +'px'}"
+                                            [style.color]="menuItemSetting.itemtitleColor">Crab Fried
+                                            Rice</p>
+                                    </div>
+                                    <div><span [style.font-family]="headerSetting.priceFamily"
+                                            [ngStyle]="{'font-size': menuItemSetting.price +'px'}"
+                                            [style.color]="menuItemSetting.priceColor"><span
+                                                currency-sign-js>$</span>14.00</span></div>
+                                </a><a class="tablet__btn" href="javascript:void(0)" title="">
+                                    <div>
+                                        <p [ngStyle]="{'font-size': menuItemSetting.itemtitle +'px'}"
+                                            [style.color]="menuItemSetting.itemtitleColor">Lobster
+                                            Mashed Potatoes</p>
+                                    </div>
+                                    <div><span [style.font-family]="headerSetting.priceFamily"
+                                            [ngStyle]="{'font-size': price +'px'}"
+                                            [style.color]="menuItemSetting.priceColor"><span
+                                                currency-sign-js>$</span>25.00</span></div>
+                                </a><a class="tablet__btn" href="javascript:void(0)" title="">
+                                    <div>
+                                        <p [ngStyle]="{'font-size': menuItemSetting.itemtitle +'px'}"
+                                            [style.color]="menuItemSetting.itemtitleColor">Shrimp
+                                            Cocktail</p>
+                                    </div>
+                                    <div><span [style.font-family]="headerSetting.priceFamily"
+                                            [ngStyle]="{'font-size': menuItemSetting.price +'px'}"
+                                            [style.color]="menuItemSetting.priceColor"><span
+                                                currency-sign-js>$</span>14.00</span></div>
+                                </a><a class="tablet__btn" href="javascript:void(0)" title="">
+                                    <div>
+                                        <p [ngStyle]="{'font-size': menuItemSetting.itemtitle +'px'}"
+                                            [style.color]="menuItemSetting.itemtitleColor">Tuna
+                                            Tartare Tower</p>
+                                    </div>
+                                    <div><span [style.font-family]="headerSetting.priceFamily"
+                                            [ngStyle]="{'font-size': menuItemSetting.price +'px'}"
+                                            [style.color]="menuItemSetting.priceColor"><span
+                                                currency-sign-js>$</span>18.50</span></div>
+                                </a></div>
+                            <p class="tablet__subtitle"
+                                [ngStyle]="{'margin':  menuItemSetting.spacing +'px 0px', 'font-size': menuItemSetting.subsection +'px'}"
+                                [style.color]="menuItemSetting.subsectionColor">Subsection title</p>
+                            <div class="tablet__btn-wrapper tablet__btn-wrapper--pt"><a
+                                    class="tablet__btn tablet__btn--spicy" href="javascript:void(0)" title="">
+                                    <div>
+                                        <p [ngStyle]="{'font-size': menuItemSetting.itemtitle +'px'}"
+                                            [style.color]="menuItemSetting.itemtitleColor">Fresh
+                                            florida stone crab clams <sup
+                                                [style.color]="menuItemSetting.spicy">Spicy</sup>
+                                        </p>
+                                    </div>
+                                    <div><span [style.font-family]="headerSetting.priceFamily"
+                                            [ngStyle]="{'font-size': menuItemSetting.price +'px'}"
+                                            [style.color]="menuItemSetting.priceColor"><span
+                                                currency-sign-js>$</span>18.50</span></div>
+                                </a><a class="tablet__btn tablet__btn--popular" href="javascript:void(0)" title="">
+                                    <div>
+                                        <p [ngStyle]="{'font-size': menuItemSetting.itemtitle +'px'}"
+                                            [style.color]="menuItemSetting.itemtitleColor">Shrimp
+                                            cocktail <sup [style.color]="popular">Popular</sup></p>
+                                    </div>
+                                    <div><span [style.font-family]="headerSetting.priceFamily"
+                                            [ngStyle]="{'font-size': menuItemSetting.price +'px'}"
+                                            [style.color]="menuItemSetting.priceColor"><span
+                                                currency-sign-js>$</span>14.40</span></div>
+                                </a><a class="tablet__btn tablet__btn--special" href="javascript:void(0)" title="">
+                                    <div>
+                                        <p [ngStyle]="{'font-size': menuItemSetting.itemtitle +'px'}"
+                                            [style.color]="menuItemSetting.itemtitleColor">Tuna
+                                            Tartare Tower <sup changeColor-chefsSpecial-js>Chef’s
+                                                Special</sup></p>
+                                    </div>
+                                    <div><span [style.font-family]="headerSetting.priceFamily"
+                                            [ngStyle]="{'font-size': menuItemSetting.price +'px'}"
+                                            [style.color]="menuItemSetting.priceColor"><span
+                                                currency-sign-js>$</span>17.00</span></div>
+                                </a><a class="tablet__btn tablet__btn--new" href="javascript:void(0)" title="">
+                                    <div>
+                                        <p [ngStyle]="{'font-size': menuItemSetting.itemtitle +'px'}"
+                                            [style.color]="menuItemSetting.itemtitleColor">King Crab
+                                            Mac'n'Cheese <sup [style.color]="new">New!</sup></p>
+                                    </div>
+                                    <div><span [style.font-family]="headerSetting.priceFamily"
+                                            [ngStyle]="{'font-size': menuItemSetting.price +'px'}"
+                                            [style.color]="menuItemSetting.priceColor"><span
+                                                currency-sign-js>$</span>18.20</span></div>
+                                </a><a class="tablet__btn" href="javascript:void(0)" title="">
+                                    <div>
+                                        <p [ngStyle]="{'font-size': menuItemSetting.itemtitle +'px'}"
+                                            [style.color]="menuItemSetting.itemtitleColor">Crab Fried
+                                            Rice</p>
+                                    </div>
+                                    <div><span [style.font-family]="headerSetting.priceFamily"
+                                            [ngStyle]="{'font-size': menuItemSetting.price +'px'}"
+                                            [style.color]="menuItemSetting.priceColor"><span
+                                                currency-sign-js>$</span>14.00</span></div>
+                                </a><a class="tablet__btn" href="javascript:void(0)" title="">
+                                    <div>
+                                        <p [ngStyle]="{'font-size': menuItemSetting.itemtitle +'px'}"
+                                            [style.color]="menuItemSetting.itemtitleColor">Lobster
+                                            Mashed Potatoes</p>
+                                    </div>
+                                    <div><span [style.font-family]="headerSetting.priceFamily"
+                                            [ngStyle]="{'font-size': menuItemSetting.price +'px'}"
+                                            [style.color]="menuItemSetting.priceColor"><span
+                                                currency-sign-js>$</span>25.00</span></div>
+                                </a></div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- SECTION tablet :: END-->
+        </div>
+    </div>
+</section>

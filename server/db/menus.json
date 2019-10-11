@@ -1,0 +1,382 @@
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5abdb26a641d696a17ce0855"),
+	"categories" : [
+		{
+			"mainmenu" : ObjectId("5a98b312efb3d521d166bb10"),
+			"submenu" : ObjectId("5a98bd5eefb3d521d166bb1c")
+		}
+	],
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"custom_options" : {
+		"spice_options" : [
+			"Extra Spicy",
+			"Hot",
+			"Medium",
+			"Mild",
+			"White"
+		]
+	},
+	"details" : {
+		"title" : "",
+		"description" : "",
+		"label" : ObjectId("5a98742fefb3d521d166baeb"),
+		"price" : NumberInt("0"),
+		"photo_urls" : [ ]
+	},
+	"ingredients" : [ ],
+	"questions" : [ ]
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a9d47fb927c1e0781c227fd"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"custom_options" : {
+		"portion_size" : [
+			{
+				"title" : "small",
+				"weight" : 12.0,
+				"calories" : 60.0,
+				"price" : 34.0
+			},
+			{
+				"title" : "large",
+				"weight" : 16.0,
+				"calories" : 1000.0,
+				"price" : 50.0
+			},
+			{
+				"title" : "extra large",
+				"weight" : 22.0,
+				"calories" : 1400.0,
+				"price" : 69.0
+			}
+		],
+		"customize" : [
+			{
+				"title" : "Pickled Cherry",
+				"value" : "+$0.79"
+			},
+			{
+				"title" : "Korean Chicken",
+				"value" : "+$2.99"
+			},
+			{
+				"title" : "Jobs Tears & Quinoa Blend",
+				"value" : "+$0.79"
+			},
+			{
+				"title" : "Beet & Carrot Noodles",
+				"value" : "+$0.79"
+			},
+			{
+				"title" : "Spicy Pickled Snap",
+				"value" : "+$0.79"
+			},
+			{
+				"title" : "Seasonal Radish",
+				"value" : "+$0.79"
+			},
+			{
+				"title" : "Kelp Noodles",
+				"value" : "+$0.79"
+			},
+			{
+				"title" : "Fried Shallots",
+				"value" : "+$0.79"
+			}
+		]
+	},
+	"details" : {
+		"title" : "Crab Fried Rice",
+		"description" : "Shelter Island Mirinated Oysters with Calamari",
+		"label" : ObjectId("5a9873a1efb3d521d166bae9"),
+		"photo_urls" : [
+			"1.png",
+			"2.png",
+			"3.png"
+		],
+		"price" : NumberInt("17")
+	},
+	"ingredients" : [
+		ObjectId("5a98a707efb3d521d166bb06"),
+		ObjectId("5a98a70eefb3d521d166bb07"),
+		ObjectId("5a98a717efb3d521d166bb08")
+	],
+	"questions" : [
+		{
+			"question" : "would you like your dressing mixed in?",
+			"answer" : "yes"
+		}
+	]
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a9d4b67927c1e0781c227ff"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"custom_options" : {
+		"portion_size" : [
+			{
+				"title" : "small",
+				"weight" : 12.0,
+				"calories" : 60.0,
+				"price" : 34.0
+			},
+			{
+				"title" : "large",
+				"weight" : 16.0,
+				"calories" : 1000.0,
+				"price" : 50.0
+			},
+			{
+				"title" : "extra large",
+				"weight" : 22.0,
+				"calories" : 1400.0,
+				"price" : 69.0
+			}
+		],
+		"spice_options" : [
+			"hot",
+			"medium",
+			"mild"
+		]
+	},
+	"details" : {
+		"title" : "Tuna Tartare Tower",
+		"description" : "Grilled Fresh Calamari",
+		"label" : ObjectId("5a9873b1efb3d521d166baea"),
+		"photo_urls" : [
+			"2.png",
+			"3.png",
+			"4.png"
+		],
+		"price" : NumberInt("19")
+	},
+	"ingredients" : [
+		ObjectId("5a98a707efb3d521d166bb06"),
+		ObjectId("5a98a70eefb3d521d166bb07"),
+		ObjectId("5a98a721efb3d521d166bb09")
+	],
+	"questions" : [
+		{
+			"question" : "would you like your dressing mixed in?",
+			"answer" : "yes"
+		}
+	]
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a9d4be6927c1e0781c22800"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"custom_options" : {
+		"portion_size" : [
+			{
+				"title" : "small",
+				"weight" : 12.0,
+				"calories" : 60.0,
+				"price" : 34.0
+			},
+			{
+				"title" : "large",
+				"weight" : 16.0,
+				"calories" : 1000.0,
+				"price" : 50.0
+			},
+			{
+				"title" : "extra large",
+				"weight" : 22.0,
+				"calories" : 1400.0,
+				"price" : 69.0
+			}
+		],
+		"spice_options" : [
+			"hot",
+			"medium",
+			"mild"
+		]
+	},
+	"details" : {
+		"title" : "Lobster Mashed Potatoes",
+		"description" : "Mahi-Mahi Fish Tacos",
+		"label" : ObjectId("5a98742fefb3d521d166baeb"),
+		"photo_urls" : [
+			"3.png",
+			"4.png",
+			"5.png"
+		],
+		"price" : NumberInt("29")
+	},
+	"ingredients" : [
+		ObjectId("5a98a707efb3d521d166bb06"),
+		ObjectId("5a98a70eefb3d521d166bb07"),
+		ObjectId("5a98a72aefb3d521d166bb0a")
+	],
+	"questions" : [
+		{
+			"question" : "would you like your dressing mixed in?",
+			"answer" : "yes"
+		}
+	]
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a9d4c6d927c1e0781c22802"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"custom_options" : {
+		"portion_size" : [
+			{
+				"title" : "small",
+				"weight" : 12.0,
+				"calories" : 60.0,
+				"price" : 34.0
+			},
+			{
+				"title" : "large",
+				"weight" : 16.0,
+				"calories" : 1000.0,
+				"price" : 50.0
+			},
+			{
+				"title" : "extra large",
+				"weight" : 22.0,
+				"calories" : 1400.0,
+				"price" : 69.0
+			}
+		],
+		"spice_options" : [
+			"hot",
+			"medium",
+			"mild"
+		]
+	},
+	"details" : {
+		"title" : "King Crab Mac's'Cheese",
+		"description" : "Grilled Shrimp Piri-Piri",
+		"label" : ObjectId("5a98742fefb3d521d166baeb"),
+		"photo_urls" : [
+			"4.png",
+			"5.png",
+			"6.png"
+		],
+		"price" : NumberInt("19")
+	},
+	"ingredients" : [
+		ObjectId("5a98a707efb3d521d166bb06"),
+		ObjectId("5a98a70eefb3d521d166bb07"),
+		ObjectId("5a98a736efb3d521d166bb0b")
+	],
+	"questions" : [
+		{
+			"question" : "would you like your dressing mixed in?",
+			"answer" : "yes"
+		}
+	]
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a9d4d3a927c1e0781c22803"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"custom_options" : {
+		"portion_size" : [
+			{
+				"title" : "small",
+				"weight" : 12.0,
+				"calories" : 60.0,
+				"price" : 34.0
+			},
+			{
+				"title" : "large",
+				"weight" : 16.0,
+				"calories" : 1000.0,
+				"price" : 50.0
+			},
+			{
+				"title" : "extra large",
+				"weight" : 22.0,
+				"calories" : 1400.0,
+				"price" : 69.0
+			}
+		],
+		"spice_options" : [
+			"hot",
+			"medium",
+			"mild"
+		]
+	},
+	"details" : {
+		"title" : "Crab Fried Rice",
+		"description" : "Half-Maine Lobster",
+		"label" : ObjectId("5a98743befb3d521d166baec"),
+		"photo_urls" : [
+			"5.png",
+			"4.png",
+			"3.png"
+		],
+		"price" : NumberInt("39")
+	},
+	"ingredients" : [
+		ObjectId("5a98a707efb3d521d166bb06"),
+		ObjectId("5a98a70eefb3d521d166bb07"),
+		ObjectId("5a98a740efb3d521d166bb0c")
+	],
+	"questions" : [
+		{
+			"question" : "would you like your dressing mixed in?",
+			"answer" : "yes"
+		}
+	]
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a9d4dd9927c1e0781c22804"),
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"custom_options" : {
+		"portion_size" : [
+			{
+				"title" : "small",
+				"weight" : 12.0,
+				"calories" : 60.0,
+				"price" : 34.0
+			},
+			{
+				"title" : "large",
+				"weight" : 16.0,
+				"calories" : 1000.0,
+				"price" : 50.0
+			},
+			{
+				"title" : "extra large",
+				"weight" : 22.0,
+				"calories" : 1400.0,
+				"price" : 69.0
+			}
+		],
+		"spice_options" : [
+			"hot",
+			"medium",
+			"mild"
+		]
+	},
+	"details" : {
+		"title" : "Tuna Tartare Tower",
+		"description" : "Spicy Tuna Tartar",
+		"label" : ObjectId("5a98743befb3d521d166baec"),
+		"photo_urls" : [
+			"6.png",
+			"5.png",
+			"4.png"
+		],
+		"price" : NumberInt("59")
+	},
+	"ingredients" : [
+		ObjectId("5a98a707efb3d521d166bb06"),
+		ObjectId("5a98a70eefb3d521d166bb07"),
+		ObjectId("5a98a72aefb3d521d166bb0a")
+	],
+	"questions" : [
+		{
+			"question" : "would you like your dressing mixed in?",
+			"answer" : "yes"
+		}
+	]
+},

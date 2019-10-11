@@ -1,0 +1,80 @@
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5a9a1ccaefb3d521d166bbe2"),
+	"background_urls" : [
+		"1.png",
+		"2.png",
+		"3.png",
+		"4.png",
+		"5.png"
+	],
+	"colors_menu" : "#0033cc",
+	"colors_staff" : "#0033cc",
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"currency_format" : "$",
+	"fonts" : "Arial, Helvetica, sans-serif",
+	"layout" : {
+		"align" : "left",
+		"thumbnail" : "true"
+	},
+	"logo_url" : "logo.png",
+	"name" : "darksong",
+	"price_format" : "USD",
+	"typesize" : {
+		"global_size" : 24.0,
+		"site_title" : 48.0,
+		"site_subtitle" : 42.0,
+		"navigation" : 26.0,
+		"page_title" : 32.0,
+		"content" : 24.0
+	},
+	"video" : {
+		"dimensions" : {
+			"width" : "320",
+			"height" : "640"
+		},
+		"supported_format" : "mov",
+		"maxfile_weight" : 1024.0,
+		"video_url" : "onboarding.mov"
+	},
+	"welcome_photo_url" : "welcome.png"
+},
+{
+	"__v" : NumberInt("0"),
+	"_id" : ObjectId("5abc0717c6997be3766dbb16"),
+	"background_urls" : [
+		"1.png",
+		"2.png",
+		"3.png"
+	],
+	"colors_menu" : "#00cc33",
+	"colors_staff" : "#00cc33",
+	"company_id" : ObjectId("5aa7637eab6a8b1170f800a1"),
+	"currency_format" : "$",
+	"fonts" : "Arial, Helvetica, sans-serif",
+	"layout" : {
+		"align" : "left",
+		"thumbnail" : "true"
+	},
+	"logo_url" : "logo.png",
+	"name" : "testtheme",
+	"price_format" : "USD",
+	"typesize" : {
+		"global_size" : 28.0,
+		"site_title" : 56.0,
+		"site_subtitle" : 78.0,
+		"navigation" : 34.0,
+		"page_title" : 34.0,
+		"content" : 36.0
+	},
+	"video" : {
+		"dimensions" : {
+			"width" : "320",
+			"height" : "640"
+		},
+		"supported_format" : "mov",
+		"maxfile_weight" : 1024.0,
+		"video_url" : "onboarding.mov"
+	},
+	"welcome_photo_url" : "welcome.png"
+},

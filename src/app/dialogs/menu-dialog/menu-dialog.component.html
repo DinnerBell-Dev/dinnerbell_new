@@ -1,0 +1,194 @@
+<!-- Modal (Menu) -->
+<div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">menu</h5>
+            <button type="button" class="close" (click)="close()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+        </div>
+        <mat-dialog-content>
+            <ngx-loading [show]="menuloading"></ngx-loading>
+            <form [formGroup]="menuForm">
+                <div class="modal-body menu">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 text-left fields">
+                                <h5>Menu properties</h5>
+                            </div>
+                            <div class="col-lg-8 col-md-7 col-sm-12 fields" style="padding-right:4px !important">
+                                <input type="text" class="form-control" placeholder="Menu name" formControlName="name" [ngClass]="{ 'is-invalid': f.name.touched && f.name.errors  }" (blur)="f.name.setValue(removeSpaces(f.name.value))">
+                                <div *ngIf="f.name.touched && f.name.errors " class="invalid-feedback">
+                                    <div *ngIf="f.name.errors.required"> Menu name is required</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-5 col-sm-12 fields" style="padding-left:4px !important">
+                                <div class="swicth-btn">
+                                    <span style="float:left; margin-top: 4px; margin-left: 6px;">Status</span>
+                                    <span style="float:right;">
+                                            <div class="switch-field">
+                                                <input type="radio" id="switch_left1" formControlName="status" value="true" />
+                                                <label for="switch_left1">ON</label>
+                                                <input type="radio" id="switch_right1" formControlName="status" value="false" />
+                                                <label for="switch_right1" [ngClass]="{ 'off': f.status.value =='false'}">OFF</label>
+                                            </div>
+                                        </span>
+                                </div>
+                            </div>
+                            <div class="col-md-3 fields" style="padding-right:4px !important">
+                                <div class="form-group">
+                                    <input class="form-control" [owlDateTime]="from_at" [owlDateTimeTrigger]="from_at" placeholder="Serving from" formControlName="from_at" [ngClass]="{ 'is-invalid': f.from_at.touched && f.from_at.errors  }">
+                                    <owl-date-time [pickerType]="'timer'" [hour12Timer]="'true'" #from_at></owl-date-time>
+                                    <div *ngIf="f.from_at.touched && f.from_at.errors " class="invalid-feedback">
+                                        <div *ngIf="f.from_at.errors.required"> Serving from is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 fields" style="padding-left:4px !important;padding-right: 4px !important;">
+                                <div class="form-group">
+                                    <input class="form-control" [owlDateTime]="to_at" [owlDateTimeTrigger]="to_at" placeholder="To" formControlName="to_at" [ngClass]="{ 'is-invalid': f.to_at.touched && f.to_at.errors }">
+                                    <owl-date-time [pickerType]="'timer'" [hour12Timer]="'true'" [startAt]="startAt" #to_at></owl-date-time>
+                                    <div *ngIf="f.to_at.touched && f.to_at.errors " class="invalid-feedback">
+                                        <div *ngIf="f.to_at.errors.required"> Serving to is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 fields" style="padding-left: 4px !important;">
+                                <div class="form-group">
+                                    <select class="form-control" formControlName="menu_type">
+                                            <option value="Regular menu">Regular menu</option>
+                                            <option value="Prix-fixe menu">Prix-fixe menu</option>
+                                        </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4 fields" *ngIf="!f.photo_url.value">
+                                <div class="form-group">
+                                    <button class="btn btn-default" type="button" (click)="fileInput.click()">add image</button>
+                                    <input style="display: none" type="file" (change)="onFileChanged($event)" accept="image/*" #fileInput>
+                                </div>
+                            </div>
+                            <div class="col-md-4 add-photo" style="padding-right: 0px !important;">
+                                <div [ngClass]="{ 'shown': f.photo_url.value, 'hidden': !f.photo_url.value}">
+                                    <div class="card-body">
+                                        <input style="display: none" type="file" (change)="onFileChanged($event)" accept="image/*" #fileInput1>
+                                        <div class="set-butn img-set dropdown">
+                                            <button class="btn btn-default" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                    <i class="fa fa-cog" aria-hidden="true"></i></button>
+                                            <ul class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenu1" data-toggle="dropdown" #mybtn>
+                                                <li (click)="fileInput1.click();mybtn.click()"><a style="cursor: pointer">Replace</a></li>
+                                                <li (click)="removePhoto(f.photo_name.value)"><a style="cursor: pointer">Remove</a></li>
+                                            </ul>
+                                        </div>
+                                        <img src="{{f.photo_url.value}}">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row" *ngIf="menuForm.get('menu_type').value == 'Regular menu'">
+                            <div class="col-md-12 col-sm-12 text-left fields">
+                                <h5>Regular menu settings</h5>
+                            </div>
+                            <div class="col-lg-5 col-md-7 fields ">
+                                <div class="regular">
+                                    <div class="swicth-btn">
+                                        <span style="float:left; margin-top: 4px; margin-left: 6px;">Subsections</span>
+                                        <span style="float:right;">
+                                                <!-- <h6>Status</h6> -->
+                                                <div class="switch-field">
+                                                    <input type="radio" id="switch_left" formControlName="subsection_switch"
+                                                        value="true" checked />
+                                                    <label for="switch_left">ON</label>
+                                                    <input type="radio" id="switch_right" formControlName="subsection_switch"
+                                                        value="false" />
+                                                    <label for="switch_right" [ngClass]="{ 'off': f.subsection_switch.value =='false'}">OFF</label>
+                                                </div>
+                                            </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 fields" *ngIf="menuForm.get('subsection_switch').value == 'true'">
+                                <div class="swicth-btn sub-item" *ngFor="let item of subsections">
+                                    <div class="regular-heading">
+                                        <h5>{{item}}
+                                            <span>
+                                                    <button type="button" class="close-btn" (click)="removeSubsection(item)">X</button>
+                                                </span>
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 fields" *ngIf="menuForm.get('subsection_switch').value == 'true'">
+                                <div class="row" style="margin: 0; background: #eee;">
+
+                                    <div class="col-md-8 col-sm-8 fields">
+                                        <input type="text" class="form-control" placeholder="Subsection Name" formControlName="subsection_name" (blur)="f.subsection_name.setValue(removeSpaces(f.subsection_name.value))">
+                                    </div>
+                                    <div class="col-md-4 col-sm-4 subsection fields">
+                                        <button type="button" class="btn btn-default" (click)="addSubsection()" [disabled]="!menuForm.get('subsection_name').value">add
+                                                subsection</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row" *ngIf="menuForm.get('menu_type').value == 'Prix-fixe menu'">
+                            <div class="col-md-12 col-sm-12 text-left fields">
+                                <h5>Prix-fixe menu settings</h5>
+                            </div>
+                            <div class="col-lg-7 col-md-7 fields ">
+                                <div class="regular">
+                                    <div class="swicth-btn">
+                                        <span style="float:left; margin-top: 8px; margin-left: 8px;">Meal Price ($)</span>
+                                        <span style="float:right;">
+                                                <!-- <h6>Status</h6> -->
+                                                <div>
+                                                 <input type="text"  placeholder="Meal Price ($)" formControlName="meal_price" class="form-control" appCurrencyFormatter [ngClass]="{ 'is-invalid': f.meal_price.touched && !f.meal_price.value}" (blur)="priceChanged()">
+                                                </div>
+                                            </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 fields" class="invalid-value">
+                                <div *ngIf="f.meal_price.touched && (f.meal_price.value == undefined || f.meal_price.value == '')">Meal Price required.</div>
+                            </div>
+                            <div class="col-md-12 fields">
+                                <div class="swicth-btn sub-item" *ngFor="let item of courses">
+                                    <div class="regular-heading">
+                                        <h5>{{item}}
+                                            <span>
+                                                    <button type="button" class="close-btn" (click)="removeCourse(item)">X</button>
+                                                </span>
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 fields">
+                                <div class="row" style="margin: 0; background: #eee;">
+                                    <div class="col-md-8 col-sm-8 fields">
+                                        <input type="text" class="form-control" placeholder="Course Name" formControlName="course_name">
+                                    </div>
+                                    <div class="col-md-4 col-sm-4 subsection fields">
+                                        <button type="button" class="btn btn-default" (click)="addCourse()" [disabled]="!menuForm.get('course_name').value">add
+                                                course</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </mat-dialog-content>
+        <div class="modal-footer">
+            <div class="col-md-12" style="padding: 0px;">
+                <button type="button" class="btn btn-default" (click)="createMenu()" [disabled]="!menuForm.valid">{{btntext}}</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Close -->
