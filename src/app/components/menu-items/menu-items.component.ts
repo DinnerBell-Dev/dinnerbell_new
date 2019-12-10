@@ -14,6 +14,9 @@ import { AuthService } from 'src/app/services/auth.service';
 export class MenuItemsComponent implements OnInit {
 
 
+  /**
+   * Default menu setting
+   */
   menuItemSetting: any = {
     layOutType: 'thumbnail',
     listBg: '#000',
@@ -38,6 +41,9 @@ export class MenuItemsComponent implements OnInit {
     imagestyle: "fix",
   }
 
+  /**
+   * Default header setting
+   */
   headerSetting: any = {
     fontFamily: 'Roboto',
     priceFamily: 'Roboto',
@@ -53,6 +59,8 @@ export class MenuItemsComponent implements OnInit {
   public Id = null;
   public crrntUser;
   public themeName;
+  public activeThemeName;
+
   constructor(
     public vcRef: ViewContainerRef,
     private cpService: ColorPickerService,
@@ -105,14 +113,26 @@ export class MenuItemsComponent implements OnInit {
     this.wasClicked = !this.wasClicked;
   }
 
+  /**
+   *  Layout type
+   * @param data 
+   */
+
   layoutType(data) {
     this.menuItemSetting.layOutType = data;
   }
 
+  /**
+   * background image style
+   * @param data 
+   */
   bgimageStyle(data) {
     this.menuItemSetting.imagestyle = data;
   }
 
+  /**
+   * remove local image
+   */
   removeLocalImg() {
     this.menuItemSetting.LocalImgUrl = '';
   }
@@ -142,6 +162,11 @@ export class MenuItemsComponent implements OnInit {
     }
   }
 
+  /**
+   * @param url 
+   * @param filename 
+   * @param mimeType 
+   */
   urltoFile(url, filename, mimeType) {
     return (fetch(url)
       .then(function(res) { return res.arrayBuffer(); })
@@ -226,9 +251,11 @@ export class MenuItemsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.getHeaderTitle('Menu Design');
     let currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.crrntUser = currentUser.user._id;
     this.themeName = localStorage.getItem('theme');
+    this.activeThemeName = localStorage.getItem('themename');
     if (this.crrntUser && this.themeName) {
       this.getthemeSetting(this.crrntUser, this.themeName);
     }

@@ -52,12 +52,52 @@
                                 <!-- Tab panes -->
                                 <div class="col-lg-12 col-md-12 col-xs-12 content">
                                     <div class="row menudesign-select-container">
-                                        <div class="dropdown customDropDown" *ngIf="haveThemes == true && ActiveTheme == true || addnewTheme == true">
-                                            <button type="button" class="dropdown-toggle" data-toggle="dropdown">
+                                        <div class="dropdown customDropDown"
+                                            *ngIf="haveThemes == true && ActiveTheme == true || addnewTheme == true">
+
+
+                                            <div class="c-form__select-wrapper onMobile">
+                                                <div class="c-form__select-value">{{menuDesignSettings}}</div>
+                                                <select [(ngModel)]="menuDesignSettings"
+                                                    class="c-form__select templateSelectBox"
+                                                    (ngModelChange)="changedTemplate($event)">
+                                                    <option></option>
+                                                    <option *ngIf="menuDesignSettings != 'Base theme'"
+                                                        value="Base theme">Base theme</option>
+                                                    <option
+                                                        *ngIf="menuDesignSettings != 'Base settings' && selectedTheme"
+                                                        value="Base settings">Base settings
+                                                    </option>
+                                                    <option
+                                                        *ngIf="menuDesignSettings != 'Intro screen' && selectedTheme"
+                                                        value="Intro screen">Intro screen
+                                                    </option>
+                                                    <option *ngIf="menuDesignSettings != 'Main menu' && selectedTheme"
+                                                        value="Main menu">Main menu</option>
+                                                    <option *ngIf="menuDesignSettings != 'Menu items' && selectedTheme"
+                                                        value="Menu items">Menu items</option>
+                                                    <option
+                                                        *ngIf="menuDesignSettings != 'Item details' && selectedTheme"
+                                                        value="Item details">Item details
+                                                    </option>
+                                                    <option *ngIf="menuDesignSettings != 'Feedback' && selectedTheme"
+                                                        value="Feedback">Feedback</option>
+                                                    <option *ngIf="menuDesignSettings != 'My order' && selectedTheme"
+                                                        value="My order">My order</option>
+                                                    <!-- <option *ngIf="!selectedTheme" value="">Select Theme for customize</option> -->
+                                                </select>
+                                                <div class="c-form__select-icon"><i></i></div>
+                                            </div>
+
+
+
+
+                                            <button type="button" class="dropdown-toggle onDesktop"
+                                                data-toggle="dropdown">
                                                 {{menuDesignSettings}}
                                                 <i class="icon-font icon-corner"></i>
                                             </button>
-                                            <div class="dropdown-menu">
+                                            <div class="dropdown-menu onDesktop">
                                                 <a *ngIf="menuDesignSettings != 'Base theme'" class="dropdown-item"
                                                     href="javascript:void(0)"
                                                     (click)="menuDesignSettings = 'Base theme'">Base theme</a>
@@ -88,7 +128,6 @@
                                                     href="javascript:void(0)">Select Theme for customize</a>
                                             </div>
                                         </div>
-
                                         <div class="col-lg-12 col-md-12 col-sm-12 ">
                                             <!-- <ngx-loading [show]="securityloading"></ngx-loading> -->
                                             <app-admin-base-theme *ngIf="menuDesignSettings =='Base theme'">

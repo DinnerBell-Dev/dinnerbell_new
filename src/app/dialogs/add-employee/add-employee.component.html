@@ -4,8 +4,8 @@
         <div class="modal-header">
             <h5 class="modal-title">{{dialogTitle}}</h5>
             <button type="button" class="close" (click)="close()">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <span aria-hidden="true">&times;</span>
+            </button>
         </div>
         <mat-dialog-content>
             <ngx-loading [show]="tabletloading"></ngx-loading>
@@ -17,26 +17,33 @@
                                 <h5>General information</h5>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-12 fields">
-                                <input type="text" class="form-control" placeholder="First name" formControlName="firstname" [ngClass]="{ 'is-invalid': f.firstname.touched && f.firstname.errors  }" (blur)="f.firstname.setValue(removeSpaces(f.firstname.value))">
+                                <input type="text" class="form-control" placeholder="First name"
+                                    formControlName="firstname"
+                                    [ngClass]="{ 'is-invalid': f.firstname.touched && f.firstname.errors  }"
+                                    (blur)="f.firstname.setValue(removeSpaces(f.firstname.value))">
                                 <div *ngIf="f.firstname.touched && f.firstname.errors " class="invalid-feedback">
                                     <div *ngIf="f.firstname.errors.required"> First name is required</div>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-12 fields">
-                                <input type="text" class="form-control" placeholder="Last name" formControlName="lastname" [ngClass]="{ 'is-invalid': f.lastname.touched && f.lastname.errors  }" (blur)="f.lastname.setValue(removeSpaces(f.lastname.value))">
+                                <input type="text" class="form-control" placeholder="Last name"
+                                    formControlName="lastname"
+                                    [ngClass]="{ 'is-invalid': f.lastname.touched && f.lastname.errors  }"
+                                    (blur)="f.lastname.setValue(removeSpaces(f.lastname.value))">
                                 <div *ngIf="f.lastname.touched && f.lastname.errors " class="invalid-feedback">
                                     <div *ngIf="f.lastname.errors.required"> Last name is required</div>
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-12 fields">
                                 <div class="form-group">
-                                    <select class="form-control" formControlName="role" [ngClass]="{ 'is-invalid': f.role.touched && f.role.errors }">
-                                         <option value="">Select Role</option>
-                                            <option value="host">Host</option>
-                                            <option value="waiter">Waiter</option>
-                                            <option value="bar">Bar</option>
-                                            <option value="kitchen">Kitchen</option>
-                                        </select>
+                                    <select class="form-control" formControlName="role"
+                                        [ngClass]="{ 'is-invalid': f.role.touched && f.role.errors }">
+                                        <option value="">Select Role</option>
+                                        <option value="host">Host</option>
+                                        <option value="waiter">Waiter</option>
+                                        <option value="bar">Bar</option>
+                                        <option value="kitchen">Kitchen</option>
+                                    </select>
                                     <div *ngIf=" f.role.touched && f.role.errors" class="invalid-feedback">
                                         <div *ngIf="f.role.errors.required">Role is required</div>
                                     </div>
@@ -48,7 +55,9 @@
                                 <h5>Contacts</h5>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12 fields">
-                                <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': f.email.touched && f.email.errors}" placeholder="Email" />
+                                <input type="text" formControlName="email" class="form-control"
+                                    [ngClass]="{ 'is-invalid': f.email.touched && f.email.errors}"
+                                    placeholder="Email" />
                                 <div *ngIf="f.email.touched && f.email.errors" class="invalid-feedback">
                                     <div *ngIf="f.email.errors.required">Email is required</div>
                                     <div *ngIf="!f.email.valid && !f.email.errors.required">Invalid Email</div>
@@ -60,7 +69,9 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">+{{f.countrycode.value}}</span>
                                     </div>
-                                    <input class="form-control contact-number" type="number" placeholder="Enter your phone number" formControlName="phone" [ngClass]="{ 'is-invalid': f.phone.touched && f.phone.errors }">
+                                    <input class="form-control contact-number" type="number"
+                                        placeholder="Enter your phone number" formControlName="phone"
+                                        [ngClass]="{ 'is-invalid': f.phone.touched && f.phone.errors }">
                                     <div *ngIf="f.phone.touched && f.phone.errors" class="invalid-feedback">
                                         <div *ngIf="f.phone.errors.required">Phone number is required</div>
                                     </div>
@@ -73,51 +84,68 @@
                                 <h5>Location</h5>
                             </div>
                             <div class="col-md-3 col-sm-3 fields">
-                                <select formControlName="country" class="form-control setselect" (change)="countryChange($event.target.value, true) ">
-                                                    <option value="">Select Country</option>
-                                                    <option *ngFor="let country of countries" value={{country.id}}>
-                                                        {{country.name}}
-                                                    </option>
-                                                </select>
+                                <select formControlName="country" class="form-control setselect"
+                                    (change)="countryChange($event.target.value, true) ">
+                                    <option value="">Select Country</option>
+                                    <option *ngFor="let country of countries" value={{country.id}}>
+                                        {{country.name}}
+                                    </option>
+                                </select>
                                 <div *ngIf="f.country.touched && f.country.errors" class="invalid-feedback ">
                                     <div *ngIf="f.country.errors.required "> Country is required</div>
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-3 fields">
-                                <input class="form-control" type="text" formControlName="state" placeholder="State" *ngIf="statesArray.length == 0" [ngClass]="{ 'is-invalid': f.state.touched && f.state.errors}" (blur)="f.state.setValue(removeSpaces(f.state.value))">
-                                <select formControlName="state" class="form-control" (change)="stateChange($event.target.value, true)" *ngIf="statesArray.length !== 0">
-                                                    <option value="">--Select state--</option>
-                                                    <option *ngFor="let state of statesArray" value="{{state.id}}">{{state.name}}</option>
-                                                </select>
+                                <input class="form-control" type="text" formControlName="state" placeholder="State"
+                                    *ngIf="statesArray.length == 0"
+                                    [ngClass]="{ 'is-invalid': f.state.touched && f.state.errors}"
+                                    (blur)="f.state.setValue(removeSpaces(f.state.value))">
+                                <select formControlName="state" class="form-control"
+                                    (change)="stateChange($event.target.value, true)" *ngIf="statesArray.length !== 0">
+                                    <option value="">--Select state--</option>
+                                    <option *ngFor="let state of statesArray" value="{{state.id}}">{{state.name}}
+                                    </option>
+                                </select>
                                 <div *ngIf="f.state.touched && f.state.errors " class="invalid-feedback ">
                                     <div *ngIf="f.state.errors.required "> State is required</div>
                                 </div>
                             </div>
                             <div class="col-md-3 col-sm-3 fields">
-                                <input class="form-control" type="text" formControlName="city" placeholder="City" *ngIf="citiesArray == ''" [ngClass]="{ 'is-invalid': f.city.touched && f.city.errors}" (blur)="f.city.setValue(removeSpaces(f.city.value))">
+                                <input class="form-control" type="text" formControlName="city" placeholder="City"
+                                    *ngIf="citiesArray == ''"
+                                    [ngClass]="{ 'is-invalid': f.city.touched && f.city.errors}"
+                                    (blur)="f.city.setValue(removeSpaces(f.city.value))">
                                 <select formControlName="city" class="form-control" *ngIf="citiesArray != ''">
-                                                    <option value="">--Select city--</option>
-                                                    <option *ngFor="let city of citiesArray" value="{{city.name}}">
-                                                        {{city.name}}
-                                                    </option>
-                                                </select>
+                                    <option value="">--Select city--</option>
+                                    <option *ngFor="let city of citiesArray" value="{{city.name}}">
+                                        {{city.name}}
+                                    </option>
+                                </select>
                                 <div *ngIf="f.city.touched && f.city.errors " class="invalid-feedback">
                                     <div *ngIf="f.city.errors.required"> City is required</div>
                                 </div>
                             </div>
 
                             <div class="col-md-3 col-sm-3 fields">
-                                <input class="form-control " type="text " formControlName="zipcode" placeholder="Zipcode " [ngClass]="{ 'is-invalid': f.zipcode.touched && f.zipcode.errors} ">
+                                <input class="form-control " type="text " formControlName="zipcode"
+                                    placeholder="Zipcode "
+                                    [ngClass]="{ 'is-invalid': f.zipcode.touched && f.zipcode.errors} ">
                                 <div *ngIf="f.zipcode.touched && f.zipcode.errors " class="invalid-feedback ">
                                     <div *ngIf="f.zipcode.errors.required ">Zip code is required</div>
-                                    <div *ngIf="f.zipcode.errors && !f.zipcode.errors.required ">Zip code is invalid</div>
+                                    <div *ngIf="f.zipcode.errors && !f.zipcode.errors.required ">Zip code is invalid
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-md-12 col-sm-12 fields" style="margin-top:3px;">
-                                <input class="form-control " type="text " formControlName="streetAddress" placeholder="Street address " [ngClass]="{ 'is-invalid': f.streetAddress.touched && f.streetAddress.errors} " (blur)="f.streetAddress.setValue(removeSpaces(f.streetAddress.value)) ">
-                                <div *ngIf="f.streetAddress.touched && f.streetAddress.errors " class="invalid-feedback ">
+                                <input class="form-control " type="text " formControlName="streetAddress"
+                                    placeholder="Street address "
+                                    [ngClass]="{ 'is-invalid': f.streetAddress.touched && f.streetAddress.errors} "
+                                    (blur)="f.streetAddress.setValue(removeSpaces(f.streetAddress.value)) ">
+                                <div *ngIf="f.streetAddress.touched && f.streetAddress.errors "
+                                    class="invalid-feedback ">
                                     <div *ngIf="f.streetAddress.errors.required "> Street address is required</div>
-                                    <div *ngIf="f.streetAddress.errors && !f.streetAddress.errors.required ">Invalid street address</div>
+                                    <div *ngIf="f.streetAddress.errors && !f.streetAddress.errors.required ">Invalid
+                                        street address</div>
                                 </div>
                             </div>
                         </div>
@@ -128,7 +156,8 @@
         </mat-dialog-content>
         <div class="modal-footer ">
             <div class="col-md-12 " style="padding: 0px; ">
-                <button type="button " class="btn btn-default " (click)="addEmployee() " [disabled]="!employeeForm.valid ">{{btntext}}</button>
+                <button type="button " class="btn btn-default " (click)="addEmployee() "
+                    [disabled]="!employeeForm.valid ">{{btntext}}</button>
             </div>
         </div>
     </div>

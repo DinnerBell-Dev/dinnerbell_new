@@ -16,8 +16,10 @@ export class AdminService {
   addNewTheme = new EventEmitter();
   removeNewTheme = new EventEmitter();
   deleteThemes = new EventEmitter();
+  selectedTheme = new EventEmitter();
 
   constructor(private http: HttpClient) { }
+
 
 
   checkHaveTheme(data) {
@@ -28,6 +30,9 @@ export class AdminService {
   }
   themeDelete() {
     this.deleteThemes.emit();
+  }
+  checkSelectedTheme() {
+    this.selectedTheme.emit();
   }
 
   /**

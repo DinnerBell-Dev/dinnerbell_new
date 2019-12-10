@@ -30,6 +30,10 @@
                   <p [style.color]="baseSetting.navbarTxt">Cold Appetizers</p><a [style.color]="baseSetting.navBarIcon"
                     href="javascript:void(0)" title=""><i class="icon-font icon-corner"></i></a>
                 </div>
+              </div>
+            </div>
+            <div class="tablet__section tablet__section-0">
+              <div class="tablet__content">
                 <div class="tablet__view tablet__view-list">
                   <div class="tablet__btn-wrapper" [style.background]="baseSetting.listBg"><a
                       [style.background]="baseSetting.listSelect" [style.border-color]="baseSetting.listBorder"
@@ -433,27 +437,17 @@
                 type="button">Create new theme</button>
             </div>
             <div class="c-form__group-col c-form__group-col-1">
-              <button *ngIf="!newtheme" class="c-form__btn c-btn c-btn--bg deleteBtn buttonCustom" (click)="deleteTheme()"
-                type="button">Delete theme</button>
+              <button *ngIf="!newtheme" class="c-form__btn c-btn c-btn--bg deleteBtn buttonCustom"
+                (click)="deleteTheme()" type="button">Delete theme</button>
             </div>
           </div>
         </div>
-
-
-
-
-
-
-
-
-
-
       </form>
     </div>
     <div class="mds__wrapper-right" [class.is-show]="wasClicked">
       <div class="mds__wrapper-header">
         <div><i class="icon-font icon-eye"></i>
-          <p>{{themeName}} Theme</p>
+          <p>{{themeName}}</p>
         </div>
         <div><a class="mds__wrapper-close" href="javascript:void(0)" (click)="onPreviw()" title=""><i
               class="icon-font icon-close"></i></a></div>
@@ -485,6 +479,10 @@
                 <p [style.color]="baseSetting.navbarTxt">Cold Appetizers</p><a [style.color]="baseSetting.navBarIcon"
                   href="javascript:void(0)" title=""><i class="icon-font icon-corner"></i></a>
               </div>
+            </div>
+          </div>
+          <div class="tablet__section tablet__section-0">
+            <div class="tablet__content">
               <div class="tablet__view tablet__view-list">
                 <div class="tablet__btn-wrapper" [style.background]="baseSetting.listBg"><a
                     [style.background]="baseSetting.listSelect" [style.border-color]="baseSetting.listBorder"

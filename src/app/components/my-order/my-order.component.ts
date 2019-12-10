@@ -15,6 +15,9 @@ import { AuthService } from 'src/app/services/auth.service';
 export class MyOrderComponent implements OnInit {
 
 
+  /**
+   * Default Settings
+   */
   orderSetting: any = {
     layOutType: 'thumbnail',
     listBg: '#000',
@@ -37,6 +40,9 @@ export class MyOrderComponent implements OnInit {
     headerColor : '#fff'
   }
 
+  /**
+   * Default header setting
+   */
   headerSetting: any = {
     fontFamily: 'Roboto',
     priceFamily: 'Roboto',
@@ -59,6 +65,7 @@ export class MyOrderComponent implements OnInit {
   public crrntUser;
   public Id = null;
   public themeName;
+  public activeThemeName;
   constructor(
     public vcRef: ViewContainerRef,
     private cpService: ColorPickerService,
@@ -69,6 +76,7 @@ export class MyOrderComponent implements OnInit {
     let currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.crrntUser = currentUser.user._id;
     this.themeName = localStorage.getItem('theme');
+    this.activeThemeName = localStorage.getItem('themename');
     if (this.crrntUser && this.themeName) {
       this.getthemeSetting(this.crrntUser, this.themeName);
     }
@@ -112,6 +120,9 @@ export class MyOrderComponent implements OnInit {
     showTicks: true
   };
 
+  /**
+   * On Preview
+   */
   onPreviw() {
     this.wasClicked = !this.wasClicked;
   }
@@ -239,6 +250,7 @@ export class MyOrderComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.getHeaderTitle('Menu Design');
     this.authService.getViewIcon('true');
     this.authService.previewToggle.subscribe((data: any) => {
       this.wasClicked = !this.wasClicked;

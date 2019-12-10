@@ -194,7 +194,7 @@ export class AddEmployeeComponent implements OnInit {
     this.dialogRef.close('No');
   }
 
-  addEmployee() {
+ async addEmployee() {
    const values: any = this.employeeForm.value;
     this.statesArray.forEach(item => {
       if (values.state === item.id) {
@@ -232,15 +232,25 @@ export class AddEmployeeComponent implements OnInit {
     } else {
       this.tabletloading = true;
       const data ={employee:this.employeeForm.value,restaurant:this.data.restaurantData}
-          this.userservice.addEmployee(data).subscribe((res: any) => {
+      try {
+         await this.userservice.addEmployee(data).subscribe((res: any) => {
             this.tabletloading = false;
-            if(res.success === true){
+            console.log(res);
+            if(res.success == true){
               this.util.showToast('New member created successfully.');
               this.dialogRef.close(this.employeeForm.value);
-            } else if(res.success === false) {
+            }
+             else  {
               this.util.showToast(res.error.message);
             }
+          },
+          error => {
+            console.log('EROOR' + error)
           });
+        }
+        catch(e) {
+          console.log(e)
+        }
     }
     
   }

@@ -54,6 +54,8 @@ export class FeedbackComponent implements OnInit {
   public Id = null;
   public crrntUser;
   public themeName;
+  public activeThemeName;
+
   wasClicked = false;
   constructor(
     public vcRef: ViewContainerRef,
@@ -85,6 +87,9 @@ export class FeedbackComponent implements OnInit {
     showTicks: true
   };
 
+  /**
+   * Check mobile preview
+   */
   onPreviw() {
     this.wasClicked = !this.wasClicked;
   }
@@ -93,10 +98,17 @@ export class FeedbackComponent implements OnInit {
     this.feedbackSetting.layOutType = data;
   }
 
+  /**
+   * Background image style
+   * @param data 
+   */
   bgimageStyle(data) {
     this.feedbackSetting.imagestyle = data;
   }
 
+  /**
+   * Remove localImg
+   */
   removeLocalImg() {
     this.feedbackSetting.LocalImgUrl = '';
   }
@@ -124,6 +136,12 @@ export class FeedbackComponent implements OnInit {
     }
   }
 
+  /**
+   * 
+   * @param url 
+   * @param filename 
+   * @param mimeType 
+   */
   urltoFile(url, filename, mimeType) {
     return (fetch(url)
       .then(function(res) { return res.arrayBuffer(); })
@@ -149,7 +167,11 @@ export class FeedbackComponent implements OnInit {
   }
 
 
-  /** Get Theme Setting */
+ /**
+  * Get Theme Setting
+  * @param id 
+  * @param theme 
+  */
   getthemeSetting(id, theme) {
     let data = {
       userId: id,
@@ -165,11 +187,11 @@ export class FeedbackComponent implements OnInit {
           navbarTxt: dataHeader.navbarTxt,
           navbarBg: dataHeader.navbarBg,
           navbarBorder: dataHeader.navbarBorder,
-          neutralTxt:  dataHeader.neutralTxt,
-          neutralbg:  dataHeader.neutralbg,
-          confirmTxt:  dataHeader.confirmTxt,
-          confirmBtn:  dataHeader.confirmBtn,
-          
+          neutralTxt: dataHeader.neutralTxt,
+          neutralbg: dataHeader.neutralbg,
+          confirmTxt: dataHeader.confirmTxt,
+          confirmBtn: dataHeader.confirmBtn,
+
         }
       }
       if (res.data !== null && res.data.feedbackSetting) {
@@ -210,9 +232,11 @@ export class FeedbackComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.getHeaderTitle('Menu Design');
     let currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.crrntUser = currentUser.user._id;
     this.themeName = localStorage.getItem('theme');
+    this.activeThemeName = localStorage.getItem('themename');
     if (this.crrntUser && this.themeName) {
       this.getthemeSetting(this.crrntUser, this.themeName);
     }

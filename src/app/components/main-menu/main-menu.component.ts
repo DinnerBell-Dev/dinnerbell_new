@@ -53,6 +53,7 @@ export class MainMenuComponent implements OnInit {
   public Id = null;
   public crrntUser;
   public themeName;
+  public activeThemeName;
   constructor(
     public vcRef: ViewContainerRef,
     private cpService: ColorPickerService,
@@ -131,6 +132,7 @@ export class MainMenuComponent implements OnInit {
       });
     }
   }
+  
   /** Upload Image */
   onFileChange1(event: any) {
     if (event.target.files && event.target.files[0]) {
@@ -155,6 +157,12 @@ export class MainMenuComponent implements OnInit {
     }
   }
 
+  /**
+   * 
+   * @param url 
+   * @param filename 
+   * @param mimeType 
+   */
   urltoFile(url, filename, mimeType) {
     return (fetch(url)
       .then(function(res) { return res.arrayBuffer(); })
@@ -232,9 +240,11 @@ export class MainMenuComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.getHeaderTitle('Menu Design');
     let currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.crrntUser = currentUser.user._id;
     this.themeName = localStorage.getItem('theme');
+    this.activeThemeName = localStorage.getItem('themename');
     if (this.crrntUser && this.themeName) {
       this.getthemeSetting(this.crrntUser, this.themeName);
     }

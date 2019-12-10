@@ -4,8 +4,8 @@
     <div class="list-group list-group-flush">
       <ul class="nav nav-tabs pt-3" id="myTab" role="tablist" style="padding-bottom: 100px;">
         <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" (click)="onClick('Overview')" href="#user" role="tab" aria-controls="user"> <i
-              class="icon-png i-overview" aria-hidden="true"></i>
+          <a class="nav-link" data-toggle="tab" (click)="onClick('Overview')" href="#user" role="tab"
+            aria-controls="user"> <i class="icon-png i-overview" aria-hidden="true"></i>
             Overview</a>
         </li>
         <li class="nav-item">
@@ -39,13 +39,14 @@
             </li>
             <li class="nav-item">
               <a class="nav-link" data-toggle="tab" href="#menuDesignSet" role="tab" aria-controls="menuDesignSet"
-                style="cursor:pointer" (click)="onClick('Menu Design'); menuDesignSettings = 'Base theme'">Menu Design</a>
+                style="cursor:pointer" (click)="onClick('Menu Design1'); menuDesignSettings = 'Base theme'">Menu
+                Design</a>
             </li>
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#logout" role="tab" aria-controls="Logout"
-            (click)="logout()"><i class="icon-png i-customers" aria-hidden="true"></i>
+          <a class="nav-link" data-toggle="tab" href="#logout" role="tab" aria-controls="Logout" (click)="logout()"><i
+              class="icon-png i-customers" aria-hidden="true"></i>
             Log out</a>
         </li>
         <li>
@@ -928,35 +929,51 @@
                 <!-- Tab panes -->
                 <div class="col-lg-12 col-md-12 col-xs-12 content">
                   <div class="row menudesign-select-container">
-                    <!-- <div class="col-lg-4 col-md-4 col-sm-12 " style="padding-top:10px">
-                        Select settings
-                      </div> -->
-                      <div class="dropdown customDropDown" *ngIf="haveThemes">
-                        <button type="button" class="dropdown-toggle" data-toggle="dropdown">
-                          {{menuDesignSettings}}
-                          <i class="icon-font icon-corner"></i>
-                        </button>
-                        <div class="dropdown-menu">
-                          <a *ngIf="menuDesignSettings != 'Base theme'" class="dropdown-item" href="javascript:void(0)"
-                            (click)="menuDesignSettings = 'Base theme'">Base theme</a>
-                          <a *ngIf="menuDesignSettings != 'Base settings'" class="dropdown-item"
-                            href="javascript:void(0)" (click)="menuDesignSettings = 'Base settings'">Base
-                            settings</a>
-                          <a *ngIf="menuDesignSettings != 'Intro screen'" class="dropdown-item"
-                            href="javascript:void(0)" (click)="menuDesignSettings = 'Intro screen'">Intro screen</a>
-                          <a *ngIf="menuDesignSettings != 'Main menu'" class="dropdown-item" href="javascript:void(0)"
-                            (click)="menuDesignSettings = 'Main menu'">Main menu</a>
-                          <a *ngIf="menuDesignSettings != 'Menu items'" class="dropdown-item" href="javascript:void(0)"
-                            (click)="menuDesignSettings = 'Menu items'">Menu items</a>
-                          <a *ngIf="menuDesignSettings != 'Item details'" class="dropdown-item"
-                            href="javascript:void(0)" (click)="menuDesignSettings = 'Item details'">Item
-                            details</a>
-                          <a *ngIf="menuDesignSettings != 'Feedback'" class="dropdown-item" href="javascript:void(0)"
-                            (click)="menuDesignSettings = 'Feedback'">Feedback</a>
-                          <a *ngIf="menuDesignSettings != 'My order'" class="dropdown-item" href="javascript:void(0)"
-                            (click)="menuDesignSettings = 'My order'">My order</a>
+                    <div class="dropdown customDropDown" *ngIf="haveThemes && isSelectedTheme">
+                        <div class="c-form__select-wrapper onMobile">
+                          <div class="c-form__select-value">{{menuDesignSettings}}</div>
+                          <select [(ngModel)]="menuDesignSettings" class="c-form__select templateSelectBox" (ngModelChange)="changedTemplate($event)">
+                            <option></option>
+                            <option *ngIf="menuDesignSettings != 'Base theme'" value="Base theme">Base theme</option>
+                            <option *ngIf="menuDesignSettings != 'Base settings'" value="Base settings">Base settings
+                            </option>
+                            <option *ngIf="menuDesignSettings != 'Intro screen'" value="Intro screen">Intro screen
+                            </option>
+                            <option *ngIf="menuDesignSettings != 'Main menu'" value="Main menu">Main menu</option>
+                            <option *ngIf="menuDesignSettings != 'Menu items'" value="Menu items">Menu items</option>
+                            <option *ngIf="menuDesignSettings != 'Item details'" value="Item details">Item details
+                            </option>
+                            <option *ngIf="menuDesignSettings != 'Feedback'" value="Feedback">Feedback</option>
+                            <option *ngIf="menuDesignSettings != 'My order'" value="My order">My order</option>
+                          </select>
+                          <div class="c-form__select-icon"><i></i></div>
                         </div>
+
+                      <button type="button" class="dropdown-toggle onDesktop" data-toggle="dropdown">
+                        {{menuDesignSettings}}
+                        <i class="icon-font icon-corner"></i>
+                      </button>
+                      <div class="dropdown-menu onDesktop">
+                        <a *ngIf="menuDesignSettings != 'Base theme'" class="dropdown-item" href="javascript:void(0)"
+                          (click)="headerTitle('Menu Design1'); menuDesignSettings = 'Base theme'">Base theme</a>
+                        <a *ngIf="menuDesignSettings != 'Base settings'" class="dropdown-item" href="javascript:void(0)"
+                          (click)=" menuDesignSettings = 'Base settings'">Base
+                          settings</a>
+                        <a *ngIf="menuDesignSettings != 'Intro screen'" class="dropdown-item" href="javascript:void(0)"
+                          (click)="menuDesignSettings = 'Intro screen'">Intro screen</a>
+                        <a *ngIf="menuDesignSettings != 'Main menu'" class="dropdown-item" href="javascript:void(0)"
+                          (click)="menuDesignSettings = 'Main menu'">Main menu</a>
+                        <a *ngIf="menuDesignSettings != 'Menu items'" class="dropdown-item" href="javascript:void(0)"
+                          (click)="menuDesignSettings = 'Menu items'">Menu items</a>
+                        <a *ngIf="menuDesignSettings != 'Item details'" class="dropdown-item" href="javascript:void(0)"
+                          (click)="menuDesignSettings = 'Item details'">Item
+                          details</a>
+                        <a *ngIf="menuDesignSettings != 'Feedback'" class="dropdown-item" href="javascript:void(0)"
+                          (click)="menuDesignSettings = 'Feedback'">Feedback</a>
+                        <a *ngIf="menuDesignSettings != 'My order'" class="dropdown-item" href="javascript:void(0)"
+                          (click)="menuDesignSettings = 'My order'">My order</a>
                       </div>
+                    </div>
 
                     <div class="col-lg-12 col-md-12 col-sm-12 ">
                       <!-- <ngx-loading [show]="securityloading"></ngx-loading> -->

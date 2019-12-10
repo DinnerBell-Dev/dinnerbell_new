@@ -13,6 +13,9 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class MenuItemDetailsComponent implements OnInit {
 
+  /**
+   * item detail setting
+   */
   itemDetailSetting: any = {
     layOutType: 'thumbnail',
     listBg: '#000',
@@ -27,6 +30,10 @@ export class MenuItemDetailsComponent implements OnInit {
     LocalImgUrl: '',
     imagestyle: "fix",
   }
+
+  /**
+   * Header setting
+   */
   headerSetting: any = {
     fontFamily: 'Roboto',
     priceFamily: 'Roboto',
@@ -50,6 +57,7 @@ export class MenuItemDetailsComponent implements OnInit {
   public Id = null;
   public crrntUser;
   public themeName;
+  public activeThemeName;
   constructor(
     public vcRef: ViewContainerRef,
     private cpService: ColorPickerService,
@@ -87,19 +95,35 @@ export class MenuItemDetailsComponent implements OnInit {
     showTicks: true
   };
 
+  
+  /**
+   * on preview on mobile
+   */
   onPreviw() {
     this.wasClicked = !this.wasClicked;
   }
 
 
+
+  /**
+   * Layout type
+   * @param data 
+   */
   layoutType(data) {
     this.itemDetailSetting.layOutType = data;
   }
 
+  /**
+   * background image style
+   * @param data 
+   */
   bgimageStyle(data) {
     this.itemDetailSetting.imagestyle = data;
   }
 
+  /**
+   * remove local image
+   */
   removeLocalImg() {
     this.itemDetailSetting.LocalImgUrl = '';
   }
@@ -129,6 +153,12 @@ export class MenuItemDetailsComponent implements OnInit {
     }
   }
 
+  /**
+   * 
+   * @param url 
+   * @param filename 
+   * @param mimeType 
+   */
   urltoFile(url, filename, mimeType) {
     return (fetch(url)
       .then(function(res) { return res.arrayBuffer(); })
@@ -211,9 +241,11 @@ export class MenuItemDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.authService.getHeaderTitle('Menu Design');
     let currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.crrntUser = currentUser.user._id;
     this.themeName = localStorage.getItem('theme');
+    this.activeThemeName = localStorage.getItem('themename');
     if (this.crrntUser && this.themeName) {
       this.getthemeSetting(this.crrntUser, this.themeName);
     }

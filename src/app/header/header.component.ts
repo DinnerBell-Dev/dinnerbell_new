@@ -11,33 +11,33 @@ import { AccessCodesComponent } from '../dialogs/access-codes/access-codes.compo
 })
 export class HeaderComponent implements OnInit {
 
-  viewIcon : any = 'false';
+  viewIcon: any = 'false';
   teamMembers: any = [];
   wasClicked = false;
-  sectionTitle : string = ' Account Settings';
+  sectionTitle: string = ' Account Settings';
   constructor(
-    private AuthService : AuthService,
-    private userservice : UserService,
+    private AuthService: AuthService,
+    private userservice: UserService,
     public dialog: MatDialog,
   ) {
-    
-    this.getAllEmployees();
-   }
 
-  onClick(){
+    this.getAllEmployees();
+  }
+
+  onClick() {
     this.wasClicked = !this.wasClicked;
     this.AuthService.toggleMenus();
   }
 
-  previewPage(){
+  previewPage() {
     this.AuthService.togglepreview();
   }
 
-    /**
-   *Used to get list of all available employees
-   *
-   * @memberof HomeComponent
-   */
+  /**
+ *Used to get list of all available employees
+ *
+ * @memberof HomeComponent
+ */
   getAllEmployees() {
     // this.tabletloading = true;
     let currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -67,7 +67,12 @@ export class HeaderComponent implements OnInit {
       this.wasClicked = !this.wasClicked;
       this.AuthService.toggleMenus();
     });
+
+    /**
+     * Check Header Title by page 
+     */
     this.AuthService.headerTitle.subscribe((data: any) => {
+      console.log(data, 'Working');
       if (data) {
         if (data == 'Menu Design') {
           let themeName = localStorage.getItem('themename');
@@ -76,13 +81,19 @@ export class HeaderComponent implements OnInit {
           } else {
             this.sectionTitle = data;
           }
+        } else if (data == 'Menu Design1') {
+          this.sectionTitle = 'Menu design';
         } else {
           this.sectionTitle = data;
         }
       }
     });
+
+    /**
+     * Preview Icon emit subscribe
+     */
     this.AuthService.previewIcon.subscribe((data: boolean) => {
-      if(data){
+      if (data) {
         this.viewIcon = data;
       }
     });

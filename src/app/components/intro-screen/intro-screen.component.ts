@@ -17,17 +17,17 @@ export class IntroScreenComponent implements OnInit {
   selectedVideo: Boolean = false;
   selectedOverlay: Boolean = false;
 
-  introSetting: any ={
+  introSetting: any = {
     LocalImgUrl: '',
     imagestyle: "fix",
     logoUrl: '',
     videoUrl: '',
-    slide1 : '',
-    slide2 : '',
-    slide3 : '',
-    slide4 : '',
-    slide5 : '',
-    slide6 : '',
+    slide1: '',
+    slide2: '',
+    slide3: '',
+    slide4: '',
+    slide5: '',
+    slide6: '',
   }
   wasClicked = false;
   public slideImages: Array<any> = [];
@@ -36,6 +36,7 @@ export class IntroScreenComponent implements OnInit {
   public Id = null;
   public crrntUser;
   public themeName;
+  public activeThemeName;
   constructor(
     public vcRef: ViewContainerRef,
     private cpService: ColorPickerService,
@@ -43,46 +44,67 @@ export class IntroScreenComponent implements OnInit {
     private snackBar: MatSnackBar,
     private authService: AuthService,
   ) {
-   
+
   }
 
+  /**
+   * on preview mobile
+   */
   onPreviw() {
     this.wasClicked = !this.wasClicked;
   }
-  
+
+  /**
+   * background image style
+   * @param data 
+   */
   bgimageStyle(data) {
     this.introSetting.imagestyle = data;
   }
 
+  /**
+   * remove local image
+   */
   removeLocalImg() {
     this.introSetting.LocalImgUrl = '';
   }
+
+  /**
+   * remove video
+   */
   removeVideo() {
     this.introSetting.videoUrl = '';
   }
 
+  /**
+   * remove logo img
+   */
   removeLogoImg() {
     this.introSetting.logoUrl = '';
   }
 
 
-  removeSlide(data){
-    if(data == 1){
+  /**
+   * Remove slides
+   * @param data 
+   */
+  removeSlide(data) {
+    if (data == 1) {
       this.introSetting.slide1 = '';
     }
-    if(data == 2){
+    if (data == 2) {
       this.introSetting.slide2 = '';
     }
-    if(data == 3){
+    if (data == 3) {
       this.introSetting.slide3 = '';
     }
-    if(data == 4){
+    if (data == 4) {
       this.introSetting.slide4 = '';
     }
-    if(data == 5){
+    if (data == 5) {
       this.introSetting.slide5 = '';
     }
-    if(data == 6){
+    if (data == 6) {
       this.introSetting.slide6 = '';
     }
   }
@@ -223,6 +245,12 @@ export class IntroScreenComponent implements OnInit {
     }
   }
 
+  /**
+   * 
+   * @param url 
+   * @param filename 
+   * @param mimeType 
+   */
   urltoFile(url, filename, mimeType) {
     return (fetch(url)
       .then(function(res) { return res.arrayBuffer(); })
@@ -232,7 +260,9 @@ export class IntroScreenComponent implements OnInit {
 
 
 
-  /** Save Menus Setting */
+  /** 
+   * Save Menus Setting 
+   * */
   uploadIntoSettings() {
     let theme = {
       name: this.themeName,
@@ -249,7 +279,11 @@ export class IntroScreenComponent implements OnInit {
   }
 
 
-  /** Get Theme Setting */
+  /**
+   * Get Theme Setting 
+   * @param id 
+   * @param theme 
+   */
   getthemeSetting(id, theme) {
     let data = {
       userId: id,
@@ -281,9 +315,11 @@ export class IntroScreenComponent implements OnInit {
 
 
   ngOnInit() {
+    this.authService.getHeaderTitle('Menu Design');
     let currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.crrntUser = currentUser.user._id;
     this.themeName = localStorage.getItem('theme');
+    this.activeThemeName = localStorage.getItem('themename');
     if (this.crrntUser && this.themeName) {
       this.getthemeSetting(this.crrntUser, this.themeName);
     }

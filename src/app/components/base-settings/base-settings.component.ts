@@ -44,6 +44,7 @@ export class BaseSettingsComponent {
   public Id = null;
   public crrntUser;
   public themeName;
+  public activeThemeName;
   wasClicked = false;
   constructor(
     public vcRef: ViewContainerRef,
@@ -136,13 +137,15 @@ export class BaseSettingsComponent {
   }
 
   ngOnInit() {
+    this.authService.getHeaderTitle('Menu Design');
     let currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.crrntUser = currentUser.user._id;
     this.themeName = localStorage.getItem('theme');
+    this.activeThemeName = localStorage.getItem('themename');
     if (this.crrntUser && this.themeName) {
       this.getthemeSetting(this.crrntUser, this.themeName);
     }
-    this.authService.getViewIcon('true');
+    this.authService.getViewIcon('true'); 
     this.authService.previewToggle.subscribe((data: any) => {
       this.wasClicked = !this.wasClicked;
     });

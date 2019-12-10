@@ -246,12 +246,14 @@ export class HomeComponent implements OnInit {
   wasClicked = false;
   wasOpenMenu = false;
   haveThemes :boolean = false;
+  isSelectedTheme :boolean = false;
 
   constructor(public util: UtilService, private router: Router, public adminservice: AdminService,
     public authservice: AuthService, public dialog: MatDialog, private formBuilder: FormBuilder,
     private countryservice: CountryService, private verifyservice: VerifyPhoneService, public userservice: UserService) {
 
   }
+
 
   onClick(data) {
     this.authservice.toggleMenusClose();
@@ -261,6 +263,10 @@ export class HomeComponent implements OnInit {
 
   dropDownMenus() {
     this.wasOpenMenu = !this.wasOpenMenu;
+  }
+
+  headerTitle(data){
+      this.authservice.getHeaderTitle(data);
   }
 
 
@@ -287,6 +293,9 @@ export class HomeComponent implements OnInit {
       if (data == 'false') {
         this.haveThemes = false;
       }
+    });
+    this.adminservice.selectedTheme.subscribe((data : any) => {
+      this.isSelectedTheme = true;
     });
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.setdata(this.currentUser.user._id);

@@ -1,11 +1,13 @@
-<div class="mt-5 pt-5"></div>
-<div class="mds__theme-wrapper" *ngIf="themeList == null">
-  <h2 class="mx-auto">No Theme found</h2>
+<!-- {{themeList | json}} <br/> {{activatedTheme | json}} -->
+<div class="mt-5 pt-5" *ngIf="themeList != null && activatedTheme != null"></div>
+<div class="mt-2 pt-4" *ngIf="themeList == null || activatedTheme == null"></div>
+<div class="mds__theme-wrapper" *ngIf="themeList == null && themeNotFount">
+  <h2 class="mx-auto">{{themeNotFount}}</h2>
 </div>
 <div class="mds__theme-wrapper " *ngIf="themeList != null">
   <a *ngFor="let theme of themeList" class="mds__theme mds__theme-2" href="javascript:void(0)" title="">
     <div class="mds__theme-top"><img [src]="theme.photo_url" alt="" title="">
-       <div class="mds__theme-btn" *ngIf="activatedTheme != theme.name">
+      <div class="mds__theme-btn" *ngIf="activatedTheme != theme.name">
         <button type="button" (click)="useTheme(theme._id)"><span>Use this theme</span><i
             class="icon-font icon-arrow"></i></button>
       </div>
@@ -17,7 +19,7 @@
       </div>
     </div>
     <div class="mds__theme-bottom pt-2">
-      <p>{{theme.name}}</p>
+      <p>{{theme.name}} <span *ngIf="activatedTheme == theme.name">( Active )</span></p>
     </div>
   </a>
 </div>

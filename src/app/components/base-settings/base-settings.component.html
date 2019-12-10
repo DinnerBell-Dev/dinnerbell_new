@@ -33,6 +33,10 @@
                   <p [style.color]="baseSetting.navbarTxt">Cold Appetizers</p><a [style.color]="baseSetting.navBarIcon"
                     href="javascript:void(0)" title=""><i class="icon-font icon-corner"></i></a>
                 </div>
+              </div>
+            </div>
+            <div class="tablet__section tablet__section-0">
+              <div class="tablet__content">
                 <div class="tablet__view tablet__view-list">
                   <div class="tablet__btn-wrapper" [style.background]="baseSetting.listBg"><a
                       [style.background]="baseSetting.listSelect" [style.border-color]="baseSetting.listBorder"
@@ -390,7 +394,7 @@
     <div class="mds__wrapper-right" [class.is-show]="wasClicked">
       <div class="mds__wrapper-header">
         <div><i class="icon-font icon-eye"></i>
-          <p>{{themeName}} Theme</p>
+          <p>{{activeThemeName}}</p>
         </div>
         <div><a class="mds__wrapper-close" href="javascript:void(0)" (click)="onPreviw()" title=""><i
               class="icon-font icon-close"></i></a></div>
@@ -422,6 +426,12 @@
                 <p [style.color]="baseSetting.navbarTxt">Cold Appetizers</p><a [style.color]="baseSetting.navBarIcon"
                   href="javascript:void(0)" title=""><i class="icon-font icon-corner"></i></a>
               </div>
+            </div>
+          </div>
+
+
+          <div class="tablet__section tablet__section-0">
+            <div class="tablet__content">
               <div class="tablet__view tablet__view-list">
                 <div class="tablet__btn-wrapper" [style.background]="baseSetting.listBg"><a
                     [style.background]="baseSetting.listSelect" [style.border-color]="baseSetting.listBorder"
@@ -503,6 +513,9 @@
               </div>
             </div>
           </div>
+
+
+
           <div class="tablet__section tablet__section-1">
             <div class="tablet__neutral">
               <div class="tablet__neutral-total">
@@ -532,13 +545,22 @@
             </div>
           </div>
           <div class="tablet__section tablet__section-2">
-            <div class="tablet__button-wrapper">
+            <!-- <div class="tablet__button-wrapper">
+              
               <p [style.background]="baseSetting.alert" [style.color]="baseSetting.alertTxt"
                 class="tablet__button tablet__button--alert mb-0" title="">Alert<br>dialogue</p>
               <p [style.background]="baseSetting.confirmDialog" [style.color]="baseSetting.confirmDialogTxt"
                 class="tablet__button tablet__button--confirmation mb-0" title="">
                 Confirmation<br>dialogue</p>
-            </div>
+            </div> -->
+
+            <div class="tablet__button-wrapper">
+              <a [style.background]="baseSetting.alert" [style.color]="baseSetting.alertTxt"
+                class="tablet__button tablet__button--alert" href="javascript:void(0)">Alert<br>dialogue</a>
+              <a [style.background]="baseSetting.confirmDialog" [style.color]="baseSetting.confirmDialogTxt"
+                class="tablet__button tablet__button--confirmation"
+                href="javascript:void(0)">Confirmation<br>dialogue</a></div>
+
           </div>
         </section>
       </div>
