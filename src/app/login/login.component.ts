@@ -6,7 +6,6 @@ import { AuthService } from '../services/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AdminService } from '../services/admin.service';
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
