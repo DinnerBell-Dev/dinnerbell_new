@@ -56,7 +56,7 @@
     "ngx-loading": "^3.0.1",
     "nnjson": "^1.0.1",
     "node-cron": "^2.0.3",
-    "nodemailer": "^4.6.2",
+    "nodemailer": "^6.4.16",
     "passport": "^0.3.2",
     "passport-jwt": "^2.2.1",
     "pusher": "^1.5.1",
